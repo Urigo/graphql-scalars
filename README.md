@@ -1,42 +1,197 @@
-# npm-base
+# @okgrow/graphql-scalars
 
-Boilerplate for creating npm packages with ES2015. Written with Meteor developers in mind but great for anyone. Based on Arunoda's original npm-base boilerplate, this was initially forked to add the babel watch command and use the AirBnB style guide for linting.  
+GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
+you'v not heard of it, start [here](http://graphql.org/learn/) and check out
+[Apollo](http://dev.apollodata.com/) also.
 
----
+However, for all of GraphQL's greatness. It is missing a couple things that we have (and you might)
+find very useful in defining your schemas. Namely GraphQL has a
+[limited set of scalar types](http://graphql.org/learn/schema/#scalar-types) and we have found there
+are some additional scalar types that are useful in being more precise in our schemas. Thankfully,
+those sharp GraphQL folks provided a simple way to add new custom scalar types if needed. That's
+what this package does.
 
-Writing in ES2015 is an amazing experience. Setting up babel and the development environment in a kind of a pain.
+**NOTE:** We don't fault the GraphQL folks for these omissions. They have kept the core small and
+clean. Arguably not every project needs these additional scalar types. But _we_ have, and now _you_
+can use them too if needed.
 
-If you want to write a **npm module** in ES2015 and publish to npm with backward compatibility, this is the **easiest** way.
 
-## Basic Usage
+## Installation
+```
+npm install --save @okgrow/graphql-scalars
+```
 
-* Simply clone [this](https://github.com/kadirahq/npm-base) project.
-* Change the `package.json` as you want.
-* `lib/index.js` in your entry point.
-* `npm start` will initiate the babel watch command and automatically transpile your code on save.
-* Then publish to npm via `npm publish`.
 
-## Linting
+## Usage
+To use these scalars you'll need to add them in two places, your schema and your resolvers map.
 
-* ESLINT support is added to the project.
-* It's configured for ES2015 and inherited configurations from [graphql/graphql-js](https://github.com/graphql/graphql-js).
-* Use `npm run lint` to lint your code and `npm run lintfix` to fix common issues.
+In your schema:
+```
+scalar DateTime
 
-## Testing
+scalar PositiveInt
+scalar NonNegativeInt
+scalar PositiveFloat
+scalar NonNegativeFloat
 
-* You can write test under `__test__` directory anywhere inside `lib` including sub-directories.
-* Then run `npm test` to test your code. (It'll lint your code as well).
-* You can also run `npm run testonly` to run tests without linting.
+scalar EmailAddress
+scalar URL
+```
 
-## ES2015 Setup
+In your resolver map, first import them:
+```
+import {
+  DateTime,
+  PositiveInt,
+  PositiveFloat,
+  NonNegativeFloat,
+  EmailAddress,
+  URL,
+} from '@okgrow/graphql-scalars';
+```
 
-* ES2015 support is added with babel6.
-* After you publish your project to npm, it can be run on older node versions and browsers without the support of Babel.
-* This project uses ES2015 and some of the upcoming features like `async await`.
-* You can change them with adding and removing [presets](http://jamesknelson.com/the-six-things-you-need-to-know-about-babel-6/).
-* All the polyfills you use are taken from the local `babel-runtime` package. So, this package won't add any global polyfills and pollute the global namespace.
+Then make sure they're in the root resolver map like this:
 
-## Kudos
+```
+const myResolverMap = {
+  DateTime,
 
-* Babel6 and the team behind it.
-* AirBnB style guide
+  PositiveInt,
+  NonNegativeInt,
+  PositiveFloat,
+  NonNegativeFloat,
+
+  EmailAddress,
+  URL,
+
+  Query: {
+    ...
+  },
+
+  Mutation: {
+    ...
+  },
+}
+```
+
+Alternatively, use the default import and ES6's (QUESTION: is this ES7?) object spread syntax:
+```
+import OKGGraphQLScalars from '@okgrow/graphql-scalars';
+```
+
+Then make sure they're in the root resolver map like this:
+
+```
+const myResolverMap = {
+  ...OKGGraphQLScalars,
+
+  Query: {
+    ...
+  },
+
+  Mutation: {
+    ...
+  },
+}
+```
+
+
+That's it. Now you can use these scalar types in your schema definition like this:
+```
+type Person {
+  birthDate: DateTime
+  ageInYears: PositiveInt
+
+  heightInInches: PositiveFloat
+
+  minimumHourlyRate: NonNegativeFloat
+
+  currentlyActiveProjects: NonNegativeInt
+
+  email: EmailAddress
+  homePage: URL
+}
+
+```
+
+These scalars can be used just like the base, built-in ones.
+
+
+## Why?
+The primary purposes these scalars, really of _all_ types are to:
+
+1. Communicate to users of your schema exactly what they can expect or to at least _reduce_
+ambiguity in cases where that's possible. For example if you have a `Person` type in your schema
+and that type has as field like `ageInYears`, the value of that can only be null or a positive
+integer (or float, depending on how you want your schema to work). It should never be zero or
+negative.
+1. Run-time type checking. GraphQL helps to tighten up the contract between client and server. It
+does this with strong typing of the _interface_ (or _schema_). This helps us have greater
+confidence about what we're receiving from the server and what the server is receiving from the
+client.
+
+This package adds to the base options available in GraphQL to support types that are reasonably
+common in defining schemas or interfaces to data.
+
+
+## The Types
+
+### DateTime
+Use real JavaScript Dates for GraphQL fields. Currently you can use a String or an Int (e.g., a
+timestamp in milliseconds) to represent a date/time. This scalar makes it easy to be explicit about
+the type and have a real JavaScript Date returned that the client can use _without_ doing the
+inevitable parsing or conversion themselves.
+
+### NonNegativeInt
+Integers that will have a value of 0 or more.
+
+### PositiveInt
+Integers that will have a value greater than 0.
+
+### NonNegativeFloat
+Floats that will have a value of 0 or more.
+
+### PositiveFloat
+Floats that will have a value greater than 0.
+
+### EmailAddress
+A field whose value conforms to the standard internet email address format as specified in
+[RFC822](https://www.w3.org/Protocols/rfc822/).
+
+### URL
+A field whose value conforms to the standard URL format as specified in
+[RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
+
+
+## Future
+We'd like to keep growing this package, within reason, to include the scalar types that are widely
+required when defining GraphQL schemas. We welcome both suggestions and pull requests. A couple of
+ideas we're considering are:
+
+- NegativeInt
+- NegativeFloat
+
+These are easy to add, we just haven't run into cases for them yet.
+
+- PhoneNumber
+- PostalCode
+
+These both have challenges in terms of making them globally useful so they need a bit of thought.
+
+For `PhoneNumber` we can probably just use the [E.164 specification](https://en.wikipedia.org/wiki/E.164)
+which is simply `+17895551234`. The very powerful
+[`libphonenumber` library](https://github.com/googlei18n/libphonenumber) is available to take
+_that_ format, parse and display it in whatever display format you want. It can also be used to
+parse user input and _get_ the E.164 format to pass _into_ a schema.
+
+Postal codes are [a bit more involved](https://en.wikipedia.org/wiki/List_of_postal_codes). But,
+again, it's probably just a really long regex.
+
+
+## License
+Released under the [MIT license](https://github.com/okgrow/analytics/blob/master/License.md).
+
+
+## Contributing
+Issues and Pull Requests are always welcome.
+Please read our [contribution guidelines](https://github.com/okgrow/guides/blob/master/contributing.md).

@@ -1,10 +1,10 @@
 {
-  "name": "npm-base",
-  "version": "1.0.0",
-  "description": "A base NPM package for writing a NPM package in ES2015",
+  "name": "graphql-scalars",
+  "version": "0.0.1",
+  "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kadirahq/npm-base.git"
+    "url": "https://github.com/okgrow/graphql-scalars.git"
   },
   "license": "MIT",
   "options": {
@@ -30,8 +30,6 @@
     "chai": "4.x.x",
     "eslint": "^4.0.0",
     "eslint-config-airbnb": "^15.0.1",
-    "eslint-config-airbnb-base": "^11.0.1",
-    "eslint-import-resolver-meteor": "^0.4.0",
     "eslint-plugin-babel": "4.x.x",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
@@ -40,6 +38,6 @@
     "nodemon": "1.11.x"
   },
   "dependencies": {
-    "babel-runtime": "6.x.x"
+    "graphql": "^0.10.1"
   }
 }
