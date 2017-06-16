@@ -1,26 +1,59 @@
 # @okgrow/graphql-scalars
 
-GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
-you'v not heard of it, start [here](http://graphql.org/learn/) and check out
-[Apollo](http://dev.apollodata.com/) also.
+A library of custom GraphQL Scalar's for creating precise schemas.
 
-However, for all of GraphQL's greatness. It is missing a couple things that we have (and you might)
-find very useful in defining your schemas. Namely GraphQL has a
-[limited set of scalar types](http://graphql.org/learn/schema/#scalar-types) and we have found there
-are some additional scalar types that are useful in being more precise in our schemas. Thankfully,
-those sharp GraphQL folks provided a simple way to add new custom scalar types if needed. That's
-what this package does.
-
-**NOTE:** We don't fault the GraphQL folks for these omissions. They have kept the core small and
-clean. Arguably not every project needs these additional scalar types. But _we_ have, and now _you_
-can use them too if needed.
-
+TODO: Maybe add very short summary.
 
 ## Installation
 ```
 npm install --save @okgrow/graphql-scalars
 ```
 
+TODO: Maybe add a quick-start here with the Installation. And the below detailed usage examples can be below?
+
+## The Types
+
+### URL
+A field whose value conforms to the standard URL format as specified in
+[RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
+
+### DateTime
+Use real JavaScript Dates for GraphQL fields. Currently you can use a String or an Int (e.g., a
+timestamp in milliseconds) to represent a date/time. This scalar makes it easy to be explicit about
+the type and have a real JavaScript Date returned that the client can use _without_ doing the
+inevitable parsing or conversion themselves.
+
+### EmailAddress
+A field whose value conforms to the standard internet email address format as specified in
+[RFC822](https://www.w3.org/Protocols/rfc822/).
+
+### PositiveInt
+Integers that will have a value greater than 0.
+
+### PositiveFloat
+Floats that will have a value greater than 0.
+
+### NonNegativeInt
+Integers that will have a value of 0 or more.
+
+### NonNegativeFloat
+Floats that will have a value of 0 or more.
+
+## Why?
+The primary purposes these scalars, really of _all_ types are to:
+
+1. Communicate to users of your schema exactly what they can expect or to at least _reduce_
+ambiguity in cases where that's possible. For example if you have a `Person` type in your schema
+and that type has as field like `ageInYears`, the value of that can only be null or a positive
+integer (or float, depending on how you want your schema to work). It should never be zero or
+negative.
+1. Run-time type checking. GraphQL helps to tighten up the contract between client and server. It
+does this with strong typing of the _interface_ (or _schema_). This helps us have greater
+confidence about what we're receiving from the server and what the server is receiving from the
+client.
+
+This package adds to the base options available in GraphQL to support types that are reasonably
+common in defining schemas or interfaces to data.
 
 ## Usage
 To use these scalars you'll need to add them in two places, your schema and your resolvers map.
@@ -71,7 +104,7 @@ const myResolverMap = {
 }
 ```
 
-Alternatively, use the default import and ES6's (QUESTION: is this ES7?) object spread syntax:
+Alternatively, use the default import along with ES6's spread operator syntax:
 ```js
 import OKGGraphQLScalars from '@okgrow/graphql-scalars';
 ```
@@ -108,53 +141,6 @@ type Person {
 
 These scalars can be used just like the base, built-in ones.
 
-
-## Why?
-The primary purposes these scalars, really of _all_ types are to:
-
-1. Communicate to users of your schema exactly what they can expect or to at least _reduce_
-ambiguity in cases where that's possible. For example if you have a `Person` type in your schema
-and that type has as field like `ageInYears`, the value of that can only be null or a positive
-integer (or float, depending on how you want your schema to work). It should never be zero or
-negative.
-1. Run-time type checking. GraphQL helps to tighten up the contract between client and server. It
-does this with strong typing of the _interface_ (or _schema_). This helps us have greater
-confidence about what we're receiving from the server and what the server is receiving from the
-client.
-
-This package adds to the base options available in GraphQL to support types that are reasonably
-common in defining schemas or interfaces to data.
-
-
-## The Types
-
-### URL
-A field whose value conforms to the standard URL format as specified in
-[RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
-
-### DateTime
-Use real JavaScript Dates for GraphQL fields. Currently you can use a String or an Int (e.g., a
-timestamp in milliseconds) to represent a date/time. This scalar makes it easy to be explicit about
-the type and have a real JavaScript Date returned that the client can use _without_ doing the
-inevitable parsing or conversion themselves.
-
-### EmailAddress
-A field whose value conforms to the standard internet email address format as specified in
-[RFC822](https://www.w3.org/Protocols/rfc822/).
-
-### PositiveInt
-Integers that will have a value greater than 0.
-
-### PositiveFloat
-Floats that will have a value greater than 0.
-
-### NonNegativeInt
-Integers that will have a value of 0 or more.
-
-### NonNegativeFloat
-Floats that will have a value of 0 or more.
-
-
 ## Future
 We'd like to keep growing this package, within reason, to include the scalar types that are widely
 required when defining GraphQL schemas. We welcome both suggestions and pull requests. A couple of
@@ -179,6 +165,21 @@ parse user input and _get_ the E.164 format to pass _into_ a schema.
 Postal codes are [a bit more involved](https://en.wikipedia.org/wiki/List_of_postal_codes). But,
 again, it's probably just a really long regex.
 
+## What's this all about?
+GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
+you'v not heard of it, start [here](http://graphql.org/learn/) and check out
+[Apollo](http://dev.apollodata.com/) also.
+
+However, for all of GraphQL's greatness. It is missing a couple things that we have (and you might)
+find very useful in defining your schemas. Namely GraphQL has a
+[limited set of scalar types](http://graphql.org/learn/schema/#scalar-types) and we have found there
+are some additional scalar types that are useful in being more precise in our schemas. Thankfully,
+those sharp GraphQL folks provided a simple way to add new custom scalar types if needed. That's
+what this package does.
+
+**NOTE:** We don't fault the GraphQL folks for these omissions. They have kept the core small and
+clean. Arguably not every project needs these additional scalar types. But _we_ have, and now _you_
+can use them too if needed.
 
 ## License
 Released under the [MIT license](https://github.com/okgrow/analytics/blob/master/License.md).
