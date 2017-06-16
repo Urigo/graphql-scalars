@@ -27,42 +27,39 @@ To use these scalars you'll need to add them in two places, your schema and your
 
 In your schema:
 ```graphql
-scalar DateTime
-
-scalar PositiveInt
-scalar NonNegativeInt
-scalar PositiveFloat
-scalar NonNegativeFloat
-
-scalar EmailAddress
 scalar URL
+scalar DateTime
+scalar PositiveInt
+scalar EmailAddress
+scalar PositiveFloat
+scalar NonNegativeInt
+scalar NonNegativeFloat
 ```
 
 In your resolver map, first import them:
 ```js
 import {
+  URL,
   DateTime,
   PositiveInt,
-  PositiveFloat,
-  NonNegativeFloat,
   EmailAddress,
-  URL,
+  PositiveFloat,
+  NonNegativeInt,
+  NonNegativeFloat,
 } from '@okgrow/graphql-scalars';
 ```
 
 Then make sure they're in the root resolver map like this:
 
-```graphql
+```js
 const myResolverMap = {
-  DateTime,
-
-  PositiveInt,
-  NonNegativeInt,
-  PositiveFloat,
-  NonNegativeFloat,
-
-  EmailAddress,
   URL,
+  DateTime,
+  PositiveInt,
+  EmailAddress,
+  PositiveFloat,
+  NonNegativeInt,
+  NonNegativeFloat,
 
   Query: {
     ...
@@ -81,7 +78,7 @@ import OKGGraphQLScalars from '@okgrow/graphql-scalars';
 
 Then make sure they're in the root resolver map like this:
 
-```graphql
+```js
 const myResolverMap = {
   ...OKGGraphQLScalars,
 
@@ -99,19 +96,14 @@ const myResolverMap = {
 That's it. Now you can use these scalar types in your schema definition like this:
 ```graphql
 type Person {
-  birthDate: DateTime
-  ageInYears: PositiveInt
-
-  heightInInches: PositiveFloat
-
-  minimumHourlyRate: NonNegativeFloat
-
-  currentlyActiveProjects: NonNegativeInt
-
   email: EmailAddress
   homePage: URL
+  birthDate: DateTime
+  ageInYears: PositiveInt
+  heightInInches: PositiveFloat
+  minimumHourlyRate: NonNegativeFloat
+  currentlyActiveProjects: NonNegativeInt
 }
-
 ```
 
 These scalars can be used just like the base, built-in ones.
@@ -136,31 +128,31 @@ common in defining schemas or interfaces to data.
 
 ## The Types
 
+### URL
+A field whose value conforms to the standard URL format as specified in
+[RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
+
 ### DateTime
 Use real JavaScript Dates for GraphQL fields. Currently you can use a String or an Int (e.g., a
 timestamp in milliseconds) to represent a date/time. This scalar makes it easy to be explicit about
 the type and have a real JavaScript Date returned that the client can use _without_ doing the
 inevitable parsing or conversion themselves.
 
-### NonNegativeInt
-Integers that will have a value of 0 or more.
-
-### PositiveInt
-Integers that will have a value greater than 0.
-
-### NonNegativeFloat
-Floats that will have a value of 0 or more.
-
-### PositiveFloat
-Floats that will have a value greater than 0.
-
 ### EmailAddress
 A field whose value conforms to the standard internet email address format as specified in
 [RFC822](https://www.w3.org/Protocols/rfc822/).
 
-### URL
-A field whose value conforms to the standard URL format as specified in
-[RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
+### PositiveInt
+Integers that will have a value greater than 0.
+
+### PositiveFloat
+Floats that will have a value greater than 0.
+
+### NonNegativeInt
+Integers that will have a value of 0 or more.
+
+### NonNegativeFloat
+Floats that will have a value of 0 or more.
 
 
 ## Future
