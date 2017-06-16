@@ -26,7 +26,7 @@ npm install --save @okgrow/graphql-scalars
 To use these scalars you'll need to add them in two places, your schema and your resolvers map.
 
 In your schema:
-```
+```graphql
 scalar DateTime
 
 scalar PositiveInt
@@ -39,7 +39,7 @@ scalar URL
 ```
 
 In your resolver map, first import them:
-```
+```js
 import {
   DateTime,
   PositiveInt,
@@ -52,7 +52,7 @@ import {
 
 Then make sure they're in the root resolver map like this:
 
-```
+```graphql
 const myResolverMap = {
   DateTime,
 
@@ -75,13 +75,13 @@ const myResolverMap = {
 ```
 
 Alternatively, use the default import and ES6's (QUESTION: is this ES7?) object spread syntax:
-```
+```js
 import OKGGraphQLScalars from '@okgrow/graphql-scalars';
 ```
 
 Then make sure they're in the root resolver map like this:
 
-```
+```graphql
 const myResolverMap = {
   ...OKGGraphQLScalars,
 
@@ -97,7 +97,7 @@ const myResolverMap = {
 
 
 That's it. Now you can use these scalar types in your schema definition like this:
-```
+```graphql
 type Person {
   birthDate: DateTime
   ageInYears: PositiveInt
