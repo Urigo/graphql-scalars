@@ -104,7 +104,7 @@ const myResolverMap = {
 }
 ```
 
-Alternatively, use the default import along with ES6's spread operator syntax:
+Alternatively, use the default import along with object spread operator syntax (tc39 stage 3):
 ```js
 import OKGGraphQLScalars from '@okgrow/graphql-scalars';
 ```
