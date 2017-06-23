@@ -1,9 +1,12 @@
-import GraphQLScalarType from 'graphql';
+import { GraphQLScalarType } from 'graphql';
 import GraphQLError from 'graphql/error';
-import Kind from 'graphql/language';
+import { Kind } from 'graphql/language';
 
-export default new GraphQLScalarType.GraphQLScalarType({
+export default new GraphQLScalarType({
   name: 'DateTime',
+
+  // eslint-disable-next-line max-len
+  description: 'TBD',
 
   serialize(value) {
     if (!(value instanceof Date)) {
@@ -28,7 +31,7 @@ export default new GraphQLScalarType.GraphQLScalarType({
   },
 
   parseLiteral(ast) {
-    if (ast.kind !== Kind.Kind.STRING) {
+    if (ast.kind !== Kind.STRING) {
       throw new GraphQLError.GraphQLError(`Query error: Can only parse strings to dates but got a: ${ast.kind}`);
     }
 

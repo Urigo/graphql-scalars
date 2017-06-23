@@ -1,5 +1,5 @@
 import { GraphQLScalarType } from 'graphql';
-import GraphQLError from 'graphql/error';
+import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
 
 function processValue(value, where) {
@@ -17,6 +17,8 @@ function processValue(value, where) {
 export default new GraphQLScalarType({
   name: 'NonNegativeInt',
 
+  description: 'Integers that will have a value of 0 or more.',
+
   serialize(value) {
     return processValue(value, 'Field');
   },
@@ -27,7 +29,7 @@ export default new GraphQLScalarType({
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.INT) {
-      throw new GraphQLError.GraphQLError(`Query error: Can only validate integers as non-negative integers but got a: ${ast.kind}`);  // eslint-disable-line max-len
+      throw new GraphQLError(`Query error: Can only validate integers as non-negative integers but got a: ${ast.kind}`);  // eslint-disable-line max-len
     }
 
     return processValue(ast.value, 'Query');

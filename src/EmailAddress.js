@@ -1,9 +1,12 @@
-import GraphQLScalarType from 'graphql';
+import { GraphQLScalarType } from 'graphql';
 import GraphQLError from 'graphql/error';
-import Kind from 'graphql/language';
+import { Kind } from 'graphql/language';
 
-export default new GraphQLScalarType.GraphQLScalarType({
+export default new GraphQLScalarType({
   name: 'EmailAddress',
+
+  // eslint-disable-next-line max-len
+  description: 'A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/.',
 
   serialize(value) {
     // TODO: regex: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -29,7 +32,7 @@ export default new GraphQLScalarType.GraphQLScalarType({
   },
 
   parseLiteral(ast) {
-    if (ast.kind !== Kind.Kind.STRING) {
+    if (ast.kind !== Kind.STRING) {
       throw new GraphQLError.GraphQLError(`Query error: Can only parse strings to dates but got a: ${ast.kind}`);
     }
 

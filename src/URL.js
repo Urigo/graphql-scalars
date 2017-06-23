@@ -1,9 +1,12 @@
-import GraphQLScalarType from 'graphql';
+import { GraphQLScalarType } from 'graphql';
 import GraphQLError from 'graphql/error';
 import Kind from 'graphql/language';
 
-export default new GraphQLScalarType.GraphQLScalarType({
+export default new GraphQLScalarType({
   name: 'URL',
+
+  // eslint-disable-next-line max-len
+  description: 'A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.',
 
   serialize(value) {
     // TODO: regex: [-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)
