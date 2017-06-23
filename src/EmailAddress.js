@@ -1,48 +1,49 @@
-import GraphQLScalarType from 'graphql';
-import GraphQLError from 'graphql/error';
-import Kind from 'graphql/language';
+import { GraphQLScalarType } from 'graphql';
+import { GraphQLError } from 'graphql/error';
+import { Kind } from 'graphql/language';
 
-export default new GraphQLScalarType.GraphQLScalarType({
+// eslint-disable-next-line no-useless-escape, max-len
+const EMAIL_ADDRESS_REGEX = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+
+export default new GraphQLScalarType({
   name: 'EmailAddress',
 
-  serialize(value) {
-    // TODO: regex: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    // if (!(value instanceof Date)) {
-    //   throw new TypeError('Field error: value is not an instance of Date');
-    // }
-    //
-    // if (isNaN(value.getTime())) {
-    //   throw new TypeError('Field error: value is an invalid Date');
-    // }
+  // eslint-disable-next-line max-len
+  description: 'A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/.',
 
-    return value.toJSON();
+  serialize(value) {
+    if (typeof value !== 'string') {
+      throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    if (!EMAIL_ADDRESS_REGEX.test(value)) {
+      throw new TypeError(`Value is not a valid email address: ${value}`);
+    }
+
+    return value;
   },
 
   parseValue(value) {
-    // const date = new Date(value);
-    //
-    // if (isNaN(date.getTime())) {
-    //   throw new TypeError('Field error: value is an invalid Date');
-    // }
+    if (typeof value !== 'string') {
+      throw new TypeError('Value is not string');
+    }
 
-    return date;
+    if (!EMAIL_ADDRESS_REGEX.test(value)) {
+      throw new TypeError(`Value is not a valid email address: ${value}`);
+    }
+
+    return value;
   },
 
   parseLiteral(ast) {
-    if (ast.kind !== Kind.Kind.STRING) {
-      throw new GraphQLError.GraphQLError(`Query error: Can only parse strings to dates but got a: ${ast.kind}`);
+    if (ast.kind !== Kind.STRING) {
+      throw new GraphQLError(`Can only validate strings as email addresses but got a: ${ast.kind}`);
     }
 
-    // const result = new Date(ast.value);
-    //
-    // if (isNaN(result.getTime())) {
-    //   throw new GraphQLError.GraphQLError('Query error: Invalid date');
-    // }
-
-    if (ast.value !== result.toJSON()) {
-      throw new GraphQLError('Query error: Invalid date format, only accepts: YYYY-MM-DDTHH:MM:SS.SSSZ');
+    if (!EMAIL_ADDRESS_REGEX.test(ast.value)) {
+      throw new TypeError(`Value is not a valid email address: ${ast.value}`);
     }
 
-    return result;
+    return ast.value;
   },
 });

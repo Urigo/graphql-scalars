@@ -1,5 +1,4 @@
 module.exports = {
-  "parser": "babel-eslint",
   "extends": "airbnb",
   "rules": {
     "arrow-body-style": 1, // Sometimes we don't want to keep doing this

@@ -1,6 +1,6 @@
 # @okgrow/graphql-scalars
 
-A library of custom GraphQL Scalar's for creating precise schemas.
+A library of custom GraphQL Scalar's for creating precise type-safe GraphQL schemas.
 
 TODO: Maybe add very short summary.
 
@@ -95,11 +95,11 @@ const myResolverMap = {
   NonNegativeFloat,
 
   Query: {
-    ...
+    // more stuff here
   },
 
   Mutation: {
-    ...
+    // more stuff here
   },
 }
 ```
@@ -116,11 +116,11 @@ const myResolverMap = {
   ...OKGGraphQLScalars,
 
   Query: {
-    ...
+    // more stuff here
   },
 
   Mutation: {
-    ...
+    // more stuff here
   },
 }
 ```
@@ -167,8 +167,7 @@ again, it's probably just a really long regex.
 
 ## What's this all about?
 GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
-you'v not heard of it, start [here](http://graphql.org/learn/) and check out
-[Apollo](http://dev.apollodata.com/) also.
+you have not heard of it, start [here](http://graphql.org/learn/) and check out [Apollo](http://dev.apollodata.com/) also.
 
 However, for all of GraphQL's greatness. It is missing a couple things that we have (and you might)
 find very useful in defining your schemas. Namely GraphQL has a
@@ -180,6 +179,7 @@ what this package does.
 **NOTE:** We don't fault the GraphQL folks for these omissions. They have kept the core small and
 clean. Arguably not every project needs these additional scalar types. But _we_ have, and now _you_
 can use them too if needed.
+
 
 ## License
 Released under the [MIT license](https://github.com/okgrow/analytics/blob/master/License.md).

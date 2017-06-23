@@ -1,49 +1,49 @@
-import GraphQLScalarType from 'graphql';
-import GraphQLError from 'graphql/error';
-import Kind from 'graphql/language';
+import { GraphQLScalarType } from 'graphql';
+import { GraphQLError } from 'graphql/error';
+import { Kind } from 'graphql/language';
 
-export default new GraphQLScalarType.GraphQLScalarType({
+// eslint-disable-next-line no-useless-escape, max-len
+const URL_REGEX = new RegExp(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/);
+
+export default new GraphQLScalarType({
   name: 'URL',
 
-  serialize(value) {
-    // TODO: regex: [-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)
-    // Use: https://github.com/unshiftio/url-parse ?
-    // if (!(value instanceof Date)) {
-    //   throw new TypeError('Field error: value is not an instance of Date');
-    // }
-    //
-    // if (isNaN(value.getTime())) {
-    //   throw new TypeError('Field error: value is an invalid Date');
-    // }
+  // eslint-disable-next-line max-len
+  description: 'A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.',
 
-    return value.toJSON();
+  serialize(value) {
+    if (typeof value !== 'string') {
+      throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    if (!URL_REGEX.test(value)) {
+      throw new TypeError(`Value is not a valid URL: ${value}`);
+    }
+
+    return value;
   },
 
   parseValue(value) {
-    // const date = new Date(value);
-    //
-    // if (isNaN(date.getTime())) {
-    //   throw new TypeError('Field error: value is an invalid Date');
-    // }
+    if (typeof value !== 'string') {
+      throw new TypeError(`Value is not string: ${value}`);
+    }
 
-    return date;
+    if (!URL_REGEX.test(value)) {
+      throw new TypeError(`Value is not a valid URL: ${value}`);
+    }
+
+    return value;
   },
 
   parseLiteral(ast) {
-    if (ast.kind !== Kind.Kind.STRING) {
-      throw new GraphQLError.GraphQLError(`Query error: Can only parse strings to dates but got a: ${ast.kind}`);
+    if (ast.kind !== Kind.STRING) {
+      throw new GraphQLError(`Can only validate strings as URLs but got a: ${ast.kind}`);
     }
 
-    // const result = new Date(ast.value);
-    //
-    // if (isNaN(result.getTime())) {
-    //   throw new GraphQLError.GraphQLError('Query error: Invalid date');
-    // }
-
-    if (ast.value !== result.toJSON()) {
-      throw new GraphQLError('Query error: Invalid date format, only accepts: YYYY-MM-DDTHH:MM:SS.SSSZ');
+    if (!URL_REGEX.test(ast.value)) {
+      throw new TypeError(`Value is not a valid URL: ${ast.value}`);
     }
 
-    return result;
+    return ast.value;
   },
 });
