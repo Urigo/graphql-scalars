@@ -1,19 +1,8 @@
 # @okgrow/graphql-scalars
 
-GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
-you'v not heard of it, start [here](http://graphql.org/learn/) and check out
-[Apollo](http://dev.apollodata.com/) also.
+A library of custom GraphQL Scalar's for creating precise type-safe GraphQL schemas.
 
-However, for all of GraphQL's greatness. It is missing a couple things that we have (and you might)
-find very useful in defining your schemas. Namely GraphQL has a
-[limited set of scalar types](http://graphql.org/learn/schema/#scalar-types) and we have found there
-are some additional scalar types that are useful in being more precise in our schemas. Thankfully,
-those sharp GraphQL folks provided a simple way to add new custom scalar types if needed. That's
-what this package does.
-
-**NOTE:** We don't fault the GraphQL folks for these omissions. They have kept the core small and
-clean. Arguably not every project needs these additional scalar types. But _we_ have, and now _you_
-can use them too if needed.
+TODO: Maybe add very short summary.
 
 
 ## Installation
@@ -26,7 +15,7 @@ npm install --save @okgrow/graphql-scalars
 To use these scalars you'll need to add them in two places, your schema and your resolvers map.
 
 In your schema:
-```
+```graphql
 scalar DateTime
 
 scalar PositiveInt
@@ -39,7 +28,7 @@ scalar URL
 ```
 
 In your resolver map, first import them:
-```
+```js
 import {
   DateTime,
   PositiveInt,
@@ -52,7 +41,7 @@ import {
 
 Then make sure they're in the root resolver map like this:
 
-```
+```js
 const myResolverMap = {
   DateTime,
 
@@ -65,39 +54,39 @@ const myResolverMap = {
   URL,
 
   Query: {
-    ...
+    // more stuff here
   },
 
   Mutation: {
-    ...
+    // more stuff here
   },
 }
 ```
 
-Alternatively, use the default import and ES6's (QUESTION: is this ES7?) object spread syntax:
-```
+Alternatively, use the default import and ES6's spread operator syntax:
+```js
 import OKGGraphQLScalars from '@okgrow/graphql-scalars';
 ```
 
 Then make sure they're in the root resolver map like this:
 
-```
+```js
 const myResolverMap = {
   ...OKGGraphQLScalars,
 
   Query: {
-    ...
+    // more stuff here
   },
 
   Mutation: {
-    ...
+    // more stuff here
   },
 }
 ```
 
 
 That's it. Now you can use these scalar types in your schema definition like this:
-```
+```graphql
 type Person {
   birthDate: DateTime
   ageInYears: PositiveInt
@@ -186,6 +175,22 @@ parse user input and _get_ the E.164 format to pass _into_ a schema.
 
 Postal codes are [a bit more involved](https://en.wikipedia.org/wiki/List_of_postal_codes). But,
 again, it's probably just a really long regex.
+
+##What's this all about?
+GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
+you have not heard of it, start [here](http://graphql.org/learn/) and check out
+[Apollo](http://dev.apollodata.com/) also.
+
+However, for all of GraphQL's greatness. It is missing a couple things that we have (and you might)
+find very useful in defining your schemas. Namely GraphQL has a
+[limited set of scalar types](http://graphql.org/learn/schema/#scalar-types) and we have found there
+are some additional scalar types that are useful in being more precise in our schemas. Thankfully,
+those sharp GraphQL folks provided a simple way to add new custom scalar types if needed. That's
+what this package does.
+
+**NOTE:** We don't fault the GraphQL folks for these omissions. They have kept the core small and
+clean. Arguably not every project needs these additional scalar types. But _we_ have, and now _you_
+can use them too if needed.
 
 
 ## License
