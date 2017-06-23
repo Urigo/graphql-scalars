@@ -176,7 +176,7 @@ parse user input and _get_ the E.164 format to pass _into_ a schema.
 Postal codes are [a bit more involved](https://en.wikipedia.org/wiki/List_of_postal_codes). But,
 again, it's probably just a really long regex.
 
-##What's this all about?
+## What's this all about?
 GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
 you have not heard of it, start [here](http://graphql.org/learn/) and check out
 [Apollo](http://dev.apollodata.com/) also.
