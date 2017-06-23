@@ -32,63 +32,63 @@ test('PositiveInt - valid as string - parseLiteral', () => {
 
 // Number equal to zero
 test('PositiveInt - zero as int - serialize', () => {
-  expect(() => PositiveInt.serialize(0)).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.serialize(0)).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - zero as int - parseValue', () => {
-  expect(() => PositiveInt.parseValue(0)).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.parseValue(0)).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - zero as int - parseLiteral', () => {
-  expect(() => PositiveInt.parseLiteral({ value: 0, kind: Kind.INT })).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.parseLiteral({ value: 0, kind: Kind.INT })).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - zero as string - serialize', () => {
-  expect(() => PositiveInt.serialize('0')).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.serialize('0')).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - zero as string - parseValue', () => {
-  expect(() => PositiveInt.parseValue('0')).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.parseValue('0')).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - zero as string - parseLiteral', () => {
-  expect(() => PositiveInt.parseLiteral({ value: '0', kind: Kind.INT })).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.parseLiteral({ value: '0', kind: Kind.INT })).toThrow(/Value is not a positive number/);
 });
 
 
 // Number less than zero
 test('PositiveInt - less than zero as int - serialize', () => {
-  expect(() => PositiveInt.serialize(-1)).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.serialize(-1)).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - less than zero as int - parseValue', () => {
-  expect(() => PositiveInt.parseValue(-1)).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.parseValue(-1)).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - less than zero as int - parseLiteral', () => {
-  expect(() => PositiveInt.parseLiteral({ value: -1, kind: Kind.INT })).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.parseLiteral({ value: -1, kind: Kind.INT })).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - less than zero as string - serialize', () => {
-  expect(() => PositiveInt.serialize('-1')).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.serialize('-1')).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - less than zero as string - parseValue', () => {
-  expect(() => PositiveInt.parseValue('-1')).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.parseValue('-1')).toThrow(/Value is not a positive number/);
 });
 
 test('PositiveInt - less than zero as string - parseLiteral', () => {
-  expect(() => PositiveInt.parseLiteral({ value: '-1', kind: Kind.INT })).toThrow('Value is not a positive number');
+  expect(() => PositiveInt.parseLiteral({ value: '-1', kind: Kind.INT })).toThrow(/Value is not a positive number/);
 });
 
 
 // Not a number
 test('PositiveInt - not a number - serialize', () => {
-  expect(() => PositiveInt.serialize('not a number')).toThrow('Value is not a number');
+  expect(() => PositiveInt.serialize('not a number')).toThrow(/Value is not a number/);
 });
 
 test('PositiveInt - not a number - parseValue', () => {
-  expect(() => PositiveInt.parseValue('not a number')).toThrow('Value is not a number');
+  expect(() => PositiveInt.parseValue('not a number')).toThrow(/Value is not a number/);
 });
 
 test('PositiveInt - not a number - parseLiteral', () => {

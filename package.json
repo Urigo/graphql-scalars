@@ -16,9 +16,9 @@
     "prepublish": ". ./scripts/prepublish.sh",
     "lint": "eslint ./src",
     "lintfix": "eslint ./src --fix",
-    "testonly": "jest",
+    "test-only": "jest",
     "test": "npm run lint && jest",
-    "test-watch": "npm run testonly -- --watch --watch-extensions js",
+    "test-watch": "npm run test-only -- --watch --watch-extensions js",
     "start": "babel src -d dist --watch"
   },
   "devDependencies": {

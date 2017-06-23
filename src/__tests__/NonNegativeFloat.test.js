@@ -58,37 +58,37 @@ test('NonNegativeFloat - valid zero as string - parseLiteral', () => {
 
 // Number less than zero
 test('NonNegativeFloat - less than zero as float - serialize', () => {
-  expect(() => NonNegativeFloat.serialize(-1.0)).toThrow('Value is a negative number');
+  expect(() => NonNegativeFloat.serialize(-1.0)).toThrow(/Value is a negative number/);
 });
 
 test('NonNegativeFloat - less than zero as float - parseValue', () => {
-  expect(() => NonNegativeFloat.parseValue(-1.0)).toThrow('Value is a negative number');
+  expect(() => NonNegativeFloat.parseValue(-1.0)).toThrow(/Value is a negative number/);
 });
 
 test('NonNegativeFloat - less than zero as float - parseLiteral', () => {
-  expect(() => NonNegativeFloat.parseLiteral({ value: -1.0, kind: Kind.FLOAT })).toThrow('Value is a negative number');
+  expect(() => NonNegativeFloat.parseLiteral({ value: -1.0, kind: Kind.FLOAT })).toThrow(/Value is a negative number/);
 });
 
 test('NonNegativeFloat - less than zero as string - serialize', () => {
-  expect(() => NonNegativeFloat.serialize('-1.0')).toThrow('Value is a negative number');
+  expect(() => NonNegativeFloat.serialize('-1.0')).toThrow(/Value is a negative number/);
 });
 
 test('NonNegativeFloat - less than zero as string - parseValue', () => {
-  expect(() => NonNegativeFloat.parseValue('-1.0')).toThrow('Value is a negative number');
+  expect(() => NonNegativeFloat.parseValue('-1.0')).toThrow(/Value is a negative number/);
 });
 
 test('NonNegativeFloat - less than zero as string - parseLiteral', () => {
-  expect(() => NonNegativeFloat.parseLiteral({ value: '-1.0', kind: Kind.FLOAT })).toThrow('Value is a negative number');
+  expect(() => NonNegativeFloat.parseLiteral({ value: '-1.0', kind: Kind.FLOAT })).toThrow(/Value is a negative number/);
 });
 
 
 // Not a number
 test('NonNegativeFloat - not a number - serialize', () => {
-  expect(() => NonNegativeFloat.serialize('not a number')).toThrow('Value is not a number');
+  expect(() => NonNegativeFloat.serialize('not a number')).toThrow(/Value is not a number/);
 });
 
 test('NonNegativeFloat - not a number - parseValue', () => {
-  expect(() => NonNegativeFloat.parseValue('not a number')).toThrow('Value is not a number');
+  expect(() => NonNegativeFloat.parseValue('not a number')).toThrow(/Value is not a number/);
 });
 
 test('NonNegativeFloat - not a number - parseLiteral', () => {

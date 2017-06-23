@@ -2,13 +2,13 @@ import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
 
-function processValue(value, where) {
+function processValue(value) {
   if (isNaN(value)) {
-    throw new TypeError(`${where} error: Value is not a number`);
+    throw new TypeError(`Value is not a number: ${value}`);
   }
 
   if (!(value > 0)) {
-    throw new TypeError(`${where} error: Value is not a positive number`);
+    throw new TypeError(`Value is not a positive number: ${value}`);
   }
 
   return parseFloat(value);
@@ -20,18 +20,18 @@ export default new GraphQLScalarType({
   description: 'Floats that will have a value greater than 0.',
 
   serialize(value) {
-    return processValue(value, 'Field');
+    return processValue(value);
   },
 
   parseValue(value) {
-    return processValue(value, 'Field');
+    return processValue(value);
   },
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.FLOAT) {
-      throw new GraphQLError(`Query error: Can only validate floating point numbers as positive floating point numbers but got a: ${ast.kind}`);  // eslint-disable-line max-len
+      throw new GraphQLError(`Can only validate floating point numbers as positive floating point numbers but got a: ${ast.kind}`);  // eslint-disable-line max-len
     }
 
-    return processValue(ast.value, 'Query');
+    return processValue(ast.value);
   },
 });
