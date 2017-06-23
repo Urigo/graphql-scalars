@@ -166,8 +166,7 @@ Postal codes are [a bit more involved](https://en.wikipedia.org/wiki/List_of_pos
 again, it's probably just a really long regex.
 
 ## What's this all about?
-GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
-you have not heard of it, start [here](http://graphql.org/learn/) and check out [Apollo](http://dev.apollodata.com/) also.
+GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If you have not heard of it, start [here](http://graphql.org/learn/) and check out [Apollo](http://dev.apollodata.com/) also.
 
 However, for all of GraphQL's greatness. It is missing a couple things that we have (and you might)
 find very useful in defining your schemas. Namely GraphQL has a
