@@ -2,8 +2,6 @@
 
 A library of custom GraphQL Scalar's for creating precise type-safe GraphQL schemas.
 
-TODO: Maybe add very short summary.
-
 
 ## Installation
 ```
