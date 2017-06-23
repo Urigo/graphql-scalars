@@ -1,10 +1,14 @@
-import {expect} from 'chai';
-import {sum} from '../';
-const {describe, it} = global;
+import { expect } from 'chai';
+import { NonNegativeFloat } from '../';
 
-describe('sum', () => {
-  it('should add two numbers correctly', async () => {
-    const result = await sum(10, 20);
-    expect(result).to.be.equal(30);
+const { describe, it } = global;
+
+describe('NonNegativeFloat', () => {
+  const X = NonNegativeFloat.serialize('some value');
+
+  console.log('X', X);
+
+  it('TBD', async () => {
+    expect(X.parseValue(null)).toBe(0);
   });
 });

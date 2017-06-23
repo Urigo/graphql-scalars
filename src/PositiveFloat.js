@@ -17,6 +17,8 @@ function processValue(value, where) {
 export default new GraphQLScalarType({
   name: 'PositiveFloat',
 
+  description: 'Floats that will have a value greater than 0.',
+
   serialize(value) {
     return processValue(value, 'Field');
   },

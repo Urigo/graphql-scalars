@@ -17,6 +17,8 @@ function processValue(value, where) {
 export default new GraphQLScalarType({
   name: 'PositiveInt',
 
+  description: 'Integers that will have a value greater than 0.',
+
   serialize(value) {
     return processValue(value, 'Field');
   },
