@@ -18,7 +18,7 @@
     "lintfix": "eslint ./src --fix",
     "test-only": "jest",
     "test": "npm run lint && jest",
-    "test-watch": "npm run test-only -- --watch --watch-extensions js",
+    "test-watch": "npm run test-only -- --watch --watchAll",
     "start": "babel src -d dist --watch"
   },
   "devDependencies": {
