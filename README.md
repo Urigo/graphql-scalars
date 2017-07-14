@@ -1,6 +1,6 @@
 # @okgrow/graphql-scalars
 
-A library of custom GraphQL Scalar's for creating precise type-safe GraphQL schemas.
+A library of custom GraphQL scalar types for creating precise type-safe GraphQL schemas.
 
 
 ## Installation
