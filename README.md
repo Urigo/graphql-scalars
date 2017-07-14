@@ -130,16 +130,16 @@ the type and have a real JavaScript Date returned that the client can use _witho
 inevitable parsing or conversion themselves.
 
 ### NonNegativeInt
-Integers that will have a value of 0 or more.
+Integers that will have a value of 0 or more. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
 
 ### PositiveInt
-Integers that will have a value greater than 0.
+Integers that will have a value greater than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
 
 ### NonNegativeFloat
-Floats that will have a value of 0 or more.
+Floats that will have a value of 0 or more. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
 
 ### PositiveFloat
-Floats that will have a value greater than 0.
+Floats that will have a value greater than 0. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
 
 ### EmailAddress
 A field whose value conforms to the standard internet email address format as specified in
