@@ -197,4 +197,4 @@ Released under the [MIT license](https://github.com/okgrow/analytics/blob/master
 
 ## Contributing
 Issues and Pull Requests are always welcome.
-Please read our [contribution guidelines](https://github.com/okgrow/guides/blob/master/contributing.md).
+Please read our [contribution guidelines](https://github.com/okgrow/guides/blob/master/docs/OpenSource-Contributing.md).
