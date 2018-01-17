@@ -36,6 +36,36 @@ describe('NegativeFloat', () => {
   });
 
   describe('invalid', () => {
+    describe('null', () => {
+      test('serialize', () => {
+        expect(() => NegativeFloat.serialize(null)).toThrow(/Value is not a number/);
+      });
+
+      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
+      // test('parseValue', () => {
+      //   expect(() => NegativeFloat.parseValue(null)).toThrow(/Value is not a number/);
+      // });
+
+      test('parseLiteral', () => {
+        expect(() => NegativeFloat.parseLiteral({ value: null, kind: Kind.FLOAT })).toThrow(/Value is not a number/);
+      });
+    });
+
+    describe('undefined', () => {
+      test('serialize', () => {
+        expect(() => NegativeFloat.serialize(undefined)).toThrow(/Value is not a number/);
+      });
+
+      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
+      // test('parseValue', () => {
+      //   expect(() => NegativeFloat.parseValue(undefined)).toThrow(/Value is not a number/);
+      // });
+
+      test('parseLiteral', () => {
+        expect(() => NegativeFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT })).toThrow(/Value is not a number/);
+      });
+    });
+
     describe('zero', () => {
       describe('as float', () => {
         test('serialize', () => {
@@ -96,6 +126,20 @@ describe('NegativeFloat', () => {
       });
     });
 
+    describe('infinity', () => {
+      test('serialize', () => {
+        expect(() => NegativeFloat.serialize(Number.NEGATIVE_INFINITY)).toThrow(/Value is not a finite number/);
+      });
+
+      test('parseValue', () => {
+        expect(() => NegativeFloat.parseValue(Number.NEGATIVE_INFINITY)).toThrow(/Value is not a finite number/);
+      });
+
+      test('parseLiteral', () => {
+        expect(() => NegativeFloat.parseLiteral({ value: Number.NEGATIVE_INFINITY, kind: Kind.FLOAT })).toThrow(/Value is not a finite number/);
+      });
+    });
+
     describe('not a number', () => {
       test('serialize', () => {
         expect(() => NegativeFloat.serialize('not a number')).toThrow(/Value is not a number/);
@@ -107,6 +151,21 @@ describe('NegativeFloat', () => {
 
       test('parseLiteral', () => {
         expect(() => NegativeFloat.parseLiteral({ value: 'not a number', kind: Kind.STRING })).toThrow(/Can only validate floating point numbers as negative floating point numbers but got a/);
+      });
+    });
+
+    describe('NaN', () => {
+      test('serialize', () => {
+        expect(() => NegativeFloat.serialize(Number.NaN)).toThrow(/Value is not a number/);
+      });
+
+      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
+      // test('parseValue', () => {
+      //   expect(() => NegativeFloat.parseValue(Number.NaN)).toThrow(/Value is not a number/);
+      // });
+
+      test('parseLiteral', () => {
+        expect(() => NegativeFloat.parseLiteral({ value: Number.NaN, kind: Kind.STRING })).toThrow(/Can only validate floating point numbers as negative floating point numbers but got a/);
       });
     });
   });

@@ -2,16 +2,10 @@ import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
 
-function processValue(value) {
-  if (isNaN(value)) {
-    throw new TypeError(`Value is not a number: ${value}`);
-  }
+import { processValue, VALUE_RANGES, VALUE_TYPES } from './utilities';
 
-  if (!(value > 0)) {
-    throw new TypeError(`Value is not a positive number: ${value}`);
-  }
-
-  return parseInt(value, 10);
+function _processValue(value) {
+  return processValue(value, VALUE_RANGES.POSITIVE, VALUE_TYPES.INT);
 }
 
 export default new GraphQLScalarType({
@@ -20,11 +14,11 @@ export default new GraphQLScalarType({
   description: 'Integers that will have a value greater than 0.',
 
   serialize(value) {
-    return processValue(value);
+    return _processValue(value);
   },
 
   parseValue(value) {
-    return processValue(value);
+    return _processValue(value);
   },
 
   parseLiteral(ast) {
@@ -32,6 +26,6 @@ export default new GraphQLScalarType({
       throw new GraphQLError(`Can only validate integers as positive integers but got a: ${ast.kind}`);  // eslint-disable-line max-len
     }
 
-    return processValue(ast.value);
+    return _processValue(ast.value);
   },
 });

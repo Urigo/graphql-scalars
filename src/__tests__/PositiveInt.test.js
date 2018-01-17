@@ -36,6 +36,51 @@ describe('PositiveInt', () => {
   });
 
   describe('invalid', () => {
+    describe('null', () => {
+      test('serialize', () => {
+        expect(() => PositiveInt.serialize(null)).toThrow(/Value is not a number: null/);
+      });
+
+      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
+      // test('parseValue', () => {
+      //   expect(() => PositiveInt.parseValue(null)).toThrow(/Value is not a number/);
+      // });
+
+      test('parseLiteral', () => {
+        expect(() => PositiveInt.parseLiteral({ value: null, kind: Kind.INT })).toThrow(/Value is not a number: null/);
+      });
+    });
+
+    describe('undefined', () => {
+      test('serialize', () => {
+        expect(() => PositiveInt.serialize(undefined)).toThrow(/Value is not a number: undefined/);
+      });
+
+      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
+      // test('parseValue', () => {
+      //   expect(() => PositiveInt.parseValue(undefined)).toThrow(/Value is not a number/);
+      // });
+
+      test('parseLiteral', () => {
+        expect(() => PositiveInt.parseLiteral({ value: undefined, kind: Kind.INT })).toThrow(/Value is not a number: undefined/);
+      });
+    });
+
+    describe('unsafe integer', () => {
+      test('serialize', () => {
+        expect(() => PositiveInt.serialize(2 ** 53)).toThrow(/Value is not a safe integer/);
+      });
+
+      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
+      test('parseValue', () => {
+        expect(() => PositiveInt.parseValue(2 ** 53)).toThrow(/Value is not a safe integer/);
+      });
+
+      test('parseLiteral', () => {
+        expect(() => PositiveInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT })).toThrow(/Value is not a safe integer/);
+      });
+    });
+
     describe('zero', () => {
       describe('as int', () => {
         test('serialize', () => {
@@ -96,6 +141,20 @@ describe('PositiveInt', () => {
       });
     });
 
+    describe('infinity', () => {
+      test('serialize', () => {
+        expect(() => PositiveInt.serialize(Number.POSITIVE_INFINITY)).toThrow(/Value is not a finite number/);
+      });
+
+      test('parseValue', () => {
+        expect(() => PositiveInt.parseValue(Number.POSITIVE_INFINITY)).toThrow(/Value is not a finite number/);
+      });
+
+      test('parseLiteral', () => {
+        expect(() => PositiveInt.parseLiteral({ value: Number.POSITIVE_INFINITY, kind: Kind.INT })).toThrow(/Value is not a finite number/);
+      });
+    });
+
     describe('not a number', () => {
       test('serialize', () => {
         expect(() => PositiveInt.serialize('not a number')).toThrow(/Value is not a number/);
@@ -107,6 +166,21 @@ describe('PositiveInt', () => {
 
       test('parseLiteral', () => {
         expect(() => PositiveInt.parseLiteral({ value: 'not a number', kind: Kind.STRING })).toThrow(/Can only validate integers as positive integers but got a/);
+      });
+    });
+
+    describe('NaN', () => {
+      test('serialize', () => {
+        expect(() => PositiveInt.serialize(Number.NaN)).toThrow(/Value is not a number/);
+      });
+
+      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
+      // test('parseValue', () => {
+      //   expect(() => PositiveInt.parseValue(Number.NaN)).toThrow(/Value is not a number/);
+      // });
+
+      test('parseLiteral', () => {
+        expect(() => PositiveInt.parseLiteral({ value: Number.NaN, kind: Kind.STRING })).toThrow(/Can only validate integers as positive integers but got a/);
       });
     });
   });
