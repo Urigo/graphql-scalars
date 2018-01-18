@@ -18,10 +18,12 @@ In your schema:
 ```graphql
 scalar DateTime
 
+scalar NonPositiveInt
 scalar PositiveInt
 scalar NonNegativeInt
 scalar NegativeInt
 
+scalar NonPositiveFloat
 scalar PositiveFloat
 scalar NonNegativeFloat
 scalar NegativeFloat
@@ -35,10 +37,12 @@ In your resolver map, first import them:
 import {
   DateTime,
 
+  NonPositiveInt,
   PositiveInt,
   NonNegativeInt,
   NegativeInt,
 
+  NonPositiveFloat,
   PositiveFloat,
   NonNegativeFloat,
   NegativeFloat,
@@ -54,10 +58,12 @@ Then make sure they're in the root resolver map like this:
 const myResolverMap = {
   DateTime,
 
+  NonPositiveInt,
   PositiveInt,
   NonNegativeInt,
   NegativeInt,
 
+  NonPositiveFloat,
   PositiveFloat,
   NonNegativeFloat,
   NegativeFloat,
@@ -146,6 +152,9 @@ inevitable parsing or conversion themselves.
 ### NonNegativeInt
 Integers that will have a value of 0 or more. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
 
+### NonPositiveInt
+Integers that will have a value of 0 or less. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
+
 ### PositiveInt
 Integers that will have a value greater than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
 
@@ -154,6 +163,9 @@ Integers that will have a value less than 0. Uses [`parseInt()`](https://develop
 
 ### NonNegativeFloat
 Floats that will have a value of 0 or more. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
+
+### NonPositiveFloat
+Floats that will have a value of 0 or less. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
 
 ### PositiveFloat
 Floats that will have a value greater than 0. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).

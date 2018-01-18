@@ -63,7 +63,7 @@ function processValue(value, range, type) {
   if ((range === VALUE_RANGES.NEGATIVE && !(parsedValue < 0))
       || (range === VALUE_RANGES.NON_NEGATIVE && !(parsedValue >= 0))
       || (range === VALUE_RANGES.POSITIVE && !(parsedValue > 0))
-      || (range === VALUE_RANGES.NON_POSITIVE && !(parsedValue >= 0))) {
+      || (range === VALUE_RANGES.NON_POSITIVE && !(parsedValue <= 0))) {
     throw new TypeError(`Value is not a ${VALUE_RANGES[range].toLowerCase().replace('_', '-')} number: ${value}`);
   }
 
