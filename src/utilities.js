@@ -10,6 +10,42 @@ const VALUE_TYPES = {
   FLOAT: 'float',
 };
 
+const VALIDATIONS = {
+  NonPositiveInt: {
+    range: VALUE_RANGES.NON_POSITIVE,
+    type: VALUE_TYPES.INT,
+  },
+  PositiveInt: {
+    range: VALUE_RANGES.POSITIVE,
+    type: VALUE_TYPES.INT,
+  },
+  NonNegativeInt: {
+    range: VALUE_RANGES.NON_NEGATIVE,
+    type: VALUE_TYPES.INT,
+  },
+  NegativeInt: {
+    range: VALUE_RANGES.NEGATIVE,
+    type: VALUE_TYPES.INT,
+  },
+
+  NonPositiveFloat: {
+    range: VALUE_RANGES.NON_POSITIVE,
+    type: VALUE_TYPES.FLOAT,
+  },
+  PositiveFloat: {
+    range: VALUE_RANGES.POSITIVE,
+    type: VALUE_TYPES.FLOAT,
+  },
+  NonNegativeFloat: {
+    range: VALUE_RANGES.NON_NEGATIVE,
+    type: VALUE_TYPES.FLOAT,
+  },
+  NegativeFloat: {
+    range: VALUE_RANGES.NEGATIVE,
+    type: VALUE_TYPES.FLOAT,
+  },
+};
+
 // TODO: Consider implementing coercion like this...
 // See: https://github.com/graphql/graphql-js/blob/master/src/type/scalars.js#L13
 // See: https://github.com/graphql/graphql-js/blob/master/src/type/scalars.js#L60
@@ -34,7 +70,9 @@ function _validateFloat(value) {
   }
 }
 
-function processValue(value, range, type) {
+function processValue(value, validation) {
+  const { range, type } = validation;
+
   if (value === null
       || typeof value === 'undefined'
       || isNaN(value)
@@ -70,4 +108,4 @@ function processValue(value, range, type) {
   return parsedValue;
 }
 
-export { processValue, VALUE_RANGES, VALUE_TYPES };
+export { processValue, VALIDATIONS };

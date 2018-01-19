@@ -2,11 +2,7 @@ import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
 
-import { processValue, VALUE_RANGES, VALUE_TYPES } from './utilities';
-
-function _processValue(value) {
-  return processValue(value, VALUE_RANGES.NON_POSITIVE, VALUE_TYPES.INT);
-}
+import { processValue, VALIDATIONS } from './utilities';
 
 export default new GraphQLScalarType({
   name: 'NonPositiveInt',
@@ -14,11 +10,11 @@ export default new GraphQLScalarType({
   description: 'Integers that will have a value of 0 or less.',
 
   serialize(value) {
-    return _processValue(value);
+    return processValue(value, VALIDATIONS.NonPositiveInt);
   },
 
   parseValue(value) {
-    return _processValue(value);
+    return processValue(value, VALIDATIONS.NonPositiveInt);
   },
 
   parseLiteral(ast) {
@@ -26,6 +22,6 @@ export default new GraphQLScalarType({
       throw new GraphQLError(`Can only validate integers as non-positive integers but got a: ${ast.kind}`);  // eslint-disable-line max-len
     }
 
-    return _processValue(ast.value);
+    return processValue(ast.value, VALIDATIONS.NonPositiveInt);
   },
 });
