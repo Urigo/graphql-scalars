@@ -1,6 +1,6 @@
 {
   "name": "@okgrow/graphql-scalars",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
     "type": "git",
