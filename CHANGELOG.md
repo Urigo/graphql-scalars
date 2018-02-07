@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Implemented more strict numeric type checking
 - Some type exception messages changed slightly
+- Changed `graphql` from a dependency to a _peer_ dependency
 
 ### Added
 - NegativeInt
