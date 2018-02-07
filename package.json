@@ -31,6 +31,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "graphql": "^0.10.1",
     "jest": "^20.0.4",
     "nodemon": "1.11.x"
   },
