@@ -34,7 +34,7 @@
     "jest": "^20.0.4",
     "nodemon": "1.11.x"
   },
-  "dependencies": {
+  "peerDependencies": {
     "graphql": "^0.10.1"
   }
 }
