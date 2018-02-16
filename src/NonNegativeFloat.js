@@ -2,17 +2,7 @@ import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
 
-function processValue(value) {
-  if (isNaN(value)) {
-    throw new TypeError(`Value is not a number: ${value}`);
-  }
-
-  if (value < 0) {
-    throw new TypeError(`Value is a negative number: ${value}`);
-  }
-
-  return parseFloat(value);
-}
+import { processValue, VALIDATIONS } from './utilities';
 
 export default new GraphQLScalarType({
   name: 'NonNegativeFloat',
@@ -20,11 +10,11 @@ export default new GraphQLScalarType({
   description: 'Floats that will have a value of 0 or more.',
 
   serialize(value) {
-    return processValue(value);
+    return processValue(value, VALIDATIONS.NonNegativeFloat);
   },
 
   parseValue(value) {
-    return processValue(value);
+    return processValue(value, VALIDATIONS.NonNegativeFloat);
   },
 
   parseLiteral(ast) {
@@ -32,6 +22,6 @@ export default new GraphQLScalarType({
       throw new GraphQLError(`Can only validate floating point numbers as non-negative floating point numbers but got a: ${ast.kind}`);  // eslint-disable-line max-len
     }
 
-    return processValue(ast.value);
+    return processValue(ast.value, VALIDATIONS.NonNegativeFloat);
   },
 });

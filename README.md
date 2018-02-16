@@ -18,10 +18,15 @@ In your schema:
 ```graphql
 scalar DateTime
 
+scalar NonPositiveInt
 scalar PositiveInt
 scalar NonNegativeInt
+scalar NegativeInt
+
+scalar NonPositiveFloat
 scalar PositiveFloat
 scalar NonNegativeFloat
+scalar NegativeFloat
 
 scalar EmailAddress
 scalar URL
@@ -31,9 +36,17 @@ In your resolver map, first import them:
 ```js
 import {
   DateTime,
+
+  NonPositiveInt,
   PositiveInt,
+  NonNegativeInt,
+  NegativeInt,
+
+  NonPositiveFloat,
   PositiveFloat,
   NonNegativeFloat,
+  NegativeFloat,
+
   EmailAddress,
   URL,
 } from '@okgrow/graphql-scalars';
@@ -45,10 +58,15 @@ Then make sure they're in the root resolver map like this:
 const myResolverMap = {
   DateTime,
 
+  NonPositiveInt,
   PositiveInt,
   NonNegativeInt,
+  NegativeInt,
+
+  NonPositiveFloat,
   PositiveFloat,
   NonNegativeFloat,
+  NegativeFloat,
 
   EmailAddress,
   URL,
@@ -134,14 +152,26 @@ inevitable parsing or conversion themselves.
 ### NonNegativeInt
 Integers that will have a value of 0 or more. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
 
+### NonPositiveInt
+Integers that will have a value of 0 or less. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
+
 ### PositiveInt
 Integers that will have a value greater than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
+
+### NegativeInt
+Integers that will have a value less than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
 
 ### NonNegativeFloat
 Floats that will have a value of 0 or more. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
 
+### NonPositiveFloat
+Floats that will have a value of 0 or less. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
+
 ### PositiveFloat
 Floats that will have a value greater than 0. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
+
+### NegativeFloat
+Floats that will have a value less than 0. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
 
 ### EmailAddress
 A field whose value conforms to the standard internet email address format as specified in
@@ -157,15 +187,11 @@ We'd like to keep growing this package, within reason, to include the scalar typ
 required when defining GraphQL schemas. We welcome both suggestions and pull requests. A couple of
 ideas we're considering are:
 
-- NegativeInt
-- NegativeFloat
-
-These are easy to add, we just haven't run into cases for them yet.
-
 - PhoneNumber
 - PostalCode
+- BLOB
 
-These both have challenges in terms of making them globally useful so they need a bit of thought.
+These all have challenges in terms of making them globally useful so they need a bit of thought.
 
 For `PhoneNumber` we can probably just use the [E.164 specification](https://en.wikipedia.org/wiki/E.164)
 which is simply `+17895551234`. The very powerful
@@ -175,6 +201,8 @@ parse user input and _get_ the E.164 format to pass _into_ a schema.
 
 Postal codes are [a bit more involved](https://en.wikipedia.org/wiki/List_of_postal_codes). But,
 again, it's probably just a really long regex.
+
+BLOBs could be a base64-encoded object of some kind.
 
 ## What's this all about?
 GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
