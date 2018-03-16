@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.2.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
