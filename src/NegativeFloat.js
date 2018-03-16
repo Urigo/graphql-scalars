@@ -19,7 +19,11 @@ export default new GraphQLScalarType({
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.FLOAT) {
-      throw new GraphQLError(`Can only validate floating point numbers as negative floating point numbers but got a: ${ast.kind}`);  // eslint-disable-line max-len
+      throw new GraphQLError(
+        `Can only validate floating point numbers as negative floating point numbers but got a: ${
+          ast.kind
+        }`,
+      );
     }
 
     return processValue(ast.value, VALIDATIONS.NegativeFloat);

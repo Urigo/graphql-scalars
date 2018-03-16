@@ -73,13 +73,17 @@ function _validateFloat(value) {
 function processValue(value, validation) {
   const { range, type } = validation;
 
-  if (value === null
-      || typeof value === 'undefined'
-      || isNaN(value)
-      || Number.isNaN(value)
-      || value === Number.NaN) {
+  /* eslint-disable no-restricted-globals */
+  if (
+    value === null ||
+    typeof value === 'undefined' ||
+    isNaN(value) ||
+    Number.isNaN(value) ||
+    value === Number.NaN
+  ) {
     throw new TypeError(`Value is not a number: ${value}`);
   }
+  /* eslint-enable */
 
   let parsedValue;
 
@@ -95,14 +99,20 @@ function processValue(value, validation) {
       break;
 
     default:
-      // no -op, return undefined
+    // no -op, return undefined
   }
 
-  if ((range === VALUE_RANGES.NEGATIVE && !(parsedValue < 0))
-      || (range === VALUE_RANGES.NON_NEGATIVE && !(parsedValue >= 0))
-      || (range === VALUE_RANGES.POSITIVE && !(parsedValue > 0))
-      || (range === VALUE_RANGES.NON_POSITIVE && !(parsedValue <= 0))) {
-    throw new TypeError(`Value is not a ${VALUE_RANGES[range].toLowerCase().replace('_', '-')} number: ${value}`);
+  if (
+    (range === VALUE_RANGES.NEGATIVE && !(parsedValue < 0)) ||
+    (range === VALUE_RANGES.NON_NEGATIVE && !(parsedValue >= 0)) ||
+    (range === VALUE_RANGES.POSITIVE && !(parsedValue > 0)) ||
+    (range === VALUE_RANGES.NON_POSITIVE && !(parsedValue <= 0))
+  ) {
+    throw new TypeError(
+      `Value is not a ${VALUE_RANGES[range]
+        .toLowerCase()
+        .replace('_', '-')} number: ${value}`,
+    );
   }
 
   return parsedValue;

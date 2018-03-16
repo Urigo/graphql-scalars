@@ -10,7 +10,7 @@ import NegativeFloat from './NegativeFloat';
 import EmailAddress from './EmailAddress';
 import URL from './URL';
 
-export {  // named
+export {
   DateTime,
   NonPositiveInt,
   PositiveInt,
@@ -24,7 +24,8 @@ export {  // named
   URL,
 };
 
-export default {  // as part of a default object
+export default {
+  // as part of a default object
   DateTime,
   PositiveInt,
   NonNegativeInt,
