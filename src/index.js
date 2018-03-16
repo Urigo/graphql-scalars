@@ -9,6 +9,7 @@ import NonNegativeFloat from './NonNegativeFloat';
 import NegativeFloat from './NegativeFloat';
 import EmailAddress from './EmailAddress';
 import URL from './URL';
+import PhoneNumber from './PhoneNumber';
 
 export {
   DateTime,
@@ -22,6 +23,7 @@ export {
   NegativeFloat,
   EmailAddress,
   URL,
+  PhoneNumber,
 };
 
 export default {
@@ -35,4 +37,5 @@ export default {
   NegativeFloat,
   EmailAddress,
   URL,
+  PhoneNumber,
 };
