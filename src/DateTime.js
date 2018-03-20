@@ -5,7 +5,7 @@ import { Kind } from 'graphql/language';
 export default new GraphQLScalarType({
   name: 'DateTime',
 
-  description: 'Use JavaScript Date object for date/tiem fields.',
+  description: 'Use JavaScript Date object for date/time fields.',
 
   serialize(value) {
     if (!(value instanceof Date)) {
