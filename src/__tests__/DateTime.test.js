@@ -18,22 +18,36 @@ describe('DateTime', () => {
 
     test('parseLiteral', () => {
       const result = new Date(Date.UTC(2017, 0, 2, 3, 4, 5, 0));
-      expect(DateTime.parseLiteral({ value: '2017-01-02T03:04:05.000Z', kind: Kind.STRING })).toEqual(result);
+      expect(
+        DateTime.parseLiteral({
+          value: '2017-01-02T03:04:05.000Z',
+          kind: Kind.STRING,
+        }),
+      ).toEqual(result);
     });
   });
 
   describe('invalid', () => {
     describe('not a valid date', () => {
       test('serialize', () => {
-        expect(() => DateTime.serialize('this is not a date')).toThrow(/Value is not an instance of Date/);
+        expect(() => DateTime.serialize('this is not a date')).toThrow(
+          /Value is not an instance of Date/,
+        );
       });
 
       test('parseValue', () => {
-        expect(() => DateTime.parseValue('this is not a date')).toThrow(/Value is not a valid Date/);
+        expect(() => DateTime.parseValue('this is not a date')).toThrow(
+          /Value is not a valid Date/,
+        );
       });
 
       test('parseLiteral', () => {
-        expect(() => DateTime.parseLiteral({ value: 'this is not a date', kind: Kind.STRING })).toThrow(/Value is not a valid Date/);
+        expect(() =>
+          DateTime.parseLiteral({
+            value: 'this is not a date',
+            kind: Kind.STRING,
+          }),
+        ).toThrow(/Value is not a valid Date/);
       });
     });
   });

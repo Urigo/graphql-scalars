@@ -1,6 +1,6 @@
 {
   "name": "@okgrow/graphql-scalars",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
     "type": "git",
@@ -11,6 +11,11 @@
     "roots": [
       "src"
     ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 80
   },
   "scripts": {
     "prepublish": ". ./scripts/prepublish.sh",
@@ -23,19 +28,19 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.2.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "eslint": "^3.18.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.0",
-    "eslint-plugin-react": "^6.10.3",
-    "graphql": "^0.10.1",
-    "jest": "^20.0.4",
-    "nodemon": "1.11.x"
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "graphql": "^0.13.1",
+    "jest": "^22.4.2",
+    "nodemon": "^1.17.2"
   },
   "peerDependencies": {
-    "graphql": "^0.10.1"
+    "graphql": "^0.13.1"
   }
 }

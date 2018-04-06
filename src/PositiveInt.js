@@ -19,7 +19,11 @@ export default new GraphQLScalarType({
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.INT) {
-      throw new GraphQLError(`Can only validate integers as positive integers but got a: ${ast.kind}`);  // eslint-disable-line max-len
+      throw new GraphQLError(
+        `Can only validate integers as positive integers but got a: ${
+          ast.kind
+        }`,
+      );
     }
 
     return processValue(ast.value, VALIDATIONS.PositiveInt);

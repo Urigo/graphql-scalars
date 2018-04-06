@@ -9,8 +9,10 @@ import NonNegativeFloat from './NonNegativeFloat';
 import NegativeFloat from './NegativeFloat';
 import EmailAddress from './EmailAddress';
 import URL from './URL';
+import PhoneNumber from './PhoneNumber';
+import PostalCode from './PostalCode';
 
-export {  // named
+export {
   DateTime,
   NonPositiveInt,
   PositiveInt,
@@ -22,9 +24,12 @@ export {  // named
   NegativeFloat,
   EmailAddress,
   URL,
+  PhoneNumber,
+  PostalCode,
 };
 
-export default {  // as part of a default object
+export default {
+  // as part of a default object
   DateTime,
   PositiveInt,
   NonNegativeInt,
@@ -34,4 +39,6 @@ export default {  // as part of a default object
   NegativeFloat,
   EmailAddress,
   URL,
+  PhoneNumber,
+  PostalCode,
 };

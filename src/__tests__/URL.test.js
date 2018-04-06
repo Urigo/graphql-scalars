@@ -15,22 +15,30 @@ describe('URL', () => {
     });
 
     test('parseLiteral', () => {
-      expect(URL.parseLiteral({ value: 'https://test.com', kind: Kind.STRING })).toBe('https://test.com');
+      expect(
+        URL.parseLiteral({ value: 'https://test.com', kind: Kind.STRING }),
+      ).toBe('https://test.com');
     });
   });
 
   describe('invalid', () => {
     describe('not a URL', () => {
       test('serialize', () => {
-        expect(() => URL.serialize('this is not a URL')).toThrow(/Value is not a valid URL/);
+        expect(() => URL.serialize('this is not a URL')).toThrow(
+          /Value is not a valid URL/,
+        );
       });
 
       test('parseValue', () => {
-        expect(() => URL.parseValue('this is not a URL')).toThrow(/Value is not a valid URL/);
+        expect(() => URL.parseValue('this is not a URL')).toThrow(
+          /Value is not a valid URL/,
+        );
       });
 
       test('parseLiteral', () => {
-        expect(() => URL.parseLiteral({ value: 'this is not a URL', kind: Kind.STRING })).toThrow(/Value is not a valid URL/);
+        expect(() =>
+          URL.parseLiteral({ value: 'this is not a URL', kind: Kind.STRING }),
+        ).toThrow(/Value is not a valid URL/);
       });
     });
 
@@ -44,7 +52,9 @@ describe('URL', () => {
       });
 
       test('parseLiteral', () => {
-        expect(() => URL.parseLiteral({ value: 123, kind: Kind.INT })).toThrow(/Can only validate strings as URLs but got a/);
+        expect(() => URL.parseLiteral({ value: 123, kind: Kind.INT })).toThrow(
+          /Can only validate strings as URLs but got a/,
+        );
       });
     });
   });

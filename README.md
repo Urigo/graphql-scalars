@@ -30,6 +30,9 @@ scalar NegativeFloat
 
 scalar EmailAddress
 scalar URL
+
+scalar PhoneNumber
+scalar PostalCode
 ```
 
 In your resolver map, first import them:
@@ -49,6 +52,9 @@ import {
 
   EmailAddress,
   URL,
+
+  PhoneNumber,
+  PostalCode,
 } from '@okgrow/graphql-scalars';
 ```
 
@@ -70,6 +76,9 @@ const myResolverMap = {
 
   EmailAddress,
   URL,
+
+  PhoneNumber,
+  PostalCode,
 
   Query: {
     // more stuff here
@@ -117,6 +126,9 @@ type Person {
 
   email: EmailAddress
   homePage: URL
+
+  phoneNumber: PhoneNumber
+  homePostalCode: PostalCode
 }
 
 ```
@@ -181,28 +193,45 @@ A field whose value conforms to the standard internet email address format as sp
 A field whose value conforms to the standard URL format as specified in
 [RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
 
-
-## Future
-We'd like to keep growing this package, within reason, to include the scalar types that are widely
-required when defining GraphQL schemas. We welcome both suggestions and pull requests. A couple of
-ideas we're considering are:
-
-- PhoneNumber
-- PostalCode
-- BLOB
-
-These all have challenges in terms of making them globally useful so they need a bit of thought.
-
-For `PhoneNumber` we can probably just use the [E.164 specification](https://en.wikipedia.org/wiki/E.164)
-which is simply `+17895551234`. The very powerful
+### PhoneNumber
+A field whose value conforms to the standard E.164 format as specified in
+[E.164 specification](https://en.wikipedia.org/wiki/E.164). Basically this is `+17895551234`.
+The very powerful
 [`libphonenumber` library](https://github.com/googlei18n/libphonenumber) is available to take
 _that_ format, parse and display it in whatever display format you want. It can also be used to
 parse user input and _get_ the E.164 format to pass _into_ a schema.
 
-Postal codes are [a bit more involved](https://en.wikipedia.org/wiki/List_of_postal_codes). But,
-again, it's probably just a really long regex.
+### PostalCode
+We're going to start with a limited set as suggested [here] (http://www.pixelenvision.com/1708/zip-postal-code-validation-regex-php-code-for-12-countries/)
+and [here] (https://stackoverflow.com/questions/578406/what-is-the-ultimate-postal-code-and-zip-regex).
 
-BLOBs could be a base64-encoded object of some kind.
+Which gives us the following countries:
+
+- US - United States
+- UK - United Kingdom
+- DE - Germany
+- CA - Canada
+- FR - France
+- IT - Italy
+- AU - Australia
+- NL - Netherlands
+- ES - Spain
+- DK - Denmark
+- SE - Sweden
+- BE - Belgium
+- IN - India
+
+This is really a practical decision of weight (of the package) vs. completeness.
+
+In the future we might expand this list and use the more comprehensive list found [here] (http://unicode.org/cldr/trac/browser/tags/release-26-0-1/common/supplemental/postalCodeData.xml).
+
+
+## Future
+We'd like to keep growing this package, within reason, to include the scalar types that are widely
+required when defining GraphQL schemas. We welcome both suggestions and pull requests. One idea
+we're considering is:
+
+- BLOB, could be could be a base64-encoded object of some kind
 
 ## What's this all about?
 GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
