@@ -11,6 +11,7 @@ import EmailAddress from './EmailAddress';
 import URL from './URL';
 import PhoneNumber from './PhoneNumber';
 import PostalCode from './PostalCode';
+import RegularExpression from './RegularExpression';
 
 export {
   DateTime,
@@ -26,6 +27,7 @@ export {
   URL,
   PhoneNumber,
   PostalCode,
+  RegularExpression,
 };
 
 export default {
@@ -41,4 +43,5 @@ export default {
   URL,
   PhoneNumber,
   PostalCode,
+  RegularExpression,
 };
