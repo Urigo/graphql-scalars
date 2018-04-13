@@ -2,7 +2,7 @@ import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
 
-function X(name, regex) {
+function RegularExpression(name, regex) {
   const REGEX = new RegExp(regex);
 
   return new GraphQLScalarType({
@@ -16,7 +16,9 @@ function X(name, regex) {
       }
 
       if (!REGEX.test(value)) {
-        throw new TypeError(`Value does not match the regular expression ${regex}: ${value}`);
+        throw new TypeError(
+          `Value does not match the regular expression ${regex}: ${value}`,
+        );
       }
 
       return value;
@@ -28,7 +30,9 @@ function X(name, regex) {
       }
 
       if (!REGEX.test(value)) {
-        throw new TypeError(`Value does not match the regular expression ${regex}: ${value}`);
+        throw new TypeError(
+          `Value does not match the regular expression ${regex}: ${value}`,
+        );
       }
 
       return value;
@@ -44,7 +48,9 @@ function X(name, regex) {
       }
 
       if (!REGEX.test(ast.value)) {
-        throw new TypeError(`Value does not match the regular expression ${regex}: ${ast.value}`);
+        throw new TypeError(
+          `Value does not match the regular expression ${regex}: ${ast.value}`,
+        );
       }
 
       return ast.value;
@@ -52,4 +58,4 @@ function X(name, regex) {
   });
 }
 
-export default X;
+export default RegularExpression;
