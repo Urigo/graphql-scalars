@@ -7,13 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.4.0] - 2018-05-04
 
-### Changed
-
-* TODO
-
 ### Added
 
-* RegularExpression scalar type _generator_
+* `RegularExpression` scalar type _generator_
+* `UnsignedInt` alias for `NonNegativeInt`
+* `UnsignedFloat` alias for `NonNegativeFloat`
+* `yarn.lock`
 
 ## [0.3.0] - 2018-04-06
 
