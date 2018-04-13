@@ -105,6 +105,9 @@ const myResolverMap = {
 };
 ```
 
+NOTE: `NonNegativeFloat` and `NonNegativeInt` are also available under the aliases `UnsignedFloat`
+and `UnsignedInt`, respectively.
+
 Alternatively, use the default import and ES6's spread operator syntax:
 
 ```js
