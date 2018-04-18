@@ -327,14 +327,6 @@ A `GraphQLScalarType` object generator that takes two arguments:
 const MyRegexType = new RegexType('MyRegexType', /^ABC$/);
 ```
 
-## Future
-
-We'd like to keep growing this package, within reason, to include the scalar types that are widely
-required when defining GraphQL schemas. We welcome both suggestions and pull requests. One idea
-we're considering is:
-
-* BLOB, could be could be a base64-encoded object of some kind
-
 ## What's this all about?
 
 GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
