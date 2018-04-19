@@ -184,13 +184,17 @@ const MyScalar = new GraphQLScalarType({
 ```
 
 Given this, if we want to create a new type that is essentially the same except for one little
-customizable aspect (e.g., a regular expression type that has ll the same code except the regex is
+customizable aspect (e.g., a regular expression type that has all the same code except the regex is
 different) then we need to dynamically _generate_ a new `GraphQLScalarType` object given some
 parameters. That's the approach we take here.
 
 Therefore the `RegularExpression` scalar type is really a `GraphQLScalarType` object _generator_
-that takes two arguments: a name and the regex you want it to use. So to create a new scalar for a
-given regex, you will do this:
+that takes two arguments:
+
+* a name
+* the regex you want it to use
+
+So to create a new scalar for a given regex, you will do this:
 
 ```
 const MyRegexType = new RegexType('MyRegexType', /^ABC$/);
