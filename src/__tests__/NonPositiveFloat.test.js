@@ -81,10 +81,11 @@ describe('NonPositiveFloat', () => {
         );
       });
 
-      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
-      // test('parseValue', () => {
-      //   expect(() => NonPositiveFloat.parseValue(null)).toThrow(/Value is not a number/);
-      // });
+      test('parseValue', () => {
+        expect(() => NonPositiveFloat.parseValue(null)).toThrow(
+          /Value is not a number/,
+        );
+      });
 
       test('parseLiteral', () => {
         expect(() =>
@@ -102,7 +103,9 @@ describe('NonPositiveFloat', () => {
 
       // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
       // test('parseValue', () => {
-      //   expect(() => NonPositiveFloat.parseValue(undefined)).toThrow(/Value is not a number/);
+      //   expect(() => NonPositiveFloat.parseValue(undefined)).toThrow(
+      //     /Value is not a number/,
+      //   );
       // });
 
       test('parseLiteral', () => {
@@ -211,7 +214,9 @@ describe('NonPositiveFloat', () => {
 
       // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
       // test('parseValue', () => {
-      //   expect(() => NonPositiveFloat.parseValue(Number.NaN)).toThrow(/Value is not a number/);
+      //   expect(() => NonPositiveFloat.parseValue(Number.NaN)).toThrow(
+      //     /Value is not a number/,
+      //   );
       // });
 
       test('parseLiteral', () => {

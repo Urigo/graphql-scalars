@@ -81,10 +81,11 @@ describe('NonPositiveInt', () => {
         );
       });
 
-      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
-      // test('parseValue', () => {
-      //   expect(() => NonPositiveInt.parseValue(null)).toThrow(/Value is not a number/);
-      // });
+      test('parseValue', () => {
+        expect(() => NonPositiveInt.parseValue(null)).toThrow(
+          /Value is not a number/,
+        );
+      });
 
       test('parseLiteral', () => {
         expect(() =>
@@ -102,7 +103,9 @@ describe('NonPositiveInt', () => {
 
       // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
       // test('parseValue', () => {
-      //   expect(() => NonPositiveInt.parseValue(undefined)).toThrow(/Value is not a number/);
+      //   expect(() => NonPositiveInt.parseValue(undefined)).toThrow(
+      //     /Value is not a number/,
+      //   );
       // });
 
       test('parseLiteral', () => {
@@ -119,7 +122,6 @@ describe('NonPositiveInt', () => {
         );
       });
 
-      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
       test('parseValue', () => {
         expect(() => NonPositiveInt.parseValue(2 ** 53)).toThrow(
           /Value is not a safe integer/,
@@ -232,7 +234,9 @@ describe('NonPositiveInt', () => {
 
       // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
       // test('parseValue', () => {
-      //   expect(() => NonPositiveInt.parseValue(Number.NaN)).toThrow(/Value is not a number/);
+      //   expect(() => NonPositiveInt.parseValue(Number.NaN)).toThrow(
+      //     /Value is not a number/,
+      //   );
       // });
 
       test('parseLiteral', () => {
