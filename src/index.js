@@ -11,21 +11,25 @@ import EmailAddress from './EmailAddress';
 import URL from './URL';
 import PhoneNumber from './PhoneNumber';
 import PostalCode from './PostalCode';
+import RegularExpression from './RegularExpression';
 
 export {
   DateTime,
   NonPositiveInt,
   PositiveInt,
   NonNegativeInt,
+  NonNegativeInt as UnsignedInt,
   NegativeInt,
   NonPositiveFloat,
   PositiveFloat,
   NonNegativeFloat,
+  NonNegativeFloat as UnsignedFloat,
   NegativeFloat,
   EmailAddress,
   URL,
   PhoneNumber,
   PostalCode,
+  RegularExpression,
 };
 
 export default {
@@ -33,12 +37,15 @@ export default {
   DateTime,
   PositiveInt,
   NonNegativeInt,
+  UnsignedInt: NonNegativeInt,
   NegativeInt,
   PositiveFloat,
   NonNegativeFloat,
+  UnsignedFloat: NonNegativeFloat,
   NegativeFloat,
   EmailAddress,
   URL,
   PhoneNumber,
   PostalCode,
+  RegularExpression,
 };
