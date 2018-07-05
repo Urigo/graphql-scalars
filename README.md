@@ -197,12 +197,12 @@ that takes two arguments:
 So to create a new scalar for a given regex, you will do this:
 
 ```
-const MyRegexType = new RegexType('MyRegexType', /^ABC$/);
+const MyRegexType = new RegularExpression('MyRegexType', /^ABC$/);
 ```
 
 Now `MyRegexType` is your new GraphQL scalar type that will enforce a value of, in this case, "ABC".
 
-Add your new scalar type to your esolver map:
+Add your new scalar type to your resolver map:
 
 ```
 export default {
@@ -328,7 +328,7 @@ A `GraphQLScalarType` object generator that takes two arguments:
 * `regex` - The regex to be used to check against any values for fields with this new type
 
 ```
-const MyRegexType = new RegexType('MyRegexType', /^ABC$/);
+const MyRegexType = new RegularExpression('MyRegexType', /^ABC$/);
 ```
 
 ## What's this all about?
