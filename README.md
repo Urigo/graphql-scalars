@@ -153,7 +153,7 @@ type Person {
 
 These scalars can be used just like the base, built-in ones.
 
-### Using the RegulareExpression scalar
+### Using the RegularExpression scalar
 
 First an explanation: To create a new scalar type to the GraphQL schema language, you must create an
 instance of a new `GraphQLScalarType` object that implements three general functions/methods:
