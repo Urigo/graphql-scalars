@@ -8,16 +8,26 @@ export default new GraphQLScalarType({
   description: 'Use JavaScript Date object for date/time fields.',
 
   serialize(value) {
-    if (!(value instanceof Date)) {
-      throw new TypeError(`Value is not an instance of Date: ${value}`);
+    let v = value;
+
+    if (!(v instanceof Date) && typeof v !== 'string') {
+      throw new TypeError(
+        `Value is not an instance of Date or Date string: ${v}`,
+      );
+    }
+
+    if (typeof v === 'string') {
+      v = new Date();
+
+      v.setTime(Date.parse(value));
     }
 
     // eslint-disable-next-line no-restricted-globals
-    if (isNaN(value.getTime())) {
-      throw new TypeError(`Value is not a valid Date: ${value}`);
+    if (isNaN(v.getTime())) {
+      throw new TypeError(`Value is not a valid Date: ${v}`);
     }
 
-    return value.toJSON();
+    return v.toJSON();
   },
 
   parseValue(value) {
