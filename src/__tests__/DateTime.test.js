@@ -11,6 +11,16 @@ describe('DateTime', () => {
       expect(DateTime.serialize(now)).toEqual(now.toJSON());
     });
 
+    test('serialize (String)', () => {
+      const now = '2018-07-24T01:28:47.940Z';
+      const d1 = Date.parse(now);
+      const d2 = new Date();
+
+      d2.setTime(d1);
+
+      expect(DateTime.serialize(now)).toEqual(d2.toJSON());
+    });
+
     test('parseValue', () => {
       const now = new Date();
       expect(DateTime.parseValue(now)).toEqual(now);
@@ -31,7 +41,7 @@ describe('DateTime', () => {
     describe('not a valid date', () => {
       test('serialize', () => {
         expect(() => DateTime.serialize('this is not a date')).toThrow(
-          /Value is not an instance of Date/,
+          /Value is not a valid Date/,
         );
       });
 
