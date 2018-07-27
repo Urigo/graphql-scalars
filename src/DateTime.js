@@ -23,7 +23,7 @@ export default new GraphQLScalarType({
     }
 
     // eslint-disable-next-line no-restricted-globals
-    if (isNaN(v.getTime())) {
+    if (Number.isNaN(v.getTime())) {
       throw new TypeError(`Value is not a valid Date: ${v}`);
     }
 
@@ -34,7 +34,7 @@ export default new GraphQLScalarType({
     const date = new Date(value);
 
     // eslint-disable-next-line no-restricted-globals
-    if (isNaN(date.getTime())) {
+    if (Number.isNaN(date.getTime())) {
       throw new TypeError(`Value is not a valid Date: ${value}`);
     }
 
@@ -51,7 +51,7 @@ export default new GraphQLScalarType({
     const result = new Date(ast.value);
 
     // eslint-disable-next-line no-restricted-globals
-    if (isNaN(result.getTime())) {
+    if (Number.isNaN(result.getTime())) {
       throw new GraphQLError(`Value is not a valid Date: ${ast.value}`);
     }
 
