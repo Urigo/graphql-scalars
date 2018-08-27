@@ -28,29 +28,35 @@ In your schema:
 ```graphql
 scalar DateTime
 
-scalar NonPositiveInt
-
-scalar PositiveInt
-
-scalar NonNegativeInt
-
-scalar NegativeInt
-
-scalar NonPositiveFloat
-
-scalar PositiveFloat
-
-scalar NonNegativeFloat
+scalar EmailAddress
 
 scalar NegativeFloat
 
-scalar EmailAddress
+scalar NegativeInt
 
-scalar URL
+scalar NonNegativeFloat
+
+scalar NonNegativeInt
+
+scalar NonPositiveFloat
+
+scalar NonPositiveInt
 
 scalar PhoneNumber
 
+scalar PositiveFloat
+
+scalar PositiveInt
+
 scalar PostalCode
+
+scalar RegularExpression
+
+scalar UnsignedFloat
+
+scalar UnsignedInt
+
+scalar URL
 ```
 
 In your resolver map, first import them:
@@ -152,6 +158,40 @@ type Person {
 ```
 
 These scalars can be used just like the base, built-in ones.
+
+### Usage with Apollo Server
+
+```javascript
+import { ApolloServer } from "apollo-server"
+import { makeExecutableSchema } from "graphql-tools"
+// import all scalars and resolvers
+import OKGGraphQLScalars, { OKGScalarDefinitions } from "@okgrow/graphql-scalars"
+// Alternatively, import individual scalars and resolvers
+// import { DateTime, DateTimeScalar, ... } from "@okgrow/graphql-scalars"
+
+const server = new ApolloServer({
+  schema: makeExecutableSchema({
+    typeDefs: [
+      // use spread syntax to add scalar definitions to your schema
+      ...OKGScalarDefinitions,
+      // DateTimeScalar,
+      // ...
+      // ... other type definitions ...
+    ],
+    resolvers: {
+      // use spread syntax to add scalar resolvers to your resolver map
+      ...OKGGraphQLScalars,
+      // DateTime,
+      // ...
+      // ... remainder of resolver map ...
+    }
+  })
+})
+
+server.listen().then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
+});
+```
 
 ### Using the RegularExpression scalar
 
