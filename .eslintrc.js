@@ -1,6 +1,7 @@
 module.exports = {
   extends: 'airbnb',
   rules: {
+    "linebreak-style": 'off', // Airbnb specifies Unix style line endings, turn this off for Windows users
     'function-paren-newline': 'off',
     'import/extensions': ['off', 'never'], // https://github.com/benmosher/eslint-plugin-import/issues/593
     'import/named': 'error', // Ensure named imports correspond to a named export in the remote file

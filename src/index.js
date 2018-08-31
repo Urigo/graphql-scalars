@@ -12,8 +12,29 @@ import URL from './URL';
 import PhoneNumber from './PhoneNumber';
 import PostalCode from './PostalCode';
 import RegularExpression from './RegularExpression';
+import {
+  DateTimeScalar,
+  EmailAddressScalar,
+  NegativeFloatScalar,
+  NegativeIntScalar,
+  NonNegativeFloatScalar,
+  NonNegativeIntScalar,
+  NonPositiveFloatScalar,
+  NonPositiveIntScalar,
+  PhoneNumberScalar,
+  PositiveFloatScalar,
+  PositiveIntScalar,
+  PostalCodeScalar,
+  RegularExpressionScalar,
+  UnsignedFloatScalar,
+  UnsignedIntScalar,
+  URLScalar,
+} from './scalars';
+
+export { default as OKGScalarDefinitions } from './scalars';
 
 export {
+  // Resolvers
   DateTime,
   NonPositiveInt,
   PositiveInt,
@@ -30,6 +51,23 @@ export {
   PhoneNumber,
   PostalCode,
   RegularExpression,
+  // Scalars
+  DateTimeScalar,
+  EmailAddressScalar,
+  NegativeFloatScalar,
+  NegativeIntScalar,
+  NonNegativeFloatScalar,
+  NonNegativeIntScalar,
+  NonPositiveFloatScalar,
+  NonPositiveIntScalar,
+  PhoneNumberScalar,
+  PositiveFloatScalar,
+  PositiveIntScalar,
+  PostalCodeScalar,
+  RegularExpressionScalar,
+  UnsignedFloatScalar,
+  UnsignedIntScalar,
+  URLScalar,
 };
 
 export default {
