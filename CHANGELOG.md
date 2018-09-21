@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- `URL` - Now supports localhost (e.g., `http://localhost` or `http://localhost:3000`)
+- `URL` - Now supports localhost (e.g., `http://localhost` or `http://localhost:3000`) and more
+  set of URLs (Credit: [@igtm](https://github.com/igtm))
 - Updated .eslintrc.js with new rule for linebreak-style to override the Airbnb defaults. On Windows
   systems the default line break style is CRLF, which previously would cause linting errors when
   developing on Windows. If Unix style line endings are necessary, those can be fixed via a script
