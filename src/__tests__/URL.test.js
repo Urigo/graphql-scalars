@@ -44,6 +44,9 @@ const SHOULD_MATCH = [
   'http://a.b-c.de',
   'http://223.255.255.254',
   'http://localhost:8080',
+  'http://localhost:3000',
+  'http://127.0.0.1/',
+  'http://127.0.0.1:8080/',
 ];
 
 const SHOULD_NOT_MATCH = [
@@ -86,10 +89,10 @@ const SHOULD_NOT_MATCH = [
   'http://10.1.1.1',
 ];
 
-
 describe('URL', () => {
   describe('valid', () => {
-    SHOULD_MATCH.forEach((url) => {
+    // eslint-disable-next-line
+    SHOULD_MATCH.forEach(url => {
       test(`serialize ${url}`, () => {
         expect(URL.serialize(url)).toBe(url);
       });
@@ -97,9 +100,7 @@ describe('URL', () => {
         expect(URL.parseValue(url)).toBe(url);
       });
       test(`parseLiteral ${url}`, () => {
-        expect(
-          URL.parseLiteral({ value: url, kind: Kind.STRING }),
-        ).toBe(url);
+        expect(URL.parseLiteral({ value: url, kind: Kind.STRING })).toBe(url);
       });
     });
   });
@@ -140,87 +141,18 @@ describe('URL', () => {
     });
   });
 
-  describe('valid - 0.0.0.0', () => {
-    test('serialize', () => {
-      expect(URL.serialize('http://0.0.0.0')).toBe('http://0.0.0.0');
-    });
-
-    test('parseValue', () => {
-      expect(URL.parseValue('http://0.0.0.0')).toBe('http://0.0.0.0');
-    });
-
-    test('parseLiteral', () => {
-      expect(
-        URL.parseLiteral({ value: 'http://0.0.0.0', kind: Kind.STRING }),
-      ).toBe('http://0.0.0.0');
-    });
-  });
-
-  describe('valid - 0.0.0.0 with port', () => {
-    test('serialize', () => {
-      expect(URL.serialize('http://0.0.0.0:3000')).toBe('http://0.0.0.0:3000');
-    });
-
-    test('parseValue', () => {
-      expect(URL.parseValue('http://0.0.0.0:3000')).toBe('http://0.0.0.0:3000');
-    });
-
-    test('parseLiteral', () => {
-      expect(
-        URL.parseLiteral({ value: 'http://0.0.0.0:3000', kind: Kind.STRING }),
-      ).toBe('http://0.0.0.0:3000');
-    });
-  });
-
-  describe('valid - 127.0.0.1', () => {
-    test('serialize', () => {
-      expect(URL.serialize('http://127.0.0.1')).toBe('http://127.0.0.1');
-    });
-
-    test('parseValue', () => {
-      expect(URL.parseValue('http://127.0.0.1')).toBe('http://127.0.0.1');
-    });
-
-    test('parseLiteral', () => {
-      expect(
-        URL.parseLiteral({ value: 'http://127.0.0.1', kind: Kind.STRING }),
-      ).toBe('http://127.0.0.1');
-    });
-  });
-
-  describe('valid - 127.0.0.1 with port', () => {
-    test('serialize', () => {
-      expect(URL.serialize('http://127.0.0.1:3000')).toBe(
-        'http://127.0.0.1:3000',
-      );
-    });
-
-    test('parseValue', () => {
-      expect(URL.parseValue('http://127.0.0.1:3000')).toBe(
-        'http://127.0.0.1:3000',
-      );
-    });
-
-    test('parseLiteral', () => {
-      expect(
-        URL.parseLiteral({ value: 'http://127.0.0.1:3000', kind: Kind.STRING }),
-      ).toBe('http://127.0.0.1:3000');
-    });
-  });
-
   describe('invalid', () => {
     describe('not a URL', () => {
-      SHOULD_NOT_MATCH.forEach((url) => {
+      // eslint-disable-next-line
+      SHOULD_NOT_MATCH.forEach(url => {
         test(`serialize ${url}`, () => {
-          expect(() => URL.serialize(url)).toThrow(
-            /Value is not a valid URL/,
-          );
+          expect(() => URL.serialize(url)).toThrow(/Value is not a valid URL/);
         });
+
         test(`parseValue ${url}`, () => {
-          expect(() => URL.parseValue(url)).toThrow(
-            /Value is not a valid URL/,
-          );
+          expect(() => URL.parseValue(url)).toThrow(/Value is not a valid URL/);
         });
+
         test(`parseLiteral ${url}`, () => {
           expect(() =>
             URL.parseLiteral({ value: url, kind: Kind.STRING }),
