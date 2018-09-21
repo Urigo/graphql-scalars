@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.2] - 2018-09-??
+
+### Changed
+
+- `URL` - Now supports localhost (e.g., `http://localhost` or `http://localhost:3000`) and more
+  set of URLs (Credit: [@igtm](https://github.com/igtm))
+- Updated .eslintrc.js with new rule for linebreak-style to override the Airbnb defaults. On Windows
+  systems the default line break style is CRLF, which previously would cause linting errors when
+  developing on Windows. If Unix style line endings are necessary, those can be fixed via a script
+  on commit. Please see https://eslint.org/docs/rules/linebreak-style for more info.
+  (Credit: [@Saeris](https://github.com/Saeris))
+
+### Added
+
+- Added `./src/scalars.js` which defines and exports GraphQL scalar definitions as strings, both
+  individually and as an array. (Credit: [@Saeris](https://github.com/Saeris))
+- `./src/index.js` now exports the scalar definitions both individually and the array of scalar
+  definitions as `OKGScalarDefinitions`. (Credit: [@Saeris](https://github.com/Saeris))
+- Added new usage documentation for Apollo Server to the README. Updated the list of scalars to
+  include `RegularExpression`, `UnsignedInt` and `UnsignedFloat`.
+  (Credit: [@Saeris](https://github.com/Saeris))
+
 ## [0.4.1] - 2018-07-27
 
 ### Changed
