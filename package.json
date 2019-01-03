@@ -36,11 +36,11 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "graphql": "^0.13.1",
+    "graphql": ">=0.13.1 < 15",
     "jest": "^22.4.2",
     "nodemon": "^1.17.2"
   },
   "peerDependencies": {
-    "graphql": "^0.13.1"
+    "graphql": ">=0.13.1 < 15"
   }
 }
