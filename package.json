@@ -28,19 +28,19 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
-    "babel-eslint": "^8.2.2",
+    "babel-eslint": "^10.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "eslint": "^4.18.2",
+    "eslint": "^5.12.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "graphql": "^0.13.1",
-    "jest": "^22.4.2",
+    "graphql": "^14.1.0",
+    "jest": "^23.6.0",
     "nodemon": "^1.17.2"
   },
   "peerDependencies": {
-    "graphql": "^0.13.1"
+    "graphql": "^14.1.0"
   }
 }
