@@ -61,7 +61,7 @@ scalar URL
 
 In your resolver map, first import them:
 
-```js
+```javascript
 import {
   DateTime,
   NonPositiveInt,
@@ -81,7 +81,7 @@ import {
 
 Then make sure they're in the root resolver map like this:
 
-```js
+```javascript
 const myResolverMap = {
   DateTime,
 
@@ -116,13 +116,13 @@ and `UnsignedInt`, respectively.
 
 Alternatively, use the default import and ES6's spread operator syntax:
 
-```js
+```javascript
 import OKGGraphQLScalars from '@okgrow/graphql-scalars';
 ```
 
 Then make sure they're in the root resolver map like this:
 
-```js
+```javascript
 const myResolverMap = {
   ...OKGGraphQLScalars,
 
@@ -162,10 +162,12 @@ These scalars can be used just like the base, built-in ones.
 ### Usage with Apollo Server
 
 ```javascript
-import { ApolloServer } from "apollo-server"
-import { makeExecutableSchema } from "graphql-tools"
+import { ApolloServer } from 'apollo-server';
+import { makeExecutableSchema } from 'graphql-tools';
 // import all scalars and resolvers
-import OKGGraphQLScalars, { OKGScalarDefinitions } from "@okgrow/graphql-scalars"
+import OKGGraphQLScalars, {
+  OKGScalarDefinitions,
+} from '@okgrow/graphql-scalars';
 // Alternatively, import individual scalars and resolvers
 // import { DateTime, DateTimeScalar, ... } from "@okgrow/graphql-scalars"
 
@@ -184,9 +186,9 @@ const server = new ApolloServer({
       // DateTime,
       // ...
       // ... remainder of resolver map ...
-    }
-  })
-})
+    },
+  }),
+});
 
 server.listen().then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
@@ -200,7 +202,7 @@ instance of a new `GraphQLScalarType` object that implements three general funct
 `serialize`, `parseValue` and `parseLiteral` which are used at different stages of processing your
 GraphQL types during queries and mutations. So creating a new scalar looks like this:
 
-```
+```javascript
 const MyScalar = new GraphQLScalarType({
     'MyScalar',
 
@@ -231,12 +233,12 @@ parameters. That's the approach we take here.
 Therefore the `RegularExpression` scalar type is really a `GraphQLScalarType` object _generator_
 that takes two arguments:
 
-* a name
-* the regex you want it to use
+- a name
+- the regex you want it to use
 
 So to create a new scalar for a given regex, you will do this:
 
-```
+```javascript
 const MyRegexType = new RegularExpression('MyRegexType', /^ABC$/);
 ```
 
@@ -244,7 +246,7 @@ Now `MyRegexType` is your new GraphQL scalar type that will enforce a value of, 
 
 Add your new scalar type to your resolver map:
 
-```
+```javascript
 export default {
   MyRegexType,
 };
@@ -252,11 +254,28 @@ export default {
 
 And to your schema:
 
-```
+```graphql
 scalar MyRegexType
 ```
 
 That's it. Now you can use `MyRegexType` as a type in the rest of your schema.
+
+#### RegularExpression options
+
+There is an optional third `options` argument to the RegularExpression constructor that can be used like this:
+
+```javascript
+const options = {
+  errorMessage: (regex, value) => {
+    if (process.env.NODE_ENV === 'production')
+      return `Value is invalid format: ${value} `;
+    else
+      return `Value does not match the regular expression ${regex}: ${value}`;
+  },
+};
+
+const MyRegexType = new RegularExpression('MyRegexType', /^ABC$/, options);
+```
 
 ## Why?
 
@@ -342,19 +361,19 @@ and [here](https://stackoverflow.com/questions/578406/what-is-the-ultimate-posta
 
 Which gives us the following countries:
 
-* US - United States
-* UK - United Kingdom
-* DE - Germany
-* CA - Canada
-* FR - France
-* IT - Italy
-* AU - Australia
-* NL - Netherlands
-* ES - Spain
-* DK - Denmark
-* SE - Sweden
-* BE - Belgium
-* IN - India
+- US - United States
+- UK - United Kingdom
+- DE - Germany
+- CA - Canada
+- FR - France
+- IT - Italy
+- AU - Australia
+- NL - Netherlands
+- ES - Spain
+- DK - Denmark
+- SE - Sweden
+- BE - Belgium
+- IN - India
 
 This is really a practical decision of weight (of the package) vs. completeness.
 
@@ -364,8 +383,8 @@ In the future we might expand this list and use the more comprehensive list foun
 
 A `GraphQLScalarType` object generator that takes two arguments:
 
-* `name` - The name of your custom type
-* `regex` - The regex to be used to check against any values for fields with this new type
+- `name` - The name of your custom type
+- `regex` - The regex to be used to check against any values for fields with this new type
 
 ```
 const MyRegexType = new RegularExpression('MyRegexType', /^ABC$/);

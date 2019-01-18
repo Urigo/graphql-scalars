@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Updated Airbnb eslint rules but disabled a couple and fixed issues for one rule
 - Add yarn.lock
 
+### Added
+
+- A new options argument for the RegularExpression scalar
+
 ## [0.4.2] - 2018-09-21
 
 ### Changed
