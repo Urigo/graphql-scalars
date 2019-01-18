@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { PhoneNumber } from '../';
+import { PhoneNumber } from '..';
 
 describe('PhoneNumber', () => {
   describe('valid', () => {
