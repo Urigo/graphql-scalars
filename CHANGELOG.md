@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.4.2] - 2018-09-??
+## [0.4.3] - 2019-01-18
+
+### Changed
+
+- Updated packages and dependencies
+- Updated Airbnb eslint rules but disabled a couple and fixed issues for one rule
+- Add yarn.lock
+
+## [0.4.2] - 2018-09-21
 
 ### Changed
 
