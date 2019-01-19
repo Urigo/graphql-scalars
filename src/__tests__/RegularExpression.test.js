@@ -1,8 +1,8 @@
-/* global describe, test, expect */
+/* global jest, describe, test, expect */
 
 import { Kind } from 'graphql/language';
 
-import { RegularExpression } from '../';
+import { RegularExpression } from '..';
 
 describe('RegularExpression', () => {
   const Abc = RegularExpression('Abc', /^abc$/);
@@ -17,9 +17,7 @@ describe('RegularExpression', () => {
     });
 
     test('parseLiteral', () => {
-      expect(
-        Abc.parseLiteral({ value: 'abc', kind: Kind.STRING }),
-      ).toBe('abc');
+      expect(Abc.parseLiteral({ value: 'abc', kind: Kind.STRING })).toBe('abc');
     });
   });
 
@@ -41,6 +39,56 @@ describe('RegularExpression', () => {
         expect(() =>
           Abc.parseLiteral({ value: 'this does not match', kind: Kind.STRING }),
         ).toThrow(/Value does not match the regular expression/);
+      });
+    });
+
+    describe('does not match (w/options)', () => {
+      const errorMessageFn = (regex, value) =>
+        `This is a custom error message ${regex}: ${value}`;
+
+      test('serialize', () => {
+        const errorMessage = jest.fn(errorMessageFn);
+        const AbcWithOptions = RegularExpression('Abc', /^abc$/, {
+          errorMessage,
+        });
+
+        expect(() => AbcWithOptions.serialize('this does not match')).toThrow(
+          /This is a custom error message/,
+        );
+        expect(errorMessage.mock.calls.length).toBe(1);
+        expect(errorMessage.mock.calls[0][0]).toEqual(/^abc$/);
+        expect(errorMessage.mock.calls[0][1]).toEqual('this does not match');
+      });
+
+      test('parseValue', () => {
+        const errorMessage = jest.fn(errorMessageFn);
+        const AbcWithOptions = RegularExpression('Abc', /^abc$/, {
+          errorMessage,
+        });
+
+        expect(() => AbcWithOptions.parseValue('this does not match')).toThrow(
+          /This is a custom error message/,
+        );
+        expect(errorMessage.mock.calls.length).toBe(1);
+        expect(errorMessage.mock.calls[0][0]).toEqual(/^abc$/);
+        expect(errorMessage.mock.calls[0][1]).toEqual('this does not match');
+      });
+
+      test('parseLiteral', () => {
+        const errorMessage = jest.fn(errorMessageFn);
+        const AbcWithOptions = RegularExpression('Abc', /^abc$/, {
+          errorMessage,
+        });
+
+        expect(() =>
+          AbcWithOptions.parseLiteral({
+            value: 'this does not match',
+            kind: Kind.STRING,
+          }),
+        ).toThrow(/This is a custom error message/);
+        expect(errorMessage.mock.calls.length).toBe(1);
+        expect(errorMessage.mock.calls[0][0]).toEqual(/^abc$/);
+        expect(errorMessage.mock.calls[0][1]).toEqual('this does not match');
       });
     });
 
