@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/okgrow/graphql-scalars.git"
   },
+  "typings": "graphql-scalars.d.ts",
   "license": "MIT",
   "jest": {
     "roots": [
@@ -18,7 +19,7 @@
     "printWidth": 80
   },
   "scripts": {
-    "prepublish": ". ./scripts/prepublish.sh",
+    "prepublishOnly": ". ./scripts/prepublish.sh",
     "lint": "eslint ./src",
     "lintfix": "eslint ./src --fix",
     "test-only": "jest",
@@ -27,18 +28,18 @@
     "start": "babel src -d dist --watch"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.0",
-    "babel-eslint": "^10.0.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^5.12.0",
+    "@babel/cli": "^7.2.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "eslint": "^5.12.1",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "graphql": ">=0.13.1",
-    "jest": "^23.6.0",
-    "nodemon": "^1.17.2"
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.4",
+    "graphql": "^14.1.1",
+    "jest": "^24.0.0",
+    "nodemon": "^1.18.9"
   },
   "peerDependencies": {
     "graphql": ">=0.13.1"
