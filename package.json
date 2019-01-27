@@ -19,7 +19,8 @@
     "printWidth": 80
   },
   "scripts": {
-    "prepublishOnly": ". ./scripts/prepublish.sh",
+    "prepublishOnly": "npm run build",
+    "build": "babel src --ignore '**/__tests__' --out-dir ./dist",
     "lint": "eslint ./src",
     "lintfix": "eslint ./src --fix",
     "test-only": "jest",
@@ -31,7 +32,6 @@
     "@babel/cli": "^7.2.3",
     "@babel/preset-env": "^7.3.1",
     "babel-eslint": "^10.0.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "eslint": "^5.12.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.15.0",
