@@ -38,8 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.0",
     "eslint-plugin-react": "^7.12.4",
     "graphql": "^14.1.1",
-    "jest": "^24.0.0",
-    "nodemon": "^1.18.9"
+    "jest": "^24.0.0"
   },
   "peerDependencies": {
     "graphql": ">=0.13.1"
