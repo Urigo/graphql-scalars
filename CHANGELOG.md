@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.4] - 2019-02-08
+
+### Changed
+
+- Bump dependendencies (Credit: [@capaj](https://github.com/capaj))
+
+### Added
+
+- Added TypeScript type definitions (Credit: [@capaj](https://github.com/capaj))
+- Support numeric date format in DateTime (Credit: [@luvies](https://github.com/luvies))
+
 ## [0.4.3] - 2019-01-18
 
 ### Changed
