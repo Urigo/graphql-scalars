@@ -21,6 +21,12 @@ describe('DateTime', () => {
       expect(DateTime.serialize(now)).toEqual(d2.toJSON());
     });
 
+    test('serialize (number)', () => {
+      const now = new Date();
+
+      expect(DateTime.serialize(now.getTime())).toEqual(now.toJSON());
+    });
+
     test('parseValue', () => {
       const now = new Date();
       expect(DateTime.parseValue(now)).toEqual(now);
