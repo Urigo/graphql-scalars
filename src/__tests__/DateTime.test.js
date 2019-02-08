@@ -34,6 +34,13 @@ describe('DateTime', () => {
           kind: Kind.STRING,
         }),
       ).toEqual(result);
+
+      expect(
+        DateTime.parseLiteral({
+          value: result.getTime().toString(),
+          kind: Kind.INT,
+        }),
+      ).toEqual(result);
     });
   });
 
