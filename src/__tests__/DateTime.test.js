@@ -21,6 +21,12 @@ describe('DateTime', () => {
       expect(DateTime.serialize(now)).toEqual(d2.toJSON());
     });
 
+    test('serialize (number)', () => {
+      const now = new Date();
+
+      expect(DateTime.serialize(now.getTime())).toEqual(now.toJSON());
+    });
+
     test('parseValue', () => {
       const now = new Date();
       expect(DateTime.parseValue(now)).toEqual(now);
@@ -32,6 +38,13 @@ describe('DateTime', () => {
         DateTime.parseLiteral({
           value: '2017-01-02T03:04:05.000Z',
           kind: Kind.STRING,
+        }),
+      ).toEqual(result);
+
+      expect(
+        DateTime.parseLiteral({
+          value: result.getTime().toString(),
+          kind: Kind.INT,
         }),
       ).toEqual(result);
     });
