@@ -1,5 +1,8 @@
 import { GraphQLScalarType } from 'graphql';
 
+interface RegularExpressionOptions {
+  errorMessage: Function
+}
 declare namespace GraphqlScalars {
   declare const EmailAddress: GraphQLScalarType;
   declare const DateTime: GraphQLScalarType;
@@ -11,13 +14,12 @@ declare namespace GraphqlScalars {
   declare const PositiveFloat: GraphQLScalarType;
   declare const NonNegativeFloat: GraphQLScalarType;
   declare const NegativeFloat: GraphQLScalarType;
-  declare const EmailAddress: GraphQLScalarType;
   declare const URL: GraphQLScalarType;
   declare const PhoneNumber: GraphQLScalarType;
   declare const PostalCode: GraphQLScalarType;
 
   declare class RegularExpression extends GraphQLScalarType {
-    constructor(name: string, regex: RegExp);
+    constructor(name: string, regex: RegExp, options?: RegularExpressionOptions);
   }
 }
 
