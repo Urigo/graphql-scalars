@@ -1,24 +1,49 @@
 import { GraphQLScalarType } from 'graphql';
 
-declare namespace GraphqlScalars {
-  declare const EmailAddress: GraphQLScalarType;
-  declare const DateTime: GraphQLScalarType;
-  declare const NonPositiveInt: GraphQLScalarType;
-  declare const PositiveInt: GraphQLScalarType;
-  declare const NonNegativeInt: GraphQLScalarType;
-  declare const NegativeInt: GraphQLScalarType;
-  declare const NonPositiveFloat: GraphQLScalarType;
-  declare const PositiveFloat: GraphQLScalarType;
-  declare const NonNegativeFloat: GraphQLScalarType;
-  declare const NegativeFloat: GraphQLScalarType;
-  declare const EmailAddress: GraphQLScalarType;
-  declare const URL: GraphQLScalarType;
-  declare const PhoneNumber: GraphQLScalarType;
-  declare const PostalCode: GraphQLScalarType;
+interface RegularExpressionOptions {
+  errorMessage: Function;
+}
 
-  declare class RegularExpression extends GraphQLScalarType {
-    constructor(name: string, regex: RegExp);
+declare namespace GraphqlScalars {
+  const EmailAddress: GraphQLScalarType;
+  const DateTime: GraphQLScalarType;
+  const NonPositiveInt: GraphQLScalarType;
+  const PositiveInt: GraphQLScalarType;
+  const NonNegativeInt: GraphQLScalarType;
+  const NegativeInt: GraphQLScalarType;
+  const NonPositiveFloat: GraphQLScalarType;
+  const PositiveFloat: GraphQLScalarType;
+  const NonNegativeFloat: GraphQLScalarType;
+  const NegativeFloat: GraphQLScalarType;
+  const URL: GraphQLScalarType;
+  const PhoneNumber: GraphQLScalarType;
+  const PostalCode: GraphQLScalarType;
+
+  class RegularExpression extends GraphQLScalarType {
+    constructor(
+      name: string,
+      regex: RegExp,
+      options?: RegularExpressionOptions,
+    );
   }
+
+  const DateTimeScalar: string;
+  const NonPositiveIntScalar: string;
+  const PositiveIntScalar: string;
+  const NonNegativeIntScalar: string;
+  const UnsignedIntScalar: string;
+  const NegativeIntScalar: string;
+  const NonPositiveFloatScalar: string;
+  const PositiveFloatScalar: string;
+  const NonNegativeFloatScalar: string;
+  const UnsignedFloatScalar: string;
+  const NegativeFloatScalar: string;
+  const EmailAddressScalar: string;
+  const URLScalar: string;
+  const PhoneNumberScalar: string;
+  const PostalCodeScalar: string;
+  const RegularExpressionScalar: string;
+  const OKGScalarDefinitions: string[];
 }
 
 export = GraphqlScalars;
