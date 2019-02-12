@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.5] - 2019-02-12
+
+### Fixed
+
+- Fixed the TypeScript definitions in `graphql-scalars.d.ts` (Credit: [@capaj](https://github.com/capaj))
+
 ## [0.4.4] - 2019-02-08
 
 ### Changed
