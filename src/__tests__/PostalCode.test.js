@@ -269,7 +269,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(() => PostalCode.parseLiteral({ value: 123, kind: Kind.INT })).toThrow(
-          /Can only validate strings as phone numbers but got a/,
+          /Can only validate strings as postal codes but got a/,
         );
       });
     });
