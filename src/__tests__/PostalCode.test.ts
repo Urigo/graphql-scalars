@@ -18,7 +18,7 @@ describe('PostalCode', () => {
 
         test('parseLiteral', () => {
           expect(
-            PostalCode.parseLiteral({ value: '60031', kind: Kind.STRING }),
+            PostalCode.parseLiteral({ value: '60031', kind: Kind.STRING } , {}),
           ).toBe('60031');
         });
       });
@@ -33,7 +33,7 @@ describe('PostalCode', () => {
 
         test('parseLiteral', () => {
           expect(
-            PostalCode.parseLiteral({ value: '60031-1234', kind: Kind.STRING }),
+            PostalCode.parseLiteral({ value: '60031-1234', kind: Kind.STRING } , {}),
           ).toBe('60031-1234');
         });
       });
@@ -52,7 +52,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: 'NW8 9AY', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: 'NW8 9AY', kind: Kind.STRING } , {}),
         ).toBe('NW8 9AY');
       });
     });
@@ -68,7 +68,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '10318', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '10318', kind: Kind.STRING } , {}),
         ).toBe('10318');
       });
     });
@@ -84,7 +84,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: 'M5T 1G2', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: 'M5T 1G2', kind: Kind.STRING } , {}),
         ).toBe('M5T 1G2');
       });
     });
@@ -101,7 +101,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '34000', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '34000', kind: Kind.STRING } , {}),
         ).toBe('34000');
       });
     });
@@ -118,7 +118,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '30123', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '30123', kind: Kind.STRING } , {}),
         ).toBe('30123');
       });
     });
@@ -135,7 +135,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '4217', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '4217', kind: Kind.STRING } , {}),
         ).toBe('4217');
       });
     });
@@ -151,7 +151,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '1011 AC', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '1011 AC', kind: Kind.STRING } , {}),
         ).toBe('1011 AC');
       });
     });
@@ -167,7 +167,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '28009', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '28009', kind: Kind.STRING } , {}),
         ).toBe('28009');
       });
     });
@@ -183,7 +183,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '2100', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '2100', kind: Kind.STRING } , {}),
         ).toBe('2100');
       });
     });
@@ -199,7 +199,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '114 55', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '114 55', kind: Kind.STRING } , {}),
         ).toBe('114 55');
       });
     });
@@ -215,7 +215,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '1043', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '1043', kind: Kind.STRING } , {}),
         ).toBe('1043');
       });
     });
@@ -231,7 +231,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(
-          PostalCode.parseLiteral({ value: '110003', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: '110003', kind: Kind.STRING } , {}),
         ).toBe('110003');
       });
     });
@@ -253,7 +253,7 @@ describe('PostalCode', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PostalCode.parseLiteral({ value: 'this is not a phone number', kind: Kind.STRING }),
+          PostalCode.parseLiteral({ value: 'this is not a phone number', kind: Kind.STRING } , {}),
         ).toThrow(/^Value is not a valid postal code/);
       });
     });
@@ -268,7 +268,7 @@ describe('PostalCode', () => {
       });
 
       test('parseLiteral', () => {
-        expect(() => PostalCode.parseLiteral({ value: 123, kind: Kind.INT })).toThrow(
+        expect(() => PostalCode.parseLiteral({ value: '123', kind: Kind.INT } , {})).toThrow(
           /Can only validate strings as phone numbers but got a/,
         );
       });

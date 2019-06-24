@@ -1,14 +1,14 @@
-const VALUE_RANGES = {
-  NEGATIVE: 'NEGATIVE',
-  NON_NEGATIVE: 'NON_NEGATIVE',
-  POSITIVE: 'POSITIVE',
-  NON_POSITIVE: 'NON_POSITIVE',
-};
+enum VALUE_RANGES {
+  NEGATIVE = 'NEGATIVE',
+  NON_NEGATIVE = 'NON_NEGATIVE',
+  POSITIVE = 'POSITIVE',
+  NON_POSITIVE = 'NON_POSITIVE',
+}
 
-const VALUE_TYPES = {
-  INT: 'int',
-  FLOAT: 'float',
-};
+enum VALUE_TYPES {
+  INT = 'int',
+  FLOAT = 'float',
+}
 
 const VALIDATIONS = {
   NonPositiveInt: {
@@ -50,7 +50,7 @@ const VALIDATIONS = {
 // See: https://github.com/graphql/graphql-js/blob/master/src/type/scalars.js#L13
 // See: https://github.com/graphql/graphql-js/blob/master/src/type/scalars.js#L60
 
-function _validateInt(value) {
+function _validateInt(value: any) {
   if (!Number.isFinite(value)) {
     throw new TypeError(`Value is not a finite number: ${value}`);
   }
@@ -64,13 +64,13 @@ function _validateInt(value) {
   }
 }
 
-function _validateFloat(value) {
+function _validateFloat(value: any) {
   if (!Number.isFinite(value)) {
     throw new TypeError(`Value is not a finite number: ${value}`);
   }
 }
 
-function processValue(value, validation) {
+function processValue(value: any, validation: { range: VALUE_RANGES, type: VALUE_TYPES}) {
   const { range, type } = validation;
 
   /* eslint-disable no-restricted-globals */

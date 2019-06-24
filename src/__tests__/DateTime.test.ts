@@ -38,14 +38,14 @@ describe('DateTime', () => {
         DateTime.parseLiteral({
           value: '2017-01-02T03:04:05.000Z',
           kind: Kind.STRING,
-        }),
+        }, {}),
       ).toEqual(result);
 
       expect(
         DateTime.parseLiteral({
           value: result.getTime().toString(),
           kind: Kind.INT,
-        }),
+        }, {}),
       ).toEqual(result);
     });
   });
@@ -69,7 +69,7 @@ describe('DateTime', () => {
           DateTime.parseLiteral({
             value: 'this is not a date',
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(/Value is not a valid Date/);
       });
     });

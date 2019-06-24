@@ -18,7 +18,7 @@ describe('NonNegativeInt', () => {
 
         test('parseLiteral', () => {
           expect(
-            NonNegativeInt.parseLiteral({ value: 123, kind: Kind.INT }),
+            NonNegativeInt.parseLiteral({ value: '123', kind: Kind.INT } , {}),
           ).toBe(123);
         });
       });
@@ -34,7 +34,7 @@ describe('NonNegativeInt', () => {
 
         test('parseLiteral', () => {
           expect(
-            NonNegativeInt.parseLiteral({ value: '123', kind: Kind.INT }),
+            NonNegativeInt.parseLiteral({ value: '123', kind: Kind.INT } , {}),
           ).toBe(123);
         });
       });
@@ -52,7 +52,7 @@ describe('NonNegativeInt', () => {
 
         test('parseLiteral', () => {
           expect(
-            NonNegativeInt.parseLiteral({ value: 0, kind: Kind.INT }),
+            NonNegativeInt.parseLiteral({ value: '0', kind: Kind.INT } , {}),
           ).toBe(0);
         });
       });
@@ -68,7 +68,7 @@ describe('NonNegativeInt', () => {
 
         test('parseLiteral', () => {
           expect(
-            NonNegativeInt.parseLiteral({ value: '0', kind: Kind.INT }),
+            NonNegativeInt.parseLiteral({ value: '0', kind: Kind.INT } , {}),
           ).toBe(0);
         });
       });
@@ -91,7 +91,7 @@ describe('NonNegativeInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonNegativeInt.parseLiteral({ value: null, kind: Kind.INT }),
+          NonNegativeInt.parseLiteral({ value: null, kind: Kind.INT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -112,7 +112,7 @@ describe('NonNegativeInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonNegativeInt.parseLiteral({ value: undefined, kind: Kind.INT }),
+          NonNegativeInt.parseLiteral({ value: undefined, kind: Kind.INT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -132,7 +132,7 @@ describe('NonNegativeInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonNegativeInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT }),
+          NonNegativeInt.parseLiteral({ value: (2 ** 53).toString(), kind: Kind.INT } , {}),
         ).toThrow(/Value is not a safe integer/);
       });
     });
@@ -153,7 +153,7 @@ describe('NonNegativeInt', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NonNegativeInt.parseLiteral({ value: -1, kind: Kind.INT }),
+            NonNegativeInt.parseLiteral({ value: '-1', kind: Kind.INT } , {}),
           ).toThrow(/Value is not a non-negative number/);
         });
       });
@@ -173,7 +173,7 @@ describe('NonNegativeInt', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NonNegativeInt.parseLiteral({ value: '-1', kind: Kind.INT }),
+            NonNegativeInt.parseLiteral({ value: '-1', kind: Kind.INT } , {}),
           ).toThrow(/Value is not a non-negative number/);
         });
       });
@@ -195,9 +195,9 @@ describe('NonNegativeInt', () => {
       test('parseLiteral', () => {
         expect(() =>
           NonNegativeInt.parseLiteral({
-            value: Number.POSITIVE_INFINITY,
+            value: Number.POSITIVE_INFINITY.toString(),
             kind: Kind.INT,
-          }),
+          }, {}),
         ).toThrow(/Value is not a finite number/);
       });
     });
@@ -220,7 +220,7 @@ describe('NonNegativeInt', () => {
           NonNegativeInt.parseLiteral({
             value: 'not a number',
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(
           /Can only validate integers as non-negative integers but got a/,
         );
@@ -243,7 +243,7 @@ describe('NonNegativeInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonNegativeInt.parseLiteral({ value: Number.NaN, kind: Kind.STRING }),
+          NonNegativeInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
         ).toThrow(
           /Can only validate integers as non-negative integers but got a/,
         );
@@ -265,7 +265,7 @@ describe('UnsignedInt', () => {
         });
 
         test('parseLiteral', () => {
-          expect(UnsignedInt.parseLiteral({ value: 123, kind: Kind.INT })).toBe(
+          expect(UnsignedInt.parseLiteral({ value: '123', kind: Kind.INT } , {})).toBe(
             123,
           );
         });
@@ -282,7 +282,7 @@ describe('UnsignedInt', () => {
 
         test('parseLiteral', () => {
           expect(
-            UnsignedInt.parseLiteral({ value: '123', kind: Kind.INT }),
+            UnsignedInt.parseLiteral({ value: '123', kind: Kind.INT } , {}),
           ).toBe(123);
         });
       });
@@ -299,7 +299,7 @@ describe('UnsignedInt', () => {
         });
 
         test('parseLiteral', () => {
-          expect(UnsignedInt.parseLiteral({ value: 0, kind: Kind.INT })).toBe(
+          expect(UnsignedInt.parseLiteral({ value: '0', kind: Kind.INT } , {})).toBe(
             0,
           );
         });
@@ -315,7 +315,7 @@ describe('UnsignedInt', () => {
         });
 
         test('parseLiteral', () => {
-          expect(UnsignedInt.parseLiteral({ value: '0', kind: Kind.INT })).toBe(
+          expect(UnsignedInt.parseLiteral({ value: '0', kind: Kind.INT } , {})).toBe(
             0,
           );
         });
@@ -339,7 +339,7 @@ describe('UnsignedInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          UnsignedInt.parseLiteral({ value: null, kind: Kind.INT }),
+          UnsignedInt.parseLiteral({ value: null, kind: Kind.INT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -360,7 +360,7 @@ describe('UnsignedInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          UnsignedInt.parseLiteral({ value: undefined, kind: Kind.INT }),
+          UnsignedInt.parseLiteral({ value: undefined, kind: Kind.INT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -380,7 +380,7 @@ describe('UnsignedInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          UnsignedInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT }),
+          UnsignedInt.parseLiteral({ value: (2 ** 53).toString(), kind: Kind.INT } , {}),
         ).toThrow(/Value is not a safe integer/);
       });
     });
@@ -401,7 +401,7 @@ describe('UnsignedInt', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            UnsignedInt.parseLiteral({ value: -1, kind: Kind.INT }),
+            UnsignedInt.parseLiteral({ value: '-1', kind: Kind.INT } , {}),
           ).toThrow(/Value is not a non-negative number/);
         });
       });
@@ -421,7 +421,7 @@ describe('UnsignedInt', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            UnsignedInt.parseLiteral({ value: '-1', kind: Kind.INT }),
+            UnsignedInt.parseLiteral({ value: '-1', kind: Kind.INT } , {}),
           ).toThrow(/Value is not a non-negative number/);
         });
       });
@@ -443,9 +443,9 @@ describe('UnsignedInt', () => {
       test('parseLiteral', () => {
         expect(() =>
           UnsignedInt.parseLiteral({
-            value: Number.POSITIVE_INFINITY,
+            value: Number.POSITIVE_INFINITY.toString(),
             kind: Kind.INT,
-          }),
+          }, {}),
         ).toThrow(/Value is not a finite number/);
       });
     });
@@ -468,7 +468,7 @@ describe('UnsignedInt', () => {
           UnsignedInt.parseLiteral({
             value: 'not a number',
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(
           /Can only validate integers as non-negative integers but got a/,
         );
@@ -491,7 +491,7 @@ describe('UnsignedInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          UnsignedInt.parseLiteral({ value: Number.NaN, kind: Kind.STRING }),
+          UnsignedInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
         ).toThrow(
           /Can only validate integers as non-negative integers but got a/,
         );

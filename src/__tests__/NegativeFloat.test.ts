@@ -17,7 +17,7 @@ describe('NegativeFloat', () => {
 
       test('parseLiteral', () => {
         expect(
-          NegativeFloat.parseLiteral({ value: -123.45, kind: Kind.FLOAT }),
+          NegativeFloat.parseLiteral({ value: '-123.45', kind: Kind.FLOAT } , {}),
         ).toBe(-123.45);
       });
     });
@@ -33,7 +33,7 @@ describe('NegativeFloat', () => {
 
       test('parseLiteral', () => {
         expect(
-          NegativeFloat.parseLiteral({ value: '-123.45', kind: Kind.FLOAT }),
+          NegativeFloat.parseLiteral({ value: '-123.45', kind: Kind.FLOAT } , {}),
         ).toBe(-123.45);
       });
     });
@@ -55,7 +55,7 @@ describe('NegativeFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NegativeFloat.parseLiteral({ value: null, kind: Kind.FLOAT }),
+          NegativeFloat.parseLiteral({ value: null, kind: Kind.FLOAT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -76,7 +76,7 @@ describe('NegativeFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NegativeFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT }),
+          NegativeFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -97,7 +97,7 @@ describe('NegativeFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NegativeFloat.parseLiteral({ value: 0.0, kind: Kind.FLOAT }),
+            NegativeFloat.parseLiteral({ value: '0.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a negative number/);
         });
       });
@@ -117,7 +117,7 @@ describe('NegativeFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NegativeFloat.parseLiteral({ value: '0.0', kind: Kind.FLOAT }),
+            NegativeFloat.parseLiteral({ value: '0.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a negative number/);
         });
       });
@@ -139,7 +139,7 @@ describe('NegativeFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NegativeFloat.parseLiteral({ value: 1.0, kind: Kind.FLOAT }),
+            NegativeFloat.parseLiteral({ value: '1.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a negative number/);
         });
       });
@@ -159,7 +159,7 @@ describe('NegativeFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NegativeFloat.parseLiteral({ value: '1.0', kind: Kind.FLOAT }),
+            NegativeFloat.parseLiteral({ value: '1.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a negative number/);
         });
       });
@@ -181,9 +181,9 @@ describe('NegativeFloat', () => {
       test('parseLiteral', () => {
         expect(() =>
           NegativeFloat.parseLiteral({
-            value: Number.NEGATIVE_INFINITY,
+            value: Number.NEGATIVE_INFINITY.toString(),
             kind: Kind.FLOAT,
-          }),
+          } , {}),
         ).toThrow(/Value is not a finite number/);
       });
     });
@@ -206,7 +206,7 @@ describe('NegativeFloat', () => {
           NegativeFloat.parseLiteral({
             value: 'not a number',
             kind: Kind.STRING,
-          }),
+          } , {}),
         ).toThrow(
           /Can only validate floating point numbers as negative floating point numbers but got a/,
         );
@@ -229,7 +229,7 @@ describe('NegativeFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NegativeFloat.parseLiteral({ value: Number.NaN, kind: Kind.STRING }),
+          NegativeFloat.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
         ).toThrow(
           /Can only validate floating point numbers as negative floating point numbers but got a/,
         );

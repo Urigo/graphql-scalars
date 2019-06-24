@@ -16,7 +16,7 @@ describe('PhoneNumber', () => {
 
     test('parseLiteral', () => {
       expect(
-        PhoneNumber.parseLiteral({ value: '+17895551234', kind: Kind.STRING }),
+        PhoneNumber.parseLiteral({ value: '+17895551234', kind: Kind.STRING } , {}),
       ).toBe('+17895551234');
     });
   });
@@ -37,7 +37,7 @@ describe('PhoneNumber', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PhoneNumber.parseLiteral({ value: 'this is not a phone number', kind: Kind.STRING }),
+          PhoneNumber.parseLiteral({ value: 'this is not a phone number', kind: Kind.STRING } , {}),
         ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
       });
     });
@@ -52,7 +52,7 @@ describe('PhoneNumber', () => {
       });
 
       test('parseLiteral', () => {
-        expect(() => PhoneNumber.parseLiteral({ value: 123, kind: Kind.INT })).toThrow(
+        expect(() => PhoneNumber.parseLiteral({ value: '123', kind: Kind.INT } , {})).toThrow(
           /Can only validate strings as phone numbers but got a/,
         );
       });
@@ -73,7 +73,7 @@ describe('PhoneNumber', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PhoneNumber.parseLiteral({ value: '+1789555123', kind: Kind.STRING }),
+          PhoneNumber.parseLiteral({ value: '+1789555123', kind: Kind.STRING } , {}),
         ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
       });
     });
@@ -93,7 +93,7 @@ describe('PhoneNumber', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PhoneNumber.parseLiteral({ value: '+1789555123456789', kind: Kind.STRING }),
+          PhoneNumber.parseLiteral({ value: '+1789555123456789', kind: Kind.STRING } , {}),
         ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
       });
     });
@@ -113,7 +113,7 @@ describe('PhoneNumber', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PhoneNumber.parseLiteral({ value: '17895551234', kind: Kind.STRING }),
+          PhoneNumber.parseLiteral({ value: '17895551234', kind: Kind.STRING } , {}),
         ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
       });
     });

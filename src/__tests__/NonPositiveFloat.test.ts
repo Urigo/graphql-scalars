@@ -2,72 +2,72 @@
 
 import { Kind } from 'graphql/language';
 
-import { NonPositiveInt } from '..';
+import { NonPositiveFloat } from '..';
 
-describe('NonPositiveInt', () => {
+describe('NonPositiveFloat', () => {
   describe('valid', () => {
-    describe('as int', () => {
+    describe('as float', () => {
       test('serialize', () => {
-        expect(NonPositiveInt.serialize(-123)).toBe(-123);
+        expect(NonPositiveFloat.serialize(-123.45)).toBe(-123.45);
       });
 
       test('parseValue', () => {
-        expect(NonPositiveInt.parseValue(-123)).toBe(-123);
+        expect(NonPositiveFloat.parseValue(-123.45)).toBe(-123.45);
       });
 
       test('parseLiteral', () => {
         expect(
-          NonPositiveInt.parseLiteral({ value: -123, kind: Kind.INT }),
-        ).toBe(-123);
+          NonPositiveFloat.parseLiteral({ value: '-123.45', kind: Kind.FLOAT } , {}),
+        ).toBe(-123.45);
       });
     });
 
     describe('as string', () => {
       test('serialize', () => {
-        expect(NonPositiveInt.serialize('-123')).toBe(-123);
+        expect(NonPositiveFloat.serialize('-123.45')).toBe(-123.45);
       });
 
       test('parseValue', () => {
-        expect(NonPositiveInt.parseValue('-123')).toBe(-123);
+        expect(NonPositiveFloat.parseValue('-123.45')).toBe(-123.45);
       });
 
       test('parseLiteral', () => {
         expect(
-          NonPositiveInt.parseLiteral({ value: '-123', kind: Kind.INT }),
-        ).toBe(-123);
+          NonPositiveFloat.parseLiteral({ value: '-123.45', kind: Kind.FLOAT } , {}),
+        ).toBe(-123.45);
       });
     });
 
     describe('zero', () => {
-      describe('as int', () => {
+      describe('as float', () => {
         test('serialize', () => {
-          expect(NonPositiveInt.serialize(0)).toBe(0);
+          expect(NonPositiveFloat.serialize(0.0)).toBe(0.0);
         });
 
         test('parseValue', () => {
-          expect(NonPositiveInt.parseValue(0)).toBe(0);
+          expect(NonPositiveFloat.parseValue(0.0)).toBe(0.0);
         });
 
         test('parseLiteral', () => {
           expect(
-            NonPositiveInt.parseLiteral({ value: 0, kind: Kind.INT }),
-          ).toBe(0);
+            NonPositiveFloat.parseLiteral({ value: '0', kind: Kind.FLOAT } , {}),
+          ).toBe(0.0);
         });
       });
 
       describe('as string', () => {
         test('serialize', () => {
-          expect(NonPositiveInt.serialize('0')).toBe(0);
+          expect(NonPositiveFloat.serialize('0.0')).toBe(0.0);
         });
 
         test('parseValue', () => {
-          expect(NonPositiveInt.parseValue('0')).toBe(0);
+          expect(NonPositiveFloat.parseValue('0.0')).toBe(0.0);
         });
 
         test('parseLiteral', () => {
           expect(
-            NonPositiveInt.parseLiteral({ value: '0', kind: Kind.INT }),
-          ).toBe(0);
+            NonPositiveFloat.parseLiteral({ value: '0.0', kind: Kind.FLOAT } , {}),
+          ).toBe(0.0);
         });
       });
     });
@@ -76,102 +76,82 @@ describe('NonPositiveInt', () => {
   describe('invalid', () => {
     describe('null', () => {
       test('serialize', () => {
-        expect(() => NonPositiveInt.serialize(null)).toThrow(
+        expect(() => NonPositiveFloat.serialize(null)).toThrow(
           /Value is not a number/,
         );
       });
 
       test('parseValue', () => {
-        expect(() => NonPositiveInt.parseValue(null)).toThrow(
+        expect(() => NonPositiveFloat.parseValue(null)).toThrow(
           /Value is not a number/,
         );
       });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: null, kind: Kind.INT }),
+          NonPositiveFloat.parseLiteral({ value: null, kind: Kind.FLOAT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
 
     describe('undefined', () => {
       test('serialize', () => {
-        expect(() => NonPositiveInt.serialize(undefined)).toThrow(
+        expect(() => NonPositiveFloat.serialize(undefined)).toThrow(
           /Value is not a number/,
         );
       });
 
       // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
       // test('parseValue', () => {
-      //   expect(() => NonPositiveInt.parseValue(undefined)).toThrow(
+      //   expect(() => NonPositiveFloat.parseValue(undefined)).toThrow(
       //     /Value is not a number/,
       //   );
       // });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: undefined, kind: Kind.INT }),
+          NonPositiveFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
 
-    describe('unsafe integer', () => {
-      test('serialize', () => {
-        expect(() => NonPositiveInt.serialize(2 ** 53)).toThrow(
-          /Value is not a safe integer/,
-        );
-      });
-
-      test('parseValue', () => {
-        expect(() => NonPositiveInt.parseValue(2 ** 53)).toThrow(
-          /Value is not a safe integer/,
-        );
-      });
-
-      test('parseLiteral', () => {
-        expect(() =>
-          NonPositiveInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT }),
-        ).toThrow(/Value is not a safe integer/);
-      });
-    });
-
     describe('more than zero', () => {
-      describe('as int', () => {
+      describe('as float', () => {
         test('serialize', () => {
-          expect(() => NonPositiveInt.serialize(1)).toThrow(
+          expect(() => NonPositiveFloat.serialize(1.0)).toThrow(
             /Value is not a non-positive number/,
           );
         });
 
         test('parseValue', () => {
-          expect(() => NonPositiveInt.parseValue(1)).toThrow(
+          expect(() => NonPositiveFloat.parseValue(1.0)).toThrow(
             /Value is not a non-positive number/,
           );
         });
 
         test('parseLiteral', () => {
           expect(() =>
-            NonPositiveInt.parseLiteral({ value: 1, kind: Kind.INT }),
+            NonPositiveFloat.parseLiteral({ value: '1.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a non-positive number/);
         });
       });
 
       describe('as string', () => {
         test('serialize', () => {
-          expect(() => NonPositiveInt.serialize('1')).toThrow(
+          expect(() => NonPositiveFloat.serialize('1.0')).toThrow(
             /Value is not a non-positive number/,
           );
         });
 
         test('parseValue', () => {
-          expect(() => NonPositiveInt.parseValue('1')).toThrow(
+          expect(() => NonPositiveFloat.parseValue('1.0')).toThrow(
             /Value is not a non-positive number/,
           );
         });
 
         test('parseLiteral', () => {
           expect(() =>
-            NonPositiveInt.parseLiteral({ value: '1', kind: Kind.INT }),
+            NonPositiveFloat.parseLiteral({ value: '1.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a non-positive number/);
         });
       });
@@ -180,70 +160,73 @@ describe('NonPositiveInt', () => {
     describe('infinity', () => {
       test('serialize', () => {
         expect(() =>
-          NonPositiveInt.serialize(Number.NEGATIVE_INFINITY),
+          NonPositiveFloat.serialize(Number.NEGATIVE_INFINITY),
         ).toThrow(/Value is not a finite number/);
       });
 
       test('parseValue', () => {
         expect(() =>
-          NonPositiveInt.parseValue(Number.NEGATIVE_INFINITY),
+          NonPositiveFloat.parseValue(Number.NEGATIVE_INFINITY),
         ).toThrow(/Value is not a finite number/);
       });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({
-            value: Number.NEGATIVE_INFINITY,
-            kind: Kind.INT,
-          }),
+          NonPositiveFloat.parseLiteral({
+            value: Number.NEGATIVE_INFINITY.toString(),
+            kind: Kind.FLOAT,
+          }, {}),
         ).toThrow(/Value is not a finite number/);
       });
     });
 
     describe('not a number', () => {
       test('serialize', () => {
-        expect(() => NonPositiveInt.serialize('not a number')).toThrow(
+        expect(() => NonPositiveFloat.serialize('not a number')).toThrow(
           /Value is not a number/,
         );
       });
 
       test('parseValue', () => {
-        expect(() => NonPositiveInt.parseValue('not a number')).toThrow(
+        expect(() => NonPositiveFloat.parseValue('not a number')).toThrow(
           /Value is not a number/,
         );
       });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({
+          NonPositiveFloat.parseLiteral({
             value: 'not a number',
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(
-          /Can only validate integers as non-positive integers but got a/,
+          /Can only validate floating point numbers as non-positive floating point numbers but got a/,
         );
       });
     });
 
     describe('NaN', () => {
       test('serialize', () => {
-        expect(() => NonPositiveInt.serialize(Number.NaN)).toThrow(
+        expect(() => NonPositiveFloat.serialize(Number.NaN)).toThrow(
           /Value is not a number/,
         );
       });
 
       // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
       // test('parseValue', () => {
-      //   expect(() => NonPositiveInt.parseValue(Number.NaN)).toThrow(
+      //   expect(() => NonPositiveFloat.parseValue(Number.NaN)).toThrow(
       //     /Value is not a number/,
       //   );
       // });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: Number.NaN, kind: Kind.STRING }),
+          NonPositiveFloat.parseLiteral({
+            value: Number.NaN.toString(),
+            kind: Kind.STRING,
+          }, {}),
         ).toThrow(
-          /Can only validate integers as non-positive integers but got a/,
+          /Can only validate floating point numbers as non-positive floating point numbers but got a/,
         );
       });
     });
