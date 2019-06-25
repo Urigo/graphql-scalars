@@ -1,10 +1,10 @@
 {
-  "name": "@ardatan/graphql-scalars",
+  "name": "@okgrow/graphql-scalars",
   "version": "0.4.5",
   "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/okgrow/graphql-scalars.git"
+    "url": "https://github.com/Urigo/graphql-scalars.git"
   },
   "sideEffects": false,
   "main": "dist/commonjs/index.js",
