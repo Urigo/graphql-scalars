@@ -4,9 +4,15 @@
   "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/okgrow/graphql-scalars.git"
+    "url": "https://github.com/Urigo/graphql-scalars.git"
   },
-  "typings": "graphql-scalars.d.ts",
+  "sideEffects": false,
+  "main": "dist/commonjs/index.js",
+  "module": "dist/esnext/index.js",
+  "typings": "dist/esnext/index.d.ts",
+  "typescript": {
+    "definition": "dist/esnext/index.d.ts"
+  },
   "license": "MIT",
   "jest": {
     "roots": [
@@ -19,28 +25,36 @@
     "printWidth": 80
   },
   "scripts": {
-    "prepublishOnly": "npm run build",
-    "build": "babel src --ignore '**/__tests__' --out-dir ./dist",
-    "lint": "eslint ./src",
-    "lintfix": "eslint ./src --fix",
-    "test-only": "jest",
-    "test": "npm run lint && jest",
-    "test-watch": "npm run test-only -- --watch --watchAll",
-    "start": "babel src -d dist --watch"
+    "clean": "rm -rf dist",
+    "prebuild": "yarn clean",
+    "build": "tsc -m esnext --outDir dist/esnext && tsc -m commonjs --outDir dist/commonjs",
+    "test": "jest",
+    "prepare-release": "yarn build && yarn test",
+    "release": "yarn prepare-release && npm publish",
+    "ci:release:canary": "node bump.js && npm publish --tag alpha"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/preset-env": "^7.3.1",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.12.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.15.0",
-    "eslint-plugin-jsx-a11y": "^6.2.0",
-    "eslint-plugin-react": "^7.12.4",
+    "@types/graphql": "^14.2.1",
+    "@types/jest": "^24.0.15",
     "graphql": "^14.1.1",
-    "jest": "^24.0.0"
+    "jest": "^24.0.0",
+    "lint-staged": "^8.2.1",
+    "semver": "^6.1.2",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.2"
   },
   "peerDependencies": {
-    "graphql": ">=0.13.1"
+    "graphql": "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "tslint --fix",
+      "git add"
+    ],
+    "*.{js,json,css,md,ts,tsx}": [
+      "prettier --write",
+      "git add -f"
+    ]
   }
 }

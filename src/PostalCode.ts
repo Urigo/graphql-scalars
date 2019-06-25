@@ -45,7 +45,7 @@ const POSTAL_CODE_REGEXES = [
   /* IN */ new RegExp(/^\d{6}$/),
 ];
 
-function _testPostalCode(postalCode) {
+function _testPostalCode(postalCode: string) {
   let result = false;
 
   // eslint-disable-next-line no-plusplus

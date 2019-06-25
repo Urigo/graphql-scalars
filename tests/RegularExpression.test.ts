@@ -2,10 +2,10 @@
 
 import { Kind } from 'graphql/language';
 
-import { RegularExpression } from '..';
+import { RegularExpression } from '../src';
 
 describe('RegularExpression', () => {
-  const Abc = RegularExpression('Abc', /^abc$/);
+  const Abc = new RegularExpression('Abc', /^abc$/);
 
   describe('valid', () => {
     test('serialize', () => {
@@ -17,7 +17,7 @@ describe('RegularExpression', () => {
     });
 
     test('parseLiteral', () => {
-      expect(Abc.parseLiteral({ value: 'abc', kind: Kind.STRING })).toBe('abc');
+      expect(Abc.parseLiteral({ value: 'abc', kind: Kind.STRING } , {})).toBe('abc');
     });
   });
 
@@ -37,18 +37,18 @@ describe('RegularExpression', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          Abc.parseLiteral({ value: 'this does not match', kind: Kind.STRING }),
+          Abc.parseLiteral({ value: 'this does not match', kind: Kind.STRING } , {}),
         ).toThrow(/Value does not match the regular expression/);
       });
     });
 
     describe('does not match (w/options)', () => {
-      const errorMessageFn = (regex, value) =>
+      const errorMessageFn = (regex: RegExp, value: string) =>
         `This is a custom error message ${regex}: ${value}`;
 
       test('serialize', () => {
         const errorMessage = jest.fn(errorMessageFn);
-        const AbcWithOptions = RegularExpression('Abc', /^abc$/, {
+        const AbcWithOptions = new RegularExpression('Abc', /^abc$/, {
           errorMessage,
         });
 
@@ -62,7 +62,7 @@ describe('RegularExpression', () => {
 
       test('parseValue', () => {
         const errorMessage = jest.fn(errorMessageFn);
-        const AbcWithOptions = RegularExpression('Abc', /^abc$/, {
+        const AbcWithOptions = new RegularExpression('Abc', /^abc$/, {
           errorMessage,
         });
 
@@ -76,7 +76,7 @@ describe('RegularExpression', () => {
 
       test('parseLiteral', () => {
         const errorMessage = jest.fn(errorMessageFn);
-        const AbcWithOptions = RegularExpression('Abc', /^abc$/, {
+        const AbcWithOptions = new RegularExpression('Abc', /^abc$/, {
           errorMessage,
         });
 
@@ -84,7 +84,7 @@ describe('RegularExpression', () => {
           AbcWithOptions.parseLiteral({
             value: 'this does not match',
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(/This is a custom error message/);
         expect(errorMessage.mock.calls.length).toBe(1);
         expect(errorMessage.mock.calls[0][0]).toEqual(/^abc$/);
@@ -102,7 +102,7 @@ describe('RegularExpression', () => {
       });
 
       test('parseLiteral', () => {
-        expect(() => Abc.parseLiteral({ value: 123, kind: Kind.INT })).toThrow(
+        expect(() => Abc.parseLiteral({ value: '123', kind: Kind.INT } , {})).toThrow(
           /Can only validate strings as regular expressions but got a/,
         );
       });

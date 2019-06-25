@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { NonPositiveFloat } from '..';
+import { NonPositiveFloat } from '../src';
 
 describe('NonPositiveFloat', () => {
   describe('valid', () => {
@@ -17,7 +17,7 @@ describe('NonPositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(
-          NonPositiveFloat.parseLiteral({ value: -123.45, kind: Kind.FLOAT }),
+          NonPositiveFloat.parseLiteral({ value: '-123.45', kind: Kind.FLOAT } , {}),
         ).toBe(-123.45);
       });
     });
@@ -33,7 +33,7 @@ describe('NonPositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(
-          NonPositiveFloat.parseLiteral({ value: '-123.45', kind: Kind.FLOAT }),
+          NonPositiveFloat.parseLiteral({ value: '-123.45', kind: Kind.FLOAT } , {}),
         ).toBe(-123.45);
       });
     });
@@ -50,7 +50,7 @@ describe('NonPositiveFloat', () => {
 
         test('parseLiteral', () => {
           expect(
-            NonPositiveFloat.parseLiteral({ value: 0.0, kind: Kind.FLOAT }),
+            NonPositiveFloat.parseLiteral({ value: '0', kind: Kind.FLOAT } , {}),
           ).toBe(0.0);
         });
       });
@@ -66,7 +66,7 @@ describe('NonPositiveFloat', () => {
 
         test('parseLiteral', () => {
           expect(
-            NonPositiveFloat.parseLiteral({ value: '0.0', kind: Kind.FLOAT }),
+            NonPositiveFloat.parseLiteral({ value: '0.0', kind: Kind.FLOAT } , {}),
           ).toBe(0.0);
         });
       });
@@ -89,7 +89,7 @@ describe('NonPositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveFloat.parseLiteral({ value: null, kind: Kind.FLOAT }),
+          NonPositiveFloat.parseLiteral({ value: null, kind: Kind.FLOAT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -110,7 +110,7 @@ describe('NonPositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT }),
+          NonPositiveFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -131,7 +131,7 @@ describe('NonPositiveFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NonPositiveFloat.parseLiteral({ value: 1.0, kind: Kind.FLOAT }),
+            NonPositiveFloat.parseLiteral({ value: '1.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a non-positive number/);
         });
       });
@@ -151,7 +151,7 @@ describe('NonPositiveFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NonPositiveFloat.parseLiteral({ value: '1.0', kind: Kind.FLOAT }),
+            NonPositiveFloat.parseLiteral({ value: '1.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a non-positive number/);
         });
       });
@@ -173,9 +173,9 @@ describe('NonPositiveFloat', () => {
       test('parseLiteral', () => {
         expect(() =>
           NonPositiveFloat.parseLiteral({
-            value: Number.NEGATIVE_INFINITY,
+            value: Number.NEGATIVE_INFINITY.toString(),
             kind: Kind.FLOAT,
-          }),
+          }, {}),
         ).toThrow(/Value is not a finite number/);
       });
     });
@@ -198,7 +198,7 @@ describe('NonPositiveFloat', () => {
           NonPositiveFloat.parseLiteral({
             value: 'not a number',
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(
           /Can only validate floating point numbers as non-positive floating point numbers but got a/,
         );
@@ -222,9 +222,9 @@ describe('NonPositiveFloat', () => {
       test('parseLiteral', () => {
         expect(() =>
           NonPositiveFloat.parseLiteral({
-            value: Number.NaN,
+            value: Number.NaN.toString(),
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(
           /Can only validate floating point numbers as non-positive floating point numbers but got a/,
         );

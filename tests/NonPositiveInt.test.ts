@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { NonPositiveInt } from '..';
+import { NonPositiveInt } from '../src';
 
 describe('NonPositiveInt', () => {
   describe('valid', () => {
@@ -17,7 +17,7 @@ describe('NonPositiveInt', () => {
 
       test('parseLiteral', () => {
         expect(
-          NonPositiveInt.parseLiteral({ value: -123, kind: Kind.INT }),
+          NonPositiveInt.parseLiteral({ value: '-123', kind: Kind.INT } , {}),
         ).toBe(-123);
       });
     });
@@ -33,7 +33,7 @@ describe('NonPositiveInt', () => {
 
       test('parseLiteral', () => {
         expect(
-          NonPositiveInt.parseLiteral({ value: '-123', kind: Kind.INT }),
+          NonPositiveInt.parseLiteral({ value: '-123', kind: Kind.INT } , {}),
         ).toBe(-123);
       });
     });
@@ -50,7 +50,7 @@ describe('NonPositiveInt', () => {
 
         test('parseLiteral', () => {
           expect(
-            NonPositiveInt.parseLiteral({ value: 0, kind: Kind.INT }),
+            NonPositiveInt.parseLiteral({ value: '0', kind: Kind.INT } , {}),
           ).toBe(0);
         });
       });
@@ -66,7 +66,7 @@ describe('NonPositiveInt', () => {
 
         test('parseLiteral', () => {
           expect(
-            NonPositiveInt.parseLiteral({ value: '0', kind: Kind.INT }),
+            NonPositiveInt.parseLiteral({ value: '0', kind: Kind.INT } , {}),
           ).toBe(0);
         });
       });
@@ -89,7 +89,7 @@ describe('NonPositiveInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: null, kind: Kind.INT }),
+          NonPositiveInt.parseLiteral({ value: null, kind: Kind.INT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -110,7 +110,7 @@ describe('NonPositiveInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: undefined, kind: Kind.INT }),
+          NonPositiveInt.parseLiteral({ value: undefined, kind: Kind.INT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -130,7 +130,7 @@ describe('NonPositiveInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT }),
+          NonPositiveInt.parseLiteral({ value: (2 ** 53).toString(), kind: Kind.INT } , {}),
         ).toThrow(/Value is not a safe integer/);
       });
     });
@@ -151,7 +151,7 @@ describe('NonPositiveInt', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NonPositiveInt.parseLiteral({ value: 1, kind: Kind.INT }),
+            NonPositiveInt.parseLiteral({ value: '1', kind: Kind.INT } , {}),
           ).toThrow(/Value is not a non-positive number/);
         });
       });
@@ -171,7 +171,7 @@ describe('NonPositiveInt', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            NonPositiveInt.parseLiteral({ value: '1', kind: Kind.INT }),
+            NonPositiveInt.parseLiteral({ value: '1', kind: Kind.INT } , {}),
           ).toThrow(/Value is not a non-positive number/);
         });
       });
@@ -193,9 +193,9 @@ describe('NonPositiveInt', () => {
       test('parseLiteral', () => {
         expect(() =>
           NonPositiveInt.parseLiteral({
-            value: Number.NEGATIVE_INFINITY,
+            value: Number.NEGATIVE_INFINITY.toString(),
             kind: Kind.INT,
-          }),
+          }, {}),
         ).toThrow(/Value is not a finite number/);
       });
     });
@@ -218,7 +218,7 @@ describe('NonPositiveInt', () => {
           NonPositiveInt.parseLiteral({
             value: 'not a number',
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(
           /Can only validate integers as non-positive integers but got a/,
         );
@@ -241,7 +241,7 @@ describe('NonPositiveInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: Number.NaN, kind: Kind.STRING }),
+          NonPositiveInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
         ).toThrow(
           /Can only validate integers as non-positive integers but got a/,
         );

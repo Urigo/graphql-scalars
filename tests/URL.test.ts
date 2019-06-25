@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { URL } from '..';
+import { URL } from '../src';
 
 /*
  * these test cases are picked up from https://mathiasbynens.be/demo/url-regex
@@ -100,7 +100,7 @@ describe('URL', () => {
         expect(URL.parseValue(url)).toBe(url);
       });
       test(`parseLiteral ${url}`, () => {
-        expect(URL.parseLiteral({ value: url, kind: Kind.STRING })).toBe(url);
+        expect(URL.parseLiteral({ value: url, kind: Kind.STRING } , {})).toBe(url);
       });
     });
   });
@@ -116,7 +116,7 @@ describe('URL', () => {
 
     test('parseLiteral', () => {
       expect(
-        URL.parseLiteral({ value: 'http://localhost', kind: Kind.STRING }),
+        URL.parseLiteral({ value: 'http://localhost', kind: Kind.STRING } , {}),
       ).toBe('http://localhost');
     });
   });
@@ -136,7 +136,7 @@ describe('URL', () => {
 
     test('parseLiteral', () => {
       expect(
-        URL.parseLiteral({ value: 'http://localhost:3000', kind: Kind.STRING }),
+        URL.parseLiteral({ value: 'http://localhost:3000', kind: Kind.STRING } , {}),
       ).toBe('http://localhost:3000');
     });
   });
@@ -155,7 +155,7 @@ describe('URL', () => {
 
         test(`parseLiteral ${url}`, () => {
           expect(() =>
-            URL.parseLiteral({ value: url, kind: Kind.STRING }),
+            URL.parseLiteral({ value: url, kind: Kind.STRING } , {}),
           ).toThrow(/Value is not a valid URL/);
         });
       });
@@ -171,7 +171,7 @@ describe('URL', () => {
       });
 
       test('parseLiteral', () => {
-        expect(() => URL.parseLiteral({ value: 123, kind: Kind.INT })).toThrow(
+        expect(() => URL.parseLiteral({ value: '123', kind: Kind.INT } , {})).toThrow(
           /Can only validate strings as URLs but got a/,
         );
       });

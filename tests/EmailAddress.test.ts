@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { EmailAddress } from '..';
+import { EmailAddress } from '../src';
 
 describe('EmailAddress', () => {
   describe('valid', () => {
@@ -19,7 +19,7 @@ describe('EmailAddress', () => {
         EmailAddress.parseLiteral({
           value: 'test@test.com',
           kind: Kind.STRING,
-        }),
+        }, {}),
       ).toBe('test@test.com');
     });
   });
@@ -43,7 +43,7 @@ describe('EmailAddress', () => {
           EmailAddress.parseLiteral({
             value: 'this is not an email address',
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(/Value is not a valid email address/);
       });
     });
@@ -63,7 +63,7 @@ describe('EmailAddress', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          EmailAddress.parseLiteral({ value: 123, kind: Kind.INT }),
+          EmailAddress.parseLiteral({ value: '123', kind: Kind.INT } , {}),
         ).toThrow(/Can only validate strings as email addresses but got a/);
       });
     });

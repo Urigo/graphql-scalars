@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { PositiveFloat } from '..';
+import { PositiveFloat } from '../src';
 
 describe('PositiveFloat', () => {
   describe('valid', () => {
@@ -17,7 +17,7 @@ describe('PositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(
-          PositiveFloat.parseLiteral({ value: 123.45, kind: Kind.FLOAT }),
+          PositiveFloat.parseLiteral({ value: '123.45', kind: Kind.FLOAT } , {}),
         ).toBe(123.45);
       });
     });
@@ -33,7 +33,7 @@ describe('PositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(
-          PositiveFloat.parseLiteral({ value: '123.45', kind: Kind.FLOAT }),
+          PositiveFloat.parseLiteral({ value: '123.45', kind: Kind.FLOAT } , {}),
         ).toBe(123.45);
       });
     });
@@ -55,7 +55,7 @@ describe('PositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PositiveFloat.parseLiteral({ value: null, kind: Kind.FLOAT }),
+          PositiveFloat.parseLiteral({ value: null, kind: Kind.FLOAT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -76,7 +76,7 @@ describe('PositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PositiveFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT }),
+          PositiveFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT } , {}),
         ).toThrow(/Value is not a number/);
       });
     });
@@ -97,7 +97,7 @@ describe('PositiveFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            PositiveFloat.parseLiteral({ value: 0.0, kind: Kind.FLOAT }),
+            PositiveFloat.parseLiteral({ value: '0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a positive number/);
         });
       });
@@ -117,7 +117,7 @@ describe('PositiveFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            PositiveFloat.parseLiteral({ value: '0.0', kind: Kind.FLOAT }),
+            PositiveFloat.parseLiteral({ value: '0.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a positive number/);
         });
       });
@@ -139,7 +139,7 @@ describe('PositiveFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            PositiveFloat.parseLiteral({ value: -1.0, kind: Kind.FLOAT }),
+            PositiveFloat.parseLiteral({ value: '-1.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a positive number/);
         });
       });
@@ -159,7 +159,7 @@ describe('PositiveFloat', () => {
 
         test('parseLiteral', () => {
           expect(() =>
-            PositiveFloat.parseLiteral({ value: '-1.0', kind: Kind.FLOAT }),
+            PositiveFloat.parseLiteral({ value: '-1.0', kind: Kind.FLOAT } , {}),
           ).toThrow(/Value is not a positive number/);
         });
       });
@@ -181,9 +181,9 @@ describe('PositiveFloat', () => {
       test('parseLiteral', () => {
         expect(() =>
           PositiveFloat.parseLiteral({
-            value: Number.POSITIVE_INFINITY,
+            value: Number.POSITIVE_INFINITY.toString(),
             kind: Kind.FLOAT,
-          }),
+          }, {}),
         ).toThrow(/Value is not a finite number/);
       });
     });
@@ -206,7 +206,7 @@ describe('PositiveFloat', () => {
           PositiveFloat.parseLiteral({
             value: 'not a number',
             kind: Kind.STRING,
-          }),
+          }, {}),
         ).toThrow(
           /Can only validate floating point numbers as positive floating point numbers but got a/,
         );
@@ -229,7 +229,7 @@ describe('PositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PositiveFloat.parseLiteral({ value: Number.NaN, kind: Kind.STRING }),
+          PositiveFloat.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
         ).toThrow(
           /Can only validate floating point numbers as positive floating point numbers but got a/,
         );
