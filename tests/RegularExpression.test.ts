@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { RegularExpression } from '.';
+import { RegularExpression } from '../src';
 
 describe('RegularExpression', () => {
   const Abc = new RegularExpression('Abc', /^abc$/);

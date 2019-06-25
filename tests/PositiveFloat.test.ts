@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { PositiveFloat } from '.';
+import { PositiveFloat } from '../src';
 
 describe('PositiveFloat', () => {
   describe('valid', () => {

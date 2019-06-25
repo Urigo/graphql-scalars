@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { EmailAddress } from '.';
+import { EmailAddress } from '../src';
 
 describe('EmailAddress', () => {
   describe('valid', () => {

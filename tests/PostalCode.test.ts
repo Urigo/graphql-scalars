@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { PostalCode } from '.';
+import { PostalCode } from '../src';
 
 describe('PostalCode', () => {
   describe('valid', () => {
