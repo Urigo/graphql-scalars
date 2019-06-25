@@ -31,7 +31,7 @@
     "test": "jest",
     "prepare-release": "yarn build && yarn test",
     "release": "yarn prepare-release && npm publish",
-    "ci:release:canary": "yarn prepare-release && node bump.js && npm publish --tag alpha"
+    "ci:release:canary": "node bump.js && npm publish --tag alpha"
   },
   "devDependencies": {
     "@types/graphql": "^14.2.1",

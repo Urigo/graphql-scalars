@@ -11,6 +11,9 @@ jobs:
           name: Install Dependencies & Build
           command: yarn
       - run:
+          name: Test
+          command: yarn test
+      - run:
           name: Publish Canary
           command: |
             if [ "${CIRCLE_PR_USERNAME}" == "" ]
