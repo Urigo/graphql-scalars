@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { NonPositiveInt } from '..';
+import { NonPositiveInt } from '.';
 
 describe('NonPositiveInt', () => {
   describe('valid', () => {

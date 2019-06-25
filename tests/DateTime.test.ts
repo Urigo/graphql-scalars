@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { DateTime } from '..';
+import { DateTime } from '.';
 
 describe('DateTime', () => {
   describe('valid', () => {

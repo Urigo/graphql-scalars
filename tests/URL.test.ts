@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { URL } from '..';
+import { URL } from '.';
 
 /*
  * these test cases are picked up from https://mathiasbynens.be/demo/url-regex
