@@ -94,4 +94,6 @@ export default {
   PhoneNumber,
   PostalCode,
   RegularExpression,
+  BigInt,
+  Long: BigInt,
 };
