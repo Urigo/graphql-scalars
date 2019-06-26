@@ -22,6 +22,10 @@ import { Kind } from 'graphql/language';
 // SE - Sweden
 // BE - Belgium
 // IN - India
+// AT - Austria
+// PT - Portugal
+// CH - Switzerland
+// LU - Luxembourg
 //
 // This is really a practical decision of weight (of the package) vs. completeness.
 //
@@ -43,6 +47,10 @@ const POSTAL_CODE_REGEXES = [
   /* SE */ new RegExp(/^(s-|S-){0,1}[0-9]{3}\s?[0-9]{2}$/),
   /* BE */ new RegExp(/^[1-9]{1}[0-9]{3}$/),
   /* IN */ new RegExp(/^\d{6}$/),
+  /* AT */ new RegExp(/^\d{4}$/),
+  /* PT */ new RegExp(/^\d{4}([\-]\d{3})?$/),
+  /* CH */ new RegExp(/^\d{4}$/),
+  /* LU */ new RegExp(/^\d{4}$/),
 ];
 
 function _testPostalCode(postalCode: string) {
@@ -65,7 +73,7 @@ export default new GraphQLScalarType({
   name: 'PostalCode',
 
   description:
-    'A field whose value conforms to the standard postal code formats for United States, United Kingdom, Germany, Canada, France, Italy, Australia, Netherlands, Spain, Denmark, Sweden, Belgium or India.',
+    'A field whose value conforms to the standard postal code formats for United States, United Kingdom, Germany, Canada, France, Italy, Australia, Netherlands, Spain, Denmark, Sweden, Belgium, India, Austria, Portugal, Switzerland or Luxembourg.',
 
   serialize(value) {
     if (typeof value !== 'string') {
@@ -94,7 +102,7 @@ export default new GraphQLScalarType({
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
       throw new GraphQLError(
-        `Can only validate strings as phone numbers but got a: ${ast.kind}`,
+        `Can only validate strings as postal codes but got a: ${ast.kind}`,
       );
     }
 
