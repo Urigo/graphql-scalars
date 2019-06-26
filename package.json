@@ -1,5 +1,5 @@
 {
-  "name": "@okgrow/graphql-scalars",
+  "name": "@ardatan/graphql-scalars",
   "version": "0.4.5",
   "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
@@ -31,9 +31,10 @@
     "test": "jest",
     "prepare-release": "yarn build && yarn test",
     "release": "yarn prepare-release && npm publish",
-    "ci:release:canary": "node bump.js && npm publish --tag alpha"
+    "ci:release:canary": "node bump.js && npm publish --tag alpha --access public"
   },
   "devDependencies": {
+    "@types/glob": "7.1.1",
     "@types/graphql": "14.2.1",
     "@types/jest": "24.0.15",
     "@graphql-modules/core": "0.7.5",
