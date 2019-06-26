@@ -56,5 +56,8 @@
       "prettier --write",
       "git add -f"
     ]
+  },
+  "dependencies": {
+    "graphql-bigint": "1.0.0"
   }
 }
