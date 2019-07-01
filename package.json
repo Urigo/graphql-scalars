@@ -28,10 +28,11 @@
     "clean": "rm -rf dist",
     "prebuild": "yarn clean",
     "build": "tsc -m esnext --outDir dist/esnext && tsc -m commonjs --outDir dist/commonjs",
-    "test": "jest",
+    "test": "jest && yarn bundlesize",
     "prepare-release": "yarn build && yarn test",
     "release": "yarn prepare-release && npm publish",
-    "ci:release:canary": "node bump.js && npm publish --tag alpha --access public"
+    "ci:release:canary": "node bump.js && npm publish --tag alpha --access public",
+    "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
     "@types/glob": "7.1.1",
