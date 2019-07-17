@@ -1,6 +1,6 @@
-# @okgrow/graphql-scalars
+# graphql-scalars
 
-[![npm version](https://badge.fury.io/js/%40okgrow%2Fgraphql-scalars.svg)](https://badge.fury.io/js/%40okgrow%2Fgraphql-scalars)
+[![npm version](https://badge.fury.io/js/graphql-scalars.svg)](https://badge.fury.io/js/graphql-scalars)
 [![CircleCI](https://circleci.com/gh/Urigo/graphql-scalars.svg?style=svg)](https://circleci.com/gh/Urigo/graphql-scalars)
 
 > A library of custom GraphQL [scalar types](http://graphql.org/learn/schema/#scalar-types) for creating precise type-safe GraphQL schemas.
@@ -8,13 +8,13 @@
 ## Installation
 
 ```
-npm install --save @okgrow/graphql-scalars
+npm install --save graphql-scalars
 ```
 
 or
 
 ```
-yarn add @okgrow/graphql-scalars
+yarn add graphql-scalars
 ```
 
 ## Usage
@@ -76,7 +76,7 @@ import {
   URL,
   PhoneNumber,
   PostalCode,
-} from '@okgrow/graphql-scalars';
+} from 'graphql-scalars';
 ```
 
 Then make sure they're in the root resolver map like this:
@@ -117,7 +117,7 @@ and `UnsignedInt`, respectively.
 Alternatively, use the default import and ES6's spread operator syntax:
 
 ```javascript
-import OKGGraphQLScalars from '@okgrow/graphql-scalars';
+import OKGGraphQLScalars from 'graphql-scalars';
 ```
 
 Then make sure they're in the root resolver map like this:
@@ -167,9 +167,9 @@ import { makeExecutableSchema } from 'graphql-tools';
 // import all scalars and resolvers
 import OKGGraphQLScalars, {
   OKGScalarDefinitions,
-} from '@okgrow/graphql-scalars';
+} from 'graphql-scalars';
 // Alternatively, import individual scalars and resolvers
-// import { DateTime, DateTimeScalar, ... } from "@okgrow/graphql-scalars"
+// import { DateTime, DateTimeScalar, ... } from "graphql-scalars"
 
 const server = new ApolloServer({
   schema: makeExecutableSchema({
@@ -416,3 +416,11 @@ Released under the [MIT license](https://github.com/okgrow/analytics/blob/master
 Issues and Pull Requests are always welcome.
 
 Please read our [contribution guidelines](https://okgrow.github.io/guides/docs/open-source-contributing.html).
+
+## Thanks
+
+This library was originally published as `@okgrow/graphql-scalars`.
+It was created and maintained by the company `ok-grow`.
+We, The Guild, took over the maintaince of that library [later on](https://medium.com/the-guild/the-guild-is-taking-over-maintenance-of-merge-graphql-schemas-so-lets-talk-about-graphql-schema-46246557a225).
+
+We also like to say thank you to [@adriano-di-giovanni](https://github.com/adriano-di-giovanni) for being extremely generous and giving us the `graphql-scalars` name on npm which was previously owned by his own [library](https://github.com/adriano-di-giovanni/graphql-scalars).
