@@ -1,6 +1,6 @@
 # graphql-scalars
 
-[![npm version](https://badge.fury.io/js/%40okgrow%2Fgraphql-scalars.svg)](https://badge.fury.io/js/%40okgrow%2Fgraphql-scalars)
+[![npm version](https://badge.fury.io/js/graphql-scalars.svg)](https://badge.fury.io/js/graphql-scalars)
 [![CircleCI](https://circleci.com/gh/Urigo/graphql-scalars.svg?style=svg)](https://circleci.com/gh/Urigo/graphql-scalars)
 
 > A library of custom GraphQL [scalar types](http://graphql.org/learn/schema/#scalar-types) for creating precise type-safe GraphQL schemas.
