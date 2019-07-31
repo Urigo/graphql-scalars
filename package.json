@@ -38,7 +38,6 @@
     "@types/glob": "7.1.1",
     "@types/graphql": "14.2.1",
     "@types/jest": "24.0.15",
-    "@graphql-modules/core": "0.7.5",
     "graphql": "14.1.1",
     "jest": "24.0.0",
     "lint-staged": "8.2.1",
@@ -46,9 +45,6 @@
     "ts-jest": "24.0.2",
     "tslint": "5.18.0",
     "typescript": "3.5.2"
-  },
-  "optionalDependencies": {
-    "@graphql-modules/core": "0.7.5"
   },
   "peerDependencies": {
     "graphql": "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
@@ -62,8 +58,5 @@
       "prettier --write",
       "git add -f"
     ]
-  },
-  "dependencies": {
-    "graphql-bigint": "1.0.0"
   }
 }
