@@ -36,9 +36,9 @@
   },
   "devDependencies": {
     "@types/glob": "7.1.1",
-    "@types/graphql": "14.2.1",
+    "@types/graphql": "14.2.3",
     "@types/jest": "24.0.16",
-    "graphql": "14.1.1",
+    "graphql": "14.4.2",
     "jest": "24.8.0",
     "lint-staged": "8.2.1",
     "semver": "6.3.0",
