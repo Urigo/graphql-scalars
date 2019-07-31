@@ -42,7 +42,7 @@
     "graphql": "14.1.1",
     "jest": "24.0.0",
     "lint-staged": "8.2.1",
-    "semver": "6.1.2",
+    "semver": "6.3.0",
     "ts-jest": "24.0.2",
     "tslint": "5.18.0",
     "typescript": "3.5.2"
