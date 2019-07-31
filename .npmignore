@@ -9,3 +9,12 @@
 npm-debug.log
 lib
 bundle-test
+src
+tests
+.prettierrc
+bump.js
+jest.config.js
+renovate.json
+tsconfig.json
+tslint.json
+.circleci

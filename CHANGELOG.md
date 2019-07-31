@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.7] - 2019-07-31
+
+- Fixed BigInt typing issue
+- Removed URL regex, use native URL library instead
+
 ## [0.4.5] - 2019-02-12
 
 ### Fixed
