@@ -13,6 +13,7 @@ import PhoneNumber from './PhoneNumber';
 import PostalCode from './PostalCode';
 import RegularExpression from './RegularExpression';
 import BigInt from './BigInt';
+import * as mocks from './mocks';
 
 import {
   DateTimeScalar,
@@ -76,6 +77,7 @@ export {
   URLScalar,
   BigIntScalar,
   LongScalar,
+  mocks,
 };
 
 export default {
