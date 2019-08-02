@@ -1,101 +1,70 @@
-import DateTime from './DateTime';
-import NonPositiveInt from './NonPositiveInt';
-import PositiveInt from './PositiveInt';
-import NonNegativeInt from './NonNegativeInt';
-import NegativeInt from './NegativeInt';
-import NonPositiveFloat from './NonPositiveFloat';
-import PositiveFloat from './PositiveFloat';
-import NonNegativeFloat from './NonNegativeFloat';
-import NegativeFloat from './NegativeFloat';
-import EmailAddress from './EmailAddress';
-import URL from './URL';
-import PhoneNumber from './PhoneNumber';
-import PostalCode from './PostalCode';
-import RegularExpression from './RegularExpression';
-import BigInt from './BigInt';
-import * as mocks from './mocks';
+export {
+  DateTime as   DateTimeTypeDefinition,
+  EmailAddress as   EmailAddressTypeDefinition,
+  NegativeFloat as   NegativeFloatTypeDefinition,
+  NegativeInt as   NegativeIntTypeDefinition,
+  NonNegativeFloat as   NonNegativeFloatTypeDefinition,
+  NonNegativeInt as   NonNegativeIntTypeDefinition,
+  NonPositiveFloat as   NonPositiveFloatTypeDefinition,
+  NonPositiveInt as   NonPositiveIntTypeDefinition,
+  PhoneNumber as   PhoneNumberTypeDefinition,
+  PositiveFloat as   PositiveFloatTypeDefinition,
+  PositiveInt as   PositiveIntTypeDefinition,
+  PostalCode as   PostalCodeTypeDefinition,
+  RegularExpression as   RegularExpressionTypeDefinition,
+  UnsignedFloat as   UnsignedFloatTypeDefinition,
+  UnsignedInt as   UnsignedIntTypeDefinition,
+  URL as   URLTypeDefinition,
+  BigInt as   BigIntTypeDefinition,
+  Long as   LongTypeDefinition,
+} from './typeDefs';
 
-import {
-  DateTimeScalar,
-  EmailAddressScalar,
-  NegativeFloatScalar,
-  NegativeIntScalar,
-  NonNegativeFloatScalar,
-  NonNegativeIntScalar,
-  NonPositiveFloatScalar,
-  NonPositiveIntScalar,
-  PhoneNumberScalar,
-  PositiveFloatScalar,
-  PositiveIntScalar,
-  PostalCodeScalar,
-  RegularExpressionScalar,
-  UnsignedFloatScalar,
-  UnsignedIntScalar,
-  URLScalar,
-  BigIntScalar,
-  LongScalar,
-} from './scalars';
-
-export { default as OKGScalarDefinitions } from './scalars';
+export { default as typeDefs } from './typeDefs';
 
 export {
-  // Resolvers
-  DateTime,
-  NonPositiveInt,
-  PositiveInt,
-  NonNegativeInt,
-  NonNegativeInt as UnsignedInt,
-  NegativeInt,
-  NonPositiveFloat,
-  PositiveFloat,
-  NonNegativeFloat,
-  NonNegativeFloat as UnsignedFloat,
-  NegativeFloat,
-  EmailAddress,
-  URL,
-  PhoneNumber,
-  PostalCode,
-  RegularExpression,
-  BigInt,
-  BigInt as Long,
-  // Scalars
-  DateTimeScalar,
-  EmailAddressScalar,
-  NegativeFloatScalar,
-  NegativeIntScalar,
-  NonNegativeFloatScalar,
-  NonNegativeIntScalar,
-  NonPositiveFloatScalar,
-  NonPositiveIntScalar,
-  PhoneNumberScalar,
-  PositiveFloatScalar,
-  PositiveIntScalar,
-  PostalCodeScalar,
-  RegularExpressionScalar,
-  UnsignedFloatScalar,
-  UnsignedIntScalar,
-  URLScalar,
-  BigIntScalar,
-  LongScalar,
-  mocks,
-};
+  DateTime as   DateTimeResolver,
+  EmailAddress as   EmailAddressResolver,
+  NegativeFloat as   NegativeFloatResolver,
+  NegativeInt as   NegativeIntResolver,
+  NonNegativeFloat as   NonNegativeFloatResolver,
+  NonNegativeInt as   NonNegativeIntResolver,
+  NonPositiveFloat as   NonPositiveFloatResolver,
+  NonPositiveInt as   NonPositiveIntResolver,
+  PhoneNumber as   PhoneNumberResolver,
+  PositiveFloat as   PositiveFloatResolver,
+  PositiveInt as   PositiveIntResolver,
+  PostalCode as   PostalCodeResolver,
+  RegularExpression as   RegularExpressionResolver,
+  UnsignedFloat as   UnsignedFloatResolver,
+  UnsignedInt as   UnsignedIntResolver,
+  URL as   URLResolver,
+  BigInt as   BigIntResolver,
+  Long as   LongResolver,
+} from './resolvers';
 
-export default {
-  // as part of a default object
-  DateTime,
-  PositiveInt,
-  NonNegativeInt,
-  UnsignedInt: NonNegativeInt,
-  NegativeInt,
-  PositiveFloat,
-  NonNegativeFloat,
-  UnsignedFloat: NonNegativeFloat,
-  NegativeFloat,
-  EmailAddress,
-  URL,
-  PhoneNumber,
-  PostalCode,
-  RegularExpression,
-  BigInt,
-  Long: BigInt,
-};
+import * as resolvers from './resolvers';
+export { resolvers };
+
+export {
+  DateTime as   DateTimeMock,
+  EmailAddress as   EmailAddressMock,
+  NegativeFloat as   NegativeFloatMock,
+  NegativeInt as   NegativeIntMock,
+  NonNegativeFloat as   NonNegativeFloatMock,
+  NonNegativeInt as   NonNegativeIntMock,
+  NonPositiveFloat as   NonPositiveFloatMock,
+  NonPositiveInt as   NonPositiveIntMock,
+  PhoneNumber as   PhoneNumberMock,
+  PositiveFloat as   PositiveFloatMock,
+  PositiveInt as   PositiveIntMock,
+  PostalCode as   PostalCodeMock,
+  UnsignedFloat as   UnsignedFloatMock,
+  UnsignedInt as   UnsignedIntMock,
+  URL as   URLMock,
+  BigInt as   BigIntMock,
+  Long as   LongMock,
+} from './mocks';
+
+import * as mocks from './mocks';
+export { mocks };
+

@@ -9,6 +9,7 @@ export const NonPositiveFloat = () => -123.45;
 export const NonPositiveInt = () => -123;
 export const PhoneNumber = () => '+17895551234';
 export const PositiveFloat = () => 123.45;
+export const PositiveInt = () => 123;
 export const PostalCode = () => '60031';
 const URLMock = () => new URL('http://www.test.com/');
 export {

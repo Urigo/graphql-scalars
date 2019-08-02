@@ -63,19 +63,19 @@ In your resolver map, first import them:
 
 ```javascript
 import {
-  DateTime,
-  NonPositiveInt,
-  PositiveInt,
-  NonNegativeInt,
-  NegativeInt,
-  NonPositiveFloat,
-  PositiveFloat,
-  NonNegativeFloat,
-  NegativeFloat,
-  EmailAddress,
-  URL,
-  PhoneNumber,
-  PostalCode,
+  DateTimeResolver,
+  NonPositiveIntResolver,
+  PositiveIntResolver,
+  NonNegativeIntResolver,
+  NegativeIntResolver,
+  NonPositiveFloatResolver,
+  PositiveFloatResolver,
+  NonNegativeFloatResolver,
+  NegativeFloatResolver,
+  EmailAddressResolver,
+  URLResolver,
+  PhoneNumberResolver,
+  PostalCodeResolver,
 } from 'graphql-scalars';
 ```
 
@@ -83,23 +83,23 @@ Then make sure they're in the root resolver map like this:
 
 ```javascript
 const myResolverMap = {
-  DateTime,
+  DateTime: DateTimeResolver,
 
-  NonPositiveInt,
-  PositiveInt,
-  NonNegativeInt,
-  NegativeInt,
+  NonPositiveInt: NonPositiveIntResolver,
+  PositiveInt: NonPositiveIntResolver,
+  NonNegativeInt: NonPositiveIntResolver,
+  NegativeInt: NegativeIntResolver,
 
-  NonPositiveFloat,
-  PositiveFloat,
-  NonNegativeFloat,
-  NegativeFloat,
+  NonPositiveFloat: NonPositiveFloatResolver,
+  PositiveFloat: PositiveFloatResolver,
+  NonNegativeFloat: NonNegativeFloatResolver,
+  NegativeFloat: NegativeFloatResolver,
 
-  EmailAddress,
-  URL,
+  EmailAddress: EmailAddressResolver,
+  URL: URLResolver,
 
-  PhoneNumber,
-  PostalCode,
+  PhoneNumber: PhoneNumberResolver,
+  PostalCode: PostalCodeResolver,
 
   Query: {
     // more stuff here
@@ -117,14 +117,14 @@ and `UnsignedInt`, respectively.
 Alternatively, use the default import and ES6's spread operator syntax:
 
 ```javascript
-import OKGGraphQLScalars from 'graphql-scalars';
+import { resolvers } from 'graphql-scalars';
 ```
 
 Then make sure they're in the root resolver map like this:
 
 ```javascript
 const myResolverMap = {
-  ...OKGGraphQLScalars,
+  ...resolvers,
 
   Query: {
     // more stuff here
@@ -165,24 +165,22 @@ These scalars can be used just like the base, built-in ones.
 import { ApolloServer } from 'apollo-server';
 import { makeExecutableSchema } from 'graphql-tools';
 // import all scalars and resolvers
-import OKGGraphQLScalars, {
-  OKGScalarDefinitions,
-} from 'graphql-scalars';
+import { typeDefs, resolvers } from 'graphql-scalars';
 // Alternatively, import individual scalars and resolvers
-// import { DateTime, DateTimeScalar, ... } from "graphql-scalars"
+// import { DateTimeResolver, DateTimeTypeDefinition, ... } from "graphql-scalars"
 
 const server = new ApolloServer({
   schema: makeExecutableSchema({
     typeDefs: [
       // use spread syntax to add scalar definitions to your schema
-      ...OKGScalarDefinitions,
+      ...typeDefs,
       // DateTimeScalar,
       // ...
       // ... other type definitions ...
     ],
     resolvers: {
       // use spread syntax to add scalar resolvers to your resolver map
-      ...OKGGraphQLScalars,
+      ...resolvers,
       // DateTime,
       // ...
       // ... remainder of resolver map ...
@@ -194,6 +192,37 @@ server.listen().then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
 ```
+
+### Using mocks with Apollo Server
+
+```javascript
+import { ApolloServer } from 'apollo-server';
+import { makeExecutableSchema } from 'graphql-tools';
+// import all scalars and resolvers
+import { typeDefs, resolvers, mocks } from 'graphql-scalars';
+// Alternatively, import individual scalars and resolvers
+// import { DateTimeResolver, DateTimeTypeDefinition, DateTimeMock, ... } from "graphql-scalars"
+
+const server = new ApolloServer({
+  schema: makeExecutableSchema({
+    typeDefs: [
+      // use spread syntax to add scalar definitions to your schema
+      ...typeDefs,
+      // DateTimeScalar,
+      // ...
+      // ... other type definitions ...
+    ],
+    resolvers: {
+      // use spread syntax to add scalar resolvers to your resolver map
+      ...resolvers,
+      // DateTime,
+      // ...
+      // ... remainder of resolver map ...
+    },
+  }),
+});
+```
+
 
 ### Using the RegularExpression scalar
 
@@ -343,7 +372,7 @@ A field whose value conforms to the standard internet email address format as sp
 ### URL
 
 A field whose value conforms to the standard URL format as specified in
-[RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
+[RFC3986](https://www.ietf.org/rfc/rfc3986.txt), and it uses real JavaScript `URL` objects.
 
 ### PhoneNumber
 
@@ -353,6 +382,7 @@ The very powerful
 [`libphonenumber` library](https://github.com/googlei18n/libphonenumber) is available to take
 _that_ format, parse and display it in whatever display format you want. It can also be used to
 parse user input and _get_ the E.164 format to pass _into_ a schema.
+It uses [`libphonenumber-js` library](https://github.com/catamphetamine/libphonenumber-js).
 
 ### PostalCode
 
@@ -409,13 +439,13 @@ can use them too if needed.
 
 ## License
 
-Released under the [MIT license](https://github.com/okgrow/analytics/blob/master/License.md).
+Released under the [MIT license](https://github.com/Urigo/graphql-scalars/blob/master/LICENSE).
 
 ## Contributing
 
 Issues and Pull Requests are always welcome.
 
-Please read our [contribution guidelines](https://okgrow.github.io/guides/docs/open-source-contributing.html).
+Please read our [contribution guidelines](https://github.com/Urigo/graphql-scalars/blob/master/CONTRIBUTING.md).
 
 ## Thanks
 

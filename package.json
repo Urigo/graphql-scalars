@@ -1,6 +1,6 @@
 {
   "name": "graphql-scalars",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
     "type": "git",
@@ -35,7 +35,6 @@
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
-    "@types/glob": "7.1.1",
     "@types/graphql": "14.2.3",
     "@types/jest": "24.0.16",
     "graphql": "14.4.2",
@@ -58,5 +57,8 @@
       "prettier --write",
       "git add -f"
     ]
+  },
+  "dependencies": {
+    "libphonenumber-js": "1.7.22"
   }
 }
