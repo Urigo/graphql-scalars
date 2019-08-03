@@ -12,7 +12,7 @@ export default new GraphQLScalarType({
 
     if (!(v instanceof Date) && typeof v !== 'string' && typeof v !== 'number') {
       throw new TypeError(
-        `Value is not an instance of Date, Date string or number: ${v}`,
+        `Value is not an instance of Date, Date string or number: ${JSON.stringify(v)}`,
       );
     }
 
@@ -26,7 +26,7 @@ export default new GraphQLScalarType({
 
     // eslint-disable-next-line no-restricted-globals
     if (Number.isNaN(v.getTime())) {
-      throw new TypeError(`Value is not a valid Date: ${v}`);
+      throw new TypeError(`Value is not a valid Date: ${JSON.stringify(v)}`);
     }
 
     return v.toJSON();
