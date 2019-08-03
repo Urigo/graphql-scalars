@@ -1,8 +1,7 @@
 /* global describe, test, expect */
 
 import { Kind } from 'graphql/language';
-
-import { DateTime } from '../src';
+import DateTime from '../src/resolvers/DateTime';
 
 describe('DateTime', () => {
   describe('valid', () => {

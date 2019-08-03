@@ -11,8 +11,20 @@ import EmailAddress from './EmailAddress';
 import URL from './URL';
 import PhoneNumber from './PhoneNumber';
 import PostalCode from './PostalCode';
-import RegularExpression from './RegularExpression';
 import BigInt from './BigInt';
+import GUID from './GUID';
+import HexColorCode from './HexColorCode';
+import HSL from './HSL';
+import HSLA from './HSLA';
+import IPv4 from './IPv4';
+import IPv6 from './IPv6';
+import ISBN from './ISBN';
+import MAC from './MAC';
+import Port from './Port';
+import RGB from './RGB';
+import RGBA from './RGBA';
+import { USCurrency } from 'graphql-currency-scalars';
+import { GraphQLJSON as JSON, GraphQLJSONObject as JSONObject } from 'graphql-type-json';
 
 export {
     DateTime,
@@ -30,7 +42,20 @@ export {
     URL,
     PhoneNumber,
     PostalCode,
-    RegularExpression,
     BigInt,
     BigInt as Long,
+    GUID,
+    HexColorCode,
+    HSL,
+    HSLA,
+    IPv4,
+    IPv6,
+    ISBN,
+    MAC,
+    Port,
+    RGB,
+    RGBA,
+    USCurrency,
+    JSON,
+    JSONObject,
 };

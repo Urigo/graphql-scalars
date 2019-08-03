@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { PositiveFloat } from '../src';
+import PositiveFloat from '../src/resolvers/PositiveFloat';
 
 describe('PositiveFloat', () => {
   describe('valid', () => {
@@ -229,7 +229,7 @@ describe('PositiveFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PositiveFloat.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
+          PositiveFloat.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING }, {}),
         ).toThrow(
           /Can only validate floating point numbers as positive floating point numbers but got a/,
         );

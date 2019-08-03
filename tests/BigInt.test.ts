@@ -1,6 +1,6 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLInputObjectType } from 'graphql/type/definition';
 import { GraphQLSchema, graphql } from 'graphql';
-import BigInt from '../src/BigInt';
+import BigInt from '../src/resolvers/BigInt';
 
 describe('BigInt', () => {
 
@@ -122,7 +122,7 @@ describe('BigInt', () => {
         expect(errors[0].message).toEqual('BigInt cannot represent non-integer value: 3.14');
         expect(data).toEqual(null);
 
-    })
+    });
     it('5', async () => {
         const { data, errors } = await graphql(schema, validQuery);
         expect(errors).toEqual(undefined);

@@ -2,22 +2,22 @@
 
 import { Kind } from 'graphql/language';
 
-import { PhoneNumber } from '../src';
+import PhoneNumber from '../src/resolvers/PhoneNumber';
 
 describe('PhoneNumber', () => {
   describe('valid', () => {
     test('serialize', () => {
-      expect(PhoneNumber.serialize('+17895551234')).toBe('+17895551234');
+      expect(PhoneNumber.serialize('+16075551234')).toBe('+16075551234');
     });
 
     test('parseValue', () => {
-      expect(PhoneNumber.parseValue('+17895551234')).toBe('+17895551234');
+      expect(PhoneNumber.parseValue('+16075551234')).toBe('+16075551234');
     });
 
     test('parseLiteral', () => {
       expect(
-        PhoneNumber.parseLiteral({ value: '+17895551234', kind: Kind.STRING } , {}),
-      ).toBe('+17895551234');
+        PhoneNumber.parseLiteral({ value: '+16075551234', kind: Kind.STRING }, {}),
+      ).toBe('+16075551234');
     });
   });
 
@@ -37,7 +37,7 @@ describe('PhoneNumber', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PhoneNumber.parseLiteral({ value: 'this is not a phone number', kind: Kind.STRING } , {}),
+          PhoneNumber.parseLiteral({ value: 'this is not a phone number', kind: Kind.STRING }, {}),
         ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
       });
     });
@@ -73,7 +73,7 @@ describe('PhoneNumber', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PhoneNumber.parseLiteral({ value: '+1789555123', kind: Kind.STRING } , {}),
+          PhoneNumber.parseLiteral({ value: '+1789555123', kind: Kind.STRING }, {}),
         ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
       });
     });
@@ -93,7 +93,7 @@ describe('PhoneNumber', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PhoneNumber.parseLiteral({ value: '+1789555123456789', kind: Kind.STRING } , {}),
+          PhoneNumber.parseLiteral({ value: '+1789555123456789', kind: Kind.STRING }, {}),
         ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
       });
     });
@@ -113,7 +113,7 @@ describe('PhoneNumber', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          PhoneNumber.parseLiteral({ value: '17895551234', kind: Kind.STRING } , {}),
+          PhoneNumber.parseLiteral({ value: '17895551234', kind: Kind.STRING }, {}),
         ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
       });
     });

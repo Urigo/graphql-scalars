@@ -1,8 +1,7 @@
 /* global jest, describe, test, expect */
 
 import { Kind } from 'graphql/language';
-
-import { RegularExpression } from '../src';
+import RegularExpression from '../src/RegularExpression';
 
 describe('RegularExpression', () => {
   const Abc = new RegularExpression('Abc', /^abc$/);
@@ -17,7 +16,7 @@ describe('RegularExpression', () => {
     });
 
     test('parseLiteral', () => {
-      expect(Abc.parseLiteral({ value: 'abc', kind: Kind.STRING } , {})).toBe('abc');
+      expect(Abc.parseLiteral({ value: 'abc', kind: Kind.STRING }, {})).toBe('abc');
     });
   });
 
@@ -37,7 +36,7 @@ describe('RegularExpression', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          Abc.parseLiteral({ value: 'this does not match', kind: Kind.STRING } , {}),
+          Abc.parseLiteral({ value: 'this does not match', kind: Kind.STRING }, {}),
         ).toThrow(/Value does not match the regular expression/);
       });
     });
@@ -102,7 +101,7 @@ describe('RegularExpression', () => {
       });
 
       test('parseLiteral', () => {
-        expect(() => Abc.parseLiteral({ value: '123', kind: Kind.INT } , {})).toThrow(
+        expect(() => Abc.parseLiteral({ value: '123', kind: Kind.INT }, {})).toThrow(
           /Can only validate strings as regular expressions but got a/,
         );
       });

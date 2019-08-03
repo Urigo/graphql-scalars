@@ -2,7 +2,8 @@
 
 import { Kind } from 'graphql/language';
 
-import { NonNegativeInt, UnsignedInt } from '../src';
+import NonNegativeInt from '../src/resolvers/NonNegativeInt';
+import UnsignedInt from '../src/resolvers/NonNegativeInt';
 
 describe('NonNegativeInt', () => {
   describe('valid', () => {
@@ -243,7 +244,7 @@ describe('NonNegativeInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NonNegativeInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
+          NonNegativeInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING }, {}),
         ).toThrow(
           /Can only validate integers as non-negative integers but got a/,
         );
@@ -491,7 +492,7 @@ describe('UnsignedInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          UnsignedInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
+          UnsignedInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING }, {}),
         ).toThrow(
           /Can only validate integers as non-negative integers but got a/,
         );

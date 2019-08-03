@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { NegativeInt } from '../src';
+import NegativeInt from '../src/resolvers/NegativeInt';
 
 describe('NegativeInt', () => {
   describe('valid', () => {
@@ -247,7 +247,7 @@ describe('NegativeInt', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NegativeInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
+          NegativeInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING }, {}),
         ).toThrow(/Can only validate integers as negative integers but got a/);
       });
     });

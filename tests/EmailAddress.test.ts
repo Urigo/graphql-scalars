@@ -1,8 +1,7 @@
 /* global describe, test, expect */
 
 import { Kind } from 'graphql/language';
-
-import { EmailAddress } from '../src';
+import EmailAddress from '../src/resolvers/EmailAddress';
 
 describe('EmailAddress', () => {
   describe('valid', () => {

@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { NegativeFloat } from '../src';
+import NegativeFloat from '../src/resolvers/NegativeFloat';
 
 describe('NegativeFloat', () => {
   describe('valid', () => {
@@ -229,7 +229,7 @@ describe('NegativeFloat', () => {
 
       test('parseLiteral', () => {
         expect(() =>
-          NegativeFloat.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING } , {}),
+          NegativeFloat.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING }, {}),
         ).toThrow(
           /Can only validate floating point numbers as negative floating point numbers but got a/,
         );

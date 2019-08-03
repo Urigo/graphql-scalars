@@ -15,7 +15,9 @@ export default new GraphQLScalarType({
     }
 
     try {
-      parsePhoneNumber(value);
+      if (!parsePhoneNumber(value).isValid()) {
+        throw '';
+      }
     } catch (e) {
       throw new TypeError(`Value is not a valid phone number of the form +17895551234 (10-15 digits): ${value}`);
     }
@@ -29,7 +31,9 @@ export default new GraphQLScalarType({
     }
 
     try {
-      parsePhoneNumber(value);
+      if (!parsePhoneNumber(value).isValid()) {
+        throw '';
+      }
     } catch (e) {
       throw new TypeError(`Value is not a valid phone number of the form +17895551234 (10-15 digits): ${value}`);
     }
@@ -44,8 +48,11 @@ export default new GraphQLScalarType({
       );
     }
 
-    const phoneNumber = parsePhoneNumber(ast.value);
-    if (!phoneNumber.isValid()) {
+    try {
+      if (!parsePhoneNumber(ast.value).isValid()) {
+        throw '';
+      }
+    } catch (e) {
       throw new TypeError(`Value is not a valid phone number of the form +17895551234 (10-15 digits): ${ast.value}`);
     }
 

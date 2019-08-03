@@ -50,13 +50,43 @@ scalar PositiveInt
 
 scalar PostalCode
 
-scalar RegularExpression
-
 scalar UnsignedFloat
 
 scalar UnsignedInt
 
 scalar URL
+
+scalar BigInt
+
+scalar Long
+
+scalar GUID
+
+scalar HexColorCode
+
+scalar HSL
+
+scalar HSLA
+
+scalar IPv4
+
+scalar IPv6
+
+scalar ISBN
+
+scalar MAC
+
+scalar Port
+
+scalar RGB
+
+scalar RGBA
+
+scalar USCurrency
+
+scalar JSON
+
+scalar JSONObject
 ```
 
 In your resolver map, first import them:
@@ -64,18 +94,36 @@ In your resolver map, first import them:
 ```javascript
 import {
   DateTimeResolver,
-  NonPositiveIntResolver,
-  PositiveIntResolver,
-  NonNegativeIntResolver,
-  NegativeIntResolver,
-  NonPositiveFloatResolver,
-  PositiveFloatResolver,
-  NonNegativeFloatResolver,
-  NegativeFloatResolver,
   EmailAddressResolver,
-  URLResolver,
+  NegativeFloatResolver,
+  NegativeIntResolver,
+  NonNegativeFloatResolver,
+  NonNegativeIntResolver,
+  NonPositiveFloatResolver,
+  NonPositiveIntResolver,
   PhoneNumberResolver,
+  PositiveFloatResolver,
+  PositiveIntResolver,
   PostalCodeResolver,
+  UnsignedFloatResolver,
+  UnsignedIntResolver,
+  URLResolver,
+  BigIntResolver,
+  LongResolver,
+  GUIDResolver,
+  HexColorCodeResolver,
+  HSLResolver,
+  HSLAResolver,
+  IPv4Resolver,
+  IPv6Resolver,
+  ISBNResolver,
+  MACResolver,
+  PortResolver,
+  RGBResolver,
+  RGBAResolver,
+  USCurrencyResolver,
+  JSONResolver,
+  JSONObjectResolver,
 } from 'graphql-scalars';
 ```
 
@@ -408,6 +456,74 @@ Which gives us the following countries:
 This is really a practical decision of weight (of the package) vs. completeness.
 
 In the future we might expand this list and use the more comprehensive list found [here](http://unicode.org/cldr/trac/browser/tags/release-26-0-1/common/supplemental/postalCodeData.xml).
+
+### BigInt
+
+The `BigInt` scalar type represents non-fractional signed whole numeric values. BigInt can represent values between -(2^53) + 1 and 2^53 - 1.
+
+> Uses [graphql-bigint](https://github.com/stems/graphql-bigint)
+
+### GUID
+
+A field whose value is a generic [Globally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+
+### Hexadecimal
+
+A field whose value is a [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal).
+
+### HexColorCode
+
+A field whose value is a [hex color code](https://en.wikipedia.org/wiki/Web_colors).
+
+### HSL
+
+A field whose value is a [CSS HSL color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()).
+
+### IPv4
+
+A field whose value is a [IPv4 address](https://en.wikipedia.org/wiki/IPv4).
+
+### IPv6
+
+A field whose value is a [IPv6 address](https://en.wikipedia.org/wiki/IPv6).
+
+### ISBN
+
+A field whose value is a [ISBN-10 or ISBN-13 number](https://en.wikipedia.org/wiki/International_Standard_Book_Number).
+
+### MAC
+
+A field whose value is a IEEE 802 48-bit [MAC address](https://en.wikipedia.org/wiki/MAC_address).
+
+### Port
+
+A field whose value is a valid [TCP port](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_ports) within the range of 0 to 65535.
+
+### RGB
+
+A field whose value is a [CSS RGB color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()).
+
+### RGBA
+
+A field whose value is a [CSS RGBA color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()).
+
+### USCurrency
+
+A US currency string, such as $21.25.
+
+> Uses [graphql-currency-scalars](https://github.com/abhiaiyer91/graphql-currency-scalars)
+
+### JSON
+
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+
+> Uses [graphql-currency-scalars](https://github.com/abhiaiyer91/graphql-currency-scalars)
+
+### JSONObject
+
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+
+> Uses [graphql-type-json](https://github.com/taion/graphql-type-json)
 
 ### RegularExpression
 
