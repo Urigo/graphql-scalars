@@ -8,8 +8,6 @@ const validate = (value: any) => {
     return value;
 };
 
-export const RGBAScalar = `scalar RGBA`;
-
 export default new GraphQLScalarType({
     name: `RGBA`,
 

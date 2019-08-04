@@ -9,8 +9,6 @@ const validate = (value: any) => {
     return parsed;
 };
 
-export const PortScalar = `scalar Port`;
-
 export default new GraphQLScalarType({
     name: `Port`,
 
