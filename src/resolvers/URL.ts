@@ -1,6 +1,7 @@
 import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
+import { URL } from 'url';
 
 export default new GraphQLScalarType({
   name: 'URL',
