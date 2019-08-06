@@ -1,10 +1,16 @@
 import { GraphQLScalarType, GraphQLError, Kind } from 'graphql';
-import { assert, string } from '@hapi/joi';
+
+const MAC_REGEX = /^(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})(?:(?:\1|\.)(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})){2}$/;
 
 const validate = (value: any) => {
-    assert(value, string(), new TypeError(`Value is not string: ${value}`));
-    assert(value, string().regex(/^(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})(?:(?:\1|\.)(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})){2}$/),
-        new TypeError(`Value is not a valid MAC address: ${value}`));
+    if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    if (!(MAC_REGEX.test(value))) {
+        throw new TypeError(`Value is not a valid MAC address: ${value}`);
+    }
+
     return value;
 };
 

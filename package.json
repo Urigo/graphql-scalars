@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@types/graphql": "14.2.3",
-    "@types/hapi__joi": "15.0.3",
     "@types/jest": "24.0.17",
     "graphql": "14.4.2",
     "jest": "24.8.0",
@@ -60,9 +59,6 @@
     ]
   },
   "dependencies": {
-    "@hapi/joi": "15.1.0",
-    "graphql-currency-scalars": "0.0.1",
-    "graphql-type-json": "0.3.0",
-    "libphonenumber-js": "1.7.22"
+    "graphql-type-json": "0.3.0"
   }
 }

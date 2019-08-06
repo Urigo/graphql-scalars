@@ -1,7 +1,8 @@
 import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
-import { parsePhoneNumber } from 'libphonenumber-js';
+
+const PHONE_NUMBER_REGEX = /^\+\d{11,15}$/;
 
 export default new GraphQLScalarType({
   name: 'PhoneNumber',
@@ -14,11 +15,7 @@ export default new GraphQLScalarType({
       throw new TypeError(`Value is not string: ${value}`);
     }
 
-    try {
-      if (!parsePhoneNumber(value).isValid()) {
-        throw '';
-      }
-    } catch (e) {
+    if (!(PHONE_NUMBER_REGEX.test(value))) {
       throw new TypeError(`Value is not a valid phone number of the form +17895551234 (10-15 digits): ${value}`);
     }
 
@@ -30,11 +27,7 @@ export default new GraphQLScalarType({
       throw new TypeError(`Value is not string: ${value}`);
     }
 
-    try {
-      if (!parsePhoneNumber(value).isValid()) {
-        throw '';
-      }
-    } catch (e) {
+    if (!(PHONE_NUMBER_REGEX.test(value))) {
       throw new TypeError(`Value is not a valid phone number of the form +17895551234 (10-15 digits): ${value}`);
     }
 
@@ -48,11 +41,7 @@ export default new GraphQLScalarType({
       );
     }
 
-    try {
-      if (!parsePhoneNumber(ast.value).isValid()) {
-        throw '';
-      }
-    } catch (e) {
+    if (!(PHONE_NUMBER_REGEX.test(ast.value))) {
       throw new TypeError(`Value is not a valid phone number of the form +17895551234 (10-15 digits): ${ast.value}`);
     }
 

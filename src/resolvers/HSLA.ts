@@ -1,10 +1,16 @@
 import { GraphQLScalarType, GraphQLError, Kind } from 'graphql';
-import { assert, string } from '@hapi/joi';
+
+const HSLA_REGEX = /^hsla\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)\s*\)$/;
 
 const validate = (value: any) => {
-    assert(value, string(), new TypeError(`Value is not string: ${value}`));
-    assert(value, string().regex(/^hsla\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)\s*\)$/),
-        new TypeError(`Value is not a valid HSLA color: ${value}`));
+    if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    if (!(HSLA_REGEX.test(value))) {
+        throw new TypeError(`Value is not a valid HSLA color: ${value}`);
+    }
+
     return value;
 };
 

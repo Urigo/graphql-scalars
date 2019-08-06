@@ -1,12 +1,27 @@
 import { GraphQLScalarType, GraphQLError, Kind } from 'graphql';
-import { assert, string } from '@hapi/joi';
+
+const ISBN_REGEX_ARR = [
+    /^(?:ISBN(?:-10)?:? *((?=\d{1,5}([ -]?)\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}[\dX]))$/i,
+    /^(?:ISBN(?:-13)?:? *(97(?:8|9)([ -]?)(?=\d{1,5}\2?\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}\d))$/i
+];
 
 const validate = (value: any) => {
-    assert(value, string(), new TypeError(`Value is not string: ${value}`));
-    assert(value, [
-        string().regex(/^(?:ISBN(?:-10)?:? *((?=\d{1,5}([ -]?)\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}[\dX]))$/i),
-        string().regex(/^(?:ISBN(?:-13)?:? *(97(?:8|9)([ -]?)(?=\d{1,5}\2?\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}\d))$/i)
-    ], new TypeError(`Value is not a valid ISBN number: ${value}`));
+    if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    let valid = false;
+    for (const regex of ISBN_REGEX_ARR) {
+        if (regex.test(value)) {
+            valid = true;
+            break;
+        }
+    }
+
+    if (!valid) {
+        throw new TypeError(`Value is not a valid ISBN number: ${value}`);
+    }
+
     return value;
 };
 

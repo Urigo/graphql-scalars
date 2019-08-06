@@ -1,9 +1,16 @@
 import { GraphQLScalarType, GraphQLError, Kind } from 'graphql';
-import { assert, string } from '@hapi/joi';
+
+const HEXADECIMAL_REGEX = /^[a-f0-9]+$/i;
 
 const validate = (value: any) => {
-    assert(value, string(), new TypeError(`Value is not string: ${value}`));
-    assert(value, string().hex(), new TypeError(`Value is not a valid hexadecimal value: ${value}`));
+    if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    if (!(HEXADECIMAL_REGEX.test(value))) {
+        throw new TypeError(`Value is not a valid hexadecimal value: ${value}`);
+    }
+
     return value;
 };
 

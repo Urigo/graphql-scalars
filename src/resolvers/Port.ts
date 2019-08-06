@@ -1,11 +1,21 @@
 import { GraphQLScalarType, GraphQLError, Kind } from 'graphql';
-import { assert, any, number } from '@hapi/joi';
 
 const validate = (value: any) => {
-    assert(value, any().invalid(Infinity, -Infinity), new TypeError(`Value is not a finite number: ${value}`));
-    assert(value, number().required(), new TypeError(`Value is not a number: ${value}`));
-    const parsed = parseInt(value, 10);
-    assert(parsed, number().port(), new TypeError(`Value is not a valid TCP port: ${parsed}`));
+
+    const parsed = typeof value === 'string' ? parseInt(value, 10) : value;
+
+    if (typeof parsed !== 'number' || Number.isNaN(parsed)) {
+        throw new TypeError(`Value is not a number: ${value}`);
+    }
+
+    if (parsed === Infinity || parsed === -Infinity) {
+        throw new TypeError(`Value is not a finite number: ${value}`);
+    }
+
+    if (parsed <= 0 || parsed > 65535) {
+        throw new TypeError(`Value is not a valid TCP port: ${value}`);
+    }
+
     return parsed;
 };
 

@@ -1,7 +1,10 @@
 import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
-import { URL } from 'url';
+
+if (typeof URL === 'undefined') {
+  global['URL'] = require('url').URL;
+}
 
 export default new GraphQLScalarType({
   name: 'URL',

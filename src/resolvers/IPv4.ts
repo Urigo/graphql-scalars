@@ -1,9 +1,16 @@
 import { GraphQLScalarType, GraphQLError, Kind } from 'graphql';
-import { assert, string } from '@hapi/joi';
+
+const IPV4_REGEX = /^(?:(?:(?:0?0?[0-9]|0?[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}(?:0?0?[0-9]|0?[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\/(?:[0-9]|[1-2][0-9]|3[0-2]))?)$/;
 
 const validate = (value: any) => {
-    assert(value, string(), new TypeError(`Value is not string: ${value}`));
-    assert(value, string().ip({ version: `ipv4` }), new TypeError(`Value is not a valid IPv4 address: ${value}`));
+    if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    if (!(IPV4_REGEX.test(value))) {
+        throw new TypeError(`Value is not a valid IPv4 address: ${value}`);
+    }
+
     return value;
 };
 

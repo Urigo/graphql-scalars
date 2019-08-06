@@ -430,7 +430,6 @@ The very powerful
 [`libphonenumber` library](https://github.com/googlei18n/libphonenumber) is available to take
 _that_ format, parse and display it in whatever display format you want. It can also be used to
 parse user input and _get_ the E.164 format to pass _into_ a schema.
-It uses [`libphonenumber-js` library](https://github.com/catamphetamine/libphonenumber-js).
 
 ### PostalCode
 

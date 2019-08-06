@@ -1,10 +1,17 @@
 import { GraphQLScalarType, GraphQLError, Kind  } from 'graphql';
-import { assert, string } from '@hapi/joi';
+
+const GUID_REGEX = /^[0-9a-f]{8}-?[0-9a-f]{4}-?[1-5][0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$/i;
 
 const validate = (value: any) => {
-  assert(value, string(), new TypeError(`Value is not string: ${value}`));
-  assert(value, string().guid(), new TypeError(`Value is not a valid GUID: ${value}`));
-  return value;
+    if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    if (!(GUID_REGEX.test(value))) {
+        throw new TypeError(`Value is not a valid GUID: ${value}`);
+    }
+
+    return value;
 };
 
 export default new GraphQLScalarType({

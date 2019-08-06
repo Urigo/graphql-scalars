@@ -1,11 +1,17 @@
 import { GraphQLScalarType, GraphQLError, Kind  } from 'graphql';
-import { assert, string } from '@hapi/joi';
+
+const HSL_REGEX = /^hsl\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*\)$/;
 
 const validate = (value: any) => {
-  assert(value, string(), new TypeError(`Value is not string: ${value}`));
-  assert(value, string().regex(/^hsl\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*\)$/),
-    new TypeError(`Value is not a valid HSL color: ${value}`));
-  return value;
+    if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    if (!(HSL_REGEX.test(value))) {
+        throw new TypeError(`Value is not a valid HSL color: ${value}`);
+    }
+
+    return value;
 };
 
 export default new GraphQLScalarType({

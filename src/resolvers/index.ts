@@ -23,7 +23,7 @@ import MAC from './MAC';
 import Port from './Port';
 import RGB from './RGB';
 import RGBA from './RGBA';
-import { USCurrency } from 'graphql-currency-scalars';
+import USCurrency from './USCurrency';
 import { GraphQLJSON as JSON, GraphQLJSONObject as JSONObject } from 'graphql-type-json';
 
 export {
