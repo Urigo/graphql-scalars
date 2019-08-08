@@ -222,14 +222,14 @@ const server = new ApolloServer({
     typeDefs: [
       // use spread syntax to add scalar definitions to your schema
       ...typeDefs,
-      // DateTimeScalar,
+      // DateTimeDefinition,
       // ...
       // ... other type definitions ...
     ],
     resolvers: {
       // use spread syntax to add scalar resolvers to your resolver map
       ...resolvers,
-      // DateTime,
+      // DateTimeResolver,
       // ...
       // ... remainder of resolver map ...
     },
@@ -252,22 +252,27 @@ import { typeDefs, resolvers, mocks } from 'graphql-scalars';
 // import { DateTimeResolver, DateTimeTypeDefinition, DateTimeMock, ... } from "graphql-scalars"
 
 const server = new ApolloServer({
-  schema: makeExecutableSchema({
-    typeDefs: [
-      // use spread syntax to add scalar definitions to your schema
-      ...typeDefs,
-      // DateTimeScalar,
-      // ...
-      // ... other type definitions ...
-    ],
-    resolvers: {
-      // use spread syntax to add scalar resolvers to your resolver map
-      ...resolvers,
-      // DateTime,
-      // ...
-      // ... remainder of resolver map ...
-    },
-  }),
+  typeDefs: [
+    // use spread syntax to add scalar definitions to your schema
+    ...typeDefs,
+    // DateTimeDefinition,
+    // ...
+    // ... other type definitions ...
+  ],
+  resolvers: {
+    // use spread syntax to add scalar resolvers to your resolver map
+    ...resolvers,
+    // DateTimeResolver,
+    // ...
+    // ... remainder of resolver map ...
+  },
+  mocks: {
+    // use spread syntax to add scalar resolvers to your resolver map
+    ...resolvers,
+    // DateTimeMock,
+    // ...
+    // ... other mocks ...
+  }
 });
 ```
 
