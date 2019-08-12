@@ -1,3 +1,4 @@
+/// <reference path="../../types/graphql-type-json.d.ts" />
 import DateTime from './DateTime';
 import NonPositiveInt from './NonPositiveInt';
 import PositiveInt from './PositiveInt';
