@@ -521,7 +521,7 @@ A US currency string, such as $21.25.
 
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 
-> Uses [graphql-currency-scalars](https://github.com/abhiaiyer91/graphql-currency-scalars)
+> Uses [graphql-type-json](https://github.com/taion/graphql-type-json)
 
 ### JSONObject
 
