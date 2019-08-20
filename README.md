@@ -463,9 +463,15 @@ In the future we might expand this list and use the more comprehensive list foun
 
 ### BigInt
 
-The `BigInt` scalar type represents non-fractional signed whole numeric values. BigInt can represent values between -(2^53) + 1 and 2^53 - 1.
+A long integer type for [graphql-js](https://github.com/graphql/graphql-js). This implementation gives you more than 32 bits rather than the default 32-bit GraphQLInt. [It uses native `BigInt` implementation of JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) 
+The [GraphQL spec](https://facebook.github.io/graphql/#sec-Int) limits its Int type to 32-bits. Maybe you've seen this error before:
+[Issue on graphql-js](https://github.com/graphql/graphql-js/issues/292)
+```
+GraphQLError: Argument "num" has invalid value 9007199254740990.
+              Expected type "Int", found 9007199254740990.
+```
 
-> Uses [graphql-bigint](https://github.com/stems/graphql-bigint)
+> Based on [graphql-bigint](https://github.com/stems/graphql-bigint)
 
 ### GUID
 
