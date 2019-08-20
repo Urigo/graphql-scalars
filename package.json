@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@types/graphql": "14.2.3",
-    "@types/jest": "24.0.17",
+    "@types/jest": "24.0.18",
     "graphql": "14.4.2",
     "jest": "24.9.0",
     "lint-staged": "9.2.3",
