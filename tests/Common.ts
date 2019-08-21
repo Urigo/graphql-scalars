@@ -19,7 +19,7 @@ const fooResolvers = {
 const typeDefs = mergeTypes([fooQuery, ...scalarTypeDefs]);
 const resolvers = mergeResolvers([fooResolvers, scalarResolvers as any]);
 
-describe('Reproduction issue #69', () => {
+describe('Common', () => {
     it('should create a valid schema', async () => {
         const schema = makeExecutableSchema({
             typeDefs,
