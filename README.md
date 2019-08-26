@@ -1,4 +1,5 @@
-# graphql-scalars
+[![scalar](https://user-images.githubusercontent.com/25294569/63675022-87723c80-c7f0-11e9-87b9-22c78c9a17e2.gif)](http://the-guild.dev)
+
 
 [![npm version](https://badge.fury.io/js/graphql-scalars.svg)](https://badge.fury.io/js/graphql-scalars)
 [![CircleCI](https://circleci.com/gh/Urigo/graphql-scalars.svg?style=svg)](https://circleci.com/gh/Urigo/graphql-scalars)
