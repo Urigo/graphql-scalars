@@ -44,7 +44,7 @@
     "merge-graphql-schemas": "1.7.0",
     "semver": "6.3.0",
     "ts-jest": "24.0.2",
-    "tslint": "5.19.0",
+    "tslint": "5.20.0",
     "typescript": "3.6.2"
   },
   "peerDependencies": {
