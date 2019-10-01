@@ -49,6 +49,8 @@ export const USCurrency = () => 1000;
 export const JSON = () => ({});
 export const JSONObject = () => ({});
 
+import { URL } from 'url';
+
 export {
     URLMock as URL,
     NonNegativeInt as UnsignedInt,
