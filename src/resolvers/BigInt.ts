@@ -11,7 +11,7 @@ export default new GraphQLScalarType({
     serialize: BigInt,
     parseValue: BigInt,
     parseLiteral(ast) {
-        if (ast.kind === Kind.INT) {
+        if (ast.kind === Kind.INT || ast.kind === Kind.FLOAT || ast.kind === Kind.STRING) {
             return BigInt(ast.value);
         }
         return null;
