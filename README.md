@@ -1,4 +1,5 @@
-# graphql-scalars
+[![scalar](https://user-images.githubusercontent.com/25294569/63675022-87723c80-c7f0-11e9-87b9-22c78c9a17e2.gif)](http://the-guild.dev)
+
 
 [![npm version](https://badge.fury.io/js/graphql-scalars.svg)](https://badge.fury.io/js/graphql-scalars)
 [![CircleCI](https://circleci.com/gh/Urigo/graphql-scalars.svg?style=svg)](https://circleci.com/gh/Urigo/graphql-scalars)
@@ -134,20 +135,41 @@ const myResolverMap = {
   DateTime: DateTimeResolver,
 
   NonPositiveInt: NonPositiveIntResolver,
-  PositiveInt: NonPositiveIntResolver,
-  NonNegativeInt: NonPositiveIntResolver,
+  PositiveInt: PositiveIntResolver,
+  NonNegativeInt: NonNegativeIntResolver,
   NegativeInt: NegativeIntResolver,
-
   NonPositiveFloat: NonPositiveFloatResolver,
   PositiveFloat: PositiveFloatResolver,
   NonNegativeFloat: NonNegativeFloatResolver,
   NegativeFloat: NegativeFloatResolver,
-
+  UnsignedFloat: UnsignedFloatResolver,
+  UnsignedInt: UnsignedIntResolver,
+  BigInt: BigIntResolver,
+  Long: LongResolver,
+  
   EmailAddress: EmailAddressResolver,
   URL: URLResolver,
-
   PhoneNumber: PhoneNumberResolver,
   PostalCode: PostalCodeResolver,
+    
+  GUID: GUIDResolver,
+  
+  HexColorCode: HexColorCodeResolver,
+  HSL: HSLResolver,
+  HSLA: HSLAResolver,
+  RGB: RGBResolver,
+  RGBA: RGBAResolver,
+  
+  IPv4: IPv4Resolver,
+  IPv6: IPv6Resolver,
+  MAC: MACResolver,
+  Port: PortResolver,
+  
+  ISBN: ISBNResolver,
+  
+  USCurrency: USCurrencyResolver,
+  JSON: JSONResolver,
+  JSONObject: JSONObjectResolver
 
   Query: {
     // more stuff here
@@ -527,7 +549,7 @@ A US currency string, such as $21.25.
 
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 
-> Uses [graphql-currency-scalars](https://github.com/abhiaiyer91/graphql-currency-scalars)
+> Uses [graphql-type-json](https://github.com/taion/graphql-type-json)
 
 ### JSONObject
 
