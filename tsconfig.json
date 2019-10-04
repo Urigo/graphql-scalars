@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "module": "esnext",
-    "target": "es2017",
+    "target": "esnext",
     "lib": ["esnext", "dom"],
     "suppressImplicitAnyIndexErrors": true,
     "moduleResolution": "node",
