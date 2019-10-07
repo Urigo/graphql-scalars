@@ -290,7 +290,7 @@ const server = new ApolloServer({
   },
   mocks: {
     // use spread syntax to add scalar resolvers to your resolver map
-    ...resolvers,
+    ...mocks,
     // DateTimeMock,
     // ...
     // ... other mocks ...
