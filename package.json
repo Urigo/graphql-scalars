@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "@types/graphql-type-json": "0.3.2",
-    "@types/node": "12.7.11",
+    "@types/node": "12.7.12",
     "graphql-type-json": "0.3.0"
   }
 }
