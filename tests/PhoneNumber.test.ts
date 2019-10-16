@@ -58,26 +58,6 @@ describe('PhoneNumber', () => {
       });
     });
 
-    describe('too short', () => {
-      test('serialize', () => {
-        expect(() => PhoneNumber.serialize('+1789555123')).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
-        );
-      });
-
-      test('parseValue', () => {
-        expect(() => PhoneNumber.parseValue('+1789555123')).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
-        );
-      });
-
-      test('parseLiteral', () => {
-        expect(() =>
-          PhoneNumber.parseLiteral({ value: '+1789555123', kind: Kind.STRING }, {}),
-        ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
-      });
-    });
-
     describe('too long', () => {
       test('serialize', () => {
         expect(() => PhoneNumber.serialize('+1789555123456789')).toThrow(
@@ -115,6 +95,23 @@ describe('PhoneNumber', () => {
         expect(() =>
           PhoneNumber.parseLiteral({ value: '17895551234', kind: Kind.STRING }, {}),
         ).toThrow(/^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/);
+      });
+    });
+    describe('support more countries', () => {
+      test('support Singapore numbers - 10 digits', () => {
+        expect(() => {
+          PhoneNumber.parseValue('+6569701665');
+        }).not.toThrow();
+      });
+      test('support Solomon Islands numbers - 8 digits', () => {
+        expect(() => {
+          PhoneNumber.parseValue('+67734700');
+        }).not.toThrow();
+      });
+      test('support Niue numbers - 7 digits', () => {
+        expect(() => {
+          PhoneNumber.parseValue('+6834999');
+        }).not.toThrow();
       });
     });
   });
