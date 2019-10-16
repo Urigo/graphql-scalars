@@ -2,7 +2,7 @@ import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
 
-const PHONE_NUMBER_REGEX = /^\+\d{11,15}$/;
+const PHONE_NUMBER_REGEX = /^\+?[1-9]\d{1,14}$/;
 
 export default new GraphQLScalarType({
   name: 'PhoneNumber',
