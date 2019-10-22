@@ -2,8 +2,10 @@
 
 import { Kind } from 'graphql/language';
 
-import NonNegativeInt from '../src/resolvers/NonNegativeInt';
-import UnsignedInt from '../src/resolvers/NonNegativeInt';
+import NonNegativeIntFactory from '../src/resolvers/NonNegativeInt';
+
+const NonNegativeInt = NonNegativeIntFactory('NonNegativeInt');
+const UnsignedInt = NonNegativeIntFactory('UnsignedInt');
 
 describe('NonNegativeInt', () => {
   describe('valid', () => {

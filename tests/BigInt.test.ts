@@ -1,6 +1,8 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLInputObjectType } from 'graphql/type/definition';
 import { GraphQLSchema, graphql } from 'graphql';
-import BigIntResolver from '../src/resolvers/BigInt';
+import BigIntFactory from '../src/resolvers/BigInt';
+
+const BigIntResolver = BigIntFactory();
 
 describe('BigInt', () => {
 

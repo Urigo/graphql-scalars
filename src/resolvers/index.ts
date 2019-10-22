@@ -1,17 +1,17 @@
 import DateTime from './DateTime';
 import NonPositiveInt from './NonPositiveInt';
 import PositiveInt from './PositiveInt';
-import NonNegativeInt from './NonNegativeInt';
+import NonNegativeIntFactory from './NonNegativeInt';
 import NegativeInt from './NegativeInt';
 import NonPositiveFloat from './NonPositiveFloat';
 import PositiveFloat from './PositiveFloat';
-import NonNegativeFloat from './NonNegativeFloat';
+import NonNegativeFloatFactory from './NonNegativeFloat';
 import NegativeFloat from './NegativeFloat';
 import EmailAddress from './EmailAddress';
 import URL from './URL';
 import PhoneNumber from './PhoneNumber';
 import PostalCode from './PostalCode';
-import BigInt from './BigInt';
+import BigIntFactory from './BigInt';
 import GUID from './GUID';
 import HexColorCode from './HexColorCode';
 import HSL from './HSL';
@@ -26,24 +26,33 @@ import RGBA from './RGBA';
 import USCurrency from './USCurrency';
 import { GraphQLJSON as JSON, GraphQLJSONObject as JSONObject } from 'graphql-type-json';
 
+const BigIntResolver = BigIntFactory('BigInt');
+const LongResolver = BigIntFactory('Long');
+
+const NonNegativeIntResolver = NonNegativeIntFactory('NonNegative');
+const UnsignedIntResolver = NonNegativeIntFactory('UnsignedInt');
+
+const NonNegativeFloatResolver = NonNegativeFloatFactory('NonNegativeFloat');
+const UnsignedFloatResolver = NonNegativeFloatFactory('UnsignedFloat');
+
 export {
     DateTime,
     NonPositiveInt,
     PositiveInt,
-    NonNegativeInt,
-    NonNegativeInt as UnsignedInt,
+    NonNegativeIntResolver as NonNegativeInt,
+    UnsignedIntResolver as UnsignedInt,
     NegativeInt,
     NonPositiveFloat,
     PositiveFloat,
-    NonNegativeFloat,
-    NonNegativeFloat as UnsignedFloat,
+    NonNegativeFloatResolver as NonNegativeFloat,
+    UnsignedFloatResolver as UnsignedFloat,
     NegativeFloat,
     EmailAddress,
     URL,
     PhoneNumber,
     PostalCode,
-    BigInt,
-    BigInt as Long,
+    BigIntResolver as BigInt,
+    LongResolver as Long,
     GUID,
     HexColorCode,
     HSL,

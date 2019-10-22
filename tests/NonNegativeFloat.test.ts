@@ -2,8 +2,10 @@
 
 import { Kind } from 'graphql/language';
 
-import NonNegativeFloat from '../src/resolvers/NonNegativeFloat';
-import UnsignedFloat from '../src/resolvers/NonNegativeFloat';
+import NonNegativeFloatFactory from '../src/resolvers/NonNegativeFloat';
+
+const NonNegativeFloat = NonNegativeFloatFactory('NonNegativeFloat');
+const UnsignedFloat = NonNegativeFloatFactory('UnsignedFloat');
 
 describe('NonNegativeFloat', () => {
   describe('valid', () => {
