@@ -13,6 +13,10 @@ describe('EmailAddress', () => {
       expect(EmailAddress.parseValue('test@test.com')).toBe('test@test.com');
     });
 
+    test('parseValue', () => {
+      expect(EmailAddress.parseValue('test@test')).toBe('test@test');
+    });
+
     test('parseLiteral', () => {
       expect(
         EmailAddress.parseLiteral({
@@ -20,6 +24,15 @@ describe('EmailAddress', () => {
           kind: Kind.STRING,
         }, {}),
       ).toBe('test@test.com');
+    });
+
+    test('parseLiteral', () => {
+      expect(
+        EmailAddress.parseLiteral({
+          value: 'test@test',
+          kind: Kind.STRING,
+        }, {}),
+      ).toBe('test@test');
     });
   });
 
