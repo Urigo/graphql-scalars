@@ -1,4 +1,7 @@
-import { GraphQLScalarType, GraphQLError, Kind } from 'graphql';
+import { GraphQLScalarType } from 'graphql/type/definition';
+import { GraphQLError } from 'graphql/error';
+import { Kind } from 'graphql/language';
+
 
 const HSLA_REGEX = /^hsla\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)\s*\)$/;
 

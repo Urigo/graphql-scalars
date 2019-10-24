@@ -24,7 +24,7 @@ import Port from './Port';
 import RGB from './RGB';
 import RGBA from './RGBA';
 import USCurrency from './USCurrency';
-import { GraphQLJSON as JSON, GraphQLJSONObject as JSONObject } from 'graphql-type-json';
+import { JSON, JSONObject } from './JSON';
 
 const BigIntResolver = BigIntFactory('BigInt');
 const LongResolver = BigIntFactory('Long');

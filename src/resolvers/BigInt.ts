@@ -4,15 +4,15 @@ import { GraphQLScalarType } from 'graphql/type/definition';
 
 import { Kind } from 'graphql/language/kinds';
 
-const coerceBigInt = (n: any) => {
-    if(typeof BigInt === 'undefined') {
-        const number = n.replace('n', '');
+const coerceBigInt = (value: any) => {
+    if (typeof BigInt === 'undefined') {
+        const number = value.replace('n', '');
         if (!Number.isInteger(number)) {
-            throw new Error(`${n} is not an integer!`);
+            throw new Error(`${value} is not an integer!`);
         }
         return Number(number);
     }
-    return BigInt(n);
+    return BigInt(value);
 };
 
 export default function (name = 'BigInt') {

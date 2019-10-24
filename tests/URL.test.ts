@@ -65,17 +65,15 @@ describe('URL', () => {
 
   describe('not a string', () => {
     test('serialize', () => {
-      expect(() => URLResolver.serialize(123)).toThrow(/Value is not string/);
+      expect(() => URLResolver.serialize(123)).toThrow();
     });
 
     test('parseValue', () => {
-      expect(() => URLResolver.parseValue(123)).toThrow(/Value is not string/);
+      expect(() => URLResolver.parseValue(123)).toThrow();
     });
 
     test('parseLiteral', () => {
-      expect(() => URLResolver.parseLiteral({ value: '123', kind: Kind.INT }, {})).toThrow(
-        /Can only validate strings as URLs but got a/,
-      );
+      expect(() => URLResolver.parseLiteral({ value: '123', kind: Kind.INT }, {})).toThrow();
     });
   });
 });

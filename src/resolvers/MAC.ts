@@ -1,4 +1,7 @@
-import { GraphQLScalarType, GraphQLError, Kind } from 'graphql';
+import { GraphQLScalarType } from 'graphql/type/definition';
+import { GraphQLError } from 'graphql/error';
+import { Kind } from 'graphql/language';
+
 
 const MAC_REGEX = /^(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})(?:(?:\1|\.)(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})){2}$/;
 

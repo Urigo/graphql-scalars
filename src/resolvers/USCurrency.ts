@@ -1,5 +1,5 @@
 // https://github.com/abhiaiyer91/graphql-currency-scalars
-import { GraphQLScalarType } from 'graphql';
+import { GraphQLScalarType } from 'graphql/type/definition';
 import { Kind } from 'graphql/language';
 
 function generateCurrency(value: any) {

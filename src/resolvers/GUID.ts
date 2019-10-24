@@ -1,17 +1,20 @@
-import { GraphQLScalarType, GraphQLError, Kind  } from 'graphql';
+import { GraphQLScalarType } from 'graphql/type/definition';
+import { GraphQLError } from 'graphql/error';
+import { Kind } from 'graphql/language';
+
 
 const GUID_REGEX = /^[0-9a-f]{8}-?[0-9a-f]{4}-?[1-5][0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$/i;
 
 const validate = (value: any) => {
-    if (typeof value !== 'string') {
-        throw new TypeError(`Value is not string: ${value}`);
-    }
+  if (typeof value !== 'string') {
+    throw new TypeError(`Value is not string: ${value}`);
+  }
 
-    if (!(GUID_REGEX.test(value))) {
-        throw new TypeError(`Value is not a valid GUID: ${value}`);
-    }
+  if (!(GUID_REGEX.test(value))) {
+    throw new TypeError(`Value is not a valid GUID: ${value}`);
+  }
 
-    return value;
+  return value;
 };
 
 export default new GraphQLScalarType({
