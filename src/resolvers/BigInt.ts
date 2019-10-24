@@ -6,7 +6,8 @@ import { Kind } from 'graphql/language/kinds';
 
 const coerceBigInt = (value: any) => {
     if (typeof BigInt === 'undefined') {
-        const number = value.toString().replace('n', '');
+        const numberStr = value.toString().replace('n', '');
+        const number = Number(numberStr);
         if (!Number.isInteger(number)) {
             throw new Error(`${value} is not an integer!`);
         }
