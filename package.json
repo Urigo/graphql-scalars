@@ -60,6 +60,6 @@
     ]
   },
   "dependencies": {
-    "@types/node": "12.12.3"
+    "@types/node": "12.12.5"
   }
 }
