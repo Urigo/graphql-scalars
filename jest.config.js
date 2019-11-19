@@ -8,5 +8,6 @@ module.exports = {
                 module: 'commonjs'
             }
         }
-    }
+    },
+    modulePathIgnorePatterns: ['<rootDir>/dist'],
 };
