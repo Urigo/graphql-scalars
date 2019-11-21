@@ -245,7 +245,7 @@ const server = new ApolloServer({
     typeDefs: [
       // use spread syntax to add scalar definitions to your schema
       ...typeDefs,
-      // DateTimeDefinition,
+      // DateTimeTypeDefinition,
       // ...
       // ... other type definitions ...
     ],
@@ -278,7 +278,7 @@ const server = new ApolloServer({
   typeDefs: [
     // use spread syntax to add scalar definitions to your schema
     ...typeDefs,
-    // DateTimeDefinition,
+    // DateTimeTypeDefinition,
     // ...
     // ... other type definitions ...
   ],
