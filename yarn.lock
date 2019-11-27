@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ardatan/bob@0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@ardatan/bob/-/bob-0.1.6.tgz#524e0085935c37bcf3cd800c6df0b413a99ede00"
-  integrity sha512-tg+pwB3FWCl04EHsU5z4shYckjlPercChCy6eqkRUzI1LVsqW7ZTDN7qs0E/Jhl9mBqxoPfCbrcFAEg2gjKUoQ==
+"@ardatan/bob@0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@ardatan/bob/-/bob-0.1.7.tgz#f753fa3b561ecfa808d2ae3a388331ebbc290fcc"
+  integrity sha512-XWob71kaWIMbniSlWuaDnkmE6cnpQTE7moMZwu4zlwVhxIrGgmI5hVg/zmDQnNWydZUwFlp3xMuGOcXqoohUdw==
   dependencies:
     rollup "1.27.0"
     rollup-plugin-generate-package-json "3.1.4"
