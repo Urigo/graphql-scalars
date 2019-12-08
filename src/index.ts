@@ -30,7 +30,7 @@ export {
     USCurrency as USCurrencyDefinition,
     JSON as JSONDefinition,
     JSONObject as JSONObjectDefinition,
-    IBAN as IBANDefinition,
+    IBAN as IBANTypeDefinition,
 } from './typeDefs';
 
 export {default as typeDefs} from './typeDefs';
