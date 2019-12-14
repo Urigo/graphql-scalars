@@ -1,4 +1,15 @@
-export const BigInt = () => Number.MAX_SAFE_INTEGER - 1;
+const BigIntMock = () => {
+    const value = Number.MAX_SAFE_INTEGER;
+    if (typeof BigInt === 'undefined') {
+        const numberStr = value.toString().replace('n', '');
+        const number = Number(numberStr);
+        if (!Number.isInteger(number)) {
+            throw new Error(`${value} is not an integer!`);
+        }
+        return Number(number);
+    }
+    return BigInt(value);
+};
 export const DateTime = () => new Date();
 export const EmailAddress = () => 'test@test.com';
 export const NegativeFloat = () => -123.45;
@@ -11,7 +22,11 @@ export const PhoneNumber = () => '+17895551234';
 export const PositiveFloat = () => 123.45;
 export const PositiveInt = () => 123;
 export const PostalCode = () => '60031';
-const URLMock = () => new URL('http://www.test.com/');
+const URLMock = () => {
+    // tslint:disable-next-line: no-eval
+    let URLCtor = typeof URL === 'undefined' ? eval(`require('url')`).URL : URL;
+    return new URLCtor('http://www.test.com/');
+};
 // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
 export const GUID = () => { // Public Domain/MIT
     let d = new Date().getTime();
@@ -50,11 +65,10 @@ export const JSON = () => ({});
 export const JSONObject = () => ({});
 export const IBAN = () => 'NL55INGB4789170233';
 
-import {URL} from 'url';
-
 export {
     URLMock as URL,
     NonNegativeInt as UnsignedInt,
     NonNegativeFloat as UnsignedFloat,
-    BigInt as Long,
+    BigIntMock as Long,
+    BigIntMock as BigInt,
 };

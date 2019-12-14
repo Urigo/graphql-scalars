@@ -13,6 +13,7 @@ import PhoneNumber from './PhoneNumber';
 import PostalCode from './PostalCode';
 import BigIntFactory from './BigInt';
 import GUID from './GUID';
+import Hexadecimal from './Hexadecimal';
 import HexColorCode from './HexColorCode';
 import HSL from './HSL';
 import HSLA from './HSLA';
@@ -55,6 +56,7 @@ export {
     BigIntResolver as BigInt,
     LongResolver as Long,
     GUID,
+    Hexadecimal,
     HexColorCode,
     HSL,
     HSLA,

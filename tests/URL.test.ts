@@ -3,6 +3,7 @@
 import { Kind } from 'graphql/language';
 
 import URLResolver from '../src/resolvers/URL';
+import { URL } from 'url';
 
 /*
  * these test cases are picked up from https://mathiasbynens.be/demo/url-regex
