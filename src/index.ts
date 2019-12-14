@@ -30,6 +30,7 @@ export {
   USCurrency as USCurrencyDefinition,
   JSON as JSONDefinition,
   JSONObject as JSONObjectDefinition,
+  IBAN as IBANTypeDefinition,
 } from './typeDefs';
 
 export { default as typeDefs } from './typeDefs';
@@ -66,9 +67,12 @@ export {
   USCurrency as USCurrencyResolver,
   JSON as JSONResolver,
   JSONObject as JSONObjectResolver,
+  IBAN as IBANResolver,
 } from './resolvers';
 
 import * as resolvers from './resolvers';
+import * as mocks from './mocks';
+
 export { resolvers };
 
 export {
@@ -103,9 +107,9 @@ export {
   USCurrency as USCurrencyMock,
   JSON as JSONMock,
   JSONObject as JSONObjectMock,
+  IBAN as IBANMock,
 } from './mocks';
 
-import * as mocks from './mocks';
 export { mocks };
 
 export { default as RegularExpression } from './RegularExpression';

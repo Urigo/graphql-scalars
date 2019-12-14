@@ -29,6 +29,7 @@ export const RGBA = `scalar RGBA`;
 export const USCurrency = `scalar USCurrency`;
 export const JSON = `scalar JSON`;
 export const JSONObject = `scalar JSONObject`;
+export const IBAN = `scalar IBAN`;
 
 export default [
   DateTime,
@@ -62,4 +63,5 @@ export default [
   USCurrency,
   JSON,
   JSONObject,
+  IBAN
 ];

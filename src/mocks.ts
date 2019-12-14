@@ -34,7 +34,7 @@ const randomVal = (min: number, max: number) => {
 };
 // https://codepen.io/meowwwls/pen/jbEJRp
 export const HSL = () => `hsl(${randomVal(0, 360)}, ${randomVal(30, 95)}%, ${randomVal(30, 80)}%)`;
-export const HSLA = () => `hsla(${randomVal(0, 360)}, ${randomVal(30, 95)}%, ${randomVal(30, 80)}%, ${ Math.random()})`;
+export const HSLA = () => `hsla(${randomVal(0, 360)}, ${randomVal(30, 95)}%, ${randomVal(30, 80)}%, ${Math.random()})`;
 
 // https://stackoverflow.com/questions/43464519/creating-fake-ip-address-using-javascript
 export const IPv4 = () => (Math.floor(Math.random() * 255) + 1) + '.' + (Math.floor(Math.random() * 255) + 0) + '.' + (Math.floor(Math.random() * 255) + 0) + '.' + (Math.floor(Math.random() * 255) + 0);
@@ -48,8 +48,9 @@ export const ISBN = () => `978-3-16-148410-0`;
 export const USCurrency = () => 1000;
 export const JSON = () => ({});
 export const JSONObject = () => ({});
+export const IBAN = () => 'NL55INGB4789170233';
 
-import { URL } from 'url';
+import {URL} from 'url';
 
 export {
     URLMock as URL,
