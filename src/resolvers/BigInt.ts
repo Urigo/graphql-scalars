@@ -5,9 +5,11 @@ import { GraphQLScalarType } from 'graphql/type/definition';
 import { Kind } from 'graphql/language/kinds';
 
 export const coerceBigInt = (value: any) => {
+    if (typeof value === 'string') {
+        value = value.toString().replace('n', '');
+    }
     if (typeof BigInt === 'undefined') {
-        const numberStr = value.toString().replace('n', '');
-        const number = Number(numberStr);
+        const number = Number(value);
         if (!Number.isInteger(number)) {
             throw new Error(`${value} is not an integer!`);
         }
