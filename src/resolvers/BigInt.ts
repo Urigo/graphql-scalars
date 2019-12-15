@@ -4,7 +4,7 @@ import { GraphQLScalarType } from 'graphql/type/definition';
 
 import { Kind } from 'graphql/language/kinds';
 
-const coerceBigInt = (value: any) => {
+export const coerceBigInt = (value: any) => {
     if (typeof BigInt === 'undefined') {
         const numberStr = value.toString().replace('n', '');
         const number = Number(numberStr);
