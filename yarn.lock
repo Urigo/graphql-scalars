@@ -153,30 +153,31 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@graphql-toolkit/common@0.6.8":
-  version "0.6.8"
-  resolved "https://registry.yarnpkg.com/@graphql-toolkit/common/-/common-0.6.8.tgz#7e80f4821d8484970d768b7cb19a0bc1e7a90784"
-  integrity sha512-vvxLMumGhFsSU/SPbMHsHPtr1WpD98EngSVzDoH4EfiobT8O9RKCaK/Nr57nWxbk1+A0iAC3OrHYugp46au5sQ==
+"@graphql-toolkit/common@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@graphql-toolkit/common/-/common-0.7.5.tgz#4fbca5a2bb562ff4bc7adc0e494cb6d21283472b"
+  integrity sha512-pu7tKY6KW7+4noJQPCbIxKzv54tSl/FME9wU0rNSwcr4O3By+pv7VCYXxkhCSnftJcXsXAuAcdjcV2CBsjnZNg==
   dependencies:
     "@kamilkisiela/graphql-tools" "4.0.6"
     aggregate-error "3.0.1"
+    is-glob "4.0.1"
     lodash "4.17.15"
 
-"@graphql-toolkit/file-loading@0.6.8":
-  version "0.6.8"
-  resolved "https://registry.yarnpkg.com/@graphql-toolkit/file-loading/-/file-loading-0.6.8.tgz#6b03c752c2c5dd917172f7070cf92626e0fd83bf"
-  integrity sha512-kR7EizV5COWhYhkf0eq4/EAtGhbamjq3EvNifiFoRdGzJxIVwfD4If56rFAVCp7dBmUHl4mRG8RySydwIu1xGQ==
+"@graphql-toolkit/file-loading@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@graphql-toolkit/file-loading/-/file-loading-0.7.5.tgz#3ae3dc28b791064f0a56dfb99aeac0905b2e349d"
+  integrity sha512-T0iVpepkn/P7tS9EgVlHrKuX1RgMZGU9/PjGQyiFDgJzvctSYly8RsWe+bN4temPxoB/KHSWuNuNMpKHm+dQsw==
   dependencies:
-    "@graphql-toolkit/common" "0.6.8"
+    "@graphql-toolkit/common" "0.7.5"
     "@kamilkisiela/graphql-tools" "4.0.6"
-    glob "7.1.6"
+    globby "10.0.1"
 
-"@graphql-toolkit/schema-merging@0.6.8":
-  version "0.6.8"
-  resolved "https://registry.yarnpkg.com/@graphql-toolkit/schema-merging/-/schema-merging-0.6.8.tgz#67c0d83f9975026b20a69fca6a01f9b7d04ebbdb"
-  integrity sha512-/QhyfscZLqJLOgM0fD9Dxb5ps9OYyaOPxNS2mgjvX++jbNkJW2128b3KrB0nJzFdVEiOllRoaYHGKM4w8lvhmg==
+"@graphql-toolkit/schema-merging@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@graphql-toolkit/schema-merging/-/schema-merging-0.7.5.tgz#dfcd4a3e4084a3648f0ce7369b6607d7797da537"
+  integrity sha512-6HJb0bFqkJn45MMWLpt1K0kPJlbyGUaXFuBMY+yQ6fr70U01VjWc/RpXm9JO9FzlpzmtaMGd2HcsWC+7mAddtg==
   dependencies:
-    "@graphql-toolkit/common" "0.6.8"
+    "@graphql-toolkit/common" "0.7.5"
     "@kamilkisiela/graphql-tools" "4.0.6"
     deepmerge "4.2.2"
     tslib "1.10.0"
@@ -1693,18 +1694,6 @@ glob-parent@^5.0.0:
   dependencies:
     is-glob "^4.0.1"
 
-glob@7.1.6:
-  version "7.1.6"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
-  integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.0.4"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
-
 glob@^7.1.1, glob@^7.1.2, glob@^7.1.3:
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.3.tgz#3960832d3f1574108342dafd3a67b332c0969df1"
@@ -1722,7 +1711,7 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.10.0.tgz#1e09776dffda5e01816b3bb4077c8b59c24eaa50"
   integrity sha512-0GZF1RiPKU97IHUO5TORo9w1PwrH/NBPl+fS7oMLdaTRiYmYbwK4NWoZWrAdd0/abG9R2BU+OiwyQpTpE6pdfQ==
 
-globby@^10.0.0:
+globby@10.0.1, globby@^10.0.0:
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/globby/-/globby-10.0.1.tgz#4782c34cb75dd683351335c5829cc3420e606b22"
   integrity sha512-sSs4inE1FB2YQiymcmTv6NWENryABjUNPeWhOvmn4SjtKybglsyPZxFB3U1/+L1bYi0rNZDqCLlHyLYDl1Pq5A==
@@ -2066,7 +2055,7 @@ is-generator-fn@^2.0.0:
   resolved "https://registry.yarnpkg.com/is-generator-fn/-/is-generator-fn-2.0.0.tgz#038c31b774709641bda678b1f06a4e3227c10b3e"
   integrity sha512-elzyIdM7iKoFHzcrndIqjYomImhxrFRnGP3galODoII4TB9gI7mZ+FnlLQmmjf27SxHS2gKEeyhX5/+YRS6H9g==
 
-is-glob@^4.0.1:
+is-glob@4.0.1, is-glob@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-4.0.1.tgz#7567dbe9f2f5e2467bc77ab83c4a29482407a5dc"
   integrity sha512-5G0tKtBTFImOqDnLB2hG6Bp2qcKEFduo4tZu9MT/H6NQv/ghhy30o55ufafxJ/LdH79LLs2Kfrn85TLKyA7BUg==
@@ -2952,13 +2941,13 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-merge-graphql-schemas@1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/merge-graphql-schemas/-/merge-graphql-schemas-1.7.3.tgz#220445a43b969564b874c580c4005fb7ebe3d473"
-  integrity sha512-qXROTOo3R/pfHYpPcrY59FCojdPGPUvyuh51FVeImrxVXEWulZ8tq0NZIFO5y8GK6/pl5m3FayJIhOJp/g1PkA==
+merge-graphql-schemas@1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/merge-graphql-schemas/-/merge-graphql-schemas-1.7.4.tgz#bc74ebd0a11e4f4005d92b8225cb75712ee94597"
+  integrity sha512-R5T9juJuOMm9UcmS0EDcRO0+29kOez3IKBqIwObsWUmEp/2rcC1Vzrsf+SZXO+M1vb0Arm0m8Z4yz+YPS1S0FA==
   dependencies:
-    "@graphql-toolkit/file-loading" "0.6.8"
-    "@graphql-toolkit/schema-merging" "0.6.8"
+    "@graphql-toolkit/file-loading" "0.7.5"
+    "@graphql-toolkit/schema-merging" "0.7.5"
     tslib "1.10.0"
 
 merge-stream@^1.0.1:
