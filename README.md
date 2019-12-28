@@ -170,7 +170,7 @@ const myResolverMap = {
   
   USCurrency: USCurrencyResolver,
   JSON: JSONResolver,
-  JSONObject: JSONObjectResolver
+  JSONObject: JSONObjectResolver,
 
   Query: {
     // more stuff here
