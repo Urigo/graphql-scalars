@@ -299,6 +299,29 @@ const server = new ApolloServer({
 });
 ```
 
+### Usage with apollo-server-express and CommonJS imports
+
+```javascript
+const { ApolloServer } = require('apollo-server-express');
+// Import individual scalars and resolvers
+const { DateTimeResolver, DateTimeTypeDefinition } = require('graphql-scalars');
+
+const server = new ApolloServer({
+  typeDefs: [
+    DateTimeTypeDefinition,
+    ...myTypeDefs,
+  ],
+  resolvers: [
+    { DateTime: DateTimeResolver }, // <-- Notable difference here
+    ...myResolvers,
+  ],
+});
+
+server.listen().then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
+});
+```
+
 
 ### Using the RegularExpression scalar
 
