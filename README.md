@@ -309,11 +309,11 @@ const { DateTimeResolver, DateTimeTypeDefinition } = require('graphql-scalars');
 const server = new ApolloServer({
   typeDefs: [
     DateTimeTypeDefinition,
-    ...myTypeDefs,
+    ...yourTypeDefs,
   ],
   resolvers: [
     { DateTime: DateTimeResolver }, // <-- Notable difference here
-    ...myResolvers,
+    ...yourResolvers,
   ],
 });
 
