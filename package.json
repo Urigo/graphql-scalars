@@ -29,7 +29,7 @@
     "prebuild": "yarn clean",
     "prepack": "",
     "build": "bob",
-    "test": "jest --forceExit --runInBand && yarn bundlesize",
+    "test": "jest --forceExit --no-watchman && yarn bundlesize",
     "prepare-release": "yarn build && yarn test",
     "release": "yarn prepare-release && bob-update-version && npm publish dist",
     "ci:release:canary": "node bump.js && bob-update-version && npm publish dist --tag alpha --access public",

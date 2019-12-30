@@ -57,14 +57,6 @@ export default new GraphQLScalarType({
       throw new GraphQLError(`Value is not a valid Date: ${ast.value}`);
     }
 
-    if (ast.kind === Kind.STRING && ast.value !== result.toJSON()) {
-      throw new GraphQLError(
-        `Value is not a valid Date format (YYYY-MM-DDTHH:MM:SS.SSSZ): ${
-          ast.value
-        }`,
-      );
-    }
-
     return result;
   },
 });
