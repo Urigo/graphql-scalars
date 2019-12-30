@@ -31,7 +31,7 @@ import IBAN from './IBAN';
 const BigIntResolver = BigIntFactory('BigInt');
 const LongResolver = BigIntFactory('Long');
 
-const NonNegativeIntResolver = NonNegativeIntFactory('NonNegative');
+const NonNegativeIntResolver = NonNegativeIntFactory('NonNegativeInt');
 const UnsignedIntResolver = NonNegativeIntFactory('UnsignedInt');
 
 const NonNegativeFloatResolver = NonNegativeFloatFactory('NonNegativeFloat');
