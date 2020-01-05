@@ -18,7 +18,7 @@ export default new GraphQLScalarType({
   },
 
   parseLiteral(ast) {
-    if (ast.kind !== Kind.FLOAT) {
+    if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.INT) {
       throw new GraphQLError(
         `Can only validate floating point numbers as non-positive floating point numbers but got a: ${
           ast.kind
