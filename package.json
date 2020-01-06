@@ -42,7 +42,7 @@
     "graphql-tools": "4.0.6",
     "jest": "24.9.0",
     "lint-staged": "9.5.0",
-    "merge-graphql-schemas": "1.7.5",
+    "merge-graphql-schemas": "1.7.6",
     "semver": "7.1.1",
     "ts-jest": "24.2.0",
     "tslint": "5.20.1",
