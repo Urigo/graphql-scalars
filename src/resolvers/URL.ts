@@ -2,12 +2,6 @@ import { GraphQLScalarType } from 'graphql/type/definition';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
 
-const coerceURL = (value: any) => {
-  // tslint:disable-next-line: no-eval
-  let URLCtor = typeof URL === 'undefined' ? eval(`require('url')`).URL : URL;
-  return new URLCtor(value.toString());
-};
-
 export default new GraphQLScalarType({
   name: 'URL',
 
@@ -15,10 +9,10 @@ export default new GraphQLScalarType({
     'A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.',
 
   serialize(value) {
-    return coerceURL(value).toString();
+    return new URL(value.toString()).toString();
   },
 
-  parseValue: coerceURL,
+  parseValue: value => new URL(value.toString()),
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
@@ -27,6 +21,6 @@ export default new GraphQLScalarType({
       );
     }
 
-    return coerceURL(ast.value);
+    return new URL(ast.value.toString());
   },
 });

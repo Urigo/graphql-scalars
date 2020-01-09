@@ -66,5 +66,8 @@
   },
   "dependencies": {
     "@types/node": "12.12.24"
+  },
+  "engines": {
+    "node": ">=10"
   }
 }

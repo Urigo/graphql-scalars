@@ -1,15 +1,4 @@
-const BigIntMock = () => {
-    const value = Number.MAX_SAFE_INTEGER;
-    if (typeof BigInt === 'undefined') {
-        const numberStr = value.toString().replace('n', '');
-        const number = Number(numberStr);
-        if (!Number.isInteger(number)) {
-            throw new Error(`${value} is not an integer!`);
-        }
-        return Number(number);
-    }
-    return BigInt(value);
-};
+const BigIntMock = () => BigInt(Number.MAX_SAFE_INTEGER);
 export const DateTime = () => new Date();
 export const EmailAddress = () => 'test@test.com';
 export const NegativeFloat = () => -123.45;

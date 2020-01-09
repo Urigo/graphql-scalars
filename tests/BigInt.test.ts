@@ -1,6 +1,6 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLInputObjectType } from 'graphql/type/definition';
 import { GraphQLSchema, graphql } from 'graphql';
-import BigIntFactory, { coerceBigInt } from '../src/resolvers/BigInt';
+import BigIntFactory from '../src/resolvers/BigInt';
 
 const BigIntResolver = BigIntFactory();
 
@@ -14,7 +14,7 @@ describe('BigInt', () => {
                 args: {
                     num: { type: new GraphQLNonNull(BigIntResolver) }
                 },
-                resolve: (root, args) => args.num + coerceBigInt('1n')
+                resolve: (root, args) => args.num + 1n
             },
             emptyErr: {
                 type: new GraphQLNonNull(BigIntResolver),
@@ -47,7 +47,7 @@ describe('BigInt', () => {
                         }))
                     }
                 },
-                resolve: (root, args) => ({ result: args.input.num + coerceBigInt('1n') })
+                resolve: (root, args) => ({ result: args.input.num + 1n })
             }
         }
     });
@@ -63,7 +63,7 @@ describe('BigInt', () => {
         c: inc(num: 2147483647)
         d: inc(num: 2147483648)
         e: inc(num: 439857257821345)
-        f: inc(num: ${(coerceBigInt(Number.MAX_SAFE_INTEGER) as bigint) + (coerceBigInt('1n') as bigint)})
+        f: inc(num: 9007199254740992)
       }`;
 
     const invalidQuery2 = `{
@@ -82,7 +82,7 @@ describe('BigInt', () => {
 
     const validVariables = {
         input1: { num: 2147483646 },
-        input2: { num: Number.MAX_SAFE_INTEGER - 1 },
+        input2: { num: 9007199254740990n },
         input4: { num: '1' }
     };
 
@@ -98,21 +98,21 @@ describe('BigInt', () => {
         const { data, errors } = await graphql(schema, validQuery);
         expect(errors).toEqual(undefined);
         expect(data).toEqual({
-            a: coerceBigInt('2n'),
-            b: coerceBigInt('2147483647n'),
-            c: coerceBigInt('2147483648n'),
-            d: coerceBigInt('2147483649n'),
-            e: coerceBigInt('439857257821346n'),
-            f: coerceBigInt('9007199254740993n')
+            a: 2n,
+            b: 2147483647n,
+            c: 2147483648n,
+            d: 2147483649n,
+            e: 439857257821346n,
+            f: 9007199254740993n
         });
     });
     it('4', async () => {
         const { data, errors } = await graphql(schema, validMutation, null, null, validVariables);
         expect(errors).toEqual(undefined);
         expect(data).toEqual({
-            a: { result: coerceBigInt('2147483647n') },
-            b: { result: coerceBigInt('9007199254740991n') },
-            d: { result: coerceBigInt('2n') }
+            a: { result: 2147483647n },
+            b: { result: 9007199254740991n },
+            d: { result: 2n }
         });
     });
 });
