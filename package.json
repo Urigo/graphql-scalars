@@ -65,7 +65,7 @@
     "input": "./src/index.ts"
   },
   "dependencies": {
-    "@types/node": "12.12.25"
+    "@types/node": "12.12.26"
   },
   "engines": {
     "node": ">=10"
