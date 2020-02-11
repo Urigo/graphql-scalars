@@ -1,6 +1,4 @@
-import { GraphQLScalarType } from 'graphql/type/definition';
-import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
+import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 const PHONE_NUMBER_REGEX = /^\+[1-9]\d{1,14}$/;
 

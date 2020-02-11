@@ -24,6 +24,7 @@
     "trailingComma": "all",
     "printWidth": 80
   },
+  "dependencies": {},
   "scripts": {
     "clean": "rm -rf dist",
     "prebuild": "yarn clean",
@@ -36,16 +37,17 @@
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
+    "@types/node": "13.7.0",
     "@ardatan/bob": "0.2.7",
-    "@types/jest": "25.1.1",
+    "@types/jest": "25.1.2",
     "graphql": "14.6.0",
     "graphql-tools": "4.0.6",
     "jest": "25.1.0",
     "lint-staged": "10.0.7",
     "merge-graphql-schemas": "1.7.6",
     "semver": "7.1.2",
-    "ts-jest": "25.1.0",
-    "tslint": "5.20.1",
+    "ts-jest": "25.2.0",
+    "tslint": "6.0.0",
     "typescript": "3.7.5"
   },
   "peerDependencies": {
@@ -63,9 +65,6 @@
   },
   "buildOptions": {
     "input": "./src/index.ts"
-  },
-  "dependencies": {
-    "@types/node": "12.12.26"
   },
   "engines": {
     "node": ">=10"

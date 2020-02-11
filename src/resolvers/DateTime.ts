@@ -1,6 +1,4 @@
-import { GraphQLScalarType } from 'graphql/type/definition';
-import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
+import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 export default new GraphQLScalarType({
   name: 'DateTime',

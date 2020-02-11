@@ -1,6 +1,4 @@
-import { GraphQLScalarType } from 'graphql/type/definition';
-import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
+import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 export type RegularExpressionErrorMessageFn = (r: RegExp, v: any) => string;
 
