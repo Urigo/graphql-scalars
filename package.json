@@ -24,6 +24,7 @@
     "trailingComma": "all",
     "printWidth": 80
   },
+  "dependencies": {},
   "scripts": {
     "clean": "rm -rf dist",
     "prebuild": "yarn clean",
@@ -36,6 +37,7 @@
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
+    "@types/node": "13.7.0",
     "@ardatan/bob": "0.2.7",
     "@types/jest": "25.1.1",
     "graphql": "14.6.0",
@@ -63,9 +65,6 @@
   },
   "buildOptions": {
     "input": "./src/index.ts"
-  },
-  "dependencies": {
-    "@types/node": "12.12.26"
   },
   "engines": {
     "node": ">=10"

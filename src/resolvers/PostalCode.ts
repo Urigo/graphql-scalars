@@ -1,6 +1,4 @@
-import { GraphQLScalarType } from 'graphql/type/definition';
-import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
+import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 // We're going to start with a limited set as suggested here:
 // http://www.pixelenvision.com/1708/zip-postal-code-validation-regex-php-code-for-12-countries/

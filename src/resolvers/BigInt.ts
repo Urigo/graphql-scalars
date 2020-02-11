@@ -1,8 +1,6 @@
 // Based on https://github.com/stems/graphql-bigint/
 
-import { GraphQLScalarType } from 'graphql/type/definition';
-
-import { Kind } from 'graphql/language/kinds';
+import { Kind, GraphQLScalarType } from 'graphql';
 
 export default function (name = 'BigInt') {
     return new GraphQLScalarType({

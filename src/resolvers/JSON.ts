@@ -1,6 +1,4 @@
-import { GraphQLScalarType } from 'graphql/type/definition';
-import { Kind } from 'graphql/language';
-import { ValueNode, ObjectValueNode } from 'graphql/language/ast';
+import { Kind, GraphQLScalarType, ValueNode, ObjectValueNode } from 'graphql';
 
 function identity<T>(value: T): T {
     return value;

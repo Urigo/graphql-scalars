@@ -1,4 +1,4 @@
-import { GraphQLScalarType, GraphQLError, Kind  } from 'graphql';
+import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 const HSL_REGEX = /^hsl\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*\)$/;
 

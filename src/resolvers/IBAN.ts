@@ -1,8 +1,6 @@
 // Based on https://github.com/arhs/iban.js
 
-import { GraphQLScalarType } from 'graphql';
-import { Kind } from 'graphql/language';
-import { GraphQLError } from 'graphql/error';
+import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 interface CountryStructure {
   [key: string]: Specification;

@@ -1,7 +1,4 @@
-import { GraphQLScalarType } from 'graphql/type/definition';
-import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
-
+import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 const HEXADECIMAL_REGEX = /^[a-f0-9]+$/i;
 

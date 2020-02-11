@@ -1,7 +1,4 @@
-import { GraphQLScalarType } from 'graphql/type/definition';
-import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
-
+import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 const HEX_COLOR_CODE = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$/;
 

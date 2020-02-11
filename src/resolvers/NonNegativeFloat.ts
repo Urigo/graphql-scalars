@@ -1,7 +1,4 @@
-import { GraphQLScalarType } from 'graphql/type/definition';
-import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
-
+import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 import { processValue, VALIDATIONS } from './utilities';
 
 export default function (name = 'NonNegativeFloat') {
