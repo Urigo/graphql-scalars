@@ -4840,10 +4840,10 @@ watchpack@^1.6.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-webpack-cli@4.0.0-beta.2:
-  version "4.0.0-beta.2"
-  resolved "https://registry.npmjs.org/webpack-cli/-/webpack-cli-4.0.0-beta.2.tgz#c97739228d2b89c89130acdafa591b1814b566f8"
-  integrity sha512-FpNDKnwYtYOJ1dlqbv75rNpGcGnf2AZoq7eqxuxcojtfFAjUVp3c3GhKCN2pXiM7TXi2r+EQcbG5KE39774C+A==
+webpack-cli@4.0.0-beta.3:
+  version "4.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-4.0.0-beta.3.tgz#edad120dd70a41412ef071e49e6cbe340e5d610f"
+  integrity sha512-fWdJNrS5fi5H4kdDQt0lZpEc1Vj2OYcRSwSIrvu0lh3kYqIwBj39wtKfswqQcvDBkkoOAB2A1R+JfCdLjliogw==
   dependencies:
     ansi-escapes "^4.2.1"
     chalk "^3.0.0"
