@@ -68,5 +68,8 @@
   },
   "engines": {
     "node": ">=10"
+  },
+  "resolutions": {
+    "set-value": "3.0.1"
   }
 }
