@@ -1,20 +1,22 @@
-# @okgrow/graphql-scalars
+[![scalar](https://user-images.githubusercontent.com/25294569/63675022-87723c80-c7f0-11e9-87b9-22c78c9a17e2.gif)](http://the-guild.dev)
 
-[![npm version](https://badge.fury.io/js/%40okgrow%2Fgraphql-scalars.svg)](https://badge.fury.io/js/%40okgrow%2Fgraphql-scalars)
-[![Build Status](https://semaphoreci.com/api/v1/projects/649ab71f-35fe-440e-8e4b-3f68aaad0f2a/1545482/shields_badge.svg)](https://semaphoreci.com/okgrow/graphql-scalars)
+
+[![npm version](https://badge.fury.io/js/graphql-scalars.svg)](https://badge.fury.io/js/graphql-scalars)
+[![CircleCI](https://circleci.com/gh/Urigo/graphql-scalars.svg?style=svg)](https://circleci.com/gh/Urigo/graphql-scalars)
+[![Discord Chat](https://img.shields.io/discord/625400653321076807)](https://discord.gg/xud7bH9)
 
 > A library of custom GraphQL [scalar types](http://graphql.org/learn/schema/#scalar-types) for creating precise type-safe GraphQL schemas.
 
 ## Installation
 
 ```
-npm install --save @okgrow/graphql-scalars
+npm install --save graphql-scalars
 ```
 
 or
 
 ```
-yarn add @okgrow/graphql-scalars
+yarn add graphql-scalars
 ```
 
 ## Usage
@@ -50,8 +52,6 @@ scalar PositiveInt
 
 scalar PostalCode
 
-scalar RegularExpression
-
 scalar UnsignedFloat
 
 scalar UnsignedInt
@@ -59,52 +59,123 @@ scalar UnsignedInt
 scalar URL
 
 scalar ObjectID
+
+scalar BigInt
+
+scalar Long
+
+scalar GUID
+
+scalar HexColorCode
+
+scalar HSL
+
+scalar HSLA
+
+scalar IPv4
+
+scalar IPv6
+
+scalar ISBN
+
+scalar MAC
+
+scalar Port
+
+scalar RGB
+
+scalar RGBA
+
+scalar USCurrency
+
+scalar JSON
+
+scalar JSONObject
 ```
 
 In your resolver map, first import them:
 
 ```javascript
 import {
-  DateTime,
-  NonPositiveInt,
-  PositiveInt,
-  NonNegativeInt,
-  NegativeInt,
-  NonPositiveFloat,
-  PositiveFloat,
-  NonNegativeFloat,
-  NegativeFloat,
-  EmailAddress,
-  URL,
-  PhoneNumber,
-  PostalCode,
-  ObjectID,
-} from '@okgrow/graphql-scalars';
+  DateTimeResolver,
+  EmailAddressResolver,
+  NegativeFloatResolver,
+  NegativeIntResolver,
+  NonNegativeFloatResolver,
+  NonNegativeIntResolver,
+  NonPositiveFloatResolver,
+  NonPositiveIntResolver,
+  PhoneNumberResolver,
+  PositiveFloatResolver,
+  PositiveIntResolver,
+  PostalCodeResolver,
+  UnsignedFloatResolver,
+  UnsignedIntResolver,
+  URLResolver,
+  BigIntResolver,
+  LongResolver,
+  GUIDResolver,
+  HexColorCodeResolver,
+  HSLResolver,
+  HSLAResolver,
+  IPv4Resolver,
+  IPv6Resolver,
+  ISBNResolver,
+  MACResolver,
+  PortResolver,
+  RGBResolver,
+  RGBAResolver,
+  USCurrencyResolver,
+  JSONResolver,
+  JSONObjectResolver,
+  ObjectIDResolver,
+} from 'graphql-scalars';
 ```
 
 Then make sure they're in the root resolver map like this:
 
 ```javascript
 const myResolverMap = {
-  ObjectId,
+  ObjectID: ObjectIDResolver,
 
-  DateTime,
+  DateTime: DateTimeResolver,
 
-  NonPositiveInt,
-  PositiveInt,
-  NonNegativeInt,
-  NegativeInt,
+  NonPositiveInt: NonPositiveIntResolver,
+  PositiveInt: PositiveIntResolver,
+  NonNegativeInt: NonNegativeIntResolver,
+  NegativeInt: NegativeIntResolver,
+  NonPositiveFloat: NonPositiveFloatResolver,
+  PositiveFloat: PositiveFloatResolver,
+  NonNegativeFloat: NonNegativeFloatResolver,
+  NegativeFloat: NegativeFloatResolver,
+  UnsignedFloat: UnsignedFloatResolver,
+  UnsignedInt: UnsignedIntResolver,
+  BigInt: BigIntResolver,
+  Long: LongResolver,
 
-  NonPositiveFloat,
-  PositiveFloat,
-  NonNegativeFloat,
-  NegativeFloat,
+  EmailAddress: EmailAddressResolver,
+  URL: URLResolver,
+  PhoneNumber: PhoneNumberResolver,
+  PostalCode: PostalCodeResolver,
 
-  EmailAddress,
-  URL,
+  GUID: GUIDResolver,
 
-  PhoneNumber,
-  PostalCode,
+  HexColorCode: HexColorCodeResolver,
+  HSL: HSLResolver,
+  HSLA: HSLAResolver,
+  RGB: RGBResolver,
+  RGBA: RGBAResolver,
+
+  IPv4: IPv4Resolver,
+  IPv6: IPv6Resolver,
+  MAC: MACResolver,
+  Port: PortResolver,
+
+  ISBN: ISBNResolver,
+
+  USCurrency: USCurrencyResolver,
+  JSON: JSONResolver,
+  JSONObject: JSONObjectResolver,
 
   Query: {
     // more stuff here
@@ -122,14 +193,14 @@ and `UnsignedInt`, respectively.
 Alternatively, use the default import and ES6's spread operator syntax:
 
 ```javascript
-import OKGGraphQLScalars from '@okgrow/graphql-scalars';
+import { resolvers } from 'graphql-scalars';
 ```
 
 Then make sure they're in the root resolver map like this:
 
 ```javascript
 const myResolverMap = {
-  ...OKGGraphQLScalars,
+  ...resolvers,
 
   Query: {
     // more stuff here
@@ -170,25 +241,23 @@ These scalars can be used just like the base, built-in ones.
 import { ApolloServer } from 'apollo-server';
 import { makeExecutableSchema } from 'graphql-tools';
 // import all scalars and resolvers
-import OKGGraphQLScalars, {
-  OKGScalarDefinitions,
-} from '@okgrow/graphql-scalars';
+import { typeDefs, resolvers } from 'graphql-scalars';
 // Alternatively, import individual scalars and resolvers
-// import { DateTime, DateTimeScalar, ... } from "@okgrow/graphql-scalars"
+// import { DateTimeResolver, DateTimeTypeDefinition, ... } from "graphql-scalars"
 
 const server = new ApolloServer({
   schema: makeExecutableSchema({
     typeDefs: [
       // use spread syntax to add scalar definitions to your schema
-      ...OKGScalarDefinitions,
-      // DateTimeScalar,
+      ...typeDefs,
+      // DateTimeTypeDefinition,
       // ...
       // ... other type definitions ...
     ],
     resolvers: {
       // use spread syntax to add scalar resolvers to your resolver map
-      ...OKGGraphQLScalars,
-      // DateTime,
+      ...resolvers,
+      // DateTimeResolver,
       // ...
       // ... remainder of resolver map ...
     },
@@ -199,6 +268,65 @@ server.listen().then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
 ```
+
+### Using mocks with Apollo Server
+
+```javascript
+import { ApolloServer } from 'apollo-server';
+import { makeExecutableSchema } from 'graphql-tools';
+// import all scalars and resolvers
+import { typeDefs, resolvers, mocks } from 'graphql-scalars';
+// Alternatively, import individual scalars and resolvers
+// import { DateTimeResolver, DateTimeTypeDefinition, DateTimeMock, ... } from "graphql-scalars"
+
+const server = new ApolloServer({
+  typeDefs: [
+    // use spread syntax to add scalar definitions to your schema
+    ...typeDefs,
+    // DateTimeTypeDefinition,
+    // ...
+    // ... other type definitions ...
+  ],
+  resolvers: {
+    // use spread syntax to add scalar resolvers to your resolver map
+    ...resolvers,
+    // DateTimeResolver,
+    // ...
+    // ... remainder of resolver map ...
+  },
+  mocks: {
+    // use spread syntax to add scalar resolvers to your resolver map
+    ...mocks,
+    // DateTimeMock,
+    // ...
+    // ... other mocks ...
+  }
+});
+```
+
+### Usage with apollo-server-express and CommonJS imports
+
+```javascript
+const { ApolloServer } = require('apollo-server-express');
+// Import individual scalars and resolvers
+const { DateTimeResolver, DateTimeTypeDefinition } = require('graphql-scalars');
+
+const server = new ApolloServer({
+  typeDefs: [
+    DateTimeTypeDefinition,
+    ...yourTypeDefs,
+  ],
+  resolvers: [
+    { DateTime: DateTimeResolver }, // <-- Notable difference here
+    ...yourResolvers,
+  ],
+});
+
+server.listen().then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
+});
+```
+
 
 ### Using the RegularExpression scalar
 
@@ -348,7 +476,7 @@ A field whose value conforms to the standard internet email address format as sp
 ### URL
 
 A field whose value conforms to the standard URL format as specified in
-[RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
+[RFC3986](https://www.ietf.org/rfc/rfc3986.txt), and it uses real JavaScript `URL` objects.
 
 ### PhoneNumber
 
@@ -388,6 +516,173 @@ This is really a practical decision of weight (of the package) vs. completeness.
 
 In the future we might expand this list and use the more comprehensive list found [here](http://unicode.org/cldr/trac/browser/tags/release-26-0-1/common/supplemental/postalCodeData.xml).
 
+### BigInt
+
+A long integer type for [graphql-js](https://github.com/graphql/graphql-js). This implementation gives you more than 32 bits rather than the default 32-bit GraphQLInt. [It uses native `BigInt` implementation of JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+The [GraphQL spec](https://facebook.github.io/graphql/#sec-Int) limits its Int type to 32-bits. Maybe you've seen this error before:
+[Issue on graphql-js](https://github.com/graphql/graphql-js/issues/292)
+```
+GraphQLError: Argument "num" has invalid value 9007199254740990.
+              Expected type "Int", found 9007199254740990.
+```
+
+> Based on [graphql-bigint](https://github.com/stems/graphql-bigint)
+
+### GUID
+
+A field whose value is a generic [Globally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+
+### Hexadecimal
+
+A field whose value is a [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal).
+
+### HexColorCode
+
+A field whose value is a [hex color code](https://en.wikipedia.org/wiki/Web_colors).
+
+### HSL
+
+A field whose value is a [CSS HSL color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()).
+
+### IPv4
+
+A field whose value is a [IPv4 address](https://en.wikipedia.org/wiki/IPv4).
+
+### IPv6
+
+A field whose value is a [IPv6 address](https://en.wikipedia.org/wiki/IPv6).
+
+### ISBN
+
+A field whose value is a [ISBN-10 or ISBN-13 number](https://en.wikipedia.org/wiki/International_Standard_Book_Number).
+
+### MAC
+
+A field whose value is a IEEE 802 48-bit [MAC address](https://en.wikipedia.org/wiki/MAC_address).
+
+### Port
+
+A field whose value is a valid [TCP port](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_ports) within the range of 0 to 65535.
+
+### RGB
+
+A field whose value is a [CSS RGB color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()).
+
+### RGBA
+
+A field whose value is a [CSS RGBA color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()).
+
+### USCurrency
+
+A US currency string, such as $21.25.
+
+> Uses [graphql-currency-scalars](https://github.com/abhiaiyer91/graphql-currency-scalars)
+
+### JSON
+
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+
+> Uses [graphql-type-json](https://github.com/taion/graphql-type-json)
+
+### JSONObject
+
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+
+> Uses [graphql-type-json](https://github.com/taion/graphql-type-json)
+
+### IBAN
+
+Includes IBAN specifications for the following countries:
+
+- AD - Andorra
+- AE - United Arab Emirates
+- AL - Albania
+- AO - Angola
+- AT - Austria
+- AZ - Azerbaijan
+- BA - Bosnia and Herzegovina
+- BE - Belgium
+- BF - Burkina Faso
+- BG - Bulgaria
+- BH - Bahrain
+- BI - Burundi
+- BJ - Benin
+- BR - Brazil
+- BY - Belarus
+- CH - Switzerland
+- CI - Côte d'Ivoire
+- CM - Cameroon
+- CR - Costa Rica
+- CV - Cabo Verde
+- CY - Cyprus
+- DE - Germany
+- DK - Denmark
+- DO - Dominican Republic
+- DZ - Algeria
+- EE - Estonia
+- ES - Spain
+- FI - Finland
+- FO - Faroe Islands
+- FR - France
+- GB - United Kingdom of Great Britain and Northern Ireland
+- GE - Georgia
+- GI - Gibraltar
+- GL - Greenland
+- GR - Greece
+- GT - Guatemala
+- HR - Croatia
+- HU - Hungary
+- IE - Ireland
+- IL - Israel
+- IQ - Iraq
+- IR - Iran (Islamic Republic of)
+- IS - Iceland
+- IT - Italy
+- JO - Jordan
+- KW - Kuwait
+- KZ - Kazakhstan
+- LB - Lebanon
+- LC - Saint Lucia
+- LI - Liechtenstein
+- LT - Lithuania
+- LU - Luxembourg
+- LV - Latvia
+- MC - Monaco
+- MD - Moldova, Republic of
+- ME - Montenegro
+- MG - Madagascar
+- MK - North Macedonia
+- ML - Mali
+- MR - Mauritania
+- MT - Malta
+- MU - Mauritius
+- MZ - Mozambique
+- NL - Netherlands
+- NO - Norway
+- PK - Pakistan
+- PL - Poland
+- PS - Palestine, State of
+- PT - Portugal
+- QA - Qatar
+- RO - Romania
+- RS - Serbia
+- SA - Saudi Arabia
+- SC - Seychelles
+- SE - Sweden
+- SI - Slovenia
+- SK - Slovakia
+- SM - San Marino
+- SN - Senegal
+- ST - Sao Tome and Principe
+- SV - El Salvador
+- TL - Timor-Leste
+- TN - Tunisia
+- TR - Turkey
+- UA - Ukraine
+- VA - Holy See
+- VG - Virgin Islands (British)
+- XK - Kosovo
+
 ### RegularExpression
 
 A `GraphQLScalarType` object generator that takes two arguments:
@@ -425,3 +720,11 @@ Released under the [MIT license](./LICENSE).
 Issues and Pull Requests are always welcome.
 
 Please read our [contribution guidelines](./CONTRIBUTING.md).
+
+## Thanks
+
+This library was originally published as `@okgrow/graphql-scalars`.
+It was created and maintained by the company `ok-grow`.
+We, The Guild, took over the maintaince of that library [later on](https://medium.com/the-guild/the-guild-is-taking-over-maintenance-of-merge-graphql-schemas-so-lets-talk-about-graphql-schema-46246557a225).
+
+We also like to say thank you to [@adriano-di-giovanni](https://github.com/adriano-di-giovanni) for being extremely generous and giving us the `graphql-scalars` name on npm which was previously owned by his own [library](https://github.com/adriano-di-giovanni/graphql-scalars).

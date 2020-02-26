@@ -1,0 +1,22 @@
+{
+  "name": "bundle-test",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "pretest": "webpack",
+    "test": "bundlesize"
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/index.js",
+      "maxSize": "71 kB",
+      "compression": "none"
+    }
+  ],
+  "devDependencies": {
+    "bundlesize": "0.18.0",
+    "webpack": "4.41.6",
+    "webpack-cli": "4.0.0-beta.6"
+  }
+}
