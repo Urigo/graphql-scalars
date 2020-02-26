@@ -32,6 +32,7 @@ export {
   JSON as JSONDefinition,
   JSONObject as JSONObjectDefinition,
   IBAN as IBANTypeDefinition,
+  ObjectID as ObjectIDTypeDefinition
 } from './typeDefs';
 
 export { default as typeDefs } from './typeDefs';
@@ -70,6 +71,7 @@ export {
   JSON as JSONResolver,
   JSONObject as JSONObjectResolver,
   IBAN as IBANResolver,
+  ObjectID as ObjectIDResolver,
 } from './resolvers';
 
 import * as resolvers from './resolvers';
@@ -111,6 +113,7 @@ export {
   JSON as JSONMock,
   JSONObject as JSONObjectMock,
   IBAN as IBANMock,
+  ObjectID as ObjectIDMock
 } from './mocks';
 
 export { mocks };
