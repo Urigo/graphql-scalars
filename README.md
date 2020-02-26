@@ -57,6 +57,8 @@ scalar UnsignedFloat
 scalar UnsignedInt
 
 scalar URL
+
+scalar ObjectID
 ```
 
 In your resolver map, first import them:
@@ -76,6 +78,7 @@ import {
   URL,
   PhoneNumber,
   PostalCode,
+  ObjectID,
 } from '@okgrow/graphql-scalars';
 ```
 
@@ -83,6 +86,8 @@ Then make sure they're in the root resolver map like this:
 
 ```javascript
 const myResolverMap = {
+  ObjectId,
+
   DateTime,
 
   NonPositiveInt,
@@ -354,6 +359,10 @@ The very powerful
 _that_ format, parse and display it in whatever display format you want. It can also be used to
 parse user input and _get_ the E.164 format to pass _into_ a schema.
 
+### ObjectID
+
+A field whose value conforms to the mongodb object id format as explained in the [documentation](https://docs.mongodb.com/manual/reference/method/ObjectId/#ObjectId)
+
 ### PostalCode
 
 We're going to start with a limited set as suggested [here](http://www.pixelenvision.com/1708/zip-postal-code-validation-regex-php-code-for-12-countries/)
@@ -409,10 +418,10 @@ can use them too if needed.
 
 ## License
 
-Released under the [MIT license](https://github.com/okgrow/analytics/blob/master/License.md).
+Released under the [MIT license](./LICENSE).
 
 ## Contributing
 
 Issues and Pull Requests are always welcome.
 
-Please read our [contribution guidelines](https://okgrow.github.io/guides/docs/open-source-contributing.html).
+Please read our [contribution guidelines](./CONTRIBUTING.md).

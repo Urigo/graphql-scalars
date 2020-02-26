@@ -8,7 +8,7 @@ export default new GraphQLScalarType({
   name: 'ObjectID',
 
   description:
-    'A field whose value conforms to the standard mongodb object ID as described here: https://docs.mongodb.com/manual/reference/method/ObjectId/#ObjectId. Example: 5e5677d71bdc2ae76344968c',
+    'A field whose value conforms with the standard mongodb object ID as described here: https://docs.mongodb.com/manual/reference/method/ObjectId/#ObjectId. Example: 5e5677d71bdc2ae76344968c',
 
   serialize(value) {
     if (typeof value !== 'string') {
