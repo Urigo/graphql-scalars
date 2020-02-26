@@ -13,12 +13,18 @@
       "src"
     ]
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all",
     "printWidth": 80
   },
   "scripts": {
+    "commit": "commit",
     "prepublishOnly": "npm run build",
     "build": "babel src --ignore '**/__tests__' --out-dir ./dist",
     "lint": "eslint ./src",
@@ -31,6 +37,9 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/preset-env": "^7.3.1",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@commitlint/prompt-cli": "8.3.5",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.12.1",
     "eslint-config-airbnb": "^17.1.0",
@@ -38,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.0",
     "eslint-plugin-react": "^7.12.4",
     "graphql": "^14.1.1",
+    "husky": "4.2.3",
     "jest": "^24.0.0"
   },
   "peerDependencies": {
