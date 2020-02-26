@@ -1,3 +1,4 @@
+import { ValueNode } from 'graphql/language';
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 const MONGODB_OBJECTID_REGEX: RegExp = new RegExp(/^[A-Fa-f0-9]{24}$/);
@@ -24,7 +25,7 @@ export default new GraphQLScalarType({
     return value;
   },
 
-  parseLiteral(ast: Kind.ast) {
+  parseLiteral(ast: ValueNode) {
     if (ast.kind !== Kind.STRING) {
       throw new GraphQLError(
         `Can only validate strings as mongodb object id but got a: ${ast.kind}`,

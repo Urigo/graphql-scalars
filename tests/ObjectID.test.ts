@@ -16,7 +16,7 @@ describe('ObjectId', () => {
 
     test('parseLiteral', () => {
       expect(
-        ObjectID.parseLiteral({ value: '5e5677d71bdc2ae76344968c', kind: Kind.STRING }),
+        ObjectID.parseLiteral({ value: '5e5677d71bdc2ae76344968c', kind: Kind.STRING }, undefined), // undefined as prescribed by the Maybe<T> type
       ).toBe('5e5677d71bdc2ae76344968c');
     });
   });
@@ -40,7 +40,7 @@ describe('ObjectId', () => {
       test('parseLiteral', () => {
         const invalid = '5e5677d71bdc2ae76344968z';
         expect(() =>
-          ObjectID.parseLiteral({ value: invalid, kind: Kind.STRING }),
+          ObjectID.parseLiteral({ value: invalid, kind: Kind.STRING }, undefined), // undefined as prescribed by the Maybe<T> type
         ).toThrow(new RegExp(`Value is not a valid mongodb object id of form: ${invalid}`));
       });
     });
@@ -63,7 +63,7 @@ describe('ObjectId', () => {
       test('parseLiteral', () => {
         const invalid = '5e5677d71bdc2ae';
         expect(() =>
-          ObjectID.parseLiteral({ value: invalid, kind: Kind.STRING }),
+          ObjectID.parseLiteral({ value: invalid, kind: Kind.STRING }, undefined), // undefined as prescribed by the Maybe<T> type
         ).toThrow(new RegExp(`Value is not a valid mongodb object id of form: ${invalid}`));
       });
     });
@@ -86,7 +86,7 @@ describe('ObjectId', () => {
       test('parseLiteral', () => {
         const invalid = '5e5677d71bdc2ae76344968c5';
         expect(() =>
-          ObjectID.parseLiteral({ value: invalid, kind: Kind.STRING }),
+          ObjectID.parseLiteral({ value: invalid, kind: Kind.STRING }, undefined), // undefined as prescribed by the Maybe<T> type
         ).toThrow(new RegExp(`Value is not a valid mongodb object id of form: ${invalid}`));
       });
     });
