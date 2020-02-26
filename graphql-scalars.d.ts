@@ -18,6 +18,7 @@ declare namespace GraphqlScalars {
   const URL: GraphQLScalarType;
   const PhoneNumber: GraphQLScalarType;
   const PostalCode: GraphQLScalarType;
+  const ObjectID: GraphQLScalarType;
 
   class RegularExpression extends GraphQLScalarType {
     constructor(
@@ -44,6 +45,7 @@ declare namespace GraphqlScalars {
   const PostalCodeScalar: string;
   const RegularExpressionScalar: string;
   const OKGScalarDefinitions: string[];
+  const ObjectIDScalar: string;
 }
 
 export = GraphqlScalars;

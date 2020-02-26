@@ -14,6 +14,7 @@ export const RegularExpressionScalar = 'scalar RegularExpression';
 export const UnsignedFloatScalar = 'scalar UnsignedFloat';
 export const UnsignedIntScalar = 'scalar UnsignedInt';
 export const URLScalar = 'scalar URL';
+export const ObjectIDScalar = 'scalar objectid';
 
 export default [
   DateTimeScalar,
@@ -32,4 +33,5 @@ export default [
   UnsignedFloatScalar,
   UnsignedIntScalar,
   URLScalar,
+  ObjectIDScalar,
 ];

@@ -12,6 +12,7 @@ import URL from './URL';
 import PhoneNumber from './PhoneNumber';
 import PostalCode from './PostalCode';
 import RegularExpression from './RegularExpression';
+import ObjectID from './ObjectID';
 import {
   DateTimeScalar,
   EmailAddressScalar,
@@ -29,6 +30,7 @@ import {
   UnsignedFloatScalar,
   UnsignedIntScalar,
   URLScalar,
+  ObjectIDScalar,
 } from './scalars';
 
 export { default as OKGScalarDefinitions } from './scalars';
@@ -51,6 +53,7 @@ export {
   PhoneNumber,
   PostalCode,
   RegularExpression,
+  ObjectID,
   // Scalars
   DateTimeScalar,
   EmailAddressScalar,
@@ -68,6 +71,7 @@ export {
   UnsignedFloatScalar,
   UnsignedIntScalar,
   URLScalar,
+  ObjectIDScalar,
 };
 
 export default {
@@ -86,4 +90,5 @@ export default {
   PhoneNumber,
   PostalCode,
   RegularExpression,
+  ObjectID,
 };
