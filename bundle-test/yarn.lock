@@ -153,17 +153,17 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
-"@webpack-cli/logger@^1.0.1-alpha.2":
-  version "1.0.1-alpha.2"
-  resolved "https://registry.yarnpkg.com/@webpack-cli/logger/-/logger-1.0.1-alpha.2.tgz#9c5a2e9f8b3798fab0a8f21b6039ab7624b5635c"
-  integrity sha512-tnYeopfATnVCa3HfAS2vA0n8ICvZUXBZQD4pqv/xAZ57dBMa6uPy1evRkrZgwIeHrNEbUWeRQHmjsKq746lcAQ==
+"@webpack-cli/logger@^1.0.1-alpha.4":
+  version "1.0.1-alpha.4"
+  resolved "https://registry.yarnpkg.com/@webpack-cli/logger/-/logger-1.0.1-alpha.4.tgz#f22b5ce6cd2f2d5089cae49583d0ee9c2de2d455"
+  integrity sha512-Q9y9guVd+mg1frxwjV65AsU7c6gQ+2x0XBPod3u+WU6bdEcBZCaFcmyVmAAtvmAxffiruYU291KkUmGaaHe9PA==
 
-"@webpack-cli/package-utils@^1.0.1-alpha.2":
-  version "1.0.1-alpha.2"
-  resolved "https://registry.yarnpkg.com/@webpack-cli/package-utils/-/package-utils-1.0.1-alpha.2.tgz#97fd12b50edfa5ed33e3b65a3df06d996163f709"
-  integrity sha512-aCcZSo5NhWK8o27pOvOFq9O1OgyX0dxjxsmduiKviSSpNzgigWAjrvaXcY4CST2GG82JFFGL/SnfE832H56OxA==
+"@webpack-cli/package-utils@^1.0.1-alpha.4":
+  version "1.0.1-alpha.4"
+  resolved "https://registry.yarnpkg.com/@webpack-cli/package-utils/-/package-utils-1.0.1-alpha.4.tgz#d6f8b3ef1f371a4f581c3eaf994f604942e0c0e1"
+  integrity sha512-GyuIwQ3PydTR/zb0W+Hb80qXvgQYIbWrKBl5sEzHPtGLZfagkIybRt+zZdklsmuWmkvLyeewlWL3LdXe40z1MA==
   dependencies:
-    "@webpack-cli/logger" "^1.0.1-alpha.2"
+    "@webpack-cli/logger" "^1.0.1-alpha.4"
     chalk "^3.0.0"
     enquirer "^2.3.4"
     execa "^4.0.0"
@@ -3225,13 +3225,13 @@ watchpack@^1.6.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-webpack-cli@4.0.0-beta.6:
-  version "4.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-4.0.0-beta.6.tgz#20bba4c8f9f850f4d43dec3ff75fecd39875a0d2"
-  integrity sha512-0+mubZpbDs7JAexfRIxmoTTpu+/DLctiaEopzA7ab7r4ami9RNeqrw2/Mf+vcVAHBuUB9QveDP08VcFYZeQo9g==
+webpack-cli@4.0.0-beta.8:
+  version "4.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-4.0.0-beta.8.tgz#62dfd9daaba6d46d2035f91d8aa08fda4ae2fc9f"
+  integrity sha512-kitIlz9sjCw5OSWePZYlWopmZGxy4vK7gA3MTAll5/J96cTjXGCxUBO2j9beN6saCv46cpPp1IE5V0eTGK1S0A==
   dependencies:
-    "@webpack-cli/logger" "^1.0.1-alpha.2"
-    "@webpack-cli/package-utils" "^1.0.1-alpha.2"
+    "@webpack-cli/logger" "^1.0.1-alpha.4"
+    "@webpack-cli/package-utils" "^1.0.1-alpha.4"
     ansi-escapes "^4.2.1"
     chalk "^3.0.0"
     cli-table3 "^0.5.1"
@@ -3270,10 +3270,10 @@ webpack-sources@^1.4.0, webpack-sources@^1.4.1:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@4.41.6:
-  version "4.41.6"
-  resolved "https://registry.npmjs.org/webpack/-/webpack-4.41.6.tgz#12f2f804bf6542ef166755050d4afbc8f66ba7e1"
-  integrity sha512-yxXfV0Zv9WMGRD+QexkZzmGIh54bsvEs+9aRWxnN8erLWEOehAKUTeNBoUbA6HPEZPlRo7KDi2ZcNveoZgK9MA==
+webpack@4.42.0:
+  version "4.42.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.42.0.tgz#b901635dd6179391d90740a63c93f76f39883eb8"
+  integrity sha512-EzJRHvwQyBiYrYqhyjW9AqM90dE4+s1/XtCfn7uWg6cS72zH+2VPFAlsnW0+W0cDi0XRjNKUMoJtpSi50+Ph6w==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
