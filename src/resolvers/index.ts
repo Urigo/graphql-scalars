@@ -27,6 +27,7 @@ import RGBA from './RGBA';
 import USCurrency from './USCurrency';
 import { JSON, JSONObject } from './JSON';
 import IBAN from './IBAN';
+import ObjectID from './ObjectID';
 
 const BigIntResolver = BigIntFactory('BigInt');
 const LongResolver = BigIntFactory('Long');
@@ -70,5 +71,6 @@ export {
     USCurrency,
     JSON,
     JSONObject,
-    IBAN
+    IBAN,
+    ObjectID,
 };

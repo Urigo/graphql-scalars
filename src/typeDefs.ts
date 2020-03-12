@@ -32,6 +32,7 @@ export const USCurrency = `scalar USCurrency`;
 export const UnsignedFloat = 'scalar UnsignedFloat';
 export const UnsignedInt = 'scalar UnsignedInt';
 export const Long = 'scalar Long';
+export const ObjectID = 'scalar ObjectID';
 
 export default [
   DateTime,
@@ -66,5 +67,6 @@ export default [
   USCurrency,
   JSON,
   JSONObject,
-  IBAN
+  IBAN,
+  ObjectID,
 ];

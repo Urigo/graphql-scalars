@@ -58,6 +58,8 @@ scalar UnsignedInt
 
 scalar URL
 
+scalar ObjectID
+
 scalar BigInt
 
 scalar Long
@@ -126,6 +128,7 @@ import {
   USCurrencyResolver,
   JSONResolver,
   JSONObjectResolver,
+  ObjectIDResolver,
 } from 'graphql-scalars';
 ```
 
@@ -133,6 +136,8 @@ Then make sure they're in the root resolver map like this:
 
 ```javascript
 const myResolverMap = {
+  ObjectID: ObjectIDResolver,
+
   DateTime: DateTimeResolver,
 
   NonPositiveInt: NonPositiveIntResolver,
@@ -147,27 +152,27 @@ const myResolverMap = {
   UnsignedInt: UnsignedIntResolver,
   BigInt: BigIntResolver,
   Long: LongResolver,
-  
+
   EmailAddress: EmailAddressResolver,
   URL: URLResolver,
   PhoneNumber: PhoneNumberResolver,
   PostalCode: PostalCodeResolver,
-    
+
   GUID: GUIDResolver,
-  
+
   HexColorCode: HexColorCodeResolver,
   HSL: HSLResolver,
   HSLA: HSLAResolver,
   RGB: RGBResolver,
   RGBA: RGBAResolver,
-  
+
   IPv4: IPv4Resolver,
   IPv6: IPv6Resolver,
   MAC: MACResolver,
   Port: PortResolver,
-  
+
   ISBN: ISBNResolver,
-  
+
   USCurrency: USCurrencyResolver,
   JSON: JSONResolver,
   JSONObject: JSONObjectResolver,
@@ -482,6 +487,10 @@ The very powerful
 _that_ format, parse and display it in whatever display format you want. It can also be used to
 parse user input and _get_ the E.164 format to pass _into_ a schema.
 
+### ObjectID
+
+A field whose value conforms to the mongodb object id format as explained in the [documentation](https://docs.mongodb.com/manual/reference/method/ObjectId/#ObjectId)
+
 ### PostalCode
 
 We're going to start with a limited set as suggested [here](http://www.pixelenvision.com/1708/zip-postal-code-validation-regex-php-code-for-12-countries/)
@@ -509,7 +518,7 @@ In the future we might expand this list and use the more comprehensive list foun
 
 ### BigInt
 
-A long integer type for [graphql-js](https://github.com/graphql/graphql-js). This implementation gives you more than 32 bits rather than the default 32-bit GraphQLInt. [It uses native `BigInt` implementation of JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) 
+A long integer type for [graphql-js](https://github.com/graphql/graphql-js). This implementation gives you more than 32 bits rather than the default 32-bit GraphQLInt. [It uses native `BigInt` implementation of JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
 The [GraphQL spec](https://facebook.github.io/graphql/#sec-Int) limits its Int type to 32-bits. Maybe you've seen this error before:
 [Issue on graphql-js](https://github.com/graphql/graphql-js/issues/292)
 ```
@@ -704,13 +713,13 @@ can use them too if needed.
 
 ## License
 
-Released under the [MIT license](https://github.com/Urigo/graphql-scalars/blob/master/LICENSE).
+Released under the [MIT license](./LICENSE).
 
 ## Contributing
 
 Issues and Pull Requests are always welcome.
 
-Please read our [contribution guidelines](https://github.com/Urigo/graphql-scalars/blob/master/CONTRIBUTING.md).
+Please read our [contribution guidelines](./CONTRIBUTING.md).
 
 ## Thanks
 
