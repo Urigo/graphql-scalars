@@ -47,7 +47,7 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@commitlint/prompt-cli": "8.3.5",
-    "@types/node": "13.9.1",
+    "@types/node": "13.9.2",
     "@types/jest": "25.1.4",
     "graphql": "14.6.0",
     "graphql-tools": "4.0.7",
