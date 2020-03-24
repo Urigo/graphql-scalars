@@ -1,6 +1,6 @@
 {
   "name": "graphql-scalars",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
     "type": "git",
@@ -47,8 +47,8 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@commitlint/prompt-cli": "8.3.5",
-    "@types/node": "13.9.3",
     "@types/jest": "25.1.4",
+    "@types/node": "13.9.3",
     "graphql": "14.6.0",
     "graphql-tools": "4.0.7",
     "husky": "4.2.3",
