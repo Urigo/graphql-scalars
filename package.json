@@ -35,12 +35,11 @@
   "scripts": {
     "clean": "rm -rf dist",
     "prebuild": "yarn clean",
-    "prepack": "bob-update-version",
     "build": "bob",
     "test": "jest --forceExit --no-watchman && yarn bundlesize",
     "prepare-release": "yarn build && yarn test",
     "release": "yarn prepare-release && npm publish dist",
-    "ci:release:canary": "node bump.js && npm publish dist --tag alpha --access public",
+    "ci:release:canary": "node bump.js && bob-update-version && npm publish dist --tag alpha --access public",
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
