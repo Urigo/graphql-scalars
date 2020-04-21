@@ -32,7 +32,7 @@ export {
   JSON as JSONDefinition,
   JSONObject as JSONObjectDefinition,
   IBAN as IBANTypeDefinition,
-  ObjectID as ObjectIDTypeDefinition
+  ObjectID as ObjectIDTypeDefinition,
 } from './typeDefs';
 
 export { default as typeDefs } from './typeDefs';
@@ -74,6 +74,43 @@ export {
   ObjectID as ObjectIDResolver,
 } from './resolvers';
 
+export {
+  DateTime as GraphQLDateTime,
+  EmailAddress as GraphQLEmailAddress,
+  NegativeFloat as GraphQLNegativeFloat,
+  NegativeInt as GraphQLNegativeInt,
+  NonNegativeFloat as GraphQLNonNegativeFloat,
+  NonNegativeInt as GraphQLNonNegativeInt,
+  NonPositiveFloat as GraphQLNonPositiveFloat,
+  NonPositiveInt as GraphQLNonPositiveInt,
+  PhoneNumber as GraphQLPhoneNumber,
+  PositiveFloat as GraphQLPositiveFloat,
+  PositiveInt as GraphQLPositiveInt,
+  PostalCode as GraphQLPostalCode,
+  UnsignedFloat as GraphQLUnsignedFloat,
+  UnsignedInt as GraphQLUnsignedInt,
+  URL as GraphQLURL,
+  BigInt as GraphQLBigInt,
+  Long as GraphQLLong,
+  GUID as GraphQLGUID,
+  Hexadecimal as GraphQLHexadecimal,
+  HexColorCode as GraphQLHexColorCode,
+  HSL as GraphQLHSL,
+  HSLA as GraphQLHSLA,
+  IPv4 as GraphQLIPv4,
+  IPv6 as GraphQLIPv6,
+  ISBN as GraphQLISBN,
+  MAC as GraphQLMAC,
+  Port as GraphQLPort,
+  RGB as GraphQLRGB,
+  RGBA as GraphQLRGBA,
+  USCurrency as GraphQLUSCurrency,
+  JSON as GraphQLJSON,
+  JSONObject as GraphQLJSONObject,
+  IBAN as GraphQLIBAN,
+  ObjectID as GraphQLObjectID,
+} from './resolvers';
+
 import * as resolvers from './resolvers';
 import * as mocks from './mocks';
 
@@ -113,7 +150,7 @@ export {
   JSON as JSONMock,
   JSONObject as JSONObjectMock,
   IBAN as IBANMock,
-  ObjectID as ObjectIDMock
+  ObjectID as ObjectIDMock,
 } from './mocks';
 
 export { mocks };
