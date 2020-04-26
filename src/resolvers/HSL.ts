@@ -1,17 +1,17 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-const HSL_REGEX = /^hsl\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*\)$/;
-
 const validate = (value: any) => {
-    if (typeof value !== 'string') {
-        throw new TypeError(`Value is not string: ${value}`);
-    }
+  const HSL_REGEX = /^hsl\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*\)$/;
 
-    if (!(HSL_REGEX.test(value))) {
-        throw new TypeError(`Value is not a valid HSL color: ${value}`);
-    }
+  if (typeof value !== 'string') {
+    throw new TypeError(`Value is not string: ${value}`);
+  }
 
-    return value;
+  if (!HSL_REGEX.test(value)) {
+    throw new TypeError(`Value is not a valid HSL color: ${value}`);
+  }
+
+  return value;
 };
 
 export default new GraphQLScalarType({
@@ -29,9 +29,11 @@ export default new GraphQLScalarType({
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as HSL colors but got a: ${ast.kind}`);
+      throw new GraphQLError(
+        `Can only validate strings as HSL colors but got a: ${ast.kind}`,
+      );
     }
 
     return validate(ast.value);
-  }
+  },
 });
