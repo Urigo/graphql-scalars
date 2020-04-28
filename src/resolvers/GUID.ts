@@ -1,13 +1,17 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-const GUID_REGEX = /^[0-9a-f]{8}-?[0-9a-f]{4}-?[1-5][0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$/i;
-
 const validate = (value: any) => {
+  const GUID_REGEX = /^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$/gi;
+
   if (typeof value !== 'string') {
     throw new TypeError(`Value is not string: ${value}`);
   }
 
-  if (!(GUID_REGEX.test(value))) {
+  if (value.startsWith('{')) {
+    value = value.substring(1, value.length - 1);
+  }
+
+  if (!GUID_REGEX.test(value)) {
     throw new TypeError(`Value is not a valid GUID: ${value}`);
   }
 
@@ -29,9 +33,11 @@ export default new GraphQLScalarType({
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as GUIDs but got a: ${ast.kind}`);
+      throw new GraphQLError(
+        `Can only validate strings as GUIDs but got a: ${ast.kind}`,
+      );
     }
 
     return validate(ast.value);
-  }
+  },
 });

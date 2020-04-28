@@ -1,10 +1,18 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-/* eslint-disable no-useless-escape */
-const EMAIL_ADDRESS_REGEX = new RegExp(
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-);
-/* eslint-enable */
+const validate = (value: any) => {
+  const EMAIL_ADDRESS_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (typeof value !== 'string') {
+    throw new TypeError(`Value is not string: ${value}`);
+  }
+
+  if (!EMAIL_ADDRESS_REGEX.test(value)) {
+    throw new TypeError(`Value is not a valid email address: ${value}`);
+  }
+
+  return value;
+};
 
 export default new GraphQLScalarType({
   name: 'EmailAddress',
@@ -12,29 +20,9 @@ export default new GraphQLScalarType({
   description:
     'A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/.',
 
-  serialize(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
-    }
+  serialize: validate,
 
-    if (!EMAIL_ADDRESS_REGEX.test(value)) {
-      throw new TypeError(`Value is not a valid email address: ${value}`);
-    }
-
-    return value;
-  },
-
-  parseValue(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('Value is not string');
-    }
-
-    if (!EMAIL_ADDRESS_REGEX.test(value)) {
-      throw new TypeError(`Value is not a valid email address: ${value}`);
-    }
-
-    return value;
-  },
+  parseValue: validate,
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
@@ -43,10 +31,6 @@ export default new GraphQLScalarType({
       );
     }
 
-    if (!EMAIL_ADDRESS_REGEX.test(ast.value)) {
-      throw new TypeError(`Value is not a valid email address: ${ast.value}`);
-    }
-
-    return ast.value;
+    return validate(ast.value);
   },
 });
