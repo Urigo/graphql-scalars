@@ -49,7 +49,7 @@
     "graphql": "15.0.0",
     "graphql-tools": "5.0.0",
     "husky": "4.2.5",
-    "jest": "25.4.0",
+    "jest": "25.5.0",
     "lint-staged": "10.2.0",
     "merge-graphql-schemas": "1.7.8",
     "prettier": "2.0.5",
