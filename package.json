@@ -54,7 +54,7 @@
     "merge-graphql-schemas": "1.7.8",
     "prettier": "2.0.5",
     "semver": "7.3.2",
-    "ts-jest": "25.5.0",
+    "ts-jest": "25.5.1",
     "tslint": "6.1.2",
     "typescript": "3.8.3"
   },
