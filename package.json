@@ -13,9 +13,6 @@
   "typescript": {
     "definition": "dist/index.d.ts"
   },
-  "buildOptions": {
-    "input": "./src/index.ts"
-  },
   "license": "MIT",
   "jest": {
     "roots": [
@@ -35,7 +32,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "prebuild": "yarn clean",
-    "build": "bob",
+    "build": "bob build --single",
     "test": "jest --forceExit --no-watchman && yarn bundlesize",
     "prepare-release": "yarn build && yarn test",
     "release": "yarn prepare-release && bob-update-version && npm publish dist",
