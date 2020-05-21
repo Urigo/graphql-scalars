@@ -40,15 +40,15 @@
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
-    "bob-the-bundler": "1.0.2",
+    "@graphql-tools/merge": "6.0.1",
+    "@graphql-tools/schema": "6.0.1",
     "@types/jest": "25.2.3",
     "@types/node": "13.13.9",
+    "bob-the-bundler": "1.0.2",
     "graphql": "15.0.0",
-    "graphql-tools": "5.0.0",
     "husky": "4.2.5",
     "jest": "26.0.1",
     "lint-staged": "10.2.6",
-    "merge-graphql-schemas": "1.7.8",
     "prettier": "2.0.5",
     "semver": "7.3.2",
     "ts-jest": "26.0.0",

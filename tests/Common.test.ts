@@ -1,10 +1,9 @@
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 import {
   typeDefs as scalarTypeDefs,
   resolvers as scalarResolvers,
 } from '../src';
-import { mergeTypes } from 'merge-graphql-schemas';
-import { mergeResolvers } from 'merge-graphql-schemas';
+import { mergeTypeDefs, mergeResolvers } from '@graphql-tools/merge';
 import { GraphQLSchema, graphql } from 'graphql';
 
 const FOO = { bar: 'QUX' };
@@ -19,8 +18,8 @@ const fooResolvers = {
   },
 };
 
-const typeDefs = mergeTypes([fooQuery, ...scalarTypeDefs]);
-const resolvers = mergeResolvers([fooResolvers, scalarResolvers as any]);
+const typeDefs = mergeTypeDefs([fooQuery, ...scalarTypeDefs]);
+const resolvers = mergeResolvers([fooResolvers, scalarResolvers]);
 
 describe('Common', () => {
   it('should create a valid schema', async () => {

@@ -1,6 +1,5 @@
 [![scalar](https://user-images.githubusercontent.com/25294569/63675022-87723c80-c7f0-11e9-87b9-22c78c9a17e2.gif)](http://the-guild.dev)
 
-
 [![npm version](https://badge.fury.io/js/graphql-scalars.svg)](https://badge.fury.io/js/graphql-scalars)
 [![Discord Chat](https://img.shields.io/discord/625400653321076807)](https://discord.gg/xud7bH9)
 
@@ -238,7 +237,7 @@ These scalars can be used just like the base, built-in ones.
 
 ```javascript
 import { ApolloServer } from 'apollo-server';
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 // import all scalars and resolvers
 import { typeDefs, resolvers } from 'graphql-scalars';
 // Alternatively, import individual scalars and resolvers
@@ -272,7 +271,7 @@ server.listen().then(({ url }) => {
 
 ```javascript
 import { ApolloServer } from 'apollo-server';
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 // import all scalars and resolvers
 import { typeDefs, resolvers, mocks } from 'graphql-scalars';
 // Alternatively, import individual scalars and resolvers
@@ -299,7 +298,7 @@ const server = new ApolloServer({
     // DateTimeMock,
     // ...
     // ... other mocks ...
-  }
+  },
 });
 ```
 
@@ -311,10 +310,7 @@ const { ApolloServer } = require('apollo-server-express');
 const { DateTimeResolver, DateTimeTypeDefinition } = require('graphql-scalars');
 
 const server = new ApolloServer({
-  typeDefs: [
-    DateTimeTypeDefinition,
-    ...yourTypeDefs,
-  ],
+  typeDefs: [DateTimeTypeDefinition, ...yourTypeDefs],
   resolvers: [
     { DateTime: DateTimeResolver }, // <-- Notable difference here
     ...yourResolvers,
@@ -325,7 +321,6 @@ server.listen().then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
 ```
-
 
 ### Using the RegularExpression scalar
 
@@ -520,6 +515,7 @@ In the future we might expand this list and use the more comprehensive list foun
 A long integer type for [graphql-js](https://github.com/graphql/graphql-js). This implementation gives you more than 32 bits rather than the default 32-bit GraphQLInt. [It uses native `BigInt` implementation of JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
 The [GraphQL spec](https://facebook.github.io/graphql/#sec-Int) limits its Int type to 32-bits. Maybe you've seen this error before:
 [Issue on graphql-js](https://github.com/graphql/graphql-js/issues/292)
+
 ```
 GraphQLError: Argument "num" has invalid value 9007199254740990.
               Expected type "Int", found 9007199254740990.
@@ -541,7 +537,7 @@ A field whose value is a [hex color code](https://en.wikipedia.org/wiki/Web_colo
 
 ### HSL
 
-A field whose value is a [CSS HSL color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()).
+A field whose value is a [CSS HSL color](<https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()>).
 
 ### IPv4
 
@@ -565,15 +561,15 @@ A field whose value is a valid [TCP port](https://en.wikipedia.org/wiki/Transmis
 
 ### RGB
 
-A field whose value is a [CSS RGB color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()).
+A field whose value is a [CSS RGB color](<https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()>).
 
 ### RGBA
 
-A field whose value is a [CSS RGBA color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()).
+A field whose value is a [CSS RGBA color](<https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()>).
 
 ### USCurrency
 
-A US currency string, such as $21.25.
+A US currency string, such as \$21.25.
 
 > Uses [graphql-currency-scalars](https://github.com/abhiaiyer91/graphql-currency-scalars)
 
