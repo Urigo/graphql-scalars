@@ -35,8 +35,8 @@
     "build": "bob build --single",
     "test": "jest --forceExit --no-watchman && yarn bundlesize",
     "prepare-release": "yarn build && yarn test",
-    "release": "yarn prepare-release && bob-update-version && npm publish dist",
-    "ci:release:canary": "node bump.js && bob-update-version && npm publish dist --tag alpha --access public",
+    "release": "yarn prepare-release && bob prepack && npm publish dist",
+    "ci:release:canary": "node bump.js && bob prepack && npm publish dist --tag alpha --access public",
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
