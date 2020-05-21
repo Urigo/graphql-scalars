@@ -42,7 +42,7 @@
   "devDependencies": {
     "bob-the-bundler": "1.0.1",
     "@types/jest": "25.2.3",
-    "@types/node": "13.13.8",
+    "@types/node": "13.13.9",
     "graphql": "15.0.0",
     "graphql-tools": "5.0.0",
     "husky": "4.2.5",
