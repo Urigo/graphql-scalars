@@ -20,7 +20,7 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "importHelpers": true,
-    "typeRoots": [ "./types", "./node_modules/@types"],
+    "typeRoots": ["./types", "./node_modules/@types"],
     "baseUrl": ".",
     "paths": {
       "*": ["./types/*"]

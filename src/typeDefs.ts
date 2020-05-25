@@ -34,6 +34,8 @@ export const UnsignedInt = 'scalar UnsignedInt';
 export const Long = 'scalar Long';
 export const ObjectID = 'scalar ObjectID';
 
+export const Void = 'scalar Void';
+
 export default [
   DateTime,
   EmailAddress,
@@ -69,4 +71,5 @@ export default [
   JSONObject,
   IBAN,
   ObjectID,
+  Void,
 ];

@@ -77,6 +77,7 @@ export const USCurrency = () => 1000;
 export const JSON = () => ({});
 export const JSONObject = () => ({});
 export const IBAN = () => 'NL55INGB4789170233';
+export const Void = (): null => null;
 
 export {
   URLMock as URL,

@@ -36,6 +36,7 @@ export {
   JSONObject as JSONObjectDefinition,
   IBAN as IBANTypeDefinition,
   ObjectID as ObjectIDTypeDefinition,
+  Void as VoidTypeDefinition,
 } from './typeDefs';
 
 export { default as typeDefs } from './typeDefs';
@@ -75,6 +76,7 @@ export {
   JSONObject as JSONObjectResolver,
   IBAN as IBANResolver,
   ObjectID as ObjectIDResolver,
+  Void as VoidResolver,
 } from './resolvers';
 
 export {
@@ -112,6 +114,7 @@ export {
   JSONObject as GraphQLJSONObject,
   IBAN as GraphQLIBAN,
   ObjectID as GraphQLObjectID,
+  Void as GraphQLVoid,
 } from './resolvers';
 
 export { resolvers };
@@ -151,6 +154,7 @@ export {
   JSONObject as JSONObjectMock,
   IBAN as IBANMock,
   ObjectID as ObjectIDMock,
+  Void as VoidMock,
 } from './mocks';
 
 export { mocks };

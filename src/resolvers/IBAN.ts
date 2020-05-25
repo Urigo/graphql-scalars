@@ -288,8 +288,6 @@ const IBAN_SPECIFICATIONS: CountryStructure = {
   XK: { length: 20, structure: 'F04F10F02', example: 'XK051212012345678906' },
 };
 
-const NON_ALPHANUM = /[^a-zA-Z0-9]/g;
-
 const A = 'A'.charCodeAt(0);
 const Z = 'Z'.charCodeAt(0);
 
@@ -386,14 +384,10 @@ function _testIBAN(
 }
 
 function validate(iban: string): boolean {
-  iban = electronicFormat(iban);
+  iban = iban.toUpperCase();
   const countryCode = iban.slice(0, 2);
   const countryStructure = IBAN_SPECIFICATIONS[countryCode];
   return !!countryStructure && _testIBAN(iban, countryCode, countryStructure);
-}
-
-function electronicFormat(iban: string): string {
-  return iban.replace(NON_ALPHANUM, '').toUpperCase();
 }
 
 export default new GraphQLScalarType({
