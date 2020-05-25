@@ -1,3 +1,6 @@
+import * as resolvers from './resolvers';
+import * as mocks from './mocks';
+
 export {
   DateTime as DateTimeTypeDefinition,
   EmailAddress as EmailAddressTypeDefinition,
@@ -110,9 +113,6 @@ export {
   IBAN as GraphQLIBAN,
   ObjectID as GraphQLObjectID,
 } from './resolvers';
-
-import * as resolvers from './resolvers';
-import * as mocks from './mocks';
 
 export { resolvers };
 

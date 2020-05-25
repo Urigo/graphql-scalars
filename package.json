@@ -32,6 +32,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "prebuild": "yarn clean",
+    "lint": "eslint --ext .ts \"./src/**/*.ts\"",
     "build": "bob build --single",
     "test": "jest --forceExit --no-watchman && yarn bundlesize",
     "prepare-release": "yarn build && yarn test",
@@ -44,7 +45,16 @@
     "@graphql-tools/schema": "6.0.1",
     "@types/jest": "25.2.3",
     "@types/node": "13.13.9",
+    "@typescript-eslint/eslint-plugin": "3.0.1",
+    "@typescript-eslint/parser": "3.0.1",
     "bob-the-bundler": "1.0.2",
+    "eslint": "7.1.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-config-standard": "14.1.1",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
     "graphql": "15.0.0",
     "husky": "4.2.5",
     "jest": "26.0.1",
@@ -52,7 +62,6 @@
     "prettier": "2.0.5",
     "semver": "7.3.2",
     "ts-jest": "26.0.0",
-    "tslint": "6.1.2",
     "typescript": "3.9.3"
   },
   "peerDependencies": {
@@ -60,7 +69,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "tslint --fix",
+      "eslint --fix",
       "git add"
     ],
     "*.{js,json,css,md,ts,tsx}": [

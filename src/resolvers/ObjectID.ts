@@ -1,7 +1,7 @@
 import { ValueNode } from 'graphql/language';
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-const MONGODB_OBJECTID_REGEX: RegExp = new RegExp(/^[A-Fa-f0-9]{24}$/);
+const MONGODB_OBJECTID_REGEX = new RegExp(/^[A-Fa-f0-9]{24}$/);
 
 export default new GraphQLScalarType({
   name: 'ObjectID',
@@ -11,7 +11,9 @@ export default new GraphQLScalarType({
 
   serialize(value: string) {
     if (!MONGODB_OBJECTID_REGEX.test(value)) {
-      throw new TypeError(`Value is not a valid mongodb object id of form: ${value}`);
+      throw new TypeError(
+        `Value is not a valid mongodb object id of form: ${value}`,
+      );
     }
 
     return value;
@@ -19,7 +21,9 @@ export default new GraphQLScalarType({
 
   parseValue(value: string) {
     if (!MONGODB_OBJECTID_REGEX.test(value)) {
-      throw new TypeError(`Value is not a valid mongodb object id of form: ${value}`);
+      throw new TypeError(
+        `Value is not a valid mongodb object id of form: ${value}`,
+      );
     }
 
     return value;
@@ -33,7 +37,9 @@ export default new GraphQLScalarType({
     }
 
     if (!MONGODB_OBJECTID_REGEX.test(ast.value)) {
-      throw new TypeError(`Value is not a valid mongodb object id of form: ${ast.value}`);
+      throw new TypeError(
+        `Value is not a valid mongodb object id of form: ${ast.value}`,
+      );
     }
 
     return ast.value;
