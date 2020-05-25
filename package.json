@@ -40,7 +40,7 @@
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
-    "bob-the-bundler": "1.0.1",
+    "bob-the-bundler": "1.0.2",
     "@types/jest": "25.2.3",
     "@types/node": "13.13.9",
     "graphql": "15.0.0",
