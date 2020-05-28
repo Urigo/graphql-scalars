@@ -1,5 +1,6 @@
 export const BigInt = 'scalar BigInt';
 export const DateTime = 'scalar DateTime';
+export const UtcOffset = 'scalar UtcOffset';
 export const EmailAddress = 'scalar EmailAddress';
 export const GUID = `scalar GUID`;
 export const Hexadecimal = `scalar Hexadecimal`;
@@ -38,6 +39,7 @@ export const Void = 'scalar Void';
 
 export default [
   DateTime,
+  UtcOffset,
   EmailAddress,
   NegativeFloat,
   NegativeInt,

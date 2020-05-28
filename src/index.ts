@@ -3,6 +3,7 @@ import * as mocks from './mocks';
 
 export {
   DateTime as DateTimeTypeDefinition,
+  UtcOffset as UtcOffsetTypeDefinition,
   EmailAddress as EmailAddressTypeDefinition,
   NegativeFloat as NegativeFloatTypeDefinition,
   NegativeInt as NegativeIntTypeDefinition,
@@ -43,6 +44,7 @@ export { default as typeDefs } from './typeDefs';
 
 export {
   DateTime as DateTimeResolver,
+  UtcOffset as UtcOffsetResolver,
   EmailAddress as EmailAddressResolver,
   NegativeFloat as NegativeFloatResolver,
   NegativeInt as NegativeIntResolver,
@@ -81,6 +83,7 @@ export {
 
 export {
   DateTime as GraphQLDateTime,
+  UtcOffset as GraphQLUtcOffset,
   EmailAddress as GraphQLEmailAddress,
   NegativeFloat as GraphQLNegativeFloat,
   NegativeInt as GraphQLNegativeInt,
@@ -121,6 +124,7 @@ export { resolvers };
 
 export {
   DateTime as DateTimeMock,
+  UtcOffset as UtcOffsetMock,
   EmailAddress as EmailAddressMock,
   NegativeFloat as NegativeFloatMock,
   NegativeInt as NegativeIntMock,
