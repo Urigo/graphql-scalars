@@ -41,8 +41,8 @@
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
-    "@graphql-tools/merge": "6.0.3",
-    "@graphql-tools/schema": "6.0.3",
+    "@graphql-tools/merge": "6.0.4",
+    "@graphql-tools/schema": "6.0.4",
     "@types/jest": "25.2.3",
     "@types/node": "13.13.9",
     "@typescript-eslint/eslint-plugin": "3.0.2",
