@@ -1,5 +1,6 @@
 const BigIntMock = () => BigInt(Number.MAX_SAFE_INTEGER);
 export const DateTime = () => new Date();
+export const UtcOffset = () => '+03:00';
 export const EmailAddress = () => 'test@test.com';
 export const NegativeFloat = () => -123.45;
 export const NegativeInt = () => -123;

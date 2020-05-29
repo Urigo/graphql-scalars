@@ -28,6 +28,8 @@ In your schema:
 ```graphql
 scalar DateTime
 
+scalar UtcOffset
+
 scalar EmailAddress
 
 scalar NegativeFloat
@@ -96,6 +98,7 @@ In your resolver map, first import them:
 ```javascript
 import {
   DateTimeResolver,
+  UtcOffsetResolver,
   EmailAddressResolver,
   NegativeFloatResolver,
   NegativeIntResolver,
@@ -137,6 +140,7 @@ const myResolverMap = {
   ObjectID: ObjectIDResolver,
 
   DateTime: DateTimeResolver,
+  UtcOffset: UtcOffsetResolver,
 
   NonPositiveInt: NonPositiveIntResolver,
   PositiveInt: PositiveIntResolver,
@@ -429,6 +433,10 @@ Use real JavaScript Dates for GraphQL fields. Currently you can use a String or 
 timestamp in milliseconds) to represent a date/time. This scalar makes it easy to be explicit about
 the type and have a real JavaScript Date returned that the client can use _without_ doing the
 inevitable parsing or conversion themselves.
+
+### UtcOffset
+
+String that will have a value of format ±hh:mm. [`List of tz database time zones`](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ### NonNegativeInt
 
