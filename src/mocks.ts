@@ -13,7 +13,7 @@ export const ObjectID = () => '5e5677d71bdc2ae76344968c';
 export const PositiveFloat = () => 123.45;
 export const PositiveInt = () => 123;
 export const PostalCode = () => '60031';
-const URLMock = () => new URL('http://www.test.com/');
+const URLMock = () => new URL('http://www.test.com/') as any;
 // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
 export const GUID = () => {
   // Public Domain/MIT
