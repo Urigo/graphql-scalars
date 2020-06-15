@@ -88,6 +88,8 @@ scalar RGBA
 
 scalar USCurrency
 
+scalar Currency
+
 scalar JSON
 
 scalar JSONObject
@@ -127,6 +129,7 @@ import {
   RGBResolver,
   RGBAResolver,
   USCurrencyResolver,
+  CurrencyResolver,
   JSONResolver,
   JSONObjectResolver,
   ObjectIDResolver,
@@ -176,6 +179,7 @@ const myResolverMap = {
   ISBN: ISBNResolver,
 
   USCurrency: USCurrencyResolver,
+  Currency: CurrencyResolver,
   JSON: JSONResolver,
   JSONObject: JSONObjectResolver,
 
@@ -580,6 +584,10 @@ A field whose value is a [CSS RGBA color](<https://developer.mozilla.org/en-US/d
 A US currency string, such as \$21.25.
 
 > Uses [graphql-currency-scalars](https://github.com/abhiaiyer91/graphql-currency-scalars)
+
+### Currency
+
+A field whose value is an [ISO-4217 currency](https://en.wikipedia.org/wiki/ISO_4217).
 
 ### JSON
 

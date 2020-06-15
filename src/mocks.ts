@@ -75,6 +75,7 @@ export const RGBA = () =>
   )}, ${Math.random()})`;
 export const ISBN = () => `978-3-16-148410-0`;
 export const USCurrency = () => 1000;
+export const Currency = () => 'USD';
 export const JSON = () => ({});
 export const JSONObject = () => ({});
 export const IBAN = () => 'NL55INGB4789170233';
