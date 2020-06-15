@@ -29,6 +29,7 @@ export const RGB = `scalar RGB`;
 export const RGBA = `scalar RGBA`;
 export const URL = 'scalar URL';
 export const USCurrency = `scalar USCurrency`;
+export const Currency = `scalar Currency`;
 
 export const UnsignedFloat = 'scalar UnsignedFloat';
 export const UnsignedInt = 'scalar UnsignedInt';
@@ -69,6 +70,7 @@ export default [
   RGB,
   RGBA,
   USCurrency,
+  Currency,
   JSON,
   JSONObject,
   IBAN,

@@ -26,6 +26,7 @@ import Port from './Port';
 import RGB from './RGB';
 import RGBA from './RGBA';
 import USCurrency from './USCurrency';
+import Currency from './Currency';
 import { JSON, JSONObject } from './JSON';
 import IBAN from './IBAN';
 import ObjectID from './ObjectID';
@@ -72,6 +73,7 @@ export {
   RGB,
   RGBA,
   USCurrency,
+  Currency,
   JSON,
   JSONObject,
   IBAN,
