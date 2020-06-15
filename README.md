@@ -93,6 +93,8 @@ scalar Currency
 scalar JSON
 
 scalar JSONObject
+
+scalar Byte
 ```
 
 In your resolver map, first import them:
@@ -133,6 +135,7 @@ import {
   JSONResolver,
   JSONObjectResolver,
   ObjectIDResolver,
+  ByteResolver,
 } from 'graphql-scalars';
 ```
 
@@ -182,6 +185,7 @@ const myResolverMap = {
   Currency: CurrencyResolver,
   JSON: JSONResolver,
   JSONObject: JSONObjectResolver,
+  Byte: ByteResolver,
 
   Query: {
     // more stuff here
@@ -598,6 +602,10 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 ### JSONObject
 
 The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+
+### Byte
+
+The `Byte` scalar type represents byte value as specified by [NodeJS Buffer type](https://nodejs.org/api/buffer.html)
 
 > Uses [graphql-type-json](https://github.com/taion/graphql-type-json)
 

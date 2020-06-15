@@ -13,6 +13,7 @@ import URL from './URL';
 import PhoneNumber from './PhoneNumber';
 import PostalCode from './PostalCode';
 import BigIntFactory from './BigInt';
+import Byte from './Byte';
 import GUID from './GUID';
 import Hexadecimal from './Hexadecimal';
 import HexColorCode from './HexColorCode';
@@ -60,6 +61,7 @@ export {
   PostalCode,
   BigIntResolver as BigInt,
   LongResolver as Long,
+  Byte,
   GUID,
   Hexadecimal,
   HexColorCode,

@@ -1,4 +1,5 @@
 export const BigInt = 'scalar BigInt';
+export const Byte = 'scalar Byte';
 export const DateTime = 'scalar DateTime';
 export const UtcOffset = 'scalar UtcOffset';
 export const EmailAddress = 'scalar EmailAddress';
@@ -57,6 +58,7 @@ export default [
   URL,
   BigInt,
   Long,
+  Byte,
   GUID,
   Hexadecimal,
   HexColorCode,
