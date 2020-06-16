@@ -1,4 +1,5 @@
 const BigIntMock = () => BigInt(Number.MAX_SAFE_INTEGER);
+const ByteMock = () => new Uint8Array([1988, 1981, 1965, 1963, 1959, 1955]);
 export const DateTime = () => new Date();
 export const UtcOffset = () => '+03:00';
 export const EmailAddress = () => 'test@test.com';
@@ -87,4 +88,5 @@ export {
   NonNegativeFloat as UnsignedFloat,
   BigIntMock as Long,
   BigIntMock as BigInt,
+  ByteMock as Byte,
 };
