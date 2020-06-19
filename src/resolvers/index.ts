@@ -1,6 +1,7 @@
 import Date from './iso-date/Date';
 import Time from './iso-date/Time';
 import DateTime from './iso-date/DateTime';
+import Timestamp from './Timestamp';
 import UtcOffset from './UtcOffset';
 import NonPositiveInt from './NonPositiveInt';
 import PositiveInt from './PositiveInt';
@@ -48,6 +49,7 @@ export {
   Date,
   Time,
   DateTime,
+  Timestamp,
   UtcOffset,
   NonPositiveInt,
   PositiveInt,

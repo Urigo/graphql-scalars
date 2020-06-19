@@ -487,6 +487,12 @@ When expected as an input type, only RFC 3339 compliant date-time strings are ac
 
 > Taken from [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date/)
 
+### Timestamp
+
+The javascript `Date` as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+
+> Taken from [GraphQLTimestamp.js](https://gist.github.com/langpavel/b30f3d507a47713b0c6e89016e4e9eb7)
+
 ### UtcOffset
 
 String that will have a value of format ±hh:mm. [`List of tz database time zones`](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
@@ -794,4 +800,3 @@ We, The Guild, took over the maintaince of that library [later on](https://mediu
 We also like to say thank you to [@adriano-di-giovanni](https://github.com/adriano-di-giovanni) for being extremely generous and giving us the `graphql-scalars` name on npm which was previously owned by his own [library](https://github.com/adriano-di-giovanni/graphql-scalars).
 
 And thanks to [excitement-engineer](https://github.com/excitement-engineer) for [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date), [stems](https://github.com/stems) for [graphql-bigint](https://github.com/stems/graphql-bigint), [taion](https://github.com/taion) for [graphql-type-json](https://github.com/taion/graphql-type-json)
-
