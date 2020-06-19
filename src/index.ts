@@ -2,6 +2,8 @@ import * as resolvers from './resolvers';
 import * as mocks from './mocks';
 
 export {
+  Date as DateTypeDefinition,
+  Time as TimeTypeDefinition,
   DateTime as DateTimeTypeDefinition,
   UtcOffset as UtcOffsetTypeDefinition,
   EmailAddress as EmailAddressTypeDefinition,
@@ -45,6 +47,8 @@ export {
 export { default as typeDefs } from './typeDefs';
 
 export {
+  Date as DateResolver,
+  Time as TimeResolver,
   DateTime as DateTimeResolver,
   UtcOffset as UtcOffsetResolver,
   EmailAddress as EmailAddressResolver,
@@ -86,6 +90,8 @@ export {
 } from './resolvers';
 
 export {
+  Date as GraphQLDate,
+  Time as GraphQLTime,
   DateTime as GraphQLDateTime,
   UtcOffset as GraphQLUtcOffset,
   EmailAddress as GraphQLEmailAddress,
@@ -129,6 +135,8 @@ export {
 export { resolvers };
 
 export {
+  Date as DateMock,
+  Time as TimeMock,
   DateTime as DateTimeMock,
   UtcOffset as UtcOffsetMock,
   EmailAddress as EmailAddressMock,
