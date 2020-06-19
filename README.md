@@ -435,12 +435,63 @@ common in defining schemas or interfaces to data.
 
 ## The Types
 
+### Date
+
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the [RFC 3339](./rfc3339.txt) profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+
+This scalar is a description of the date, as used for birthdays for example. It cannot represent an instant on the time-line.
+
+**Result Coercion**
+
+Javascript Date instances are coerced to an RFC 3339 compliant date string. Invalid Date instances raise a field error.
+
+**Input Coercion**
+
+When expected as an input type, only RFC 3339 compliant date strings are accepted. All other input values raise a query error indicating an incorrect type.
+
+### Time
+
+A time string at UTC, such as 10:15:30Z, compliant with the `full-time` format outlined in section 5.6 of the [RFC 3339](./rfc3339.txt) profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+
+This scalar is a description of a time instant such as the opening bell of the New York Stock Exchange for example. It cannot represent an exact instant on the time-line.
+
+This scalar ignores leap seconds (thereby assuming that a minute constitutes of 59 seconds), in this respect it diverges from the RFC 3339 profile.
+
+Where an RFC 3339 compliant time string has a time-zone other than UTC, it is shifted to UTC. For example, the time string "14:10:20+01:00" is shifted to "13:10:20Z".
+
+**Result Coercion**
+
+Javascript Date instances are coerced to an RFC 3339 compliant time string by extracting the UTC time part. Invalid Date instances raise a field error.
+
+**Input Coercion**
+
+When expected as an input type, only RFC 3339 compliant time strings are accepted. All other input values raise a query error indicating an incorrect type.
+
 ### DateTime
 
-Use real JavaScript Dates for GraphQL fields. Currently you can use a String or an Int (e.g., a
-timestamp in milliseconds) to represent a date/time. This scalar makes it easy to be explicit about
-the type and have a real JavaScript Date returned that the client can use _without_ doing the
-inevitable parsing or conversion themselves.
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the [RFC 3339](./rfc3339.txt) profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+
+This scalar is a description of an exact instant on the time-line such as the instant that a user account was created.
+
+This scalar ignores leap seconds (thereby assuming that a minute constitutes of 59 seconds). In this respect it diverges from the RFC 3339 profile.
+
+Where an RFC 3339 compliant date-time string has a time-zone other than UTC, it is shifted to UTC. For example, the date-time string "2016-01-01T14:10:20+01:00" is shifted to "2016-01-01T13:10:20Z".
+
+**Result Coercion**
+
+JavaScript Date instances and Unix timestamps (represented as 32-bit signed integers) are coerced to RFC 3339 compliant date-time strings. Invalid Date instances raise a field error.
+
+**Input Coercion**
+
+When expected as an input type, only RFC 3339 compliant date-time strings are accepted. All other input values raise a query error indicating an incorrect type.
+
+> Taken from [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date/)
+
+### Timestamp
+
+The javascript `Date` as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+
+> Taken from [GraphQLTimestamp.js](https://gist.github.com/langpavel/b30f3d507a47713b0c6e89016e4e9eb7)
 
 ### UtcOffset
 
@@ -534,7 +585,7 @@ The [GraphQL spec](https://facebook.github.io/graphql/#sec-Int) limits its Int t
 
 ```
 GraphQLError: Argument "num" has invalid value 9007199254740990.
-              Expected type "Int", found 9007199254740990.
+              Expected value of type ""Int"", found 9007199254740990.
 ```
 
 > Based on [graphql-bigint](https://github.com/stems/graphql-bigint)
@@ -597,17 +648,17 @@ A field whose value is an [ISO-4217 currency](https://en.wikipedia.org/wiki/ISO_
 
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 
-> Uses [graphql-type-json](https://github.com/taion/graphql-type-json)
+> Based on [graphql-type-json](https://github.com/taion/graphql-type-json)
 
 ### JSONObject
 
 The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 
+> Based on [graphql-type-json](https://github.com/taion/graphql-type-json)
+
 ### Byte
 
 The `Byte` scalar type represents byte value as specified by [NodeJS Buffer type](https://nodejs.org/api/buffer.html)
-
-> Uses [graphql-type-json](https://github.com/taion/graphql-type-json)
 
 ### IBAN
 
@@ -747,3 +798,5 @@ It was created and maintained by the company `ok-grow`.
 We, The Guild, took over the maintaince of that library [later on](https://medium.com/the-guild/the-guild-is-taking-over-maintenance-of-merge-graphql-schemas-so-lets-talk-about-graphql-schema-46246557a225).
 
 We also like to say thank you to [@adriano-di-giovanni](https://github.com/adriano-di-giovanni) for being extremely generous and giving us the `graphql-scalars` name on npm which was previously owned by his own [library](https://github.com/adriano-di-giovanni/graphql-scalars).
+
+And thanks to [excitement-engineer](https://github.com/excitement-engineer) for [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date), [stems](https://github.com/stems) for [graphql-bigint](https://github.com/stems/graphql-bigint), [taion](https://github.com/taion) for [graphql-type-json](https://github.com/taion/graphql-type-json), [langpavel](https://github.com/langpavel) for [GraphQLTimestamp.js](https://gist.github.com/langpavel/b30f3d507a47713b0c6e89016e4e9eb7)

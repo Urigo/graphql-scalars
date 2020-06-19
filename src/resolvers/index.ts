@@ -1,4 +1,7 @@
-import DateTime from './DateTime';
+import Date from './iso-date/Date';
+import Time from './iso-date/Time';
+import DateTime from './iso-date/DateTime';
+import Timestamp from './Timestamp';
 import UtcOffset from './UtcOffset';
 import NonPositiveInt from './NonPositiveInt';
 import PositiveInt from './PositiveInt';
@@ -43,7 +46,10 @@ const NonNegativeFloatResolver = NonNegativeFloatFactory('NonNegativeFloat');
 const UnsignedFloatResolver = NonNegativeFloatFactory('UnsignedFloat');
 
 export {
+  Date,
+  Time,
   DateTime,
+  Timestamp,
   UtcOffset,
   NonPositiveInt,
   PositiveInt,

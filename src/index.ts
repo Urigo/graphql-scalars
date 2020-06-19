@@ -2,7 +2,10 @@ import * as resolvers from './resolvers';
 import * as mocks from './mocks';
 
 export {
+  Date as DateTypeDefinition,
+  Time as TimeTypeDefinition,
   DateTime as DateTimeTypeDefinition,
+  Timestamp as TimestampTypeDefinition,
   UtcOffset as UtcOffsetTypeDefinition,
   EmailAddress as EmailAddressTypeDefinition,
   NegativeFloat as NegativeFloatTypeDefinition,
@@ -45,7 +48,10 @@ export {
 export { default as typeDefs } from './typeDefs';
 
 export {
+  Date as DateResolver,
+  Time as TimeResolver,
   DateTime as DateTimeResolver,
+  Timestamp as TimestampResolver,
   UtcOffset as UtcOffsetResolver,
   EmailAddress as EmailAddressResolver,
   NegativeFloat as NegativeFloatResolver,
@@ -86,7 +92,10 @@ export {
 } from './resolvers';
 
 export {
+  Date as GraphQLDate,
+  Time as GraphQLTime,
   DateTime as GraphQLDateTime,
+  Timestamp as GraphQLTimestamp,
   UtcOffset as GraphQLUtcOffset,
   EmailAddress as GraphQLEmailAddress,
   NegativeFloat as GraphQLNegativeFloat,
@@ -129,7 +138,10 @@ export {
 export { resolvers };
 
 export {
+  Date as DateMock,
+  Time as TimeMock,
   DateTime as DateTimeMock,
+  Timestamp as TimestampMock,
   UtcOffset as UtcOffsetMock,
   EmailAddress as EmailAddressMock,
   NegativeFloat as NegativeFloatMock,

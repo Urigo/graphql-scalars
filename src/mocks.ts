@@ -1,6 +1,9 @@
 const BigIntMock = () => BigInt(Number.MAX_SAFE_INTEGER);
 const ByteMock = () => new Uint8Array([1988, 1981, 1965, 1963, 1959, 1955]);
-export const DateTime = () => new Date();
+const DateMock = () => '2007-12-03';
+export const Time = () => '10:15:30Z';
+export const DateTime = () => '2007-12-03T10:15:30Z';
+export const Timestamp = () => 1592577642;
 export const UtcOffset = () => '+03:00';
 export const EmailAddress = () => 'test@test.com';
 export const NegativeFloat = () => -123.45;
@@ -83,6 +86,7 @@ export const IBAN = () => 'NL55INGB4789170233';
 export const Void = (): null => null;
 
 export {
+  DateMock as Date,
   URLMock as URL,
   NonNegativeInt as UnsignedInt,
   NonNegativeFloat as UnsignedFloat,
