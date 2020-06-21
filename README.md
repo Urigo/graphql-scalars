@@ -583,12 +583,17 @@ A long integer type for [graphql-js](https://github.com/graphql/graphql-js). Thi
 The [GraphQL spec](https://facebook.github.io/graphql/#sec-Int) limits its Int type to 32-bits. Maybe you've seen this error before:
 [Issue on graphql-js](https://github.com/graphql/graphql-js/issues/292)
 
+If your environment doesn't support `BigInt`, it will support 53-bit values at maximum. You can use polyfills to support 64-bit values.
+
 ```
 GraphQLError: Argument "num" has invalid value 9007199254740990.
               Expected value of type ""Int"", found 9007199254740990.
 ```
 
 > Based on [graphql-bigint](https://github.com/stems/graphql-bigint)
+
+In order to support `BigInt` in `JSON.parse` and `JSON.stringify`, it is recommended to install this npm package together with this scalar. Otherwise, JavaScript will serialize the value as string.
+[json-bigint-patch](https://github.com/ardatan/json-bigint-patch)
 
 ### GUID
 

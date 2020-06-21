@@ -8,25 +8,48 @@ declare global {
   }
 }
 
+function isBigIntAvailable() {
+  return (
+    (typeof global === 'object' && (global as any).BigInt) ||
+    (typeof window === 'object' && (window as any).BigInt)
+  );
+}
+
+function patchBigInt() {
+  if (isBigIntAvailable()) {
+    if (!BigInt.prototype.toJSON) {
+      BigInt.prototype.toJSON =
+        BigInt.prototype.toJSON ||
+        function (this: bigint) {
+          return this.toString();
+        };
+    }
+  }
+}
+
+function coerceBigIntValue(value: bigint | number | string) {
+  if (isBigIntAvailable()) {
+    return BigInt(value);
+  } else {
+    return Number(value);
+  }
+}
+
 export default function (name = 'BigInt') {
-  BigInt.prototype.toJSON =
-    BigInt.prototype.toJSON ||
-    function (this: bigint) {
-      return this.toString();
-    };
+  patchBigInt();
   return new GraphQLScalarType({
     name,
     description:
       'The `BigInt` scalar type represents non-fractional signed whole numeric values.',
-    serialize: BigInt,
-    parseValue: BigInt,
+    serialize: coerceBigIntValue,
+    parseValue: coerceBigIntValue,
     parseLiteral(ast) {
       if (
         ast.kind === Kind.INT ||
         ast.kind === Kind.FLOAT ||
         ast.kind === Kind.STRING
       ) {
-        return BigInt(ast.value);
+        return coerceBigIntValue(ast.value);
       }
       return null;
     },
