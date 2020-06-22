@@ -26,6 +26,10 @@ NOTE: The new `RegularExpression` scalar will be used a little differently and i
 In your schema:
 
 ```graphql
+scalar Date
+
+scalar Time
+
 scalar DateTime
 
 scalar UtcOffset
@@ -101,6 +105,8 @@ In your resolver map, first import them:
 
 ```javascript
 import {
+  DateResolver,
+  DateTimeResolver,
   DateTimeResolver,
   UtcOffsetResolver,
   EmailAddressResolver,
@@ -145,6 +151,8 @@ Then make sure they're in the root resolver map like this:
 const myResolverMap = {
   ObjectID: ObjectIDResolver,
 
+  Date: DateResolver,
+  Time: TimeResolver,
   DateTime: DateTimeResolver,
   UtcOffset: UtcOffsetResolver,
 
