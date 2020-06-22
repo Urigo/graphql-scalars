@@ -62,7 +62,7 @@
     "mockdate": "3.0.2",
     "prettier": "2.0.5",
     "semver": "7.3.2",
-    "ts-jest": "26.1.0",
+    "ts-jest": "26.1.1",
     "typescript": "3.9.5"
   },
   "peerDependencies": {
