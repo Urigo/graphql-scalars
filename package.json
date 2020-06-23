@@ -44,7 +44,7 @@
     "@graphql-tools/merge": "6.0.10",
     "@graphql-tools/schema": "6.0.10",
     "@types/jest": "26.0.0",
-    "@types/mongodb": "3.5.23",
+    "@types/mongodb": "3.5.24",
     "@types/node": "13.13.12",
     "@typescript-eslint/eslint-plugin": "3.4.0",
     "@typescript-eslint/parser": "3.4.0",
