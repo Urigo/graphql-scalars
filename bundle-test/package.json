@@ -10,7 +10,7 @@
   "bundlesize": [
     {
       "path": "./dist/index.js",
-      "maxSize": "150 kB",
+      "maxSize": "85 kB",
       "compression": "none"
     }
   ],

@@ -42,7 +42,7 @@ export const ObjectID = 'scalar ObjectID';
 
 export const Void = 'scalar Void';
 
-export default [
+export const typeDefs = [
   Date,
   Time,
   DateTime,

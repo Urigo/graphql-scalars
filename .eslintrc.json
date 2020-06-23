@@ -1,7 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.all.json"
   },
   "extends": [
     "eslint:recommended",
@@ -32,7 +32,9 @@
     "@typescript-eslint/naming-convention": "off",
     "camelcase": "off",
     "no-extend-native": "off",
-    "no-useless-escape": "off"
+    "no-useless-escape": "off",
+    "spaced-comment": "off",
+    "no-self-compare": "off"
   },
   "env": {
     "es6": true,

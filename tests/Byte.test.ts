@@ -1,7 +1,7 @@
 /* global describe, test, expect */
 
 import { Kind, ValueNode } from 'graphql/language';
-import Byte from '../src/resolvers/Byte';
+import { GraphQLByte } from '../src/scalars/Byte';
 
 const byte = Buffer.from([
   68,
@@ -61,17 +61,17 @@ describe.each<[string, Buffer | string, string | number]>([
 ])('Byte', (testType, value, notValue) => {
   describe('valid', () => {
     test(`serialize (${testType})`, () => {
-      expect(Byte.serialize(value)).toEqual(byte);
+      expect(GraphQLByte.serialize(value)).toEqual(byte);
     });
 
     test(`parseValue (${testType})`, () => {
-      expect(Byte.parseValue(value)).toEqual(byte);
+      expect(GraphQLByte.parseValue(value)).toEqual(byte);
     });
 
     test(`parseLiteral (${testType})`, () => {
       if (typeof value === 'string') {
         expect(
-          Byte.parseLiteral(
+          GraphQLByte.parseLiteral(
             {
               value,
               kind: Kind.STRING,
@@ -82,7 +82,7 @@ describe.each<[string, Buffer | string, string | number]>([
       } else {
         const bufferJson = value.toJSON();
         expect(
-          Byte.parseLiteral(
+          GraphQLByte.parseLiteral(
             createBufferObject(
               'Buffer',
               bufferJson.data.map((value) => ({
@@ -99,17 +99,17 @@ describe.each<[string, Buffer | string, string | number]>([
 
   describe('invalid', () => {
     test('serialize', () => {
-      expect(() => Byte.serialize(notValue)).toThrow(/Value is not/);
+      expect(() => GraphQLByte.serialize(notValue)).toThrow(/Value is not/);
     });
 
     test('parseValue', () => {
-      expect(() => Byte.parseValue(notValue)).toThrow(/Value is not/);
+      expect(() => GraphQLByte.parseValue(notValue)).toThrow(/Value is not/);
     });
 
     test(`parseLiteral (${testType})`, () => {
       if (typeof notValue === 'string') {
         expect(() =>
-          Byte.parseLiteral(
+          GraphQLByte.parseLiteral(
             {
               value: notValue,
               kind: Kind.INT,
@@ -119,7 +119,7 @@ describe.each<[string, Buffer | string, string | number]>([
         ).toThrow(/Can only parse/);
       } else {
         expect(() => {
-          Byte.parseLiteral(createBufferObject('Path', []), {});
+          GraphQLByte.parseLiteral(createBufferObject('Path', []), {});
         }).toThrow(/Value is not a JSON representation of Buffer/);
       }
     });

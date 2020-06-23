@@ -6,13 +6,13 @@ export interface RegularExpressionOptions {
   errorMessage?: RegularExpressionErrorMessageFn;
 }
 
-export default class RegularExpression extends GraphQLScalarType {
+export class RegularExpression extends GraphQLScalarType {
   constructor(
     name: string,
     regex: RegExp,
     options: RegularExpressionOptions = {},
   ) {
-    const REGEX = new RegExp(regex);
+    const REGEX = /*#__PURE__*/ new RegExp(regex);
     const errorMessage: RegularExpressionErrorMessageFn = options.errorMessage
       ? options.errorMessage
       : (r, v) => `Value does not match the regular expression ${r}: ${v}`;
@@ -48,9 +48,7 @@ export default class RegularExpression extends GraphQLScalarType {
       parseLiteral(ast) {
         if (ast.kind !== Kind.STRING) {
           throw new GraphQLError(
-            `Can only validate strings as regular expressions but got a: ${
-            ast.kind
-            }`,
+            `Can only validate strings as regular expressions but got a: ${ast.kind}`,
           );
         }
 
@@ -63,4 +61,3 @@ export default class RegularExpression extends GraphQLScalarType {
     });
   }
 }
-
