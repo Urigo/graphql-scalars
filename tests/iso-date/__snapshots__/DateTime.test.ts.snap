@@ -18,12 +18,6 @@ exports[`GraphQLDateTime literial parsing errors when parsing invalid literal {"
 
 exports[`GraphQLDateTime literial parsing errors when parsing invalid literal {"kind": "StringValue", "value": "Invalid date"} 1`] = `"DateTime cannot represent an invalid date-time-string Invalid date."`;
 
-exports[`GraphQLDateTime serialization throws an error serializing the invalid unix timestamp Infinity 1`] = `"DateTime cannot represent an invalid Unix timestamp Infinity"`;
-
-exports[`GraphQLDateTime serialization throws an error serializing the invalid unix timestamp Infinity 2`] = `"DateTime cannot represent an invalid Unix timestamp Infinity"`;
-
-exports[`GraphQLDateTime serialization throws an error serializing the invalid unix timestamp NaN 1`] = `"DateTime cannot represent an invalid Unix timestamp NaN"`;
-
 exports[`GraphQLDateTime serialization throws an error when serializing an invalid date-string "2015-02-24T00:00:00.000+0100" 1`] = `"DateTime cannot represent an invalid date-time-string 2015-02-24T00:00:00.000+0100."`;
 
 exports[`GraphQLDateTime serialization throws an error when serializing an invalid date-string "2016-02-01T00:00:00.Z" 1`] = `"DateTime cannot represent an invalid date-time-string 2016-02-01T00:00:00.Z."`;
