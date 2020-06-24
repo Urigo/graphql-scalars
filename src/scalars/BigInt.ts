@@ -1,6 +1,6 @@
 // Based on https://github.com/stems/graphql-bigint/
 
-import { Kind, GraphQLScalarType } from 'graphql';
+import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 
 declare global {
   interface BigInt {
@@ -34,7 +34,10 @@ function coerceBigIntValue(value: bigint | number | string) {
   }
 }
 
-export const GraphQLBigInt = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
+  number | string | bigint,
+  bigint | number
+> = /*#__PURE__*/ {
   name: 'BigInt',
   description:
     'The `BigInt` scalar type represents non-fractional signed whole numeric values.',
@@ -50,4 +53,8 @@ export const GraphQLBigInt = /*#__PURE__*/ new GraphQLScalarType({
     }
     return null;
   },
-});
+};
+
+export const GraphQLBigInt = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLBigIntConfig,
+);

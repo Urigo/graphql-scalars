@@ -1,7 +1,10 @@
 import { GraphQLScalarType } from 'graphql';
-import { GraphQLBigInt } from './BigInt';
+import { GraphQLBigIntConfig } from './BigInt';
 
-export const GraphQLLong = /*#__PURE__*/ new GraphQLScalarType({
-  ...GraphQLBigInt.toConfig(),
+const GraphQLLongConfig = /*#__PURE__*/ Object.assign({}, GraphQLBigIntConfig, {
   name: 'Long',
 });
+
+export const GraphQLLong = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLLongConfig,
+);
