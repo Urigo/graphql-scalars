@@ -1,7 +1,7 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
 const validate = (value: any) => {
-  const EMAIL_ADDRESS_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  const EMAIL_ADDRESS_REGEX = /^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   if (typeof value !== 'string') {
     throw new TypeError(`Value is not string: ${value}`);
