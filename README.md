@@ -106,7 +106,7 @@ In your resolver map, first import them:
 ```javascript
 import {
   DateResolver,
-  DateTimeResolver,
+  TimeResolver,
   DateTimeResolver,
   UtcOffsetResolver,
   EmailAddressResolver,
