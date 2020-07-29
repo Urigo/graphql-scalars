@@ -68,6 +68,8 @@ scalar BigInt
 
 scalar Long
 
+scalar SafeInt
+
 scalar GUID
 
 scalar HexColorCode
@@ -125,6 +127,7 @@ import {
   URLResolver,
   BigIntResolver,
   LongResolver,
+  SafeIntResolver,
   GUIDResolver,
   HexColorCodeResolver,
   HSLResolver,
@@ -168,6 +171,7 @@ const myResolverMap = {
   UnsignedInt: UnsignedIntResolver,
   BigInt: BigIntResolver,
   Long: LongResolver,
+  SafeInt: SafeIntResolver,
 
   EmailAddress: EmailAddressResolver,
   URL: URLResolver,
@@ -602,6 +606,10 @@ GraphQLError: Argument "num" has invalid value 9007199254740990.
 
 In order to support `BigInt` in `JSON.parse` and `JSON.stringify`, it is recommended to install this npm package together with this scalar. Otherwise, JavaScript will serialize the value as string.
 [json-bigint-patch](https://github.com/ardatan/json-bigint-patch)
+
+### SafeInt
+
+This scalar behaves just like the native GraphQLInt scalar, but it allows integers that require more than 32-bits. Any integer that is considered "safe" in JavaScript (i.e. ± 9,007,199,254,740,991) is considered a valid value.
 
 ### GUID
 
