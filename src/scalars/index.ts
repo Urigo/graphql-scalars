@@ -20,6 +20,7 @@ export { GraphQLURL } from './URL';
 export { GraphQLBigInt } from './BigInt';
 export { GraphQLByte } from './Byte';
 export { GraphQLLong } from './Long';
+export { GraphQLSafeInt } from './SafeInt';
 export { GraphQLGUID } from './GUID';
 export { GraphQLHexadecimal } from './Hexadecimal';
 export { GraphQLHexColorCode } from './HexColorCode';

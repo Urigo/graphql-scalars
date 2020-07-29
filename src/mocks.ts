@@ -84,6 +84,7 @@ export const JSON = () => ({});
 export const JSONObject = () => ({});
 export const IBAN = () => 'NL55INGB4789170233';
 export const Void = (): null => null;
+export const SafeInt = () => Number.MAX_SAFE_INTEGER;
 
 export {
   DateMock as Date,

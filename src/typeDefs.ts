@@ -31,6 +31,7 @@ export const PositiveInt = 'scalar PositiveInt';
 export const PostalCode = 'scalar PostalCode';
 export const RGB = `scalar RGB`;
 export const RGBA = `scalar RGBA`;
+export const SafeInt = `scalar SafeInt`;
 export const URL = 'scalar URL';
 export const USCurrency = `scalar USCurrency`;
 export const Currency = `scalar Currency`;
@@ -77,6 +78,7 @@ export const typeDefs = [
   Port,
   RGB,
   RGBA,
+  SafeInt,
   USCurrency,
   Currency,
   JSON,
