@@ -61,23 +61,30 @@ const config: GraphQLScalarTypeConfig<Date, Date> = {
     }
   },
   parseValue(value) {
-    if (!(typeof value === 'string')) {
+    if (value instanceof Date) {
+      if (validateJSDate(value)) {
+        return value;
+      }
+      throw new TypeError('DateTime cannot represent an invalid Date instance');
+    }
+    if (typeof value === 'string') {
+      if (validateDateTime(value)) {
+        return parseDateTime(value);
+      }
       throw new TypeError(
-        `DateTime cannot represent non string type ${JSON.stringify(value)}`,
+        `DateTime cannot represent an invalid date-time-string ${value}.`,
       );
     }
-
-    if (validateDateTime(value)) {
-      return parseDateTime(value);
-    }
     throw new TypeError(
-      `DateTime cannot represent an invalid date-time-string ${value}.`,
+      `DateTime cannot represent non string or Date type ${JSON.stringify(
+        value,
+      )}`,
     );
   },
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
       throw new TypeError(
-        `DateTime cannot represent non string type ${
+        `DateTime cannot represent non string or Date type ${
           'value' in ast && ast.value
         }`,
       );

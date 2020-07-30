@@ -2,9 +2,9 @@
 
 exports[`GraphQLDateTime has a description 1`] = `"A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`date-time\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar."`;
 
-exports[`GraphQLDateTime literial parsing errors when parsing invalid literal {"kind": "Document"} 1`] = `"DateTime cannot represent non string type false"`;
+exports[`GraphQLDateTime literial parsing errors when parsing invalid literal {"kind": "Document"} 1`] = `"DateTime cannot represent non string or Date type false"`;
 
-exports[`GraphQLDateTime literial parsing errors when parsing invalid literal {"kind": "FloatValue", "value": "5"} 1`] = `"DateTime cannot represent non string type 5"`;
+exports[`GraphQLDateTime literial parsing errors when parsing invalid literal {"kind": "FloatValue", "value": "5"} 1`] = `"DateTime cannot represent non string or Date type 5"`;
 
 exports[`GraphQLDateTime literial parsing errors when parsing invalid literal {"kind": "StringValue", "value": "2015-02-24T00:00:00.000+0100"} 1`] = `"DateTime cannot represent an invalid date-time-string 2015-02-24T00:00:00.000+0100."`;
 
@@ -54,12 +54,12 @@ exports[`GraphQLDateTime value parsing throws an error parsing an invalid date-s
 
 exports[`GraphQLDateTime value parsing throws an error parsing an invalid date-string "Invalid date" 1`] = `"DateTime cannot represent an invalid date-time-string Invalid date."`;
 
-exports[`GraphQLDateTime value parsing throws an error when parsing [] 1`] = `"DateTime cannot represent non string type []"`;
+exports[`GraphQLDateTime value parsing throws an error when parsing [] 1`] = `"DateTime cannot represent non string or Date type []"`;
 
-exports[`GraphQLDateTime value parsing throws an error when parsing {} 1`] = `"DateTime cannot represent non string type {}"`;
+exports[`GraphQLDateTime value parsing throws an error when parsing {} 1`] = `"DateTime cannot represent non string or Date type {}"`;
 
-exports[`GraphQLDateTime value parsing throws an error when parsing 4566 1`] = `"DateTime cannot represent non string type 4566"`;
+exports[`GraphQLDateTime value parsing throws an error when parsing 4566 1`] = `"DateTime cannot represent non string or Date type 4566"`;
 
-exports[`GraphQLDateTime value parsing throws an error when parsing null 1`] = `"DateTime cannot represent non string type null"`;
+exports[`GraphQLDateTime value parsing throws an error when parsing null 1`] = `"DateTime cannot represent non string or Date type null"`;
 
-exports[`GraphQLDateTime value parsing throws an error when parsing true 1`] = `"DateTime cannot represent non string type true"`;
+exports[`GraphQLDateTime value parsing throws an error when parsing true 1`] = `"DateTime cannot represent non string or Date type true"`;
