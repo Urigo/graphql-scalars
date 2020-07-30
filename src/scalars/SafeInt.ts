@@ -79,4 +79,6 @@ export const GraphQLSafeIntConfig: GraphQLScalarTypeConfig<
   },
 };
 
-export const GraphQLSafeInt = new GraphQLScalarType(GraphQLSafeIntConfig);
+export const GraphQLSafeInt = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLSafeIntConfig,
+);
