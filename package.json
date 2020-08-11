@@ -41,8 +41,8 @@
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
-    "@graphql-tools/merge": "6.0.17",
-    "@graphql-tools/schema": "6.0.17",
+    "@graphql-tools/merge": "6.0.18",
+    "@graphql-tools/schema": "6.0.18",
     "@types/jest": "26.0.9",
     "@types/mongodb": "3.5.25",
     "@types/node": "13.13.15",
