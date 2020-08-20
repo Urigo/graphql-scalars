@@ -101,6 +101,8 @@ scalar JSON
 scalar JSONObject
 
 scalar Byte
+
+scalar Void
 ```
 
 In your resolver map, first import them:
@@ -680,6 +682,10 @@ The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](
 ### Byte
 
 The `Byte` scalar type represents byte value as specified by [NodeJS Buffer type](https://nodejs.org/api/buffer.html)
+
+### Void
+
+The `Void` scalar type represents no value being returned
 
 ### IBAN
 
