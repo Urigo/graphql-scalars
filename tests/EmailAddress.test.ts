@@ -18,7 +18,7 @@ describe('EmailAddress', () => {
     });
 
     test('parseValue', () => {
-      expect(GraphQLEmailAddress.parseValue('test@test')).toBe('test@test');
+      expect(GraphQLEmailAddress.parseValue('test@test')).toThrow(/Value is not a valid email address/);;
     });
 
     test('parseLiteral', () => {
@@ -42,7 +42,7 @@ describe('EmailAddress', () => {
           },
           {},
         ),
-      ).toBe('test@test');
+      )..toThrow(/Value is not a valid email address/);
     });
   });
 
