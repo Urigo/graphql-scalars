@@ -2,14 +2,14 @@
 
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-interface CountryStructure {
-  [key: string]: Specification;
-}
-
 interface Specification {
   length: number;
   structure: string;
   example: string;
+}
+
+interface CountryStructure {
+  [key: string]: Specification;
 }
 
 /* These are IBAN the specifications for all countries using IBAN
