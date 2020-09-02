@@ -42,7 +42,7 @@ describe('EmailAddress', () => {
           },
           {},
         ),
-      )..toThrow(/Value is not a valid email address/);
+      ).toThrow(/Value is not a valid email address/);
     });
   });
 
