@@ -2,14 +2,14 @@
 
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-interface CountryStructure {
-  [key: string]: Specification;
-}
-
 interface Specification {
   length: number;
   structure: string;
   example: string;
+}
+
+interface CountryStructure {
+  [key: string]: Specification;
 }
 
 /* These are IBAN the specifications for all countries using IBAN
@@ -393,7 +393,7 @@ function validate(iban: string): boolean {
 export const GraphQLIBAN = /*#__PURE__*/ new GraphQLScalarType({
   name: `IBAN`,
   description: `A field whose value is an International Bank Account Number (IBAN): https://en.wikipedia.org/wiki/International_Bank_Account_Number.`,
-  serialize(value) {
+  serialize(value: string) {
     if (typeof value !== 'string') {
       throw new TypeError(`Value is not string: ${value}`);
     }
@@ -405,7 +405,7 @@ export const GraphQLIBAN = /*#__PURE__*/ new GraphQLScalarType({
     return value;
   },
 
-  parseValue(value) {
+  parseValue(value: string) {
     if (typeof value !== 'string') {
       throw new TypeError(`Value is not string: ${value}`);
     }
@@ -417,7 +417,7 @@ export const GraphQLIBAN = /*#__PURE__*/ new GraphQLScalarType({
     return value;
   },
 
-  parseLiteral(ast) {
+  parseLiteral(ast: { kind: any; value: string; }) {
     if (ast.kind !== Kind.STRING) {
       throw new GraphQLError(
         `Can only validate strings as IBANs but got a: ${ast.kind}`,
