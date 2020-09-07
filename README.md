@@ -546,7 +546,7 @@ Floats that will have a value less than 0. Uses [`parseFloat()`](https://develop
 ### EmailAddress
 
 A field whose value conforms to the standard internet email address format as specified in
-[RFC822](https://www.w3.org/Protocols/rfc822/).
+[HTML Spec](https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address).
 
 ### URL
 
