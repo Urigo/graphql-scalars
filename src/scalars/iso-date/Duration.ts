@@ -1,5 +1,13 @@
-import { GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLError, GraphQLScalarTypeConfig, Kind } from 'graphql';
 export type ISO8601Duration = string;
+
+// original implementation
+// https://stackoverflow.com/questions/32044846/regex-for-iso-8601-durations
+// const ISO_DURATION_NEGATIVE_ALLOWED = /^-?P(?!$)(-?\d+(?:\.\d+)?Y)?(-?\d+(?:\.\d+)?M)?(-?\d+(?:\.\d+)?W)?(-?\d+(?:\.\d+)?D)?(T(?=-?\d)(-?\d+(?:\.\d+)?H)?(-?\d+(?:\.\d+)?M)?(-?\d+(?:\.\d+)?S)?)?$/
+// const ISO_DURATION_WITHOUT_SIGN = /^P(?!$)(\d+(?:\.\d+)?Y)?(\d+(?:\.\d+)?M)?(\d+(?:\.\d+)?W)?(\d+(?:\.\d+)?D)?(T(?=\d)(\d+(?:\.\d+)?H)?(\d+(?:\.\d+)?M)?(\d+(?:\.\d+)?S)?)?$/
+
+// negative and positive durations allowed, commas and decimal points valid for fractions
+const ISO_DURATION = /^(-|\+)?P(?!$)((-|\+)?\d+(?:(\.|,)\d+)?Y)?((-|\+)?\d+(?:(\.|,)\d+)?M)?((-|\+)?\d+(?:(\.|,)\d+)?W)?((-|\+)?\d+(?:(\.|,)\d+)?D)?(T(?=(-|\+)?\d)((-|\+)?\d+(?:(\.|,)\d+)?H)?((-|\+)?\d+(?:(\.|,)\d+)?M)?((-|\+)?\d+(?:(\.|,)\d+)?S)?)?$/;
 
 export const GraphQLISO8601Duration: GraphQLScalarTypeConfig<
   ISO8601Duration,
@@ -19,7 +27,10 @@ export const GraphQLISO8601Duration: GraphQLScalarTypeConfig<
     M is the minute designator that follows the value for the number of minutes.
     S is the second designator that follows the value for the number of seconds.
 
-    Note the time designator, T, that precedes the time value
+    Note the time designator, T, that precedes the time value.
+
+    Matches moment.js, Luxon and DateFns implementations
+    ,/. is valid for decimal places and +/- is a valid prefix
   `,
 
   serialize(value) {
@@ -27,6 +38,37 @@ export const GraphQLISO8601Duration: GraphQLScalarTypeConfig<
       throw new TypeError(`Value is not string: ${value}`);
     }
 
+    if (!ISO_DURATION.test(value))  {
+      throw new TypeError(`Value is not a valid ISO Duration: ${value}`)
+    }
+
     return value;
   },
+
+  parseValue(value) {
+    if (typeof value !== 'string') {
+      throw new TypeError(`Value is not string: ${value}`);
+    }
+
+    if (!ISO_DURATION.test(value))  {
+      throw new TypeError(`Value is not a valid ISO Duration: ${value}`)
+    }
+
+    return value;
+  },
+
+  parseLiteral(ast) {
+    if (ast.kind !== Kind.STRING) {
+      throw new GraphQLError(
+        `Can only validate strings as ISO Durations but got a: ${ast.kind}`,
+      );
+    }
+    if (!ISO_DURATION.test(ast.value)) {
+      throw new TypeError(`Value is not a valid ISO Duration: ${ast.value}`);
+    }
+
+    return ast.value;
+  }
 };
+
+

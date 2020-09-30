@@ -1,3 +1,6 @@
+import { GraphQLISO8601Duration } from '../../src/scalars/iso-date/Duration';
+import { Kind } from 'graphql/language';
+
 const LUXON_WIDE_VARIETY_OF_VALID_VALUES: string[] = [
   'P5Y3M',
   'PT54M32S',
@@ -137,7 +140,8 @@ const NEGATIVE_VALID_VALUES = [
   'PT-1S',
 ];
 
-const VALID_EXAMPLES: string[] = [
+// trying to match test values to the popular JS date libaries
+const VALID_VALUES: string[] = [
   ...LUXON_WIDE_VARIETY_OF_VALID_VALUES,
   ...LUXON_MIXED_OR_NEGATIVE_DURATIONS,
   ...LUXON_FRACTIONS_OF_A_SECOND,
@@ -152,33 +156,78 @@ const INVALID_VALUES: string[] = [
   ...DATE_FNS_INVALID_VALUES,
 ];
 
-// https://stackoverflow.com/questions/32044846/regex-for-iso-8601-durations
-// const ISO_DURATION_NEGATIVE_ALLOWED = /^-?P(?!$)(-?\d+(?:\.\d+)?Y)?(-?\d+(?:\.\d+)?M)?(-?\d+(?:\.\d+)?W)?(-?\d+(?:\.\d+)?D)?(T(?=-?\d)(-?\d+(?:\.\d+)?H)?(-?\d+(?:\.\d+)?M)?(-?\d+(?:\.\d+)?S)?)?$/
-// const ISO_DURATION_WITHOUT_SIGN = /^P(?!$)(\d+(?:\.\d+)?Y)?(\d+(?:\.\d+)?M)?(\d+(?:\.\d+)?W)?(\d+(?:\.\d+)?D)?(T(?=\d)(\d+(?:\.\d+)?H)?(\d+(?:\.\d+)?M)?(\d+(?:\.\d+)?S)?)?$/
-
-// negative and positive durations allowed commas and decimal points valid for fractions
-const ISO_DURATION = /^(-|\+)?P(?!$)((-|\+)?\d+(?:(\.|,)\d+)?Y)?((-|\+)?\d+(?:(\.|,)\d+)?M)?((-|\+)?\d+(?:(\.|,)\d+)?W)?((-|\+)?\d+(?:(\.|,)\d+)?D)?(T(?=(-|\+)?\d)((-|\+)?\d+(?:(\.|,)\d+)?H)?((-|\+)?\d+(?:(\.|,)\d+)?M)?((-|\+)?\d+(?:(\.|,)\d+)?S)?)?$/;
+const NON_STRING_VALUES = [
+  123,
+  {foo: 'bar'},
+  false
+]
 
 describe('GraphQLISO8601Duration', () => {
   describe('serialization', () => {
-    it('returns false for every invalid example', () => {
-      INVALID_VALUES.forEach((example) => {
-        const result = ISO_DURATION.test(example);
-        if (result) {
-          console.log(example);
-        }
-        expect(result).toEqual(false);
+    it('throws an error when a non string is passed', () => {
+      NON_STRING_VALUES.forEach((value) => {
+        expect(() => GraphQLISO8601Duration.serialize(value))
+          .toThrowError(`Value is not string: ${value}`)
+      });
+    })
+
+    it('throws an error for all the invalid values', () => {
+      INVALID_VALUES.forEach((value) => {
+        expect(() => GraphQLISO8601Duration.serialize(value))
+          .toThrowError(`Value is not a valid ISO Duration: ${value}`)
       });
     });
 
-    it('returns true for ever valid example', () => {
-      VALID_EXAMPLES.forEach((example) => {
-        const result = ISO_DURATION.test(example);
-        if (!result) {
-          console.log(example);
-        }
-        expect(result).toEqual(true);
+    it('returns true for all valid values', () => {
+      VALID_VALUES.forEach((value) => {
+        expect(GraphQLISO8601Duration.serialize(value))
+          .toEqual(value)
       });
     });
   });
+
+  describe('parseValue', () => {
+    it('throws an error when a non string is passed', () => {
+      NON_STRING_VALUES.forEach((value) => {
+        expect(() => GraphQLISO8601Duration.parseValue(value))
+          .toThrowError(`Value is not string: ${value}`)
+      });
+    })
+
+    it('throws an error for all the invalid values', () => {
+      INVALID_VALUES.forEach((value) => {
+        expect(() => GraphQLISO8601Duration.parseValue(value))
+          .toThrowError(`Value is not a valid ISO Duration: ${value}`)
+      });
+    });
+
+    it('returns true for all valid values', () => {
+      VALID_VALUES.forEach((value) => {
+        expect(GraphQLISO8601Duration.parseValue(value))
+          .toEqual(value)
+      });
+    });
+  });
+
+  describe('parseLiteral', () => {
+    it('throws an error when the kind is not a string', () => {
+      expect(() =>
+        GraphQLISO8601Duration.parseLiteral({ value: '123', kind: Kind.INT }, {}),
+      ).toThrow(`Can only validate strings as ISO Durations but got a: ${Kind.INT}`);
+    });
+
+    it('throws an error for all the invalid values', () => {
+      INVALID_VALUES.forEach((value) => {
+        expect(() => GraphQLISO8601Duration.parseLiteral({value: value, kind: Kind.STRING}, {}))
+          .toThrowError(`Value is not a valid ISO Duration: ${value}`)
+      });
+    });
+
+    it('returns the AST node for all valid values', () => {
+      VALID_VALUES.forEach((value) => {
+        expect(GraphQLISO8601Duration.parseLiteral({value: value, kind: Kind.STRING}, {}))
+          .toEqual(value)
+      })
+    })
+  })
 });
