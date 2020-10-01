@@ -9,6 +9,7 @@ export const ISO8601Duration = () => 'P3Y6M4DT12H30M5S'
 export const EmailAddress = () => 'test@test.com';
 export const NegativeFloat = () => -123.45;
 export const NegativeInt = () => -123;
+export const NonEmptyString = () => 'string';
 export const NonNegativeFloat = () => 123.45;
 export const NonNegativeInt = () => 123;
 export const NonPositiveFloat = () => -123.45;

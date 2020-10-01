@@ -42,6 +42,8 @@ scalar NegativeFloat
 
 scalar NegativeInt
 
+scalar NonEmptyString
+
 scalar NonNegativeFloat
 
 scalar NonNegativeInt
@@ -119,6 +121,7 @@ import {
   EmailAddressResolver,
   NegativeFloatResolver,
   NegativeIntResolver,
+  NonEmptyStringResolver,
   NonNegativeFloatResolver,
   NonNegativeIntResolver,
   NonPositiveFloatResolver,
@@ -183,6 +186,7 @@ const myResolverMap = {
   URL: URLResolver,
   PhoneNumber: PhoneNumberResolver,
   PostalCode: PostalCodeResolver,
+  NonEmptyString: NonEmptyStringResolver,
 
   GUID: GUIDResolver,
 
@@ -613,6 +617,10 @@ Which gives us the following countries:
 This is really a practical decision of weight (of the package) vs. completeness.
 
 In the future we might expand this list and use the more comprehensive list found [here](http://unicode.org/cldr/trac/browser/tags/release-26-0-1/common/supplemental/postalCodeData.xml).
+
+### NonEmptyString
+
+A field whose value can accept any string except empty ones. It will trim any additional white space before validation. This is useful for required strings that you wish to also force a value for. "" or " " are both considered invalid values.
 
 ### BigInt
 
