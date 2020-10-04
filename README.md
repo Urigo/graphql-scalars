@@ -42,6 +42,8 @@ scalar NegativeFloat
 
 scalar NegativeInt
 
+scalar NonEmptyString
+
 scalar NonNegativeFloat
 
 scalar NonNegativeInt
@@ -119,6 +121,7 @@ import {
   EmailAddressResolver,
   NegativeFloatResolver,
   NegativeIntResolver,
+  NonEmptyStringResolver,
   NonNegativeFloatResolver,
   NonNegativeIntResolver,
   NonPositiveFloatResolver,
@@ -183,6 +186,7 @@ const myResolverMap = {
   URL: URLResolver,
   PhoneNumber: PhoneNumberResolver,
   PostalCode: PostalCodeResolver,
+  NonEmptyString: NonEmptyStringResolver,
 
   GUID: GUIDResolver,
 
@@ -614,6 +618,10 @@ This is really a practical decision of weight (of the package) vs. completeness.
 
 In the future we might expand this list and use the more comprehensive list found [here](http://unicode.org/cldr/trac/browser/tags/release-26-0-1/common/supplemental/postalCodeData.xml).
 
+### NonEmptyString
+
+A field whose value can accept any string except empty ones. It will trim any additional white space before validation. This is useful for required strings that you wish to also force a value for. "" or " " are both considered invalid values.
+
 ### BigInt
 
 A long integer type for [graphql-js](https://github.com/graphql/graphql-js). This implementation gives you more than 32 bits rather than the default 32-bit GraphQLInt. [It uses native `BigInt` implementation of JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
@@ -849,4 +857,4 @@ We, The Guild, took over the maintaince of that library [later on](https://mediu
 
 We also like to say thank you to [@adriano-di-giovanni](https://github.com/adriano-di-giovanni) for being extremely generous and giving us the `graphql-scalars` name on npm which was previously owned by his own [library](https://github.com/adriano-di-giovanni/graphql-scalars).
 
-And thanks to [excitement-engineer](https://github.com/excitement-engineer) for [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date), [stems](https://github.com/stems) for [graphql-bigint](https://github.com/stems/graphql-bigint), [taion](https://github.com/taion) for [graphql-type-json](https://github.com/taion/graphql-type-json), [langpavel](https://github.com/langpavel) for [GraphQLTimestamp.js](https://gist.github.com/langpavel/b30f3d507a47713b0c6e89016e4e9eb7), [vespertilian](https://github.com/vespertilian) for Duration scalar
+And thanks to [excitement-engineer](https://github.com/excitement-engineer) for [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date), [stems](https://github.com/stems) for [graphql-bigint](https://github.com/stems/graphql-bigint), [taion](https://github.com/taion) for [graphql-type-json](https://github.com/taion/graphql-type-json), [langpavel](https://github.com/langpavel) for [GraphQLTimestamp.js](https://gist.github.com/langpavel/b30f3d507a47713b0c6e89016e4e9eb7), [vespertilian](https://github.com/vespertilian) for Duration scalar, [maxwellsmart84](https://github.com/maxwellsmart84) for `NonEmptyString` scalar

@@ -21,6 +21,7 @@ export const JSONObject = `scalar JSONObject`;
 export const MAC = `scalar MAC`;
 export const NegativeFloat = 'scalar NegativeFloat';
 export const NegativeInt = 'scalar NegativeInt';
+export const NonEmptyString = 'scalar NonEmptyString';
 export const NonNegativeFloat = 'scalar NonNegativeFloat';
 export const NonNegativeInt = 'scalar NonNegativeInt';
 export const NonPositiveFloat = 'scalar NonPositiveFloat';
@@ -54,6 +55,7 @@ export const typeDefs = [
   EmailAddress,
   NegativeFloat,
   NegativeInt,
+  NonEmptyString,
   NonNegativeFloat,
   NonNegativeInt,
   NonPositiveFloat,

@@ -7,6 +7,7 @@ export { GraphQLISO8601Duration } from './iso-date/Duration'
 export { GraphQLEmailAddress } from './EmailAddress';
 export { GraphQLNegativeFloat } from './NegativeFloat';
 export { GraphQLNegativeInt } from './NegativeInt';
+export { GraphQLNonEmptyString } from './NonEmptyString';
 export { GraphQLNonNegativeFloat } from './NonNegativeFloat';
 export { GraphQLNonNegativeInt } from './NonNegativeInt';
 export { GraphQLNonPositiveFloat } from './NonPositiveFloat';
