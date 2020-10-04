@@ -1,4 +1,4 @@
-import { GraphQLError, GraphQLScalarTypeConfig, Kind } from 'graphql';
+import { GraphQLError, GraphQLScalarType, Kind } from 'graphql';
 export type ISO8601Duration = string;
 
 // original implementation
@@ -9,10 +9,7 @@ export type ISO8601Duration = string;
 // negative and positive durations allowed, commas and decimal points valid for fractions
 const ISO_DURATION = /^(-|\+)?P(?!$)((-|\+)?\d+(?:(\.|,)\d+)?Y)?((-|\+)?\d+(?:(\.|,)\d+)?M)?((-|\+)?\d+(?:(\.|,)\d+)?W)?((-|\+)?\d+(?:(\.|,)\d+)?D)?(T(?=(-|\+)?\d)((-|\+)?\d+(?:(\.|,)\d+)?H)?((-|\+)?\d+(?:(\.|,)\d+)?M)?((-|\+)?\d+(?:(\.|,)\d+)?S)?)?$/;
 
-export const GraphQLISO8601Duration: GraphQLScalarTypeConfig<
-  ISO8601Duration,
-  ISO8601Duration
-> = {
+export const GraphQLISO8601Duration = /*#__PURE__*/ new GraphQLScalarType({
   name: 'ISO8601Duration',
   description: `
     A string representing a duration conforming to the ISO8601 standard,
@@ -38,8 +35,8 @@ export const GraphQLISO8601Duration: GraphQLScalarTypeConfig<
       throw new TypeError(`Value is not string: ${value}`);
     }
 
-    if (!ISO_DURATION.test(value))  {
-      throw new TypeError(`Value is not a valid ISO Duration: ${value}`)
+    if (!ISO_DURATION.test(value)) {
+      throw new TypeError(`Value is not a valid ISO Duration: ${value}`);
     }
 
     return value;
@@ -50,8 +47,8 @@ export const GraphQLISO8601Duration: GraphQLScalarTypeConfig<
       throw new TypeError(`Value is not string: ${value}`);
     }
 
-    if (!ISO_DURATION.test(value))  {
-      throw new TypeError(`Value is not a valid ISO Duration: ${value}`)
+    if (!ISO_DURATION.test(value)) {
+      throw new TypeError(`Value is not a valid ISO Duration: ${value}`);
     }
 
     return value;
@@ -68,7 +65,5 @@ export const GraphQLISO8601Duration: GraphQLScalarTypeConfig<
     }
 
     return ast.value;
-  }
-};
-
-
+  },
+});

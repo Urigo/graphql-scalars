@@ -32,6 +32,8 @@ scalar Time
 
 scalar DateTime
 
+scalar Duration
+
 scalar UtcOffset
 
 scalar EmailAddress
@@ -112,6 +114,7 @@ import {
   DateResolver,
   TimeResolver,
   DateTimeResolver,
+  DurationResolver,
   UtcOffsetResolver,
   EmailAddressResolver,
   NegativeFloatResolver,
@@ -159,6 +162,7 @@ const myResolverMap = {
   Date: DateResolver,
   Time: TimeResolver,
   DateTime: DateTimeResolver,
+  Duration: DurationResolver,
   UtcOffset: UtcOffsetResolver,
 
   NonPositiveInt: NonPositiveIntResolver,
@@ -501,6 +505,25 @@ When expected as an input type, only RFC 3339 compliant date-time strings are ac
 
 > Taken from [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date/)
 
+### Duration
+
+A string representing a duration conforming to the ISO8601 standard,
+such as: P1W1DT13H23M34S
+P is the duration designator (for period) placed at the start of the duration representation.
+Y is the year designator that follows the value for the number of years.
+M is the month designator that follows the value for the number of months.
+W is the week designator that follows the value for the number of weeks.
+D is the day designator that follows the value for the number of days.
+T is the time designator that precedes the time components of the representation.
+H is the hour designator that follows the value for the number of hours.
+M is the minute designator that follows the value for the number of minutes.
+S is the second designator that follows the value for the number of seconds.
+
+    Note the time designator, T, that precedes the time value.
+
+    Matches moment.js, Luxon and DateFns implementations
+    ,/. is valid for decimal places and +/- is a valid prefix
+
 ### Timestamp
 
 The javascript `Date` as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
@@ -826,4 +849,4 @@ We, The Guild, took over the maintaince of that library [later on](https://mediu
 
 We also like to say thank you to [@adriano-di-giovanni](https://github.com/adriano-di-giovanni) for being extremely generous and giving us the `graphql-scalars` name on npm which was previously owned by his own [library](https://github.com/adriano-di-giovanni/graphql-scalars).
 
-And thanks to [excitement-engineer](https://github.com/excitement-engineer) for [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date), [stems](https://github.com/stems) for [graphql-bigint](https://github.com/stems/graphql-bigint), [taion](https://github.com/taion) for [graphql-type-json](https://github.com/taion/graphql-type-json), [langpavel](https://github.com/langpavel) for [GraphQLTimestamp.js](https://gist.github.com/langpavel/b30f3d507a47713b0c6e89016e4e9eb7)
+And thanks to [excitement-engineer](https://github.com/excitement-engineer) for [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date), [stems](https://github.com/stems) for [graphql-bigint](https://github.com/stems/graphql-bigint), [taion](https://github.com/taion) for [graphql-type-json](https://github.com/taion/graphql-type-json), [langpavel](https://github.com/langpavel) for [GraphQLTimestamp.js](https://gist.github.com/langpavel/b30f3d507a47713b0c6e89016e4e9eb7), [vespertilian](https://github.com/vespertilian) for Duration scalar
