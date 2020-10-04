@@ -5,6 +5,7 @@ export const Time = 'scalar Time';
 export const Timestamp = 'scalar Timestamp';
 export const DateTime = 'scalar DateTime';
 export const UtcOffset = 'scalar UtcOffset';
+export const ISO8601Duration = 'scalar ISO8601Duration'
 export const EmailAddress = 'scalar EmailAddress';
 export const GUID = `scalar GUID`;
 export const Hexadecimal = `scalar Hexadecimal`;
@@ -49,6 +50,7 @@ export const typeDefs = [
   DateTime,
   Timestamp,
   UtcOffset,
+  ISO8601Duration,
   EmailAddress,
   NegativeFloat,
   NegativeInt,
