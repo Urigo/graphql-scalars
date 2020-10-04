@@ -12,7 +12,7 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLNonEmptyString = new GraphQLScalarType({
+export const GraphQLNonEmptyString = /*#__PURE__*/ new GraphQLScalarType({
   name: 'NonEmptyString',
 
   description: 'A string that cannot be passed as an empty value',
