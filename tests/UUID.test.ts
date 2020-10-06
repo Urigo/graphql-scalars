@@ -93,29 +93,29 @@ describe(`GUID`, () => {
     describe(`not a valid GUID`, () => {
       it(`serialize`, () => {
         expect(() => GraphQLGUID.serialize(123)).toThrow(/Value is not string/);
-        expect(() => GraphQLGUID.serialize(`this is not a guid`)).toThrow(
-          /Value is not a valid GUID/,
+        expect(() => GraphQLGUID.serialize(`this is not a uuid`)).toThrow(
+          /Value is not a valid UUID/,
         );
       });
 
       it(`parseValue`, () => {
         expect(() => GraphQLGUID.serialize(123)).toThrow(/Value is not string/);
-        expect(() => GraphQLGUID.parseValue(`this is not a guid`)).toThrow(
-          /Value is not a valid GUID/,
+        expect(() => GraphQLGUID.parseValue(`this is not a uuid`)).toThrow(
+          /Value is not a valid UUID/,
         );
       });
 
       it(`parseLiteral`, () => {
         expect(() =>
           GraphQLGUID.parseLiteral({ value: 123, kind: Kind.INT } as any, {}),
-        ).toThrow(/Can only validate strings as GUIDs but got a/);
+        ).toThrow(/Can only validate strings as UUIDs but got a/);
 
         expect(() =>
           GraphQLGUID.parseLiteral(
-            { value: `this is not a guid`, kind: Kind.STRING },
+            { value: `this is not a uuid`, kind: Kind.STRING },
             {},
           ),
-        ).toThrow(/Value is not a valid GUID/);
+        ).toThrow(/Value is not a valid UUID/);
       });
     });
   });
