@@ -225,7 +225,10 @@ const myResolverMap = {
 
 NOTE: `NonNegativeFloat` and `NonNegativeInt` are also available under the aliases `UnsignedFloat`
 and `UnsignedInt`, respectively.
-NOTE: `UUID` are also available under the alias `GUID`.
+
+NOTE: `BigInt` is also available under the alias  `BigInt`.
+
+NOTE: `UUID` is also available under the alias `GUID`.
 
 Alternatively, use the default import and ES6's spread operator syntax:
 
