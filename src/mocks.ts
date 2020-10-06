@@ -5,7 +5,7 @@ export const Time = () => '10:15:30Z';
 export const DateTime = () => '2007-12-03T10:15:30Z';
 export const Timestamp = () => 1592577642;
 export const UtcOffset = () => '+03:00';
-export const ISO8601Duration = () => 'P3Y6M4DT12H30M5S'
+export const ISO8601Duration = () => 'P3Y6M4DT12H30M5S';
 export const EmailAddress = () => 'test@test.com';
 export const NegativeFloat = () => -123.45;
 export const NegativeInt = () => -123;
@@ -21,7 +21,7 @@ export const PositiveInt = () => 123;
 export const PostalCode = () => '60031';
 const URLMock = () => new URL('http://www.test.com/') as any;
 // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
-export const GUID = () => {
+export const UUID = () => {
   // Public Domain/MIT
   let d = new Date().getTime();
   if (
@@ -93,6 +93,7 @@ export {
   URLMock as URL,
   NonNegativeInt as UnsignedInt,
   NonNegativeFloat as UnsignedFloat,
+  UUID as GUID,
   BigIntMock as Long,
   BigIntMock as BigInt,
   ByteMock as Byte,

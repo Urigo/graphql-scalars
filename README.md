@@ -74,6 +74,8 @@ scalar Long
 
 scalar SafeInt
 
+scalar UUID
+
 scalar GUID
 
 scalar HexColorCode
@@ -136,6 +138,7 @@ import {
   BigIntResolver,
   LongResolver,
   SafeIntResolver,
+  UUIDResolver,
   GUIDResolver,
   HexColorCodeResolver,
   HSLResolver,
@@ -188,6 +191,7 @@ const myResolverMap = {
   PostalCode: PostalCodeResolver,
   NonEmptyString: NonEmptyStringResolver,
 
+  UUID: UUIDResolver,
   GUID: GUIDResolver,
 
   HexColorCode: HexColorCodeResolver,
@@ -221,6 +225,7 @@ const myResolverMap = {
 
 NOTE: `NonNegativeFloat` and `NonNegativeInt` are also available under the aliases `UnsignedFloat`
 and `UnsignedInt`, respectively.
+NOTE: `UUID` are also available under the alias `GUID`.
 
 Alternatively, use the default import and ES6's spread operator syntax:
 
@@ -644,9 +649,9 @@ In order to support `BigInt` in `JSON.parse` and `JSON.stringify`, it is recomme
 
 This scalar behaves just like the native GraphQLInt scalar, but it allows integers that require more than 32-bits. Any integer that is considered "safe" in JavaScript (i.e. ± 9,007,199,254,740,991) is considered a valid value.
 
-### GUID
+### UUID
 
-A field whose value is a generic [Globally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+A field whose value is a generic [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier).
 
 ### Hexadecimal
 
