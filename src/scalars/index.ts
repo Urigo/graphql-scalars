@@ -3,7 +3,7 @@ export { GraphQLTime } from './iso-date/Time';
 export { GraphQLDateTime } from './iso-date/DateTime';
 export { GraphQLTimestamp } from './Timestamp';
 export { GraphQLUtcOffset } from './UtcOffset';
-export { GraphQLISO8601Duration } from './iso-date/Duration'
+export { GraphQLISO8601Duration } from './iso-date/Duration';
 export { GraphQLEmailAddress } from './EmailAddress';
 export { GraphQLNegativeFloat } from './NegativeFloat';
 export { GraphQLNegativeInt } from './NegativeInt';
@@ -23,6 +23,7 @@ export { GraphQLBigInt } from './BigInt';
 export { GraphQLByte } from './Byte';
 export { GraphQLLong } from './Long';
 export { GraphQLSafeInt } from './SafeInt';
+export { GraphQLUUID } from './UUID';
 export { GraphQLGUID } from './GUID';
 export { GraphQLHexadecimal } from './Hexadecimal';
 export { GraphQLHexColorCode } from './HexColorCode';

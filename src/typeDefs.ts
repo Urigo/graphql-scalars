@@ -5,9 +5,9 @@ export const Time = 'scalar Time';
 export const Timestamp = 'scalar Timestamp';
 export const DateTime = 'scalar DateTime';
 export const UtcOffset = 'scalar UtcOffset';
-export const ISO8601Duration = 'scalar ISO8601Duration'
+export const ISO8601Duration = 'scalar ISO8601Duration';
 export const EmailAddress = 'scalar EmailAddress';
-export const GUID = `scalar GUID`;
+export const UUID = `scalar UUID`;
 export const Hexadecimal = `scalar Hexadecimal`;
 export const HexColorCode = `scalar HexColorCode`;
 export const HSL = `scalar HSL`;
@@ -40,6 +40,7 @@ export const Currency = `scalar Currency`;
 
 export const UnsignedFloat = 'scalar UnsignedFloat';
 export const UnsignedInt = 'scalar UnsignedInt';
+export const GUID = `scalar GUID`;
 export const Long = 'scalar Long';
 export const ObjectID = 'scalar ObjectID';
 
@@ -70,6 +71,7 @@ export const typeDefs = [
   BigInt,
   Long,
   Byte,
+  UUID,
   GUID,
   Hexadecimal,
   HexColorCode,
