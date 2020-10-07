@@ -226,7 +226,7 @@ const myResolverMap = {
 NOTE: `NonNegativeFloat` and `NonNegativeInt` are also available under the aliases `UnsignedFloat`
 and `UnsignedInt`, respectively.
 
-NOTE: `BigInt` is also available under the alias  `BigInt`.
+NOTE: `BigInt` is also available under the alias  `Long`.
 
 NOTE: `UUID` is also available under the alias `GUID`.
 
