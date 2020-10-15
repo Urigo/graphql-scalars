@@ -4,6 +4,8 @@ export { GraphQLDateTime } from './iso-date/DateTime';
 export { GraphQLTimestamp } from './Timestamp';
 export { GraphQLUtcOffset } from './UtcOffset';
 export { GraphQLISO8601Duration } from './iso-date/Duration';
+export { GraphQLLocalDate } from './LocalDate';
+export { GraphQLLocalTime } from './LocalTime';
 export { GraphQLEmailAddress } from './EmailAddress';
 export { GraphQLNegativeFloat } from './NegativeFloat';
 export { GraphQLNegativeInt } from './NegativeInt';

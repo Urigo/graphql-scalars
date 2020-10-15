@@ -36,6 +36,10 @@ scalar Duration
 
 scalar UtcOffset
 
+scalar LocalDate
+
+scalar LocalTime
+
 scalar EmailAddress
 
 scalar NegativeFloat
@@ -120,6 +124,8 @@ import {
   DateTimeResolver,
   DurationResolver,
   UtcOffsetResolver,
+  LocalDateResolver,
+  LocalTimeResolver,
   EmailAddressResolver,
   NegativeFloatResolver,
   NegativeIntResolver,
@@ -170,6 +176,8 @@ const myResolverMap = {
   DateTime: DateTimeResolver,
   Duration: DurationResolver,
   UtcOffset: UtcOffsetResolver,
+  LocalDate: LocalDateResolver,
+  LocalTime: LocalTimeResolver,
 
   NonPositiveInt: NonPositiveIntResolver,
   PositiveInt: PositiveIntResolver,
@@ -226,7 +234,7 @@ const myResolverMap = {
 NOTE: `NonNegativeFloat` and `NonNegativeInt` are also available under the aliases `UnsignedFloat`
 and `UnsignedInt`, respectively.
 
-NOTE: `BigInt` is also available under the alias  `Long`.
+NOTE: `BigInt` is also available under the alias `Long`.
 
 NOTE: `UUID` is also available under the alias `GUID`.
 
@@ -516,6 +524,14 @@ JavaScript Date instances and timestamps (represented as 32-bit signed integers)
 When expected as an input type, only RFC 3339 compliant date-time strings are accepted. All other input values raise a query error indicating an incorrect type.
 
 > Taken from [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date/)
+
+### LocalDate
+
+A local date string (i.e., with no associated timezone) in "YYYY-MM-DD" format, e.g. "2020-01-01". The value is serialized and deserialized as a string as a signal to both clients and resolvers that special care must be taken with the value when converting it to any date/time type that includes a timezone, e.g., a JavaScript `Date`.
+
+### LocalTime
+
+A local time string (i.e., with no associated timezone) in 24-hr "HH:mm[:ss[.SSS]]" format, e.g. "14:25". The seconds and milliseconds portions are optional. Similar to `LocalDate`, the value is serialized and deserialized as a string as a signal to both clients and resolvers that special care must be taken with the value when converting it to any date/time type that includes a date or timezone, e.g., a JavaScript `Date`.
 
 ### Duration
 
