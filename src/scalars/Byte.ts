@@ -7,10 +7,9 @@ import {
   print,
 } from 'graphql';
 
-const base64Validator = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
-const hexValidator = /(0x|0X)?[a-fA-F0-9]+$/;
-
 type BufferJson = { type: 'Buffer'; data: number[] };
+const IS_HEX_FLAG = 'hex';
+const IS_BASE64_FLAG = 'b64';
 
 function validate(value: Buffer | string | BufferJson) {
   if (typeof value !== 'string' && !(value instanceof global.Buffer)) {
@@ -19,8 +18,9 @@ function validate(value: Buffer | string | BufferJson) {
     );
   }
   if (typeof value === 'string') {
-    const isBase64 = base64Validator.test(value);
-    const isHex = hexValidator.test(value);
+    const type = value.slice(0, 3);
+    const isBase64 = type === IS_BASE64_FLAG;
+    const isHex = type === IS_HEX_FLAG;
     if (!isBase64 && !isHex) {
       throw new TypeError(
         `Value is not a valid base64 or hex encoded string: ${JSON.stringify(
@@ -28,7 +28,7 @@ function validate(value: Buffer | string | BufferJson) {
         )}`,
       );
     }
-    return global.Buffer.from(value, isHex ? 'hex' : 'base64');
+    return global.Buffer.from(value.slice(3), isHex ? 'hex' : 'base64');
   }
 
   return value;

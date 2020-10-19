@@ -18,10 +18,10 @@ const byte = Buffer.from([
   101,
   33,
 ]);
-const base64String = byte.toString('base64');
-const hexString = byte.toString('hex');
-const notBase64 = 'RG9kZ2VycyBSdWxlIQ=';
-const notHex = '446f64676572732052756c65z';
+const base64String = 'b64' + byte.toString('base64');
+const hexString = 'hex' + byte.toString('hex');
+const notBase64 = byte.toString('base64');
+const notHex = byte.toString('hex');
 const notByte = 1;
 
 function createBufferObject(type: string, values: ValueNode[]) {
