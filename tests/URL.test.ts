@@ -94,4 +94,20 @@ describe('URL', () => {
       ).toThrow();
     });
   });
+
+  describe('returns null if the value is null', () => {
+    test('serialize', () => {
+      expect(GraphQLURL.serialize(null)).toBeNull();
+    });
+
+    test('parseValue', () => {
+      expect(GraphQLURL.parseValue(null)).toBeNull();
+    });
+
+    test('parseLiteral', () => {
+      expect(
+        GraphQLURL.parseLiteral({ value: null, kind: Kind.STRING }, {}),
+      ).toBeNull();
+    });
+  });
 });
