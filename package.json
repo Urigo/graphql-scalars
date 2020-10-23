@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@graphql-tools/merge": "6.2.5",
-    "@graphql-tools/schema": "6.2.4",
+    "@graphql-tools/schema": "7.0.0",
     "@types/jest": "26.0.15",
     "@types/mongodb": "3.5.31",
     "@types/node": "13.13.28",
