@@ -1,36 +1,39 @@
 const { Kind } = require('graphql/language');
 const { GraphQLLocalDate } = require('../src/scalars/LocalDate');
 
-const VALID_DATES = [
-  '2021-01-01',
-  '2021-12-31',
+const VALID_LOCAL_DATES = [
+  '2020-01-01',
+  '2020-12-31',
   '2020-02-29', // leap day in a leap year
 ];
 
-const INVALID_DATES = [
+const INVALID_LOCAL_DATES = [
   'this is not a valid date',
+  '2020',
   '01-01',
-  '2020-13-01',
-  '2020-09-12T13:08:47', // a valid ISO 8601 value, but times aren't allowed in the LocalDate scalar
   '2021-02-29', // leap day in a non-leap year
+  '2020-02-30',
+  '2020-13-01',
+  '2020-01-32',
+  '2020-09-12T13:08:47', // a valid ISO 8601 value, but times aren't allowed in the LocalDate scalar
 ];
 
 describe(`LocalDate`, () => {
   describe(`valid`, () => {
     it(`serialize`, () => {
-      VALID_DATES.forEach((date) => {
+      VALID_LOCAL_DATES.forEach((date) => {
         expect(GraphQLLocalDate.serialize(date)).toEqual(date);
       });
     });
 
     it(`parseValue`, () => {
-      VALID_DATES.forEach((date) => {
+      VALID_LOCAL_DATES.forEach((date) => {
         expect(GraphQLLocalDate.parseValue(date)).toEqual(date);
       });
     });
 
     it(`parseLiteral`, () => {
-      VALID_DATES.forEach((testValue) => {
+      VALID_LOCAL_DATES.forEach((testValue) => {
         expect(
           GraphQLLocalDate.parseLiteral(
             {
@@ -54,7 +57,7 @@ describe(`LocalDate`, () => {
         expect(() => GraphQLLocalDate.serialize(false)).toThrow(
           /Value is not string/,
         );
-        INVALID_DATES.forEach((testValue) => {
+        INVALID_LOCAL_DATES.forEach((testValue) => {
           expect(() => GraphQLLocalDate.serialize(testValue)).toThrow(
             /Value is not a valid LocalDate/,
           );
@@ -69,7 +72,7 @@ describe(`LocalDate`, () => {
         expect(() => GraphQLLocalDate.parseValue(false)).toThrow(
           /Value is not string/,
         );
-        INVALID_DATES.forEach((date) => {
+        INVALID_LOCAL_DATES.forEach((date) => {
           expect(() => GraphQLLocalDate.parseValue(date)).toThrow(
             /Value is not a valid LocalDate/,
           );
@@ -87,7 +90,7 @@ describe(`LocalDate`, () => {
             {},
           ),
         ).toThrow(/Can only validate strings as local dates but got a/);
-        INVALID_DATES.forEach((testValue) => {
+        INVALID_LOCAL_DATES.forEach((testValue) => {
           expect(() =>
             GraphQLLocalDate.parseLiteral(
               { value: testValue, kind: Kind.STRING },

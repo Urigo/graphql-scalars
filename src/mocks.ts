@@ -8,6 +8,7 @@ export const UtcOffset = () => '+03:00';
 export const ISO8601Duration = () => 'P3Y6M4DT12H30M5S';
 export const LocalDate = () => '2020-07-19';
 export const LocalTime = () => '08:45:59';
+export const LocalEndTime = () => '24:00:00';
 export const EmailAddress = () => 'test@test.com';
 export const NegativeFloat = () => -123.45;
 export const NegativeInt = () => -123;

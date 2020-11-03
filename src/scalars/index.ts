@@ -6,6 +6,7 @@ export { GraphQLUtcOffset } from './UtcOffset';
 export { GraphQLISO8601Duration } from './iso-date/Duration';
 export { GraphQLLocalDate } from './LocalDate';
 export { GraphQLLocalTime } from './LocalTime';
+export { GraphQLLocalEndTime } from './LocalEndTime';
 export { GraphQLEmailAddress } from './EmailAddress';
 export { GraphQLNegativeFloat } from './NegativeFloat';
 export { GraphQLNegativeInt } from './NegativeInt';
