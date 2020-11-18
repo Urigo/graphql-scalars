@@ -8,8 +8,25 @@ import {
 } from 'graphql';
 
 type BufferJson = { type: 'Buffer'; data: number[] };
-const IS_HEX_FLAG = 'hex';
-const IS_BASE64_FLAG = 'b64';
+const base64Validator = /^(?:[A-Za-z0-9+]{4})*(?:[A-Za-z0-9+]{2}==|[A-Za-z0-9+]{3}=)?$/;
+function hexValidator(value: string) {
+  // For larger strings, we run into issues with MAX_SAFE_INTEGER, so split the string
+  // into smaller pieces to avoid this issue.
+  if (value.length > 8) {
+    let parsedString = '';
+    for (
+      let startIndex = 0, endIndex = 8;
+      startIndex < value.length;
+      startIndex += 8, endIndex += 8
+    ) {
+      parsedString += parseInt(value.slice(startIndex, endIndex), 16).toString(
+        16,
+      );
+    }
+    return parsedString === value;
+  }
+  return parseInt(value, 16).toString(16) === value;
+}
 
 function validate(value: Buffer | string | BufferJson) {
   if (typeof value !== 'string' && !(value instanceof global.Buffer)) {
@@ -18,9 +35,8 @@ function validate(value: Buffer | string | BufferJson) {
     );
   }
   if (typeof value === 'string') {
-    const type = value.slice(0, 3);
-    const isBase64 = type === IS_BASE64_FLAG;
-    const isHex = type === IS_HEX_FLAG;
+    const isBase64 = base64Validator.test(value);
+    const isHex = hexValidator(value);
     if (!isBase64 && !isHex) {
       throw new TypeError(
         `Value is not a valid base64 or hex encoded string: ${JSON.stringify(
@@ -28,7 +44,7 @@ function validate(value: Buffer | string | BufferJson) {
         )}`,
       );
     }
-    return global.Buffer.from(value.slice(3), isHex ? 'hex' : 'base64');
+    return global.Buffer.from(value, isHex ? 'hex' : 'base64');
   }
 
   return value;
