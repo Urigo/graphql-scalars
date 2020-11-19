@@ -12,7 +12,7 @@ export class RegularExpression extends GraphQLScalarType {
     regex: RegExp,
     options: RegularExpressionOptions = {},
   ) {
-    const REGEX = /*#__PURE__*/ new RegExp(regex);
+    const REGEX = /*#__PURE__*/ regex;
     const errorMessage: RegularExpressionErrorMessageFn = options.errorMessage
       ? options.errorMessage
       : (r, v) => `Value does not match the regular expression ${r}: ${v}`;
