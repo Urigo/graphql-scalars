@@ -36,6 +36,12 @@ scalar Duration
 
 scalar UtcOffset
 
+scalar LocalDate
+
+scalar LocalTime
+
+scalar LocalEndTime
+
 scalar EmailAddress
 
 scalar NegativeFloat
@@ -120,6 +126,9 @@ import {
   DateTimeResolver,
   DurationResolver,
   UtcOffsetResolver,
+  LocalDateResolver,
+  LocalTimeResolver,
+  LocalEndTimeResolver,
   EmailAddressResolver,
   NegativeFloatResolver,
   NegativeIntResolver,
@@ -170,6 +179,9 @@ const myResolverMap = {
   DateTime: DateTimeResolver,
   Duration: DurationResolver,
   UtcOffset: UtcOffsetResolver,
+  LocalDate: LocalDateResolver,
+  LocalTime: LocalTimeResolver,
+  LocalEndTime: LocalEndTimeResolver,
 
   NonPositiveInt: NonPositiveIntResolver,
   PositiveInt: PositiveIntResolver,
@@ -226,7 +238,7 @@ const myResolverMap = {
 NOTE: `NonNegativeFloat` and `NonNegativeInt` are also available under the aliases `UnsignedFloat`
 and `UnsignedInt`, respectively.
 
-NOTE: `BigInt` is also available under the alias  `Long`.
+NOTE: `BigInt` is also available under the alias `Long`.
 
 NOTE: `UUID` is also available under the alias `GUID`.
 
@@ -516,6 +528,18 @@ JavaScript Date instances and timestamps (represented as 32-bit signed integers)
 When expected as an input type, only RFC 3339 compliant date-time strings are accepted. All other input values raise a query error indicating an incorrect type.
 
 > Taken from [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date/)
+
+### LocalDate
+
+A local date string (i.e., with no associated timezone) in `YYYY-MM-DD` format, e.g. `2020-01-01`. The value is serialized and deserialized as a string as a signal to both clients and resolvers that special care must be taken with the value when converting it to any date/time type that includes a timezone, e.g., a JavaScript `Date`.
+
+### LocalTime
+
+A local time string (i.e., with no associated timezone) in 24-hr `HH:mm[:ss[.SSS]]` format, e.g. `14:25` or `14:25:06` or `14:25:06.123`. The seconds and milliseconds portions are optional. Like the `LocalDate` scalar, the value is serialized and deserialized as a string as a signal to both clients and resolvers that special care must be taken with the value when converting it to any date/time type that includes a date or timezone, e.g., a JavaScript `Date`.
+
+### LocalEndTime
+
+A local time string (i.e., with no associated timezone) in 24-hr `HH:mm[:ss[.SSS]]` format, e.g. `14:25` or `14:25:06` or `14:25:06.123`. The seconds and milliseconds portions are optional. This scalar is very similar to the `LocalTime`, with the only difference being that `LocalEndTime` also allows `24:00` as a valid value to indicate midnight of the following day. This is useful when using the scalar to represent the exclusive upper bound of a time block.
 
 ### Duration
 
