@@ -7,10 +7,26 @@ import {
   print,
 } from 'graphql';
 
-const base64Validator = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
-const hexValidator = /(0x|0X)?[a-fA-F0-9]+$/;
-
 type BufferJson = { type: 'Buffer'; data: number[] };
+const base64Validator = /^(?:[A-Za-z0-9+]{4})*(?:[A-Za-z0-9+]{2}==|[A-Za-z0-9+]{3}=)?$/;
+function hexValidator(value: string) {
+  // For larger strings, we run into issues with MAX_SAFE_INTEGER, so split the string
+  // into smaller pieces to avoid this issue.
+  if (value.length > 8) {
+    let parsedString = '';
+    for (
+      let startIndex = 0, endIndex = 8;
+      startIndex < value.length;
+      startIndex += 8, endIndex += 8
+    ) {
+      parsedString += parseInt(value.slice(startIndex, endIndex), 16).toString(
+        16,
+      );
+    }
+    return parsedString === value;
+  }
+  return parseInt(value, 16).toString(16) === value;
+}
 
 function validate(value: Buffer | string | BufferJson) {
   if (typeof value !== 'string' && !(value instanceof global.Buffer)) {
@@ -20,7 +36,7 @@ function validate(value: Buffer | string | BufferJson) {
   }
   if (typeof value === 'string') {
     const isBase64 = base64Validator.test(value);
-    const isHex = hexValidator.test(value);
+    const isHex = hexValidator(value);
     if (!isBase64 && !isHex) {
       throw new TypeError(
         `Value is not a valid base64 or hex encoded string: ${JSON.stringify(

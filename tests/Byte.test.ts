@@ -22,6 +22,10 @@ const base64String = byte.toString('base64');
 const hexString = byte.toString('hex');
 const notBase64 = 'RG9kZ2VycyBSdWxlIQ=';
 const notHex = '446f64676572732052756c65z';
+const looksLikeBase64 = 'c40473746174';
+const looksLikeBase64Buffer = Buffer.from(looksLikeBase64, 'hex');
+const looksLikeHex = 'xARzdGF0';
+const looksLikeHexBuffer = Buffer.from(looksLikeHex, 'base64');
 const notByte = 1;
 
 function createBufferObject(type: string, values: ValueNode[]) {
@@ -123,5 +127,18 @@ describe.each<[string, Buffer | string, string | number]>([
         }).toThrow(/Value is not a JSON representation of Buffer/);
       }
     });
+  });
+});
+
+describe.each<[string, string, Buffer]>([
+  ['Hex String desguised as base64', looksLikeBase64, looksLikeBase64Buffer],
+  ['Base64 String desguised as hex', looksLikeHex, looksLikeHexBuffer],
+])('Byte string edge cases', (testType, encodedValue, decodedValue) => {
+  test(`serialize (${testType})`, () => {
+    expect(GraphQLByte.serialize(encodedValue)).toEqual(decodedValue);
+  });
+
+  test(`parseValue (${testType})`, () => {
+    expect(GraphQLByte.parseValue(encodedValue)).toEqual(decodedValue);
   });
 });
