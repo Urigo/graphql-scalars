@@ -45,7 +45,7 @@
     "@graphql-tools/schema": "7.1.2",
     "@types/jest": "26.0.15",
     "@types/mongodb": "3.5.34",
-    "@types/node": "13.13.33",
+    "@types/node": "13.13.34",
     "@typescript-eslint/eslint-plugin": "4.9.0",
     "@typescript-eslint/parser": "4.9.0",
     "bob-the-bundler": "1.1.0",
