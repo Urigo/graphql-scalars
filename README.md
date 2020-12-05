@@ -861,8 +861,8 @@ const MyRegexType = new RegularExpression('MyRegexType', /^ABC$/);
 ## What's this all about?
 
 GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
-you have not heard of it, start [here](http://graphql.org/learn/) and check out
-[Apollo](http://dev.apollodata.com/) also.
+you have not heard of it, start [here](http://graphql.org/learn/) and check out GraphQL Tools docs
+[Custom scalars](https://www.graphql-tools.com/docs/scalars) also.
 
 However, for all of GraphQL's greatness. It is missing a couple things that we have (and you might)
 find very useful in defining your schemas. Namely GraphQL has a
