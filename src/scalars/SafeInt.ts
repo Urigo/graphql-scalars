@@ -1,3 +1,5 @@
+// Based on https://github.com/stems/graphql-bigint/
+
 import {
   GraphQLError,
   GraphQLScalarType,

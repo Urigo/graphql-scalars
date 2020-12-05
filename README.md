@@ -655,11 +655,18 @@ In the future we might expand this list and use the more comprehensive list foun
 
 A field whose value can accept any string except empty ones. It will trim any additional white space before validation. This is useful for required strings that you wish to also force a value for. "" or " " are both considered invalid values.
 
-### BigInt
+### SafeInt
 
-A long integer type for [graphql-js](https://github.com/graphql/graphql-js). This implementation gives you more than 32 bits rather than the default 32-bit GraphQLInt. [It uses native `BigInt` implementation of JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+This scalar behaves just like the native `GraphQLInt` scalar, but it allows integers that require more than 32-bits. Any integer that is considered "safe" in JavaScript (i.e. ± 9,007,199,254,740,991) is considered a valid value. But if you need more than 52-bits, you should use `BigInt`.
+
 The [GraphQL spec](https://facebook.github.io/graphql/#sec-Int) limits its Int type to 32-bits. Maybe you've seen this error before:
 [Issue on graphql-js](https://github.com/graphql/graphql-js/issues/292)
+
+> Based on [graphql-bigint](https://github.com/stems/graphql-bigint). Even though `stems`'s implementation looks like the same with `BigInt` scalar, it is different because our `BigInt` implementation uses JavaScript's native `BigInt` type while `SafeInt` implementation doesn't support more than 52-bit integers.
+
+### BigInt
+
+A long integer type for [graphql-js](https://github.com/graphql/graphql-js). [It uses native `BigInt` implementation of JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
 
 If your environment doesn't support `BigInt`, it will support 53-bit values at maximum. You can use polyfills to support 64-bit values.
 
@@ -668,14 +675,8 @@ GraphQLError: Argument "num" has invalid value 9007199254740990.
               Expected value of type ""Int"", found 9007199254740990.
 ```
 
-> Based on [graphql-bigint](https://github.com/stems/graphql-bigint)
-
 In order to support `BigInt` in `JSON.parse` and `JSON.stringify`, it is recommended to install this npm package together with this scalar. Otherwise, JavaScript will serialize the value as string.
 [json-bigint-patch](https://github.com/ardatan/json-bigint-patch)
-
-### SafeInt
-
-This scalar behaves just like the native GraphQLInt scalar, but it allows integers that require more than 32-bits. Any integer that is considered "safe" in JavaScript (i.e. ± 9,007,199,254,740,991) is considered a valid value.
 
 ### UUID
 

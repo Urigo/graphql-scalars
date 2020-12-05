@@ -1,5 +1,3 @@
-// Based on https://github.com/stems/graphql-bigint/
-
 import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 
 declare global {
