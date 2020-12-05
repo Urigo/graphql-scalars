@@ -1,4 +1,9 @@
-import { GraphQLError, GraphQLScalarType, Kind } from 'graphql';
+import {
+  GraphQLError,
+  GraphQLScalarType,
+  GraphQLScalarTypeConfig,
+  Kind,
+} from 'graphql';
 export type ISO8601Duration = string;
 
 // original implementation
@@ -9,8 +14,11 @@ export type ISO8601Duration = string;
 // negative and positive durations allowed, commas and decimal points valid for fractions
 const ISO_DURATION = /^(-|\+)?P(?!$)((-|\+)?\d+(?:(\.|,)\d+)?Y)?((-|\+)?\d+(?:(\.|,)\d+)?M)?((-|\+)?\d+(?:(\.|,)\d+)?W)?((-|\+)?\d+(?:(\.|,)\d+)?D)?(T(?=(-|\+)?\d)((-|\+)?\d+(?:(\.|,)\d+)?H)?((-|\+)?\d+(?:(\.|,)\d+)?M)?((-|\+)?\d+(?:(\.|,)\d+)?S)?)?$/;
 
-export const GraphQLISO8601Duration = /*#__PURE__*/ new GraphQLScalarType({
-  name: 'ISO8601Duration',
+export const GraphQLDurationConfig: GraphQLScalarTypeConfig<
+  string,
+  string
+> = /*#__PURE__*/ {
+  name: 'Duration',
   description: `
     A string representing a duration conforming to the ISO8601 standard,
     such as: P1W1DT13H23M34S
@@ -66,4 +74,14 @@ export const GraphQLISO8601Duration = /*#__PURE__*/ new GraphQLScalarType({
 
     return ast.value;
   },
+};
+
+export const GraphQLISO8601Duration = /*#__PURE__*/ new GraphQLScalarType({
+  ...GraphQLDurationConfig,
+  name: 'ISO8601Duration',
+});
+
+export const GraphQLDuration = /*#__PURE__*/ new GraphQLScalarType({
+  ...GraphQLDurationConfig,
+  name: 'Duration',
 });

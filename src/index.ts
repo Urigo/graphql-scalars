@@ -50,6 +50,7 @@ import {
   GraphQLObjectID,
   GraphQLVoid,
 } from './scalars';
+import { GraphQLDuration } from './scalars/iso-date/Duration';
 
 export {
   Date as DateTypeDefinition,
@@ -109,6 +110,7 @@ export {
   GraphQLDateTime as DateTimeResolver,
   GraphQLTimestamp as TimestampResolver,
   GraphQLUtcOffset as UtcOffsetResolver,
+  GraphQLDuration as DurationResolver,
   GraphQLISO8601Duration as ISO8601DurationResolver,
   GraphQLLocalDate as LocalDateResolver,
   GraphQLLocalTime as LocalTimeResolver,
@@ -160,6 +162,7 @@ export const resolvers = {
   DateTime: GraphQLDateTime,
   Timestamp: GraphQLTimestamp,
   UtcOffset: GraphQLUtcOffset,
+  Duration: GraphQLDuration,
   ISO8601Duration: GraphQLISO8601Duration,
   LocalDate: GraphQLLocalDate,
   LocalTime: GraphQLLocalTime,
@@ -209,6 +212,7 @@ export {
   Date as DateMock,
   Time as TimeMock,
   DateTime as DateTimeMock,
+  Duration as DurationMock,
   ISO8601Duration as ISO8601DurationMock,
   Timestamp as TimestampMock,
   UtcOffset as UtcOffsetMock,
@@ -266,6 +270,7 @@ export {
   GraphQLDateTime,
   GraphQLTimestamp,
   GraphQLUtcOffset,
+  GraphQLDuration,
   GraphQLISO8601Duration,
   GraphQLLocalDate,
   GraphQLLocalTime,

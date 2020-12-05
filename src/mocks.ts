@@ -5,7 +5,7 @@ export const Time = () => '10:15:30Z';
 export const DateTime = () => '2007-12-03T10:15:30Z';
 export const Timestamp = () => 1592577642;
 export const UtcOffset = () => '+03:00';
-export const ISO8601Duration = () => 'P3Y6M4DT12H30M5S';
+export const Duration = () => 'P3Y6M4DT12H30M5S';
 export const LocalDate = () => '2020-07-19';
 export const LocalTime = () => '08:45:59';
 export const LocalEndTime = () => '24:00:00';
@@ -100,4 +100,5 @@ export {
   BigIntMock as Long,
   BigIntMock as BigInt,
   ByteMock as Byte,
+  Duration as ISO8601Duration,
 };

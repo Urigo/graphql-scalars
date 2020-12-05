@@ -243,6 +243,8 @@ NOTE: `BigInt` is also available under the alias `Long`.
 
 NOTE: `UUID` is also available under the alias `GUID`.
 
+NOTE: `Duration` is also available under the alias `ISO8601Duration`.
+
 Alternatively, use the default import and ES6's spread operator syntax:
 
 ```javascript
