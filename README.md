@@ -165,6 +165,7 @@ import {
   JSONObjectResolver,
   ObjectIDResolver,
   ByteResolver,
+  VoidResolver,
 } from 'graphql-scalars';
 ```
 
