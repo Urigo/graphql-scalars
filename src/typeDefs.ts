@@ -56,6 +56,7 @@ export const typeDefs = [
   DateTime,
   Timestamp,
   UtcOffset,
+  Duration,
   ISO8601Duration,
   LocalDate,
   LocalTime,
