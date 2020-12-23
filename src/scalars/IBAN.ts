@@ -384,7 +384,8 @@ function _testIBAN(
 }
 
 function validate(iban: string): boolean {
-  iban = iban.toUpperCase();
+  // Make uppercase and remove whitespace for matching
+  iban = iban.toUpperCase().replace(/\s+/g, '')
   const countryCode = iban.slice(0, 2);
   const countryStructure = IBAN_SPECIFICATIONS[countryCode];
   return !!countryStructure && _testIBAN(iban, countryCode, countryStructure);
