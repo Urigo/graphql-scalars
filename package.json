@@ -1,6 +1,6 @@
 {
   "name": "graphql-scalars",
-  "version": "1.0.4",
+  "version": "1.6.1",
   "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
     "type": "git",
@@ -19,6 +19,11 @@
       "src"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all",
@@ -27,33 +32,50 @@
   "scripts": {
     "clean": "rm -rf dist",
     "prebuild": "yarn clean",
-    "prepack": "",
-    "build": "bob",
-    "test": "jest --forceExit --runInBand && yarn bundlesize",
+    "lint": "eslint --ext .ts \"./src/**/*.ts\"",
+    "build": "bob build --single",
+    "test": "jest --forceExit --no-watchman && yarn bundlesize",
     "prepare-release": "yarn build && yarn test",
-    "release": "yarn prepare-release && bob-update-version && npm publish dist",
-    "ci:release:canary": "node bump.js && bob-update-version && npm publish dist --tag alpha --access public",
+    "release": "yarn prepare-release && bob prepack && npm publish dist",
+    "ci:release:canary": "node bump.js && bob prepack && npm publish dist --tag alpha --access public",
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test"
   },
   "devDependencies": {
-    "@ardatan/bob": "0.1.7",
-    "@types/jest": "24.0.23",
-    "graphql": "14.5.8",
-    "graphql-tools": "4.0.6",
-    "jest": "24.9.0",
-    "lint-staged": "9.5.0",
-    "merge-graphql-schemas": "1.7.3",
-    "semver": "6.3.0",
-    "ts-jest": "24.2.0",
-    "tslint": "5.20.1",
-    "typescript": "3.7.3"
+    "@graphql-tools/merge": "6.2.6",
+    "@graphql-tools/schema": "7.1.2",
+    "@types/jest": "26.0.19",
+    "@types/mongodb": "3.6.3",
+    "@types/node": "13.13.36",
+    "@typescript-eslint/eslint-plugin": "4.11.0",
+    "@typescript-eslint/parser": "4.11.0",
+    "bob-the-bundler": "1.1.0",
+    "eslint": "7.16.0",
+    "eslint-config-prettier": "7.1.0",
+    "eslint-config-standard": "16.0.2",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "5.0.0",
+    "graphql": "15.4.0",
+    "mongodb": "3.6.3",
+    "husky": "5.0.6",
+    "jest": "26.6.3",
+    "lint-staged": "10.5.3",
+    "mockdate": "3.0.2",
+    "prettier": "2.2.1",
+    "semver": "7.3.4",
+    "ts-jest": "26.4.4",
+    "typescript": "4.1.3"
+  },
+  "dependencies": {
+    "tslib": "~2.0.3"
   },
   "peerDependencies": {
-    "graphql": "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
+    "graphql": "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "tslint --fix",
+      "eslint --fix",
       "git add"
     ],
     "*.{js,json,css,md,ts,tsx}": [
@@ -61,10 +83,7 @@
       "git add -f"
     ]
   },
-  "buildOptions": {
-    "input": "./src/index.ts"
-  },
-  "dependencies": {
-    "@types/node": "12.12.14"
+  "engines": {
+    "node": ">=10"
   }
 }
