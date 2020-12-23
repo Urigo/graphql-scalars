@@ -2,38 +2,44 @@
 
 import { Kind } from 'graphql/language';
 
-import NonPositiveInt from '../src/resolvers/NonPositiveInt';
+import { GraphQLNonPositiveInt } from '../src/scalars/NonPositiveInt';
 
 describe('NonPositiveInt', () => {
   describe('valid', () => {
     describe('as int', () => {
       test('serialize', () => {
-        expect(NonPositiveInt.serialize(-123)).toBe(-123);
+        expect(GraphQLNonPositiveInt.serialize(-123)).toBe(-123);
       });
 
       test('parseValue', () => {
-        expect(NonPositiveInt.parseValue(-123)).toBe(-123);
+        expect(GraphQLNonPositiveInt.parseValue(-123)).toBe(-123);
       });
 
       test('parseLiteral', () => {
         expect(
-          NonPositiveInt.parseLiteral({ value: '-123', kind: Kind.INT } , {}),
+          GraphQLNonPositiveInt.parseLiteral(
+            { value: '-123', kind: Kind.INT },
+            {},
+          ),
         ).toBe(-123);
       });
     });
 
     describe('as string', () => {
       test('serialize', () => {
-        expect(NonPositiveInt.serialize('-123')).toBe(-123);
+        expect(GraphQLNonPositiveInt.serialize('-123')).toBe(-123);
       });
 
       test('parseValue', () => {
-        expect(NonPositiveInt.parseValue('-123')).toBe(-123);
+        expect(GraphQLNonPositiveInt.parseValue('-123')).toBe(-123);
       });
 
       test('parseLiteral', () => {
         expect(
-          NonPositiveInt.parseLiteral({ value: '-123', kind: Kind.INT } , {}),
+          GraphQLNonPositiveInt.parseLiteral(
+            { value: '-123', kind: Kind.INT },
+            {},
+          ),
         ).toBe(-123);
       });
     });
@@ -41,32 +47,38 @@ describe('NonPositiveInt', () => {
     describe('zero', () => {
       describe('as int', () => {
         test('serialize', () => {
-          expect(NonPositiveInt.serialize(0)).toBe(0);
+          expect(GraphQLNonPositiveInt.serialize(0)).toBe(0);
         });
 
         test('parseValue', () => {
-          expect(NonPositiveInt.parseValue(0)).toBe(0);
+          expect(GraphQLNonPositiveInt.parseValue(0)).toBe(0);
         });
 
         test('parseLiteral', () => {
           expect(
-            NonPositiveInt.parseLiteral({ value: '0', kind: Kind.INT } , {}),
+            GraphQLNonPositiveInt.parseLiteral(
+              { value: '0', kind: Kind.INT },
+              {},
+            ),
           ).toBe(0);
         });
       });
 
       describe('as string', () => {
         test('serialize', () => {
-          expect(NonPositiveInt.serialize('0')).toBe(0);
+          expect(GraphQLNonPositiveInt.serialize('0')).toBe(0);
         });
 
         test('parseValue', () => {
-          expect(NonPositiveInt.parseValue('0')).toBe(0);
+          expect(GraphQLNonPositiveInt.parseValue('0')).toBe(0);
         });
 
         test('parseLiteral', () => {
           expect(
-            NonPositiveInt.parseLiteral({ value: '0', kind: Kind.INT } , {}),
+            GraphQLNonPositiveInt.parseLiteral(
+              { value: '0', kind: Kind.INT },
+              {},
+            ),
           ).toBe(0);
         });
       });
@@ -76,61 +88,70 @@ describe('NonPositiveInt', () => {
   describe('invalid', () => {
     describe('null', () => {
       test('serialize', () => {
-        expect(() => NonPositiveInt.serialize(null)).toThrow(
+        expect(() => GraphQLNonPositiveInt.serialize(null)).toThrow(
           /Value is not a number/,
         );
       });
 
       test('parseValue', () => {
-        expect(() => NonPositiveInt.parseValue(null)).toThrow(
+        expect(() => GraphQLNonPositiveInt.parseValue(null)).toThrow(
           /Value is not a number/,
         );
       });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: null, kind: Kind.INT } , {}),
+          GraphQLNonPositiveInt.parseLiteral(
+            { value: null, kind: Kind.INT },
+            {},
+          ),
         ).toThrow(/Value is not a number/);
       });
     });
 
     describe('undefined', () => {
       test('serialize', () => {
-        expect(() => NonPositiveInt.serialize(undefined)).toThrow(
+        expect(() => GraphQLNonPositiveInt.serialize(undefined)).toThrow(
           /Value is not a number/,
         );
       });
 
       // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
       // test('parseValue', () => {
-      //   expect(() => NonPositiveInt.parseValue(undefined)).toThrow(
+      //   expect(() => GraphQLNonPositiveInt.parseValue(undefined)).toThrow(
       //     /Value is not a number/,
       //   );
       // });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: undefined, kind: Kind.INT } , {}),
+          GraphQLNonPositiveInt.parseLiteral(
+            { value: undefined, kind: Kind.INT },
+            {},
+          ),
         ).toThrow(/Value is not a number/);
       });
     });
 
     describe('unsafe integer', () => {
       test('serialize', () => {
-        expect(() => NonPositiveInt.serialize(2 ** 53)).toThrow(
+        expect(() => GraphQLNonPositiveInt.serialize(2 ** 53)).toThrow(
           /Value is not a safe integer/,
         );
       });
 
       test('parseValue', () => {
-        expect(() => NonPositiveInt.parseValue(2 ** 53)).toThrow(
+        expect(() => GraphQLNonPositiveInt.parseValue(2 ** 53)).toThrow(
           /Value is not a safe integer/,
         );
       });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: (2 ** 53).toString(), kind: Kind.INT } , {}),
+          GraphQLNonPositiveInt.parseLiteral(
+            { value: (2 ** 53).toString(), kind: Kind.INT },
+            {},
+          ),
         ).toThrow(/Value is not a safe integer/);
       });
     });
@@ -138,40 +159,46 @@ describe('NonPositiveInt', () => {
     describe('more than zero', () => {
       describe('as int', () => {
         test('serialize', () => {
-          expect(() => NonPositiveInt.serialize(1)).toThrow(
+          expect(() => GraphQLNonPositiveInt.serialize(1)).toThrow(
             /Value is not a non-positive number/,
           );
         });
 
         test('parseValue', () => {
-          expect(() => NonPositiveInt.parseValue(1)).toThrow(
+          expect(() => GraphQLNonPositiveInt.parseValue(1)).toThrow(
             /Value is not a non-positive number/,
           );
         });
 
         test('parseLiteral', () => {
           expect(() =>
-            NonPositiveInt.parseLiteral({ value: '1', kind: Kind.INT } , {}),
+            GraphQLNonPositiveInt.parseLiteral(
+              { value: '1', kind: Kind.INT },
+              {},
+            ),
           ).toThrow(/Value is not a non-positive number/);
         });
       });
 
       describe('as string', () => {
         test('serialize', () => {
-          expect(() => NonPositiveInt.serialize('1')).toThrow(
+          expect(() => GraphQLNonPositiveInt.serialize('1')).toThrow(
             /Value is not a non-positive number/,
           );
         });
 
         test('parseValue', () => {
-          expect(() => NonPositiveInt.parseValue('1')).toThrow(
+          expect(() => GraphQLNonPositiveInt.parseValue('1')).toThrow(
             /Value is not a non-positive number/,
           );
         });
 
         test('parseLiteral', () => {
           expect(() =>
-            NonPositiveInt.parseLiteral({ value: '1', kind: Kind.INT } , {}),
+            GraphQLNonPositiveInt.parseLiteral(
+              { value: '1', kind: Kind.INT },
+              {},
+            ),
           ).toThrow(/Value is not a non-positive number/);
         });
       });
@@ -180,45 +207,51 @@ describe('NonPositiveInt', () => {
     describe('infinity', () => {
       test('serialize', () => {
         expect(() =>
-          NonPositiveInt.serialize(Number.NEGATIVE_INFINITY),
+          GraphQLNonPositiveInt.serialize(Number.NEGATIVE_INFINITY),
         ).toThrow(/Value is not a finite number/);
       });
 
       test('parseValue', () => {
         expect(() =>
-          NonPositiveInt.parseValue(Number.NEGATIVE_INFINITY),
+          GraphQLNonPositiveInt.parseValue(Number.NEGATIVE_INFINITY),
         ).toThrow(/Value is not a finite number/);
       });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({
-            value: Number.NEGATIVE_INFINITY.toString(),
-            kind: Kind.INT,
-          }, {}),
+          GraphQLNonPositiveInt.parseLiteral(
+            {
+              value: Number.NEGATIVE_INFINITY.toString(),
+              kind: Kind.INT,
+            },
+            {},
+          ),
         ).toThrow(/Value is not a finite number/);
       });
     });
 
     describe('not a number', () => {
       test('serialize', () => {
-        expect(() => NonPositiveInt.serialize('not a number')).toThrow(
+        expect(() => GraphQLNonPositiveInt.serialize('not a number')).toThrow(
           /Value is not a number/,
         );
       });
 
       test('parseValue', () => {
-        expect(() => NonPositiveInt.parseValue('not a number')).toThrow(
+        expect(() => GraphQLNonPositiveInt.parseValue('not a number')).toThrow(
           /Value is not a number/,
         );
       });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({
-            value: 'not a number',
-            kind: Kind.STRING,
-          }, {}),
+          GraphQLNonPositiveInt.parseLiteral(
+            {
+              value: 'not a number',
+              kind: Kind.STRING,
+            },
+            {},
+          ),
         ).toThrow(
           /Can only validate integers as non-positive integers but got a/,
         );
@@ -227,21 +260,24 @@ describe('NonPositiveInt', () => {
 
     describe('NaN', () => {
       test('serialize', () => {
-        expect(() => NonPositiveInt.serialize(Number.NaN)).toThrow(
+        expect(() => GraphQLNonPositiveInt.serialize(Number.NaN)).toThrow(
           /Value is not a number/,
         );
       });
 
       // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
       // test('parseValue', () => {
-      //   expect(() => NonPositiveInt.parseValue(Number.NaN)).toThrow(
+      //   expect(() => GraphQLNonPositiveInt.parseValue(Number.NaN)).toThrow(
       //     /Value is not a number/,
       //   );
       // });
 
       test('parseLiteral', () => {
         expect(() =>
-          NonPositiveInt.parseLiteral({ value: Number.NaN.toString(), kind: Kind.STRING }, {}),
+          GraphQLNonPositiveInt.parseLiteral(
+            { value: Number.NaN.toString(), kind: Kind.STRING },
+            {},
+          ),
         ).toThrow(
           /Can only validate integers as non-positive integers but got a/,
         );
