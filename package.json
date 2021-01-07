@@ -43,7 +43,7 @@
   "devDependencies": {
     "@graphql-tools/merge": "6.2.6",
     "@graphql-tools/schema": "7.1.2",
-    "@types/jest": "26.0.19",
+    "@types/jest": "26.0.20",
     "@types/mongodb": "3.6.3",
     "@types/node": "13.13.39",
     "@typescript-eslint/eslint-plugin": "4.12.0",
