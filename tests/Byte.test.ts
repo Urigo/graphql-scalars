@@ -18,8 +18,10 @@ const byte = Buffer.from([
   101,
   33,
 ]);
+const byteLeading0 = Buffer.from([4, 8, 15, 16, 23, 42]);
 const base64String = byte.toString('base64');
 const hexString = byte.toString('hex');
+const hexLeading0 = byteLeading0.toString('hex');
 const notBase64 = 'RG9kZ2VycyBSdWxlIQ=';
 const notHex = '446f64676572732052756c65z';
 const looksLikeBase64 = 'c40473746174';
@@ -140,5 +142,11 @@ describe.each<[string, string, Buffer]>([
 
   test(`parseValue (${testType})`, () => {
     expect(GraphQLByte.parseValue(encodedValue)).toEqual(decodedValue);
+  });
+});
+
+describe('hex with leading 0', () => {
+  test('should return true when validating', () => {
+    expect(GraphQLByte.parseValue(hexLeading0)).toEqual(byteLeading0);
   });
 });
