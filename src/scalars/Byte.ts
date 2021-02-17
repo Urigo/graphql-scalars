@@ -10,6 +10,8 @@ import {
 type BufferJson = { type: 'Buffer'; data: number[] };
 const base64Validator = /^(?:[A-Za-z0-9+]{4})*(?:[A-Za-z0-9+]{2}==|[A-Za-z0-9+]{3}=)?$/;
 function hexValidator(value: string) {
+  // Ensure that any leading 0 is removed from the hex string to avoid false negatives.
+  const sanitizedValue = value.charAt(0) === '0' ? value.slice(1) : value;
   // For larger strings, we run into issues with MAX_SAFE_INTEGER, so split the string
   // into smaller pieces to avoid this issue.
   if (value.length > 8) {
@@ -23,9 +25,9 @@ function hexValidator(value: string) {
         16,
       );
     }
-    return parsedString === value;
+    return parsedString === sanitizedValue;
   }
-  return parseInt(value, 16).toString(16) === value;
+  return parseInt(value, 16).toString(16) === sanitizedValue;
 }
 
 function validate(value: Buffer | string | BufferJson) {
