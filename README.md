@@ -96,6 +96,8 @@ scalar IPv6
 
 scalar ISBN
 
+scalar JWT
+
 scalar MAC
 
 scalar Port
@@ -155,6 +157,7 @@ import {
   IPv4Resolver,
   IPv6Resolver,
   ISBNResolver,
+  JWTResolver,
   MACResolver,
   PortResolver,
   RGBResolver,
@@ -219,6 +222,8 @@ const myResolverMap = {
   Port: PortResolver,
 
   ISBN: ISBNResolver,
+
+  JWT: JWTResolver,
 
   USCurrency: USCurrencyResolver,
   Currency: CurrencyResolver,
@@ -707,6 +712,11 @@ A field whose value is a [IPv6 address](https://en.wikipedia.org/wiki/IPv6).
 ### ISBN
 
 A field whose value is a [ISBN-10 or ISBN-13 number](https://en.wikipedia.org/wiki/International_Standard_Book_Number).
+
+### JWT
+A field whose value is a [JSON Web Token (JWT)](https://jwt.io/introduction).
+
+The scalar checks only the format (*header.payload.signature*) using a regex and not the validity (signature) of the token.
 
 ### MAC
 
