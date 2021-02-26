@@ -35,6 +35,7 @@ export { GraphQLHSLA } from './HSLA';
 export { GraphQLIPv4 } from './IPv4';
 export { GraphQLIPv6 } from './IPv6';
 export { GraphQLISBN } from './ISBN';
+export { GraphQLJWT } from './JWT';
 export { GraphQLMAC } from './MAC';
 export { GraphQLPort } from './Port';
 export { GraphQLRGB } from './RGB';

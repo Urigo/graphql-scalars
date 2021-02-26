@@ -83,6 +83,27 @@ export const RGBA = () =>
     255,
   )}, ${Math.random()})`;
 export const ISBN = () => `978-3-16-148410-0`;
+export const JWT = () => {
+  // HEADER: {
+  //   "alg": "HS256",
+  //   "typ": "JWT"
+  // }
+  //
+  // PAYLOAD: {
+  //   "sub": "1234567890",
+  //   "iat": 1516239022,
+  //   "project": "graphql-scalars"
+  // }
+  //
+  // SIGNATURE: {
+  //   HMACSHA256(
+  //     base64UrlEncode(header) + "." +
+  //     base64UrlEncode(payload),
+  //     password
+  //   )
+  // }
+  return `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiaWF0IjoxNTE2MjM5MDIyLCJwcm9qZWN0IjoiZ3JhcGhxbC1zY2FsYXJzIn0.nYdrSfE2nNRAgpiEU1uKgn2AYYKLo28Z0nhPXvsuIww`;
+};
 export const USCurrency = () => 1000;
 export const Currency = () => 'USD';
 export const JSON = () => ({});

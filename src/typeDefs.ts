@@ -20,6 +20,7 @@ export const IBAN = `scalar IBAN`;
 export const IPv4 = `scalar IPv4`;
 export const IPv6 = `scalar IPv6`;
 export const ISBN = `scalar ISBN`;
+export const JWT = `scalar JWT`;
 export const JSON = `scalar JSON`;
 export const JSONObject = `scalar JSONObject`;
 export const MAC = `scalar MAC`;
@@ -88,6 +89,7 @@ export const typeDefs = [
   IPv4,
   IPv6,
   ISBN,
+  JWT,
   MAC,
   Port,
   RGB,
