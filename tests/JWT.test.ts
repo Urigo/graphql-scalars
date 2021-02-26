@@ -52,11 +52,29 @@ describe(`JWT`, () => {
         expect(() => GraphQLJWT.serialize(`this is not a jwt`)).toThrow(
           /Value is not a valid JWT/,
         );
+        expect(() => GraphQLJWT.serialize(`missing.signature`)).toThrow(
+          /Value is not a valid JWT/,
+        );
+        expect(() => GraphQLJWT.serialize(`missing.`)).toThrow(
+          /Value is not a valid JWT/,
+        );
+        expect(() => GraphQLJWT.serialize(`missing`)).toThrow(
+          /Value is not a valid JWT/,
+        );
       });
 
       it(`parseValue`, () => {
-        expect(() => GraphQLJWT.serialize(123)).toThrow(/Value is not string/);
+        expect(() => GraphQLJWT.parseValue(123)).toThrow(/Value is not string/);
         expect(() => GraphQLJWT.parseValue(`this is not a JWT`)).toThrow(
+          /Value is not a valid JWT/,
+        );
+        expect(() => GraphQLJWT.parseValue(`missing.signature`)).toThrow(
+          /Value is not a valid JWT/,
+        );
+        expect(() => GraphQLJWT.parseValue(`missing.`)).toThrow(
+          /Value is not a valid JWT/,
+        );
+        expect(() => GraphQLJWT.parseValue(`missing`)).toThrow(
           /Value is not a valid JWT/,
         );
       });
@@ -69,6 +87,33 @@ describe(`JWT`, () => {
         expect(() =>
           GraphQLJWT.parseLiteral(
             { value: `this is not a JWT`, kind: Kind.STRING },
+            {},
+          ),
+        ).toThrow(/Value is not a valid JWT/);
+        expect(() =>
+          GraphQLJWT.parseLiteral(
+            {
+              value: `missing.signature`,
+              kind: Kind.STRING,
+            },
+            {},
+          ),
+        ).toThrow(/Value is not a valid JWT/);
+        expect(() =>
+          GraphQLJWT.parseLiteral(
+            {
+              value: `missing.`,
+              kind: Kind.STRING,
+            },
+            {},
+          ),
+        ).toThrow(/Value is not a valid JWT/);
+        expect(() =>
+          GraphQLJWT.parseLiteral(
+            {
+              value: `missing`,
+              kind: Kind.STRING,
+            },
             {},
           ),
         ).toThrow(/Value is not a valid JWT/);
