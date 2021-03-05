@@ -21,6 +21,8 @@ export const IPv4 = `scalar IPv4`;
 export const IPv6 = `scalar IPv6`;
 export const ISBN = `scalar ISBN`;
 export const JWT = `scalar JWT`;
+export const Latitude = `scalar Latitude`;
+export const Longitude = `scalar Longitude`;
 export const JSON = `scalar JSON`;
 export const JSONObject = `scalar JSONObject`;
 export const MAC = `scalar MAC`;
@@ -90,6 +92,8 @@ export const typeDefs = [
   IPv6,
   ISBN,
   JWT,
+  Latitude,
+  Longitude,
   MAC,
   Port,
   RGB,
