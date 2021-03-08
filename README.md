@@ -98,6 +98,10 @@ scalar ISBN
 
 scalar JWT
 
+scalar Latitude
+
+scalar Longitude
+
 scalar MAC
 
 scalar Port
@@ -158,6 +162,8 @@ import {
   IPv6Resolver,
   ISBNResolver,
   JWTResolver,
+  LatitudeResolver,
+  LongitudeResolver,
   MACResolver,
   PortResolver,
   RGBResolver,
@@ -224,6 +230,9 @@ const myResolverMap = {
   ISBN: ISBNResolver,
 
   JWT: JWTResolver,
+
+  Latitude: LatitudeResolver,
+  Longitude: LongitudeResolver,
 
   USCurrency: USCurrencyResolver,
   Currency: CurrencyResolver,
@@ -714,9 +723,34 @@ A field whose value is a [IPv6 address](https://en.wikipedia.org/wiki/IPv6).
 A field whose value is a [ISBN-10 or ISBN-13 number](https://en.wikipedia.org/wiki/International_Standard_Book_Number).
 
 ### JWT
+
 A field whose value is a [JSON Web Token (JWT)](https://jwt.io/introduction).
 
-The scalar checks only the format (*header.payload.signature*) using a regex and not the validity (signature) of the token.
+The scalar checks only the format (_header.payload.signature_) using a regex and not the validity (signature) of the token.
+
+### Latitude
+
+A field whose value is a valid [decimal degrees latitude number](https://en.wikipedia.org/wiki/Latitude) (53.471).
+
+The **input** value can be either in _decimal_ (53.471) or _sexagesimal_ (53° 21' 16") format.
+
+The **output** value is always in _decimal_ format (53.471).
+
+The maximum decimal degrees **precision** is **8**. See [Decimal Degrees Precision](https://en.wikipedia.org/wiki/Decimal_degrees#Precision) for more information.
+
+_This scalar is inspired by [Geolib](https://github.com/manuelbieh/geolib)._
+
+### Longitude
+
+A field whose value is a valid [decimal degrees longitude number](https://en.wikipedia.org/wiki/Longitude) (53.471).
+
+The **input** value can be either in _decimal_ (53.471) or _sexagesimal_ (53° 21' 16") format.
+
+The **output** value is always in _decimal_ format (53.471).
+
+The maximum decimal degrees **precision** is **8**. See [Decimal Degrees Precision](https://en.wikipedia.org/wiki/Decimal_degrees#Precision) for more information.
+
+_This scalar is inspired by [Geolib](https://github.com/manuelbieh/geolib)._
 
 ### MAC
 

@@ -104,6 +104,8 @@ export const JWT = () => {
   // }
   return `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiaWF0IjoxNTE2MjM5MDIyLCJwcm9qZWN0IjoiZ3JhcGhxbC1zY2FsYXJzIn0.nYdrSfE2nNRAgpiEU1uKgn2AYYKLo28Z0nhPXvsuIww`;
 };
+export const Latitude = () => 41.902782;
+export const Longitude = () => 12.496366;
 export const USCurrency = () => 1000;
 export const Currency = () => 'USD';
 export const JSON = () => ({});
