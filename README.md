@@ -1030,7 +1030,7 @@ Released under the [MIT license](./LICENSE).
 
 This library was originally published as `@okgrow/graphql-scalars`.
 It was created and maintained by the company `ok-grow`.
-We, The Guild, took over the maintaince of that library [later on](https://medium.com/the-guild/the-guild-is-taking-over-maintenance-of-merge-graphql-schemas-so-lets-talk-about-graphql-schema-46246557a225).
+We, The Guild, took over the maintenance of that library [later on](https://medium.com/the-guild/the-guild-is-taking-over-maintenance-of-merge-graphql-schemas-so-lets-talk-about-graphql-schema-46246557a225).
 
 We also like to say thank you to [@adriano-di-giovanni](https://github.com/adriano-di-giovanni) for being extremely generous and giving us the `graphql-scalars` name on npm which was previously owned by his own [library](https://github.com/adriano-di-giovanni/graphql-scalars).
 
