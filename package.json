@@ -29,6 +29,7 @@
     "prebuild": "yarn clean",
     "lint": "eslint --ext .ts \"./src/**/*.ts\"",
     "build": "bob build --single",
+    "deploy:website": "cd website && yarn deploy",
     "test": "jest --forceExit --no-watchman && yarn bundlesize",
     "prepare-release": "yarn build && yarn test",
     "release": "yarn prepare-release && bob prepack && cd dist && npm publish",
