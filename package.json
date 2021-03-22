@@ -42,7 +42,7 @@
     "@types/jest": "26.0.21",
     "@types/mongodb": "3.6.10",
     "@types/node": "13.13.47",
-    "@typescript-eslint/eslint-plugin": "4.18.0",
+    "@typescript-eslint/eslint-plugin": "4.19.0",
     "@typescript-eslint/parser": "4.19.0",
     "bob-the-bundler": "1.2.0",
     "eslint": "7.22.0",
