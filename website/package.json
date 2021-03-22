@@ -3,7 +3,8 @@
   "version": "0.7.0",
   "private": true,
   "scripts": {
-    "generate:config": "echo 'Test'",
+    "postinstall": "patch-package",
+    "generate:config": "echo ''",
     "prestart": "yarn generate:config",
     "start": "docusaurus start",
     "prebuild:prod": "yarn generate:config",
@@ -16,6 +17,7 @@
     "@docusaurus/preset-classic": "2.0.0-alpha.fd17476c3",
     "babel-preset-minify": "0.5.1",
     "classnames": "2.2.6",
+    "patch-package": "6.4.7",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "remark-code-import": "0.2.0",
