@@ -1,10 +1,10 @@
 module.exports = {
   title: 'GraphQL Scalars',
   tagline: 'Query anything, run anywhere',
-  url: 'https://graphql-scalars.com',
+  url: 'https://graphql-scalars.dev',
   baseUrl: '/',
   baseUrlIssueBanner: false,
-  favicon: 'img/logo.png',
+  favicon: 'img/graphql-scalars.svg',
   organizationName: 'urigo',
   projectName: 'graphql-scalars',
   themeConfig: {
@@ -21,7 +21,7 @@ module.exports = {
       title: 'GraphQL Scalars',
       logo: {
         alt: 'GraphQL Scalars',
-        src: '/static/img/logo.png',
+        src: '/static/img/graphql-scalars.svg',
       },
       items: [
         {
