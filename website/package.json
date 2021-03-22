@@ -1,0 +1,36 @@
+{
+  "name": "@graphql-scalars/website",
+  "version": "0.7.0",
+  "private": true,
+  "scripts": {
+    "generate:config": "echo 'Test'",
+    "prestart": "yarn generate:config",
+    "start": "docusaurus start",
+    "prebuild:prod": "yarn generate:config",
+    "build:prod": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy"
+  },
+  "dependencies": {
+    "@docusaurus/core": "2.0.0-alpha.fd17476c3",
+    "@docusaurus/preset-classic": "2.0.0-alpha.fd17476c3",
+    "babel-preset-minify": "0.5.1",
+    "classnames": "2.2.6",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "remark-code-import": "0.2.0",
+    "remark-import-partial": "0.0.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
