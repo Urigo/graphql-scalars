@@ -1,4 +1,4 @@
-[![scalar](https://user-images.githubusercontent.com/25294569/63675022-87723c80-c7f0-11e9-87b9-22c78c9a17e2.gif)](http://the-guild.dev)
+[![scalar](https://user-images.githubusercontent.com/25294569/63675022-87723c80-c7f0-11e9-87b9-22c78c9a17e2.gif)](https://www.graphql-scalars.dev)
 
 [![npm version](https://badge.fury.io/js/graphql-scalars.svg)](https://badge.fury.io/js/graphql-scalars)
 [![Discord Chat](https://img.shields.io/discord/625400653321076807)](https://discord.gg/xud7bH9)
@@ -7,7 +7,7 @@
 
 ## Getting Started
 
-Please refer to the [docs folder](https://github.com/Urigo/graphql-scalars/tree/master/website/docs) for all the documentation related to GraphQL Scalars
+Please refer to the [our website](https://www.graphql-scalars.dev) for all the documentation related to GraphQL Scalars
 
 ## Contributions
 
