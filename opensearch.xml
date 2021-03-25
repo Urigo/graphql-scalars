@@ -7,5 +7,5 @@
   <Image width="16" height="16" type="image/x-icon">https://graphql-scalars.dev/img/graphql-scalars.svg</Image>
   <Url type="text/html" method="get" template="https://graphql-scalars.dev/search?q={searchTerms}"/>
   <Url type="application/opensearchdescription+xml" rel="self" template="https://graphql-scalars.dev/opensearch.xml" />
-  <moz:SearchForm>https://graphql-scalars.dev</moz:SearchForm>
+  <moz:SearchForm>https://graphql-scalars.dev/</moz:SearchForm>
 </OpenSearchDescription>
