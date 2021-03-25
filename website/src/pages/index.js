@@ -61,7 +61,7 @@ function Home() {
   return (
     <Layout title={`GraphQL Scalars`} description="">
       <header className={styles.header}>
-        <img src="/static/img/header.gif" />
+        <img src="img/header.gif" />
         <img
           className={styles.npmBadge}
           alt="npm"

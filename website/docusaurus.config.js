@@ -21,7 +21,7 @@ module.exports = {
       title: 'GraphQL Scalars',
       logo: {
         alt: 'GraphQL Scalars',
-        src: '/static/img/graphql-scalars.svg',
+        src: 'img/graphql-scalars.svg',
       },
       items: [
         {
