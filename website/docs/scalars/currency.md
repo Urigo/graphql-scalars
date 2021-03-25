@@ -1,0 +1,8 @@
+---
+id: currency
+title: Currency
+sidebar_label: Currency
+---
+
+A field whose value is an [ISO-4217 currency](https://en.wikipedia.org/wiki/ISO_4217).
+

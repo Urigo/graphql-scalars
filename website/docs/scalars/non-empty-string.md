@@ -1,0 +1,8 @@
+---
+id: non-empty-string
+title: NonEmptyString
+sidebar_label: NonEmptyString
+---
+
+A field whose value can accept any string except empty ones. It will trim any additional white space before validation. This is useful for required strings that you wish to also force a value for. "" or " " are both considered invalid values.
+

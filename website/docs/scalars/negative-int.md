@@ -1,0 +1,8 @@
+---
+id: negative-int
+title: NegativeInt
+sidebar_label: NegativeInt
+---
+
+Integers that will have a value less than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
+

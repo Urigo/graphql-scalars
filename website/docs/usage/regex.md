@@ -1,7 +1,7 @@
 ---
 id: regex
-title: Using the RegularExpression scalar
-sidebar_label: Using the RegularExpression scalar
+title: Using the RegularExpression Scalar Factory
+sidebar_label: Generate your own scalars from regular expressions
 ---
 
 ### Using the RegularExpression scalar

@@ -59,7 +59,7 @@ import styles from './styles.module.css';
 
 function Home() {
   return (
-    <Layout title={`GraphQL Mesh`} description="">
+    <Layout title={`GraphQL Scalars`} description="">
       <header className={styles.header}>
         <img src="/static/img/header.gif" />
         <img

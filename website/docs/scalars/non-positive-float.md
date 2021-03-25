@@ -1,0 +1,8 @@
+---
+id: non-positive-float
+title: NonPositiveFloat
+sidebar_label: NonPositiveFloat
+---
+
+Floats that will have a value of 0 or less. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
+

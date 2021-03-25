@@ -1,0 +1,9 @@
+---
+id: email-address
+title: EmailAddress
+sidebar_label: EmailAddress
+---
+
+A field whose value conforms to the standard internet email address format as specified in
+[HTML Spec](https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address).
+

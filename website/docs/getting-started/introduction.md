@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-sidebar_label: 1. Introduction
+sidebar_label: Introduction
 image: https://miro.medium.com/max/1400/1*iZfQ7ST9rd7McrHvvVA-BA@2x.png
 ---
 

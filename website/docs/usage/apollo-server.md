@@ -1,7 +1,7 @@
 ---
 id: apollo-server
-title: Apollo Server
-sidebar_label: Usage with Apollo Server
+title: Usage with Apollo Server
+sidebar_label: Apollo Server
 ---
 
 ### Usage with Apollo Server

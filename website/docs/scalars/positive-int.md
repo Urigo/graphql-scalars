@@ -1,0 +1,8 @@
+---
+id: positive-int
+title: PositiveInt
+sidebar_label: PositiveInt
+---
+
+Integers that will have a value greater than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
+
