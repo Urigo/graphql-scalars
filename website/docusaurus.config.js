@@ -8,9 +8,6 @@ module.exports = {
   organizationName: 'urigo',
   projectName: 'graphql-scalars',
   themeConfig: {
-    colorMode: {
-      defaultMode: 'dark',
-    },
     algolia: {
       appId: 'ANRJKXZTRW',
       apiKey: '811d453fc7f80306044dd5cc4b87e064',
@@ -25,7 +22,7 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/getting-started/introduction',
+          to: 'docs/introduction',
           activeBasePath: 'docs',
           label: 'API & Documentation',
           position: 'right',

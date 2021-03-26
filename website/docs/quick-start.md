@@ -18,7 +18,7 @@ or
 
 GraphQL Scalars is easy to integrate in your existing GraphQL Schema. You need to add a scalar definition to your SDL type definitions and resolvers like below;
 
-### In your SDL type definitions 
+### In your SDL type definitions
 
 ```graphql
 scalar ScalarName
@@ -44,10 +44,11 @@ const typeDefs = [
 const typeDefs = [
   ScalarNameTypeDefinition,
   // other typeDefs
-]
+];
 ```
 
 ### Importing it in your resolver map
+
 You can either import the specific scalar's resolvers or all of the resolvers once.
 
 ```typescript

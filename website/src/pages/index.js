@@ -1,92 +1,63 @@
-import Link from '@docusaurus/Link';
-// import useBaseUrl from '@docusaurus/useBaseUrl';
-import Layout from '@theme/Layout';
-// import classnames from 'classnames';
 import React from 'react';
-import Button from '../components/ui/Button';
+import classnames from 'classnames';
+import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
-// const features = [
-//   {
-//     title: <>GraphQL as a Query Language</>,
-//     imageUrl: 'img/GraphQL_Logo.svg',
-//     description: (
-//       <>
-//         Use GraphQL as a query language to fetch data from your data-sources
-//         directly, without the need for a running gateway server, or any other
-//         bottleneck.
-//       </>
-//     ),
-//   },
-//   {
-//     title: <>Any Data Source</>,
-//     imageUrl: 'img/mesh-example.png',
-//     description: (
-//       <>
-//         With GraphQL Mesh, you can use GraphQL query language to fetch from
-//         (almost) any data source, without changing the source or modify it's
-//         code.
-//       </>
-//     ),
-//   },
+const features = [];
 
-//   {
-//     title: <>Open Source</>,
-//     imageUrl: 'img/open-source.svg',
-//     description: (
-//       <>
-//         GraphQL Mesh is free and open-source, and been built with the community.
-//         You can contribute, extend and have your custom logic easily.
-//       </>
-//     ),
-//   },
-// ];
-
-// function Feature({ imageUrl, title, description }) {
-//   const imgUrl = useBaseUrl(imageUrl);
-//   return (
-//     <div className={classnames('col col--4', styles.feature)}>
-//       {imgUrl && (
-//         <div className="text--center">
-//           <img className={styles.featureImage} src={imgUrl} alt={title} />
-//         </div>
-//       )}
-//       <h3>{title}</h3>
-//       <p>{description}</p>
-//     </div>
-//   );
-// }
+function Feature({ imageUrl, title, description }) {
+  const imgUrl = useBaseUrl(imageUrl);
+  return (
+    <div className={classnames('col col--4', styles.feature)}>
+      {imgUrl && (
+        <div className="text--center">
+          <img className={styles.featureImage} src={imgUrl} alt={title} />
+        </div>
+      )}
+      <h3 className={styles.featureTitle}>{title}</h3>
+      <p className={styles.featureContent}>{description}</p>
+    </div>
+  );
+}
 
 function Home() {
+  const context = useDocusaurusContext();
+  const { siteConfig = {} } = context;
   return (
-    <Layout title={`GraphQL Scalars`} description="">
-      <header className={styles.header}>
-        <img src="img/header.gif" />
-        <img
-          className={styles.npmBadge}
-          alt="npm"
-          src="https://img.shields.io/npm/v/graphql-scalars?color=%231BCBE2&label=stable&style=for-the-badge"
-        />
+    <Layout title="Welcome" description={siteConfig.tagline}>
+      <header className={classnames('hero hero--primary', styles.heroBanner)}>
+        {/*         <h1 className="hero__title">{siteConfig.title}</h1>
+  <p className="hero__subtitle">{siteConfig.tagline}</p>*/}
+        <img src="/img/banner.gif" className={styles.heroImage} />
+        <a href="https://npmjs.com/graphql-scalars" className={styles.npmBadge}>
+          <img src="https://img.shields.io/npm/v/graphql-scalars?color=%23ff3289&label=stable&style=for-the-badge" />
+        </a>
         <div className={styles.buttons}>
-          <Link to={`/docs/getting-started/introduction`}>
-            <Button>View Docs</Button>
+          <Link
+            className={classnames(
+              'button button--outline button--secondary button--lg',
+              styles.getStarted,
+            )}
+            to={useBaseUrl('docs/introduction')}
+          >
+            Get Started
           </Link>
         </div>
       </header>
-      {/*
       <main>
-        {features && features.length && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
-              </div>
+        <section className={styles.features}>
+          <div className="container">
+            <div className="row">
+              {features?.map((props, idx) => (
+                <Feature key={idx} {...props} />
+              ))}
             </div>
-          </section>
-        )}
-      </main> */}
+          </div>
+        </section>
+      </main>
     </Layout>
   );
 }
