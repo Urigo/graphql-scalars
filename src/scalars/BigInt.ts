@@ -23,7 +23,7 @@ function patchBigInt() {
   }
 }
 
-function coerceBigIntValue(value: bigint | number | string) {
+function coerceBitIntValue(value: string | number | bigint): number | bigint {
   if (isBigIntAvailable()) {
     patchBigInt();
     return BigInt(value);
@@ -32,22 +32,30 @@ function coerceBigIntValue(value: bigint | number | string) {
   }
 }
 
+function parseBigIntValue(value: string): number | bigint {
+  return coerceBitIntValue(value);
+}
+
+function serializeBigInt(value: string | number | bigint): string {
+  return coerceBitIntValue(value).toString();
+}
+
 export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
-  number | string | bigint,
-  bigint | number
+  string | number | bigint,
+  string
 > = /*#__PURE__*/ {
   name: 'BigInt',
   description:
     'The `BigInt` scalar type represents non-fractional signed whole numeric values.',
-  serialize: coerceBigIntValue,
-  parseValue: coerceBigIntValue,
+  serialize: serializeBigInt,
+  parseValue: parseBigIntValue,
   parseLiteral(ast) {
     if (
       ast.kind === Kind.INT ||
       ast.kind === Kind.FLOAT ||
       ast.kind === Kind.STRING
     ) {
-      return coerceBigIntValue(ast.value);
+      return parseBigIntValue(ast.value);
     }
     return null;
   },
