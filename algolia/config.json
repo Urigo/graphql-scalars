@@ -12,8 +12,8 @@
     "https://graphql-inspector.com/docs/index",
     "https://graphql-modules.com/docs/",
     "https://graphql-cli.com/introduction",
-    "https://graphql-scalars.dev/",
-    "https://graphql-scalars.dev/docs/getting-started/introduction",
+    "https://www.graphql-scalars.dev/",
+    "https://www.graphql-scalars.dev/docs/introduction",
     "https://apollo-angular.com/",
     "https://apollo-angular.com/docs/",
     "https://the-guild.dev/"
@@ -26,7 +26,8 @@
     "https://graphql-modules.com/sitemap.xml",
     "https://graphql-cli.com/sitemap.xml",
     "https://the-guild.dev/sitemap.xml",
-    "https://graphql-code-generator.com/sitemap.xml"
+    "https://graphql-code-generator.com/sitemap.xml",
+    "https://www.graphql-scalars.dev/sitemap.xml"
   ],
   "sitemap_alternate_links": true,
   "stop_urls": [],
