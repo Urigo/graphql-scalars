@@ -12,7 +12,7 @@ import { Kind } from 'graphql';
 // flowlint-next-line untyped-import:off
 import { stringify } from 'jest-matcher-utils';
 
-const invalidDates = ['invalid date', '2015-02-29'];
+const invalidDates = ['invalid date', '2015-02-29', '2021-07-32'];
 
 const validDates = [
   ['2016-12-17', new Date(Date.UTC(2016, 11, 17))],
@@ -97,7 +97,7 @@ describe('GraphQLDate', () => {
     });
   });
 
-  describe('literial parsing', () => {
+  describe('literal parsing', () => {
     validDates.forEach(([value, expected]) => {
       const literal = {
         kind: Kind.STRING,

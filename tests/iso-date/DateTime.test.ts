@@ -144,7 +144,7 @@ describe('GraphQLDateTime', () => {
     });
   });
 
-  describe('literial parsing', () => {
+  describe('literal parsing', () => {
     validDates.forEach(([value, expected]) => {
       const literal = {
         kind: Kind.STRING,
