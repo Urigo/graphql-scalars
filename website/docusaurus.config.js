@@ -8,6 +8,9 @@ module.exports = {
   organizationName: 'urigo',
   projectName: 'graphql-scalars',
   themeConfig: {
+    colorMode: {
+      disableSwitch: true,
+    },
     algolia: {
       appId: 'ANRJKXZTRW',
       apiKey: '811d453fc7f80306044dd5cc4b87e064',
@@ -85,13 +88,7 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} GraphQL Scalars, The Guild, Inc. Built with Docusaurus.`,
     },
   },
-  scripts: [
-    {
-      src: 'https://the-guild.dev/static/banner.js',
-      // we may want to load it ASAP
-      async: true,
-    },
-  ],
+  scripts: [],
   presets: [
     [
       '@docusaurus/preset-classic',
