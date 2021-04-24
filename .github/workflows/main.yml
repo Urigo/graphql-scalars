@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [10, 12, 14]
+        node_version: [12, 16]
     steps:
       - name: Checkout Master
         uses: actions/checkout@v2
@@ -38,7 +38,7 @@ jobs:
       - name: Use Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '16.x'
       - name: Install Dependencies using Yarn
         run: yarn install
       - name: Build
