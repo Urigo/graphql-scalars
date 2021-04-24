@@ -1,4 +1,9 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import {
+  Kind,
+  GraphQLError,
+  GraphQLScalarType,
+  GraphQLScalarTypeConfig,
+} from 'graphql';
 
 const validate = (value: any) => {
   const EMAIL_ADDRESS_REGEX = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -14,7 +19,10 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLEmailAddress = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLCurrencyConfig: GraphQLScalarTypeConfig<
+  string,
+  string
+> = /*#__PURE__*/ {
   name: 'EmailAddress',
 
   description:
@@ -33,4 +41,10 @@ export const GraphQLEmailAddress = /*#__PURE__*/ new GraphQLScalarType({
 
     return validate(ast.value);
   },
-});
+
+  specifiedByUrl: 'https://www.w3.org/Protocols/rfc822/',
+};
+
+export const GraphQLEmailAddress = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLCurrencyConfig,
+);

@@ -1,4 +1,9 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import {
+  Kind,
+  GraphQLError,
+  GraphQLScalarType,
+  GraphQLScalarTypeConfig,
+} from 'graphql';
 
 const validate = (value: any) => {
   const HSL_REGEX = /^hsl\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*\)$/;
@@ -14,7 +19,10 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLHSL = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLHSLConfig: GraphQLScalarTypeConfig<
+  string,
+  string
+> = /*#__PURE__*/ {
   name: `HSL`,
 
   description: `A field whose value is a CSS HSL color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().`,
@@ -36,4 +44,9 @@ export const GraphQLHSL = /*#__PURE__*/ new GraphQLScalarType({
 
     return validate(ast.value);
   },
-});
+
+  specifiedByUrl:
+    'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()',
+};
+
+export const GraphQLHSL = /*#__PURE__*/ new GraphQLScalarType(GraphQLHSLConfig);

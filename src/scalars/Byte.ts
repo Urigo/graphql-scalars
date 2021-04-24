@@ -1,6 +1,7 @@
 import {
   ASTNode,
   GraphQLScalarType,
+  GraphQLScalarTypeConfig,
   IntValueNode,
   Kind,
   ObjectValueNode,
@@ -70,7 +71,10 @@ function parseObject(ast: ObjectValueNode) {
   );
 }
 
-export const GraphQLByte = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLByteConfig: GraphQLScalarTypeConfig<
+  Buffer | string | BufferJson,
+  Buffer
+> = /*#__PURE__*/ {
   name: 'Byte',
   description: 'The `Byte` scalar type represents byte value as a Buffer',
   serialize: validate,
@@ -87,4 +91,8 @@ export const GraphQLByte = /*#__PURE__*/ new GraphQLScalarType({
         );
     }
   },
-});
+};
+
+export const GraphQLByte = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLByteConfig,
+);

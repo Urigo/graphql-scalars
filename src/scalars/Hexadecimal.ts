@@ -1,6 +1,11 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import {
+  Kind,
+  GraphQLError,
+  GraphQLScalarType,
+  GraphQLScalarTypeConfig,
+} from 'graphql';
 
-const validate = (value: any) => {
+const validate = (value: string) => {
   const HEXADECIMAL_REGEX = /^[a-f0-9]+$/i;
 
   if (typeof value !== 'string') {
@@ -14,7 +19,10 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLHexadecimal = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLHexadecimalConfig: GraphQLScalarTypeConfig<
+  string,
+  string
+> = /*#__PURE__*/ {
   name: `Hexadecimal`,
 
   description: `A field whose value is a hexadecimal: https://en.wikipedia.org/wiki/Hexadecimal.`,
@@ -36,4 +44,8 @@ export const GraphQLHexadecimal = /*#__PURE__*/ new GraphQLScalarType({
 
     return validate(ast.value);
   },
-});
+};
+
+export const GraphQLHexadecimal = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLHexadecimalConfig,
+);

@@ -1,4 +1,9 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import {
+  Kind,
+  GraphQLError,
+  GraphQLScalarType,
+  GraphQLScalarTypeConfig,
+} from 'graphql';
 
 const HEX_COLOR_CODE = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$/;
 
@@ -14,7 +19,10 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLHexColorCode = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLHexColorCodeConfig: GraphQLScalarTypeConfig<
+  string,
+  string
+> = /*#__PURE__*/ {
   name: `HexColorCode`,
 
   description: `A field whose value is a hex color code: https://en.wikipedia.org/wiki/Web_colors.`,
@@ -36,4 +44,10 @@ export const GraphQLHexColorCode = /*#__PURE__*/ new GraphQLScalarType({
 
     return validate(ast.value);
   },
-});
+
+  specifiedByUrl: 'https://en.wikipedia.org/wiki/Web_colors',
+};
+
+export const GraphQLHexColorCode = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLHexColorCodeConfig,
+);

@@ -33,7 +33,7 @@
     "test": "jest --forceExit --no-watchman && yarn bundlesize",
     "prepare-release": "yarn build && yarn test",
     "release": "yarn prepare-release && bob prepack && cd dist && npm publish",
-    "ci:release:canary": "node bump.js && bob prepack && npm publish dist --tag alpha --access public",
+    "ci:release:canary": "node bump.js && bob prepack && cd dist && npm publish --tag alpha --access public",
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test",
     "prepare": "husky install"
   },
