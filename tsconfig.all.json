@@ -3,11 +3,8 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "module": "esnext",
-    "target": "esnext",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "target": "es2018",
+    "lib": ["esnext", "dom"],
     "suppressImplicitAnyIndexErrors": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -22,18 +19,11 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "importHelpers": true,
-    "typeRoots": [
-      "./types",
-      "./node_modules/@types"
-    ],
+    "typeRoots": ["./types", "./node_modules/@types"],
     "baseUrl": ".",
     "paths": {
-      "*": [
-        "./types/*"
-      ]
+      "*": ["./types/*"]
     }
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

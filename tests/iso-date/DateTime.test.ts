@@ -42,6 +42,7 @@ const validDates = [
     '2017-01-07T11:25:00.450+01:00',
     new Date(Date.UTC(2017, 0, 7, 10, 25, 0, 450)),
   ],
+  ['2016-02-01t00:00:00.000z', new Date(Date.UTC(2016, 1, 1, 0, 0, 0, 0))],
 ];
 
 describe('GraphQLDateTime', () => {
