@@ -34,6 +34,7 @@ const validDates = [
   ['16:10:20.1359945Z', new Date(Date.UTC(2017, 0, 1, 16, 10, 20, 135))],
   ['00:00:00+01:30', new Date(Date.UTC(2016, 11, 31, 22, 30))],
   ['00:00:30.3-01:30', new Date(Date.UTC(2017, 0, 1, 1, 30, 30, 300))],
+  ['00:00:00z', new Date(Date.UTC(2017, 0, 1))],
 ];
 
 describe('GraphQLTime', () => {

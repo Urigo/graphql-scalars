@@ -44,6 +44,7 @@ const leapYear = (year: number): boolean => {
 // - Leap seconds cannot be known in advance.
 //
 export const validateTime = (time: string): boolean => {
+  time = time?.toUpperCase();
   const TIME_REGEX = /^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\.\d{1,})?(([Z])|([+|-]([01][0-9]|2[0-3]):[0-5][0-9]))$/;
   return TIME_REGEX.test(time);
 };
@@ -117,14 +118,13 @@ export const validateDate = (datestring: string): boolean => {
 // Where *s is a fraction of seconds with at least 1 digit.
 //
 export const validateDateTime = (dateTimeString: string): boolean => {
-  /*
+  dateTimeString = dateTimeString?.toUpperCase();
   const RFC_3339_REGEX = /^(\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60))(\.\d{1,})?(([Z])|([+|-]([01][0-9]|2[0-3]):[0-5][0-9]))$/;
 
   // Validate the structure of the date-string
   if (!RFC_3339_REGEX.test(dateTimeString)) {
     return false;
   }
-  */
   // Check if it is a correct date using the javascript Date parse() method.
   const time = Date.parse(dateTimeString);
   if (time !== time) {
