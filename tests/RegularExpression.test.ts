@@ -98,21 +98,5 @@ describe('RegularExpression', () => {
         expect(errorMessage.mock.calls[0][1]).toEqual('this does not match');
       });
     });
-
-    describe('not a string', () => {
-      test('serialize', () => {
-        expect(() => GraphQLAbc.serialize(123)).toThrow(/Value is not string/);
-      });
-
-      test('parseValue', () => {
-        expect(() => GraphQLAbc.parseValue(123)).toThrow(/Value is not string/);
-      });
-
-      test('parseLiteral', () => {
-        expect(() =>
-          GraphQLAbc.parseLiteral({ value: '123', kind: Kind.INT }, {}),
-        ).toThrow(/Can only validate strings as regular expressions but got a/);
-      });
-    });
   });
 });

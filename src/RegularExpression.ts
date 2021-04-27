@@ -4,6 +4,7 @@ export type RegularExpressionErrorMessageFn = (r: RegExp, v: any) => string;
 
 export interface RegularExpressionOptions {
   errorMessage?: RegularExpressionErrorMessageFn;
+  description?: string;
 }
 
 export class RegularExpression extends GraphQLScalarType {
@@ -19,7 +20,9 @@ export class RegularExpression extends GraphQLScalarType {
     super({
       name,
 
-      description: `A field whose value matches the provided regular expression ${regex}.`,
+      description:
+        options.description ||
+        `A field whose value matches the provided regular expression ${regex}.`,
 
       serialize(value) {
         if (!REGEX.test(value?.toString())) {
