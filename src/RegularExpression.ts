@@ -1,4 +1,4 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import { GraphQLError, GraphQLScalarType } from 'graphql';
 
 export type RegularExpressionErrorMessageFn = (r: RegExp, v: any) => string;
 
@@ -22,11 +22,7 @@ export class RegularExpression extends GraphQLScalarType {
       description: `A field whose value matches the provided regular expression ${regex}.`,
 
       serialize(value) {
-        if (typeof value !== 'string') {
-          throw new TypeError(`Value is not string: ${value}`);
-        }
-
-        if (!REGEX.test(value)) {
+        if (!REGEX.test(value?.toString())) {
           throw new TypeError(errorMessage(regex, value));
         }
 
@@ -34,11 +30,7 @@ export class RegularExpression extends GraphQLScalarType {
       },
 
       parseValue(value) {
-        if (typeof value !== 'string') {
-          throw new TypeError(`Value is not string: ${value}`);
-        }
-
-        if (!REGEX.test(value)) {
+        if (!REGEX.test(value?.toString())) {
           throw new TypeError(errorMessage(regex, value));
         }
 
@@ -46,13 +38,13 @@ export class RegularExpression extends GraphQLScalarType {
       },
 
       parseLiteral(ast) {
-        if (ast.kind !== Kind.STRING) {
+        if (!('value' in ast)) {
           throw new GraphQLError(
-            `Can only validate strings as regular expressions but got a: ${ast.kind}`,
+            `Can only validate primitive values as regular expressions but got a: ${ast.kind}`,
           );
         }
 
-        if (!REGEX.test(ast.value)) {
+        if (!REGEX.test(ast.value.toString())) {
           throw new TypeError(errorMessage(regex, ast.value));
         }
 
