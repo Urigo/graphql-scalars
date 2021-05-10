@@ -82,6 +82,9 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} GraphQL Scalars, The Guild, Inc. Built with Docusaurus.`,
     },
   },
+  scripts: [
+    'https://the-guild.dev/static/crisp.js'
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
