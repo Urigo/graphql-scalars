@@ -38,7 +38,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@graphql-tools/merge": "6.2.13",
+    "@graphql-tools/merge": "6.2.14",
     "@graphql-tools/schema": "7.1.5",
     "@types/jest": "26.0.23",
     "@types/mongodb": "3.6.12",
