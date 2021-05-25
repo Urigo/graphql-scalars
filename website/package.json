@@ -3,21 +3,16 @@
   "version": "0.7.0",
   "private": true,
   "scripts": {
-    "postinstall": "patch-package",
-    "generate:config": "echo ''",
-    "prestart": "yarn generate:config",
     "start": "docusaurus start",
-    "prebuild:prod": "yarn generate:config",
     "build:prod": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.72",
-    "@docusaurus/preset-classic": "2.0.0-alpha.72",
+    "@docusaurus/core": "2.0.0-beta.0",
+    "@docusaurus/preset-classic": "2.0.0-beta.0",
     "babel-preset-minify": "0.5.1",
     "classnames": "2.3.1",
-    "patch-package": "6.4.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "remark-code-import": "0.3.0",
