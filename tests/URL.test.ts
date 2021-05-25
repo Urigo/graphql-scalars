@@ -110,4 +110,20 @@ describe('URL', () => {
       ).toBeNull();
     });
   });
+
+  describe('not a empty string', () => {
+    test('serialize', () => {
+      expect(() => GraphQLURL.serialize('')).toThrow();
+    });
+
+    test('parseValue', () => {
+      expect(() => GraphQLURL.parseValue('')).toThrow();
+    });
+
+    test('parseLiteral', () => {
+      expect(() =>
+        GraphQLURL.parseLiteral({ value: '', kind: Kind.STRING }, {}),
+      ).toThrow();
+    });
+  });
 });

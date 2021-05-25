@@ -7,14 +7,14 @@ export const GraphQLURL = /*#__PURE__*/ new GraphQLScalarType({
     'A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.',
 
   serialize(value) {
-    if (value) {
-      return new URL(value.toString()).toString();
-    } else {
+    if (value === null) {
       return value;
     }
+
+    return new URL(value.toString()).toString();
   },
 
-  parseValue: (value) => (value ? new URL(value.toString()) : value),
+  parseValue: (value) => (value === null ? value : new URL(value.toString())),
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
@@ -23,10 +23,10 @@ export const GraphQLURL = /*#__PURE__*/ new GraphQLScalarType({
       );
     }
 
-    if (ast.value) {
-      return new URL(ast.value.toString());
-    } else {
+    if (ast.value === null) {
       return ast.value;
+    } else {
+      return new URL(ast.value.toString());
     }
   },
 });
