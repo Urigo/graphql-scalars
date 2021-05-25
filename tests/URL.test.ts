@@ -59,13 +59,13 @@ describe('URL', () => {
   describe('invalid', () => {
     describe('not a URL', () => {
       expect(() => GraphQLURL.serialize('invalidurlexample')).toThrow(
-        'Invalid URL: invalidurlexample',
+        /Invalid URL/,
       );
     });
 
     test(`parseValue invalidurlexample`, () => {
       expect(() => GraphQLURL.parseValue('invalidurlexample')).toThrow(
-        'Invalid URL: invalidurlexample',
+        /Invalid URL/,
       );
     });
 
@@ -75,7 +75,7 @@ describe('URL', () => {
           { value: 'invalidurlexample', kind: Kind.STRING },
           {},
         ),
-      ).toThrow('Invalid URL: invalidurlexample');
+      ).toThrow(/Invalid URL/);
     });
   });
 
