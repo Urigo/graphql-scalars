@@ -12,18 +12,10 @@ import type { GraphQLScalarTypeConfig } from 'graphql';
 import { validateJSDate, validateDate } from './validator';
 import { serializeDate, parseDate } from './formatter';
 
-/**
- * An RFC 3339 compliant date scalar.
- *
- * Input:
- *    This scalar takes an RFC 3339 date string as input and
- *    parses it to a javascript Date.
- *
- * Output:
- *    This scalar serializes javascript Dates and
- *    RFC 3339 date strings to RFC 3339 date strings.
- */
-const config: GraphQLScalarTypeConfig<Date, string> = {
+export const GraphQLDateConfig: GraphQLScalarTypeConfig<
+  Date,
+  string
+> = /*#__PURE__*/ {
   name: 'Date',
   description:
     'A date string, such as 2007-12-03, compliant with the `full-date` ' +
@@ -80,4 +72,17 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
   },
 };
 
-export const GraphQLDate = /*#__PURE__*/ new GraphQLScalarType(config);
+/**
+ * An RFC 3339 compliant date scalar.
+ *
+ * Input:
+ *    This scalar takes an RFC 3339 date string as input and
+ *    parses it to a javascript Date.
+ *
+ * Output:
+ *    This scalar serializes javascript Dates and
+ *    RFC 3339 date strings to RFC 3339 date strings.
+ */
+export const GraphQLDate = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLDateConfig,
+);

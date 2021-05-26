@@ -4,6 +4,7 @@ import {
   GraphQLScalarTypeConfig,
   Kind,
 } from 'graphql';
+
 export type ISO8601Duration = string;
 
 // original implementation

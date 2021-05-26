@@ -12,19 +12,10 @@ import type { GraphQLScalarTypeConfig } from 'graphql'; // eslint-disable-line
 import { validateJSDate, validateDateTime } from './validator';
 import { parseDateTime } from './formatter';
 
-/**
- * An RFC 3339 compliant date-time scalar.
- *
- * Input:
- *    This scalar takes an RFC 3339 date-time string as input and
- *    parses it to a javascript Date.
- *
- * Output:
- *    This scalar serializes javascript Dates,
- *    RFC 3339 date-time strings and unix timestamps
- *    to RFC 3339 UTC date-time strings.
- */
-const config: GraphQLScalarTypeConfig<Date, Date> = {
+export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<
+  Date,
+  Date
+> = /*#__PURE__*/ {
   name: 'DateTime',
   description:
     'A date-time string at UTC, such as 2007-12-03T10:15:30Z, ' +
@@ -99,4 +90,18 @@ const config: GraphQLScalarTypeConfig<Date, Date> = {
   },
 };
 
-export const GraphQLDateTime = /*#__PURE__*/ new GraphQLScalarType(config);
+/**
+ * An RFC 3339 compliant date-time scalar.
+ *
+ * Input:
+ *    This scalar takes an RFC 3339 date-time string as input and
+ *    parses it to a javascript Date.
+ *
+ * Output:
+ *    This scalar serializes javascript Dates,
+ *    RFC 3339 date-time strings and unix timestamps
+ *    to RFC 3339 UTC date-time strings.
+ */
+export const GraphQLDateTime = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLDateTimeConfig,
+);
