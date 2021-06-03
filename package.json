@@ -57,7 +57,7 @@
     "eslint-plugin-standard": "5.0.0",
     "graphql": "15.5.0",
     "husky": "6.0.0",
-    "jest": "27.0.3",
+    "jest": "27.0.4",
     "lint-staged": "11.0.0",
     "mockdate": "3.0.5",
     "mongodb": "3.6.9",
