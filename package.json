@@ -1,17 +1,27 @@
 {
   "name": "graphql-scalars",
-  "version": "1.9.3",
+  "version": "1.10.0",
   "description": "A collection of scalar types not included in base GraphQL.",
   "repository": {
     "type": "git",
     "url": "https://github.com/Urigo/graphql-scalars.git"
   },
   "sideEffects": false,
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
   "typescript": {
     "definition": "dist/index.d.ts"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
   },
   "license": "MIT",
   "jest": {
@@ -47,7 +57,7 @@
     "@types/node": "14.17.3",
     "@typescript-eslint/eslint-plugin": "4.26.1",
     "@typescript-eslint/parser": "4.26.1",
-    "bob-the-bundler": "1.2.1",
+    "bob-the-bundler": "1.4.0",
     "eslint": "7.28.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",
