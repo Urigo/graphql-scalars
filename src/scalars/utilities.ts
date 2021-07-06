@@ -11,7 +11,8 @@ enum VALUE_TYPES {
 }
 
 // More info about Sexagesimal: https://en.wikipedia.org/wiki/Sexagesimal
-const SEXAGESIMAL_REGEX = /^([0-9]{1,3})°\s*([0-9]{1,3}(?:\.(?:[0-9]{1,}))?)['′]\s*(([0-9]{1,3}(\.([0-9]{1,}))?)["″]\s*)?([NEOSW]?)$/;
+const SEXAGESIMAL_REGEX =
+  /^([0-9]{1,3})°\s*([0-9]{1,3}(?:\.(?:[0-9]{1,}))?)['′]\s*(([0-9]{1,3}(\.([0-9]{1,}))?)["″]\s*)?([NEOSW]?)$/;
 
 // TODO: Consider implementing coercion like this...
 // See: https://github.com/graphql/graphql-js/blob/master/src/type/scalars.js#L13
@@ -77,6 +78,7 @@ export function processValue(value: any, scalarName: string) {
   const { range, type } = VALIDATIONS[scalarName];
 
   /* eslint-disable no-restricted-globals */
+  /* eslint-disable use-isnan */
   if (
     value === null ||
     typeof value === 'undefined' ||
