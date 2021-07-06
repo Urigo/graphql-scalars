@@ -70,7 +70,7 @@
     "jest": "27.0.6",
     "lint-staged": "11.0.0",
     "mockdate": "3.0.5",
-    "mongodb": "3.6.9",
+    "mongodb": "3.6.10",
     "prettier": "2.3.2",
     "semver": "7.3.5",
     "ts-jest": "27.0.3",
