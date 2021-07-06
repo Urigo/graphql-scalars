@@ -36,55 +36,8 @@ module.exports = {
         },
       ],
     },
-    footer: {
-      links: [
-        /* {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Style Guide',
-              to: 'docs/doc1'
-            },
-            {
-              label: 'Second Doc',
-              to: 'docs/doc2'
-            }
-          ]
-        }, */
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Discord',
-              href: 'http://bit.ly/guild-chat',
-            },
-            {
-              label: 'Stack Overflow',
-              href:
-                'https://stackoverflow.com/questions/tagged/graphql-scalars',
-            },
-          ],
-        },
-        {
-          title: 'Social',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/Urigo/graphql-scalars/',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/TheGuildDev',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} GraphQL Scalars, The Guild, Inc. Built with Docusaurus.`,
-    },
   },
-  scripts: [
-    'https://the-guild.dev/static/crisp.js'
-  ],
+  scripts: ['https://the-guild.dev/static/crisp.js'],
   presets: [
     [
       '@docusaurus/preset-classic',
