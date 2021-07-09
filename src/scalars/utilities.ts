@@ -77,6 +77,7 @@ export function processValue(value: any, scalarName: string) {
   const { range, type } = VALIDATIONS[scalarName];
 
   /* eslint-disable no-restricted-globals */
+  /* eslint-disable use-isnan */
   if (
     value === null ||
     typeof value === 'undefined' ||
