@@ -58,7 +58,7 @@
     "@typescript-eslint/eslint-plugin": "4.28.3",
     "@typescript-eslint/parser": "4.28.3",
     "bob-the-bundler": "1.4.1",
-    "eslint": "7.30.0",
+    "eslint": "7.31.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-import": "2.23.4",
