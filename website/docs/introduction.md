@@ -9,9 +9,9 @@ image: https://miro.medium.com/max/1400/1*iZfQ7ST9rd7McrHvvVA-BA@2x.png
 
 GraphQL is a wonderful new approach to application data and API layers that's gaining momentum. If
 you have not heard of it, start [here](http://graphql.org/learn/) and check out GraphQL Tools docs
-[Custom scalars](https://www.graphql-tools.com/docs/scalars) also.
+about [Custom scalars](https://www.graphql-tools.com/docs/scalars) as well.
 
-However, for all of GraphQL's greatness. It is missing a couple things that we have (and you might)
+However, for all of GraphQL's greatness, it is missing a couple things that we have (and you might)
 find very useful in defining your schemas. Namely GraphQL has a
 [limited set of scalar types](http://graphql.org/learn/schema/#scalar-types) and we have found there
 are some additional scalar types that are useful in being more precise in our schemas. Thankfully,
