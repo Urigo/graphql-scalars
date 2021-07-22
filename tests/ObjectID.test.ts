@@ -3,19 +3,22 @@
 import { Kind } from 'graphql/language';
 
 import { GraphQLObjectID } from '../src/scalars/ObjectID';
+import { ObjectId } from 'bson';
 
 describe('ObjectId', () => {
   describe('valid', () => {
     test('serialize', () => {
-      expect(GraphQLObjectID.serialize('5e5677d71bdc2ae76344968c')).toBe(
-        '5e5677d71bdc2ae76344968c',
-      );
+      const id = new ObjectId('5e5677d71bdc2ae76344968c');
+
+      expect(GraphQLObjectID.serialize(id)).toBe(id.toHexString());
     });
 
     test('parseValue', () => {
-      expect(GraphQLObjectID.parseValue('5e5677d71bdc2ae76344968c')).toBe(
-        '5e5677d71bdc2ae76344968c',
-      );
+      const id = '5e5677d71bdc2ae76344968c';
+      const parsed = GraphQLObjectID.parseValue(id);
+
+      expect(parsed).toBeInstanceOf(ObjectId);
+      expect(parsed.toHexString()).toBe(id);
     });
 
     test('parseLiteral', () => {
@@ -24,7 +27,7 @@ describe('ObjectId', () => {
           { value: '5e5677d71bdc2ae76344968c', kind: Kind.STRING },
           undefined,
         ), // undefined as prescribed by the Maybe<T> type
-      ).toBe('5e5677d71bdc2ae76344968c');
+      ).toStrictEqual(new ObjectId('5e5677d71bdc2ae76344968c'));
     });
   });
 
