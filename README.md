@@ -7,7 +7,7 @@
 
 ## Getting Started
 
-Please refer to the [our website](https://www.graphql-scalars.dev) for all the documentation related to GraphQL Scalars
+Please refer to [our website](https://www.graphql-scalars.dev) for all the documentation related to GraphQL Scalars
 
 ## Contributions
 
