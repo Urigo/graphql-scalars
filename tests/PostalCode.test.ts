@@ -280,20 +280,20 @@ describe('PostalCode', () => {
 
     describe('Iran', () => {
       test('serialize', () => {
-        expect(GraphQLPostalCode.serialize('1346789876')).toBe('1346789876');
+        expect(GraphQLPostalCode.serialize('1345678987')).toBe('1345678987');
       });
 
       test('parseValue', () => {
-        expect(GraphQLPostalCode.parseValue('1346789876')).toBe('1346789876');
+        expect(GraphQLPostalCode.parseValue('1345678987')).toBe('1345678987');
       });
 
       test('parseLiteral', () => {
         expect(
           GraphQLPostalCode.parseLiteral(
-            { value: '1346789876', kind: Kind.STRING },
+            { value: '1345678987', kind: Kind.STRING },
             {},
           ),
-        ).toBe('1346789876');
+        ).toBe('1345678987');
       });
     });
   });
