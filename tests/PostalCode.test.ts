@@ -277,6 +277,25 @@ describe('PostalCode', () => {
         ).toBe('110003');
       });
     });
+
+    describe('Iran', () => {
+      test('serialize', () => {
+        expect(GraphQLPostalCode.serialize('1346789876')).toBe('1346789876');
+      });
+
+      test('parseValue', () => {
+        expect(GraphQLPostalCode.parseValue('1346789876')).toBe('1346789876');
+      });
+
+      test('parseLiteral', () => {
+        expect(
+          GraphQLPostalCode.parseLiteral(
+            { value: '1346789876', kind: Kind.STRING },
+            {},
+          ),
+        ).toBe('1346789876');
+      });
+    });
   });
 
   describe('invalid', () => {
