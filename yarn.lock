@@ -2141,10 +2141,10 @@ base64-js@^1.3.1:
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
-bob-the-bundler@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/bob-the-bundler/-/bob-the-bundler-1.5.0.tgz#5357d7da0220678bd409070a5ca73e003a3838ad"
-  integrity sha512-12t53+uEM//xVIlh1QFyBUs+w16QejMv8p4t0iDKGOx5S2aveb4NyTrqhfMQHy2UFzAdW7c5VOo9G7nv9T86uQ==
+bob-the-bundler@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/bob-the-bundler/-/bob-the-bundler-1.5.1.tgz#31468d2194fde09f05ee40d5be8f94aa3e5f3781"
+  integrity sha512-npVm0JSzufI3419f1sFJ7r5A7c8oZ8893jJCaXa9AZNRfVMwKXKH6Z+820JvLbQMahQw3IrRImzEnsRWbd6riw==
   dependencies:
     "@rollup/plugin-json" "4.1.0"
     "@rollup/plugin-node-resolve" "7.1.1"
