@@ -24,6 +24,7 @@ import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 // PT - Portugal
 // CH - Switzerland
 // LU - Luxembourg
+// IR - Iran
 //
 // This is really a practical decision of weight (of the package) vs. completeness.
 //
@@ -49,6 +50,7 @@ const POSTAL_CODE_REGEXES = [
   /* PT */ /*#__PURE__*//^\d{4}([\-]\d{3})?$/,
   /* CH */ /*#__PURE__*//^\d{4}$/,
   /* LU */ /*#__PURE__*//^\d{4}$/,
+  /* IR */ /*#__PURE__*//^[1,3-9]{10}$/
 ];
 
 function _testPostalCode(postalCode: string) {
