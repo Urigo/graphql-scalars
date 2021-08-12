@@ -45,7 +45,8 @@
     "release": "yarn prepare-release && bob prepack && cd dist && npm publish",
     "ci:release:canary": "node bump.js && bob prepack && cd dist && npm publish --tag alpha --access public",
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build:types:ts": "node -r esbuild-register scripts/write-types.ts"
   },
   "devDependencies": {
     "@babel/core": "7.15.0",
@@ -58,6 +59,7 @@
     "@typescript-eslint/eslint-plugin": "4.29.1",
     "@typescript-eslint/parser": "4.29.1",
     "bob-the-bundler": "1.5.1",
+    "esbuild-register": "2.6.0",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",

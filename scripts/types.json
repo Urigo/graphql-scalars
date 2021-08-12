@@ -1,0 +1,110 @@
+[
+  {
+    "scalar name": "ID",
+    "serialize expects": "string | number",
+    "serialize returns": "string",
+    "parseValue expects": "string | number",
+    "parseValue returns": "string",
+    "parseLiteral expects": "string | number",
+    "parseLiteral returns": "string"
+  },
+  {
+    "scalar name": "Int",
+    "serialize expects": "number | boolean | string | { toJSON: Function } | { valueOf: Function }",
+    "serialize returns": "number",
+    "parseValue expects": "number",
+    "parseValue returns": "number",
+    "parseLiteral expects": "number",
+    "parseLiteral returns": "number"
+  },
+  {
+    "scalar name": "Float",
+    "serialize expects": "number | boolean | string | { toJSON: Function } | { valueOf: Function }",
+    "serialize returns": "number",
+    "parseValue expects": "number",
+    "parseValue returns": "number",
+    "parseLiteral expects": "number",
+    "parseLiteral returns": "number"
+  },
+  {
+    "scalar name": "String",
+    "serialize expects": "string | boolean | number | { toJSON: Function } | { valueOf: Function }",
+    "serialize returns": "string",
+    "parseValue expects": "string",
+    "parseValue returns": "string",
+    "parseLiteral expects": "string",
+    "parseLiteral returns": "string"
+  },
+  {
+    "scalar name": "Boolean",
+    "serialize expects": "boolean | string | number | { toJSON: Function } | { valueOf: Function }",
+    "serialize returns": "boolean",
+    "parseValue expects": "boolean",
+    "parseValue returns": "boolean",
+    "parseLiteral expects": "boolean",
+    "parseLiteral returns": "boolean"
+  },
+  {
+    "scalar name": "DateTime",
+    "serialize expects": "Date | string | number",
+    "serialize returns": "string",
+    "parseValue expects": "string | Date",
+    "parseValue returns": "Date",
+    "parseLiteral expects": "string",
+    "parseLiteral returns": "Date"
+  },
+  {
+    "scalar name": "Timestamp",
+    "serialize expects": "Date | string | number",
+    "serialize returns": "number",
+    "parseValue expects": "string | number | Date",
+    "parseValue returns": "Date",
+    "parseLiteral expects": "string | number",
+    "parseLiteral returns": "Date"
+  },
+  {
+    "scalar name": "Void",
+    "serialize expects": "any",
+    "serialize returns": null,
+    "parseValue expects": "any",
+    "parseValue returns": null,
+    "parseLiteral expects": "any",
+    "parseLiteral returns": null
+  },
+  {
+    "scalar name": "USCurrency",
+    "serialize expects": "number",
+    "serialize returns": "string",
+    "parseValue expects": "string",
+    "parseValue returns": "number",
+    "parseLiteral expects": "string",
+    "parseLiteral returns": "number"
+  },
+  {
+    "scalar name": "UUID",
+    "serialize expects": "string",
+    "serialize returns": "string",
+    "parseValue expects": "string",
+    "parseValue returns": "string",
+    "parseLiteral expects": "string",
+    "parseLiteral returns": "string"
+  },
+  {
+    "scalar name": "JSON",
+    "serialize expects": "unknown",
+    "serialize returns": "JsonValue",
+    "parseValue expects": "unknown",
+    "parseValue returns": "JsonValue",
+    "parseLiteral expects": "unknown",
+    "parseLiteral returns": "JsonValue"
+  },
+  {
+    "scalar name": "JSONObject",
+    "serialize expects": "Record<string | number,any>",
+    "serialize returns": "JsonObject",
+    "parseValue expects": "Record<string | number,any>",
+    "parseValue returns": "JsonObject",
+    "parseLiteral expects": "Record<string | number,any>",
+    "parseLiteral returns": "JsonObject"
+  }
+]
