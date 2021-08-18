@@ -54,7 +54,7 @@
     "@graphql-tools/merge": "8.0.1",
     "@graphql-tools/schema": "8.1.1",
     "@types/mongodb": "4.0.6",
-    "@types/node": "14.17.9",
+    "@types/node": "14.17.10",
     "@typescript-eslint/eslint-plugin": "4.29.2",
     "@typescript-eslint/parser": "4.29.2",
     "bob-the-bundler": "1.5.1",
