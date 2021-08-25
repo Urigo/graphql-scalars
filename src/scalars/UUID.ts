@@ -1,4 +1,4 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 
 const validate = (value: any) => {
   const UUID_REGEX = /^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$/gi;
@@ -18,7 +18,7 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLUUIDConfig = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLUUIDConfig: GraphQLScalarTypeConfig<string, string> = /*#__PURE__*/ {
   name: `UUID`,
 
   description: `A field whose value is a generic Universally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.`,
@@ -40,7 +40,7 @@ export const GraphQLUUIDConfig = /*#__PURE__*/ new GraphQLScalarType({
 
     return validate(ast.value);
   },
-});
+};
 
 export const GraphQLUUID = /*#__PURE__*/ new GraphQLScalarType(
   GraphQLUUIDConfig,

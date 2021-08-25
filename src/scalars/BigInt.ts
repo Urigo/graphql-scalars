@@ -6,13 +6,6 @@ declare global {
   }
 }
 
-function isBigIntAvailable() {
-  return (
-    (typeof global === 'object' && (global as any).BigInt) ||
-    (typeof window === 'object' && (window as any).BigInt)
-  );
-}
-
 function patchBigInt() {
   if (!BigInt.prototype.toJSON) {
     BigInt.prototype.toJSON =
@@ -22,14 +15,9 @@ function patchBigInt() {
       };
   }
 }
-
 function coerceBigIntValue(value: bigint | number | string) {
-  if (isBigIntAvailable()) {
-    patchBigInt();
-    return BigInt(value);
-  } else {
-    return Number(value);
-  }
+  patchBigInt();
+  return BigInt(value);
 }
 
 export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
