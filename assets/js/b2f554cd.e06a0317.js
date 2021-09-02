@@ -1,0 +1,1 @@
+(self.webpackChunk_graphql_scalars_website=self.webpackChunk_graphql_scalars_website||[]).push([[1477],{4580:function(s){"use strict";s.exports={blogPosts:[]}}}]);
