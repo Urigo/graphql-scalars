@@ -48,8 +48,8 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@babel/core": "7.15.0",
-    "@babel/preset-env": "7.15.0",
+    "@babel/core": "7.15.4",
+    "@babel/preset-env": "7.15.4",
     "@babel/preset-typescript": "7.15.0",
     "@graphql-tools/merge": "8.1.0",
     "@graphql-tools/schema": "8.2.0",
