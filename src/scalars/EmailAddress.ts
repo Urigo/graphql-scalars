@@ -19,7 +19,7 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLCurrencyConfig: GraphQLScalarTypeConfig<
+export const GraphQLEmailAddressConfig: GraphQLScalarTypeConfig<
   string,
   string
 > = /*#__PURE__*/ {
@@ -46,5 +46,5 @@ export const GraphQLCurrencyConfig: GraphQLScalarTypeConfig<
 };
 
 export const GraphQLEmailAddress = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLCurrencyConfig,
+  GraphQLEmailAddressConfig,
 );
