@@ -1563,10 +1563,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@graphql-tools/merge@8.1.1":
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-8.1.1.tgz#692ff0de5e6b025a1166e25d7cda4e20ec0c2df3"
-  integrity sha512-zyeUbFG5zasSQC6LnBxzhmPTLYeeT3c0ijYfmFlIlOLiTAdRgCjIba03l6kKHcCiMDJYr+P+Nz5kKYLGqPSSjQ==
+"@graphql-tools/merge@8.1.2":
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-8.1.2.tgz#50f5763927c51de764d09c5bfd20261671976e24"
+  integrity sha512-kFLd4kKNJXYXnKIhM8q9zgGAtbLmsy3WmGdDxYq3YHBJUogucAxnivQYyRIseUq37KGmSAIWu3pBQ23TKGsGOw==
   dependencies:
     "@graphql-tools/utils" "^8.2.2"
     tslib "~2.3.0"
