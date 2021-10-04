@@ -83,7 +83,7 @@ function AppContent(appProps: AppProps) {
         links={[
           {
             children: 'Home',
-            title: 'Read about Guild Docs',
+            title: 'Read about GraphQL Scalars',
             href: '/',
             onClick: (e) => handlePushRoute('/', e),
           },
@@ -97,7 +97,7 @@ function AppContent(appProps: AppProps) {
         cta={{
           children: 'Get Started',
           title: 'Start using The Guild Docs',
-          href: 'https://github.com/the-guild-org/the-guild-docs',
+          href: 'https://github.com/urigo/graphql-scalars',
           target: '_blank',
           rel: 'noopener noreferrer',
         }}
