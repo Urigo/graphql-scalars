@@ -277,7 +277,11 @@ export {
 
 export { mocks };
 
-export { RegularExpression } from './RegularExpression';
+export {
+  RegularExpression,
+  RegularExpressionOptions,
+  RegularExpressionErrorMessageFn,
+} from './RegularExpression';
 
 export {
   GraphQLDate,
