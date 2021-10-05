@@ -9,7 +9,8 @@ import {
 } from 'graphql';
 
 type BufferJson = { type: 'Buffer'; data: number[] };
-const base64Validator = /^(?:[A-Za-z0-9+]{4})*(?:[A-Za-z0-9+]{2}==|[A-Za-z0-9+]{3}=)?$/;
+const base64Validator =
+  /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/;
 function hexValidator(value: string) {
   // Ensure that any leading 0 is removed from the hex string to avoid false negatives.
   const sanitizedValue = value.charAt(0) === '0' ? value.slice(1) : value;
