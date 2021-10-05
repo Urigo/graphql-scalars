@@ -12,7 +12,7 @@ import {
   DocsPage,
   AppSeoProps,
 } from '@guild-docs/client';
-import { Header, Subheader, Footer } from '@theguild/components';
+import {Header, Subheader, FooterExtended} from '@theguild/components';
 
 import type { AppProps } from 'next/app';
 
@@ -88,17 +88,23 @@ function AppContent(appProps: AppProps) {
             onClick: (e) => handlePushRoute('/', e),
           },
           {
-            children: 'Docs',
-            title: 'View examples',
+            children: 'Docs & API',
+            title: 'View docs and examples',
             href: '/docs',
             onClick: (e) => handlePushRoute('/docs', e),
           },
+          {
+            children: 'Github',
+            title: 'Start using GraphQL Scalar',
+            target: '_blank',
+            href: 'https://github.com/urigo/graphql-scalars',
+            onClick: (e) => handlePushRoute('/docs', e),
+          }
         ]}
         cta={{
           children: 'Get Started',
-          title: 'Start using The Guild Docs',
-          href: 'https://github.com/urigo/graphql-scalars',
-          target: '_blank',
+          title: 'Start using GraphQL Scalar',
+          href: '/docs',
           rel: 'noopener noreferrer',
         }}
       />
@@ -111,7 +117,7 @@ function AppContent(appProps: AppProps) {
       ) : (
         <Component {...pageProps} />
       )}
-      <Footer />
+      <FooterExtended />
     </>
   );
 }
@@ -121,8 +127,8 @@ const AppContentWrapper = appWithTranslation(function TranslatedApp(appProps) {
 });
 
 const defaultSeo: AppSeoProps = {
-  title: 'Guild Docs',
-  description: 'Guild Docs Example',
+  title: 'GraphQL Scalars',
+  description: 'GraphQL Scalars',
   logo: {
     url: 'https://the-guild-docs.vercel.app/assets/subheader-logo.png',
     width: 50,
