@@ -95,8 +95,9 @@ function AppContent(appProps: AppProps) {
           },
           {
             children: 'Github',
-            title: 'Start using GraphQL Scalar',
             target: '_blank',
+            rel: 'noopener norefereer',
+            title: 'Head to the project\'s GitHub',
             href: 'https://github.com/urigo/graphql-scalars',
             onClick: (e) => handlePushRoute('/docs', e),
           }
