@@ -15,8 +15,7 @@ export function getRoutes(): IRoutes {
             $name: 'Available Scalars',
             $routes: [
               'big-int',
-              'byte',
-              'monitoring-and-tracing'
+              'byte'
             ]
           }
         }
