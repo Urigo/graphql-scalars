@@ -4,25 +4,18 @@ import { Kind, ValueNode } from 'graphql/language';
 import { GraphQLByte } from '../src/scalars/Byte';
 
 const byte = Buffer.from([
-  68,
-  111,
-  100,
-  103,
-  101,
-  114,
-  115,
-  32,
-  82,
-  117,
-  108,
-  101,
-  33,
+  68, 111, 100, 103, 101, 114, 115, 32, 82, 117, 108, 101, 33,
+]);
+const slashByte = Buffer.from([
+  82, 71, 57, 107, 90, 50, 86, 121, 99, 121, 66, 83, 100, 87, 120, 108, 73, 81,
+  47, 97, 81, 61,
 ]);
 const byteLeading0 = Buffer.from([4, 8, 15, 16, 23, 42]);
 const base64String = byte.toString('base64');
 const hexString = byte.toString('hex');
 const hexLeading0 = byteLeading0.toString('hex');
 const notBase64 = 'RG9kZ2VycyBSdWxlIQ=';
+const slashBase64String = slashByte.toString('base64');
 const notHex = '446f64676572732052756c65z';
 const looksLikeBase64 = 'c40473746174';
 const looksLikeBase64Buffer = Buffer.from(looksLikeBase64, 'hex');
@@ -148,5 +141,11 @@ describe.each<[string, string, Buffer]>([
 describe('hex with leading 0', () => {
   test('should return true when validating', () => {
     expect(GraphQLByte.parseValue(hexLeading0)).toEqual(byteLeading0);
+  });
+});
+
+describe('base64 containing /', () => {
+  test('should return true when validating', () => {
+    expect(GraphQLByte.parseValue(slashBase64String)).toEqual(slashByte);
   });
 });
