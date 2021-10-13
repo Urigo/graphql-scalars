@@ -59,4 +59,7 @@ export const GraphQLUSCurrency = /*#__PURE__*/ new GraphQLScalarType({
       )}.`,
     );
   },
+  extensions: {
+    codegenScalarType: 'string',
+  },
 });

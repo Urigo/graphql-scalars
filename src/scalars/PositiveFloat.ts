@@ -23,4 +23,7 @@ export const GraphQLPositiveFloat = /*#__PURE__*/ new GraphQLScalarType({
 
     return processValue(ast.value, 'PositiveFloat');
   },
+  extensions: {
+    codegenScalarType: 'number',
+  },
 });

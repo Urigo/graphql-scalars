@@ -29,4 +29,7 @@ export const GraphQLURL = /*#__PURE__*/ new GraphQLScalarType({
       return new URL(ast.value.toString());
     }
   },
+  extensions: {
+    codegenScalarType: 'URL | string',
+  },
 });

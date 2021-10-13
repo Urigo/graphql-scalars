@@ -92,6 +92,9 @@ export const GraphQLByteConfig: GraphQLScalarTypeConfig<
         );
     }
   },
+  extensions: {
+    codegenScalarType: 'Buffer | string',
+  },
 };
 
 export const GraphQLByte = /*#__PURE__*/ new GraphQLScalarType(

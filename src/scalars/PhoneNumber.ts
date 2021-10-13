@@ -51,4 +51,7 @@ export const GraphQLPhoneNumber = /*#__PURE__*/ new GraphQLScalarType({
 
     return ast.value;
   },
+  extensions: {
+    codegenScalarType: 'string',
+  },
 });

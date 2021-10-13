@@ -39,6 +39,9 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
     }
     return null;
   },
+  extensions: {
+    codegenScalarType: 'bigint',
+  },
 };
 
 export const GraphQLBigInt = /*#__PURE__*/ new GraphQLScalarType(

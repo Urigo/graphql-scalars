@@ -80,6 +80,9 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
       `Time cannot represent an invalid time-string ${String(value)}.`,
     );
   },
+  extensions: {
+    codegenScalarType: 'Date | string',
+  },
 };
 
 export const GraphQLTime = /*#__PURE__*/ new GraphQLScalarType(config);

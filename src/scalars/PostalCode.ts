@@ -112,4 +112,7 @@ export const GraphQLPostalCode = /*#__PURE__*/ new GraphQLScalarType({
 
     return ast.value;
   },
+  extensions: {
+    codegenScalarType: 'string',
+  },
 });

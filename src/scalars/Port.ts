@@ -40,4 +40,7 @@ export const GraphQLPort = /*#__PURE__*/ new GraphQLScalarType({
 
     return validate(ast.value);
   },
+  extensions: {
+    codegenScalarType: 'string | number',
+  },
 });

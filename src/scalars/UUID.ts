@@ -1,7 +1,13 @@
-import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import {
+  Kind,
+  GraphQLError,
+  GraphQLScalarType,
+  GraphQLScalarTypeConfig,
+} from 'graphql';
 
 const validate = (value: any) => {
-  const UUID_REGEX = /^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$/gi;
+  const UUID_REGEX =
+    /^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$/gi;
 
   if (typeof value !== 'string') {
     throw new TypeError(`Value is not string: ${value}`);
@@ -18,29 +24,33 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLUUIDConfig: GraphQLScalarTypeConfig<string, string> = /*#__PURE__*/ {
-  name: `UUID`,
+export const GraphQLUUIDConfig: GraphQLScalarTypeConfig<string, string> =
+  /*#__PURE__*/ {
+    name: `UUID`,
 
-  description: `A field whose value is a generic Universally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.`,
+    description: `A field whose value is a generic Universally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.`,
 
-  serialize(value) {
-    return validate(value);
-  },
+    serialize(value) {
+      return validate(value);
+    },
 
-  parseValue(value) {
-    return validate(value);
-  },
+    parseValue(value) {
+      return validate(value);
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as UUIDs but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as UUIDs but got a: ${ast.kind}`,
+        );
+      }
 
-    return validate(ast.value);
-  },
-};
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  };
 
 export const GraphQLUUID = /*#__PURE__*/ new GraphQLScalarType(
   GraphQLUUIDConfig,

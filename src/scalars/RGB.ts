@@ -1,6 +1,7 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-const RGB_REGEX = /^rgb\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*\)$/;
+const RGB_REGEX =
+  /^rgb\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*\)$/;
 
 const validate = (value: any) => {
   if (typeof value !== 'string') {
@@ -35,5 +36,8 @@ export const GraphQLRGB = /*#__PURE__*/ new GraphQLScalarType({
     }
 
     return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
   },
 });

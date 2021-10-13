@@ -29,4 +29,7 @@ export const GraphQLNonEmptyString = /*#__PURE__*/ new GraphQLScalarType({
     }
     return validate(ast.value);
   },
+  extensions: {
+    codegenScalarType: 'string',
+  },
 });

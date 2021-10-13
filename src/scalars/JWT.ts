@@ -4,16 +4,16 @@ import { GraphQLError, GraphQLScalarType, Kind } from 'graphql';
 const JWS_REGEX = /^[a-zA-Z0-9\-_]+?\.[a-zA-Z0-9\-_]+?\.([a-zA-Z0-9\-_]+)?$/;
 
 const validate = (value: any) => {
-    if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
-    }
-  
-    if (!JWS_REGEX.test(value)) {
-      throw new TypeError(`Value is not a valid JWT: ${value}`);
-    }
-  
-    return value;
-  };
+  if (typeof value !== 'string') {
+    throw new TypeError(`Value is not string: ${value}`);
+  }
+
+  if (!JWS_REGEX.test(value)) {
+    throw new TypeError(`Value is not a valid JWT: ${value}`);
+  }
+
+  return value;
+};
 
 export const GraphQLJWT = /*#__PURE__*/ new GraphQLScalarType({
   name: `JWT`,
@@ -36,5 +36,8 @@ export const GraphQLJWT = /*#__PURE__*/ new GraphQLScalarType({
     }
 
     return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
   },
 });

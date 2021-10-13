@@ -1,6 +1,7 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-const HSLA_REGEX = /^hsla\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)\s*\)$/;
+const HSLA_REGEX =
+  /^hsla\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)\s*\)$/;
 
 const validate = (value: any) => {
   if (typeof value !== 'string') {
@@ -35,5 +36,8 @@ export const GraphQLHSLA = /*#__PURE__*/ new GraphQLScalarType({
     }
 
     return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
   },
 });

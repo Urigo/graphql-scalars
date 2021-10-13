@@ -16,4 +16,7 @@ export const GraphQLVoid = /*#__PURE__*/ new GraphQLScalarType({
   parseLiteral() {
     return null;
   },
+  extensions: {
+    codegenScalarType: 'void',
+  },
 });

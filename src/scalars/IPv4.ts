@@ -1,6 +1,7 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-const IPV4_REGEX = /^(?:(?:(?:0?0?[0-9]|0?[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}(?:0?0?[0-9]|0?[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\/(?:[0-9]|[1-2][0-9]|3[0-2]))?)$/;
+const IPV4_REGEX =
+  /^(?:(?:(?:0?0?[0-9]|0?[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}(?:0?0?[0-9]|0?[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\/(?:[0-9]|[1-2][0-9]|3[0-2]))?)$/;
 
 const validate = (value: any) => {
   if (typeof value !== 'string') {
@@ -35,5 +36,8 @@ export const GraphQLIPv4 = /*#__PURE__*/ new GraphQLScalarType({
     }
 
     return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
   },
 });

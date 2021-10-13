@@ -79,6 +79,9 @@ export const GraphQLSafeIntConfig: GraphQLScalarTypeConfig<
     const num = parseInt(ast.value, 10);
     return parseSafeIntValue(num);
   },
+  extensions: {
+    codegenScalarType: 'number',
+  },
 };
 
 export const GraphQLSafeInt = /*#__PURE__*/ new GraphQLScalarType(

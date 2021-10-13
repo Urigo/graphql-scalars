@@ -19,32 +19,33 @@ const validate = (value: string) => {
   return value;
 };
 
-export const GraphQLHexadecimalConfig: GraphQLScalarTypeConfig<
-  string,
-  string
-> = /*#__PURE__*/ {
-  name: `Hexadecimal`,
+export const GraphQLHexadecimalConfig: GraphQLScalarTypeConfig<string, string> =
+  /*#__PURE__*/ {
+    name: `Hexadecimal`,
 
-  description: `A field whose value is a hexadecimal: https://en.wikipedia.org/wiki/Hexadecimal.`,
+    description: `A field whose value is a hexadecimal: https://en.wikipedia.org/wiki/Hexadecimal.`,
 
-  serialize(value) {
-    return validate(value);
-  },
+    serialize(value) {
+      return validate(value);
+    },
 
-  parseValue(value) {
-    return validate(value);
-  },
+    parseValue(value) {
+      return validate(value);
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as a hexadecimal but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as a hexadecimal but got a: ${ast.kind}`,
+        );
+      }
 
-    return validate(ast.value);
-  },
-};
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  };
 
 export const GraphQLHexadecimal = /*#__PURE__*/ new GraphQLScalarType(
   GraphQLHexadecimalConfig,

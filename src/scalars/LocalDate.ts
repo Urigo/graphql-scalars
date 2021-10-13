@@ -56,4 +56,7 @@ export const GraphQLLocalDate = /*#__PURE__*/ new GraphQLScalarType({
 
     return validateLocalDate(ast.value);
   },
+  extensions: {
+    codegenScalarType: 'string',
+  },
 });

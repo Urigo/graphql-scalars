@@ -38,4 +38,7 @@ export const GraphQLLocalEndTime = /*#__PURE__*/ new GraphQLScalarType({
 
     return validateLocalEndTime(ast.value);
   },
+  extensions: {
+    codegenScalarType: 'string',
+  },
 });

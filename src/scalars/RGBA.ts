@@ -1,6 +1,7 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-const RGBA_REGEX = /^rgba\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*.\d+)\s*\)$/;
+const RGBA_REGEX =
+  /^rgba\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*.\d+)\s*\)$/;
 
 const validate = (value: any) => {
   if (typeof value !== 'string') {
@@ -35,5 +36,8 @@ export const GraphQLRGBA = /*#__PURE__*/ new GraphQLScalarType({
     }
 
     return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
   },
 });

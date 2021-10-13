@@ -23,4 +23,7 @@ export const GraphQLNegativeFloat = /*#__PURE__*/ new GraphQLScalarType({
 
     return processValue(ast.value, 'NegativeFloat');
   },
+  extensions: {
+    codegenScalarType: 'number',
+  },
 });

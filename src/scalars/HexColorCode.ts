@@ -46,6 +46,9 @@ export const GraphQLHexColorCodeConfig: GraphQLScalarTypeConfig<
   },
 
   specifiedByUrl: 'https://en.wikipedia.org/wiki/Web_colors',
+  extensions: {
+    codegenScalarType: 'string',
+  },
 };
 
 export const GraphQLHexColorCode = /*#__PURE__*/ new GraphQLScalarType(

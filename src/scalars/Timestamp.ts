@@ -43,4 +43,7 @@ export const GraphQLTimestamp = /*#__PURE__*/ new GraphQLScalarType({
   serialize: serializeDate,
   parseValue: parseDate,
   parseLiteral: parseDateFromLiteral,
+  extensions: {
+    codegenScalarType: 'Date | string | number',
+  },
 });

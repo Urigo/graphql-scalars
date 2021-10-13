@@ -23,4 +23,7 @@ export const GraphQLPositiveInt = /*#__PURE__*/ new GraphQLScalarType({
 
     return processValue(ast.value, 'PositiveInt');
   },
+  extensions: {
+    codegenScalarType: 'number',
+  },
 });

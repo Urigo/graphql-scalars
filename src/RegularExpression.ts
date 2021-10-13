@@ -53,6 +53,9 @@ export class RegularExpression extends GraphQLScalarType {
 
         return ast.value;
       },
+      extensions: {
+        codegenScalarType: 'string',
+      },
     });
   }
 }

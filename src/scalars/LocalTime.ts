@@ -1,7 +1,8 @@
 import { GraphQLScalarType, Kind, GraphQLError } from 'graphql';
 
 // 24-hour time with optional seconds and milliseconds - `HH:mm[:ss[.SSS]]`
-const LOCAL_TIME_FORMAT = /^([0-1][0-9]|2[0-3]):([0-5][0-9])(:[0-5][0-9](\.\d{3})?)?$/;
+const LOCAL_TIME_FORMAT =
+  /^([0-1][0-9]|2[0-3]):([0-5][0-9])(:[0-5][0-9](\.\d{3})?)?$/;
 
 export function validateLocalTime(value: any) {
   if (typeof value !== 'string') {
@@ -40,5 +41,8 @@ export const GraphQLLocalTime = /*#__PURE__*/ new GraphQLScalarType({
     }
 
     return validateLocalTime(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
   },
 });
