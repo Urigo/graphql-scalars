@@ -2749,28 +2749,22 @@
     unified "^10.1.0"
     unist-util-remove "^3.1.0"
 
-"@guild-docs/server@1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@guild-docs/server/-/server-1.0.6.tgz#f814f2c43b43e0a2e5a689e45b1bdb2a25375846"
-  integrity sha512-oLz7tDVsWYyTDP5/0HLhrA5GXihT+wrr1Cvw17SPBR8wGnZL78WjaVFE6/nkBcxngxZYUbOvcw2w+HNDPNsG4w==
+"@guild-docs/server@2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@guild-docs/server/-/server-2.0.2.tgz#117c35c73e36b23a01ba8c565629a8978216e0dd"
+  integrity sha512-RRaBOpAhrmpOzzermwix6CqVTpxTnoC0jBD8jJDDBE3wiIsRnUMEL639xNV/0b7RO34RBiD+9NA+pIzHFC7C4g==
   dependencies:
-    "@guild-docs/types" "^1.0.2"
+    "@guild-docs/mdx-remote" "^1.0.0"
+    "@guild-docs/types" "^1.0.3"
     github-slugger "^1.4.0"
     globby "^11.0.4"
     gray-matter "^4.0.3"
-    next-mdx-remote "3.0.6"
     node-fetch "^2.6.5"
-    npms.io "^2.1.0"
     remark-emoji "^3.0.1"
     remark-slug "^7.0.0"
     tiny-lru "^7.0.6"
     unified "^10.1.0"
     unist-util-visit "^4.1.0"
-
-"@guild-docs/types@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@guild-docs/types/-/types-1.0.2.tgz#99d424e702d75bb5a84d0ce898f192fa58fcaf8c"
-  integrity sha512-dqTsMORehm4ASbzDwIeNJAv5Rkva36EqahhxhoqGR8ehVwFRx3G/S7bGoc8pqikb1AE0sBc5RW6Txw4x4rdfJg==
 
 "@guild-docs/types@^1.0.3":
   version "1.0.3"
@@ -3877,7 +3871,7 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-axios@0.21.1, axios@^0.21.1:
+axios@^0.21.1:
   version "0.21.1"
   resolved "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
   integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
@@ -6136,7 +6130,7 @@ esbuild-windows-arm64@0.13.8:
   resolved "https://registry.yarnpkg.com/esbuild-windows-arm64/-/esbuild-windows-arm64-0.13.8.tgz#e59ae004496fd8a5ab67bfc7945a2e47480d6fb9"
   integrity sha512-HW6Mtq5eTudllxY2YgT62MrVcn7oq2o8TAoAvDUhyiEmRmDY8tPwAhb1vxw5/cdkbukM3KdMYtksnUhF/ekWeg==
 
-esbuild@0.13.8, esbuild@^0.13.4:
+esbuild@0.13.8:
   version "0.13.8"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.13.8.tgz#bd7cc51b881ab067789f88e17baca74724c1ec4f"
   integrity sha512-A4af7G7YZLfG5OnARJRMtlpEsCkq/zHZQXewgPA864l9D6VjjbH1SuFYK/OSV6BtHwDGkdwyRrX0qQFLnMfUcw==
@@ -8854,16 +8848,6 @@ next-i18next@8.9.0:
     i18next-fs-backend "^1.0.7"
     react-i18next "^11.8.13"
 
-next-mdx-remote@3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/next-mdx-remote/-/next-mdx-remote-3.0.6.tgz#e8ccfc2d2f126a3d269e23c1e1b2a8f623e94520"
-  integrity sha512-nLyDACEvebCwZonab29/AayXddgActZRcWvtsX8KKzxeRQH4Kjm9/5psD5ARU6ZTa3lALhVss+nCbejll3o5/g==
-  dependencies:
-    "@mdx-js/mdx" "^1.6.22"
-    "@mdx-js/react" "^1.6.22"
-    esbuild "^0.13.4"
-    pkg-dir "^5.0.0"
-
 next-remote-watch@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-remote-watch/-/next-remote-watch-1.0.0.tgz#34c5a015b1bd191f906479c00baabd1a33cf04f5"
@@ -9074,13 +9058,6 @@ npm-run-path@^4.0.1:
   integrity sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==
   dependencies:
     path-key "^3.0.0"
-
-npms.io@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/npms.io/-/npms.io-2.1.0.tgz"
-  integrity sha512-dImPsPz9MXBW3Q3GRW4OqDoq1quo5bgrRLnUye3XQXFRluFxAqbSvnkBZbHMsnGvv7rlqhbTn4miU26KgST9ZA==
-  dependencies:
-    axios "0.21.1"
 
 nprogress@^0.2.0:
   version "0.2.0"
@@ -9573,13 +9550,6 @@ pkg-dir@^4.1.0:
   integrity sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
   dependencies:
     find-up "^4.0.0"
-
-pkg-dir@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/pkg-dir/-/pkg-dir-5.0.0.tgz"
-  integrity sha512-NPE8TDbzl/3YQYY7CSS228s3g2ollTFnc+Qi3tqmqJp9Vg2ovUpixcJEo2HJScN2Ez+kEaal6y70c0ehqJBJeA==
-  dependencies:
-    find-up "^5.0.0"
 
 pkg-up@3.1.0:
   version "3.1.0"
