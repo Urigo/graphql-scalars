@@ -2750,10 +2750,10 @@
   dependencies:
     purgecss "^4.0.3"
 
-"@guild-docs/client@1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@guild-docs/client/-/client-1.1.3.tgz#d684a447fd7e94ea07950800936808639458b6ce"
-  integrity sha512-V1J0E37N1YoNfH/pN2PvYph7fN++lnd39hWeqjDSg3RDKmMWJO9Y17hFOoKL9w3Ux8eA/0W8HVQnCeZ9dlmr8A==
+"@guild-docs/client@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@guild-docs/client/-/client-1.2.0.tgz#f5292a39817b78bb768834ac04e1fcf973c6b1b2"
+  integrity sha512-PIclS6Fssv2vXXHtiuGhexmJgDQ1eihfy/+bLkdvS1WSjqykX99gwU0eXiWwLe5QxB0jfHMv9AmE7Ii78Mjmvg==
   dependencies:
     "@guild-docs/mdx-remote" "^1.0.0"
     "@guild-docs/types" "^1.0.3"
@@ -2765,7 +2765,7 @@
     react-use "^17.3.1"
     remove-markdown "^0.3.0"
     use-immer "^0.6.0"
-    zustand "^3.6.0"
+    zustand "^3.6.1"
 
 "@guild-docs/mdx-remote@^1.0.0":
   version "1.0.0"
@@ -13275,10 +13275,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zustand@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/zustand/-/zustand-3.6.0.tgz#7f89b72eed66e717b1e012781273085bce90728d"
-  integrity sha512-kCzsXL0GaJrG/EluZJJEaUQrf0pAlAD4qcTp8DU96pdF03RAGcGzVGorpIvh4cyKYbxn3wJbR6Hac4j3SsAS1g==
+zustand@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-3.6.1.tgz#d309074dd632ca7b14e20353e5c55274e3d72eda"
+  integrity sha512-2ghTWZhOx3xUK7drIa/1fVbuzyG70XKfCXIATrRBFDPcRRV4V/9uptNOKgyCvPwCDYgLpla4EtFbXNbdLpfPcw==
 
 zwitch@^1.0.0:
   version "1.0.5"
