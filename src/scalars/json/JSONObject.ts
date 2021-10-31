@@ -10,7 +10,7 @@ export const GraphQLJSONObjectConfig: GraphQLScalarTypeConfig<object, object> =
     serialize: ensureObject,
     parseValue: ensureObject,
     parseLiteral: parseObject,
-    specifiedByUrl:
+    specifiedByURL:
       'http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf',
     extensions: {
       codegenScalarType: 'Record<string, any>',

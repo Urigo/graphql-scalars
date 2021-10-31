@@ -5,7 +5,7 @@ import {
   GraphQLScalarTypeConfig,
 } from 'graphql';
 
-const validate = (value: string) => {
+const validate = (value: any) => {
   const HEXADECIMAL_REGEX = /^[a-f0-9]+$/i;
 
   if (typeof value !== 'string') {

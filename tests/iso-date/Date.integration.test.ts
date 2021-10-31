@@ -53,18 +53,18 @@ const schema = new GraphQLSchema({
 });
 
 it('executes a query that includes a date', async () => {
-  const query = `
-     query DateTest($date: Date!) {
-       validDate
-       validDateString
-       input(date: $date)
-       inputNull: input
-     }
-   `;
+  const source = /* GraphQL */ `
+    query DateTest($date: Date!) {
+      validDate
+      validDateString
+      input(date: $date)
+      inputNull: input
+    }
+  `;
 
   const variables = { date: '2017-10-01' };
 
-  const response = await graphql(schema, query, null, null, variables);
+  const response = await graphql({ schema, source, variableValues: variables });
 
   expect(response).toEqual({
     data: {
@@ -101,26 +101,26 @@ it('parses input to a JS Date', (done) => {
     }),
   });
 
-  const query = `
-     query DateTest($date: Date!) {
-       input(date: $date)
-     }
-   `;
+  const source = /* GraphQL */ `
+    query DateTest($date: Date!) {
+      input(date: $date)
+    }
+  `;
   const variables = { date: '2016-12-17' };
 
-  graphql(schema, query, null, null, variables);
+  graphql({ schema, source, variableValues: variables });
 });
 
 it('errors if there is an invalid date returned from the resolver', async () => {
-  const query = `
-     {
-       invalidDateString
-       invalidDate
-       invalidType
-     }
-   `;
+  const source = /* GraphQL */ `
+    {
+      invalidDateString
+      invalidDate
+      invalidType
+    }
+  `;
 
-  const response = await graphql(schema, query);
+  const response = await graphql({ schema, source });
 
   expect(response).toEqual({
     data: {
@@ -141,15 +141,15 @@ it('errors if there is an invalid date returned from the resolver', async () => 
 });
 
 it('errors if the variable value is not a valid date', async () => {
-  const query = `
-     query DateTest($date: Date!) {
-       input(date: $date)
-     }
-   `;
+  const source = /* GraphQL */ `
+    query DateTest($date: Date!) {
+      input(date: $date)
+    }
+  `;
 
   const variables = { date: '2017-10-001' };
 
-  const response = await graphql(schema, query, null, null, variables);
+  const response = await graphql({ schema, source, variableValues: variables });
 
   expect(response).toEqual({
     errors: [
@@ -161,15 +161,15 @@ it('errors if the variable value is not a valid date', async () => {
 });
 
 it('errors if the variable value is not of type string', async () => {
-  const query = `
-     query DateTest($date: Date!) {
-       input(date: $date)
-     }
-   `;
+  const source = /* GraphQL */ `
+    query DateTest($date: Date!) {
+      input(date: $date)
+    }
+  `;
 
   const variables = { date: 4 };
 
-  const response = await graphql(schema, query, null, null, variables);
+  const response = await graphql({ schema, source, variableValues: variables });
 
   expect(response).toEqual({
     errors: [
@@ -181,13 +181,13 @@ it('errors if the variable value is not of type string', async () => {
 });
 
 it('errors if the literal input value is not a valid date', async () => {
-  const query = `
-     {
-       input(date: "2017-10-001")
-     }
-   `;
+  const source = /* GraphQL */ `
+    {
+      input(date: "2017-10-001")
+    }
+  `;
 
-  const response = await graphql(schema, query);
+  const response = await graphql({ schema, source });
 
   expect(response).toEqual({
     errors: [
@@ -199,13 +199,13 @@ it('errors if the literal input value is not a valid date', async () => {
 });
 
 it('errors if the literal input value in a query is not a string', async () => {
-  const query = `
-     {
-       input(date: 4)
-     }
-   `;
+  const source = /* GraphQL */ `
+    {
+      input(date: 4)
+    }
+  `;
 
-  const response = await graphql(schema, query);
+  const response = await graphql({ schema, source });
 
   expect(response).toEqual({
     errors: [

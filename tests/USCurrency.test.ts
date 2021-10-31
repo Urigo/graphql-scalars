@@ -40,8 +40,12 @@ describe('USCurrency', () => {
     const schema = createGraphQLSchema(() => {
       return value;
     });
-    const query = '{ currencyValue }';
-    return graphql(schema, query).then((result) => {
+    const source = /* GraphQL */ `
+      {
+        currencyValue
+      }
+    `;
+    return graphql({ schema, source }).then((result) => {
       const { errors } = result;
       expect(errors[0].message).toEqual(
         `Currency cannot represent non integer type "${value}"`,
@@ -54,8 +58,12 @@ describe('USCurrency', () => {
     const schema = createGraphQLSchema(() => {
       return value;
     });
-    const query = '{ currencyValue }';
-    const result = await graphql(schema, query);
+    const source = /* GraphQL */ `
+      {
+        currencyValue
+      }
+    `;
+    const result = await graphql({ schema, source });
 
     const {
       data: { currencyValue },
@@ -69,8 +77,12 @@ describe('USCurrency', () => {
     const schema = createGraphQLSchema(() => {
       return value;
     });
-    const query = '{ currencyValue }';
-    return graphql(schema, query).then((result) => {
+    const source = /* GraphQL */ `
+      {
+        currencyValue
+      }
+    `;
+    return graphql({ schema, source }).then((result) => {
       const {
         data: { currencyValue },
       } = result;
@@ -83,12 +95,12 @@ describe('USCurrency', () => {
     const schema = createGraphQLSchema(noop, (source, { currencyValue }) => {
       return currencyValue;
     });
-    const query = `
+    const source = /* GraphQL */ `
       mutation {
         setCurrency(currencyValue:${value})
       }
     `;
-    return graphql(schema, query).catch((e) => {
+    return graphql({ schema, source }).catch((e) => {
       expect(e.message).toEqual(
         `Currency cannot represent an invalid currency-string ${value}.`,
       );
@@ -100,12 +112,12 @@ describe('USCurrency', () => {
     const schema = createGraphQLSchema(noop, (source, { currencyValue }) => {
       return currencyValue;
     });
-    const query = `
+    const source = /* GraphQL */ `
       mutation {
         setCurrency(currencyValue:${value})
       }
     `;
-    return graphql(schema, query).catch((e) => {
+    return graphql({ schema, source }).catch((e) => {
       expect(e.message).toEqual(
         `Currency cannot represent an invalid currency-string ${value}.`,
       );
@@ -118,12 +130,12 @@ describe('USCurrency', () => {
       expect(currencyValue).toEqual(1250);
       return currencyValue;
     });
-    const query = `
+    const source = /* GraphQL */ `
       mutation {
         setCurrency(currencyValue:"${value}")
       }
     `;
-    return graphql(schema, query).then((result) => {
+    return graphql({ schema, source }).then((result) => {
       expect(result.errors).toBeFalsy();
     });
   });
@@ -134,12 +146,12 @@ describe('USCurrency', () => {
       expect(currencyValue).toEqual(2290000);
       return currencyValue;
     });
-    const query = `
+    const source = /* GraphQL */ `
       mutation {
         setCurrency(currencyValue:"${value}")
       }
     `;
-    return graphql(schema, query).then((result) => {
+    return graphql({ schema, source }).then((result) => {
       expect(result.errors).toBeFalsy();
     });
   });
@@ -150,16 +162,18 @@ describe('USCurrency', () => {
       expect(currencyValue).toEqual(1250);
       return currencyValue;
     });
-    const query = `
-      mutation set($currency:USCurrency!) {
-        setCurrency(currencyValue:$currency)
+    const source = /* GraphQL */ `
+      mutation set($currency: USCurrency!) {
+        setCurrency(currencyValue: $currency)
       }
     `;
-    return graphql(schema, query, null, null, { currency: value }).then(
-      (result) => {
-        expect(result.errors).toBeFalsy();
-      },
-    );
+    return graphql({
+      schema,
+      source,
+      variableValues: { currency: value },
+    }).then((result) => {
+      expect(result.errors).toBeFalsy();
+    });
   });
 
   it('should parse input string value - 2290000', () => {
@@ -168,15 +182,17 @@ describe('USCurrency', () => {
       expect(currencyValue).toEqual(2290000);
       return currencyValue;
     });
-    const query = `
-      mutation set($currency:USCurrency!) {
-        setCurrency(currencyValue:$currency)
+    const source = /* GraphQL */ `
+      mutation set($currency: USCurrency!) {
+        setCurrency(currencyValue: $currency)
       }
     `;
-    return graphql(schema, query, null, null, { currency: value }).then(
-      (result) => {
-        expect(result.errors).toBeFalsy();
-      },
-    );
+    return graphql({
+      schema,
+      source,
+      variableValues: { currency: value },
+    }).then((result) => {
+      expect(result.errors).toBeFalsy();
+    });
   });
 });

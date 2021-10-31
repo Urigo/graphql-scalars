@@ -43,7 +43,7 @@ export const GraphQLEmailAddressConfig: GraphQLScalarTypeConfig<
     return validate(ast.value);
   },
 
-  specifiedByUrl: 'https://www.w3.org/Protocols/rfc822/',
+  specifiedByURL: 'https://www.w3.org/Protocols/rfc822/',
   extensions: {
     codegenScalarType: 'string',
   },
