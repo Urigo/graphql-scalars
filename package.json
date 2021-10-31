@@ -24,11 +24,6 @@
     }
   },
   "license": "MIT",
-  "jest": {
-    "roots": [
-      "src"
-    ]
-  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all",

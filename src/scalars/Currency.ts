@@ -44,7 +44,7 @@ export const GraphQLCurrencyConfig: GraphQLScalarTypeConfig<string, string> =
       return validate(ast.value);
     },
 
-    specifiedByUrl: 'https://en.wikipedia.org/wiki/ISO_4217',
+    specifiedByURL: 'https://en.wikipedia.org/wiki/ISO_4217',
     extensions: {
       codegenScalarType: 'string',
     },

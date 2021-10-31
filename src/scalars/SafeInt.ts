@@ -65,7 +65,7 @@ export const GraphQLSafeIntConfig: GraphQLScalarTypeConfig<
   description:
     'The `SafeInt` scalar type represents non-fractional signed whole numeric values that are ' +
     'considered safe as defined by the ECMAScript specification.',
-  specifiedByUrl:
+  specifiedByURL:
     'https://www.ecma-international.org/ecma-262/#sec-number.issafeinteger',
   serialize: serializeSafeIntValue,
   parseValue: parseSafeIntValue,

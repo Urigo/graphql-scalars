@@ -45,7 +45,7 @@ export const GraphQLHexColorCodeConfig: GraphQLScalarTypeConfig<
     return validate(ast.value);
   },
 
-  specifiedByUrl: 'https://en.wikipedia.org/wiki/Web_colors',
+  specifiedByURL: 'https://en.wikipedia.org/wiki/Web_colors',
   extensions: {
     codegenScalarType: 'string',
   },

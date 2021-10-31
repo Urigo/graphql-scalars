@@ -44,7 +44,7 @@ export const GraphQLHSLConfig: GraphQLScalarTypeConfig<string, string> =
       return validate(ast.value);
     },
 
-    specifiedByUrl:
+    specifiedByURL:
       'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()',
     extensions: {
       codegenScalarType: 'string',

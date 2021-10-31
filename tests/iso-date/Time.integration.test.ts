@@ -62,19 +62,19 @@ const schema = new GraphQLSchema({
 });
 
 it('executes a query that includes a time', async () => {
-  const query = `
-     query TimeTest($time: Time!) {
-       validJSDate
-       validUTCTimeString
-       validTimeString
-       input(time: $time)
-       inputNull: input
-     }
-   `;
+  const source = /* GraphQL */ `
+    query TimeTest($time: Time!) {
+      validJSDate
+      validUTCTimeString
+      validTimeString
+      input(time: $time)
+      inputNull: input
+    }
+  `;
 
   const variables = { time: '14:30:00Z' };
 
-  const response = await graphql(schema, query, null, null, variables);
+  const response = await graphql({ schema, source, variableValues: variables });
 
   expect(response).toEqual({
     data: {
@@ -88,15 +88,15 @@ it('executes a query that includes a time', async () => {
 });
 
 it('shifts an input time to UTC', async () => {
-  const query = `
-     query TimeTest($time: Time!) {
-       input(time: $time)
-     }
-   `;
+  const source = /* GraphQL */ `
+    query TimeTest($time: Time!) {
+      input(time: $time)
+    }
+  `;
 
   const variables = { time: '00:00:00+01:30' };
 
-  const response = await graphql(schema, query, null, null, variables);
+  const response = await graphql({ schema, source, variableValues: variables });
 
   expect(response).toEqual({
     data: {
@@ -132,27 +132,27 @@ it('parses input to a JS Date', (done) => {
     }),
   });
 
-  const query = `
-     query TimeTest($time: Time!) {
-       input(time: $time)
-     }
-   `;
+  const source = /* GraphQL */ `
+    query TimeTest($time: Time!) {
+      input(time: $time)
+    }
+  `;
 
   const variables = { time: '00:00:00+01:30' };
 
-  graphql(schema, query, null, null, variables);
+  graphql({ schema, source, variableValues: variables });
 });
 
 it('errors if there is an invalid time returned from the resolver', async () => {
-  const query = `
-     {
-       invalidTimeString
-       invalidJSDate
-       invalidType
-     }
-   `;
+  const source = /* GraphQL */ `
+    {
+      invalidTimeString
+      invalidJSDate
+      invalidType
+    }
+  `;
 
-  const response = await graphql(schema, query);
+  const response = await graphql({ schema, source });
 
   expect(response).toEqual({
     data: {
@@ -171,15 +171,15 @@ it('errors if there is an invalid time returned from the resolver', async () => 
 });
 
 it('errors if the variable value is not a valid time', async () => {
-  const query = `
-     query TimeTest($time: Time!) {
-       input(time: $time)
-     }
-   `;
+  const source = /* GraphQL */ `
+    query TimeTest($time: Time!) {
+      input(time: $time)
+    }
+  `;
 
   const variables = { time: '__2222' };
 
-  const response = await graphql(schema, query, null, null, variables);
+  const response = await graphql({ schema, source, variableValues: variables });
 
   expect(response).toEqual({
     errors: [
@@ -191,15 +191,15 @@ it('errors if the variable value is not a valid time', async () => {
 });
 
 it('errors if the variable value is not of type string', async () => {
-  const query = `
-     query DateTest($time: Time!) {
-       input(time: $time)
-     }
-   `;
+  const source = /* GraphQL */ `
+    query DateTest($time: Time!) {
+      input(time: $time)
+    }
+  `;
 
   const variables = { time: 4 };
 
-  const response = await graphql(schema, query, null, null, variables);
+  const response = await graphql({ schema, source, variableValues: variables });
 
   expect(response).toEqual({
     errors: [
@@ -211,13 +211,13 @@ it('errors if the variable value is not of type string', async () => {
 });
 
 it('errors if the literal input value is not a valid time', async () => {
-  const query = `
-     {
-       input(time: "__invalid__")
-     }
-   `;
+  const source = /* GraphQL */ `
+    {
+      input(time: "__invalid__")
+    }
+  `;
 
-  const response = await graphql(schema, query);
+  const response = await graphql({ schema, source });
 
   expect(response).toEqual({
     errors: [
@@ -229,13 +229,13 @@ it('errors if the literal input value is not a valid time', async () => {
 });
 
 it('errors if the literal input value in a query is not a string', async () => {
-  const query = `
-     {
-       input(time: 4)
-     }
-   `;
+  const source = /* GraphQL */ `
+    {
+      input(time: 4)
+    }
+  `;
 
-  const response = await graphql(schema, query);
+  const response = await graphql({ schema, source });
 
   expect(response).toEqual({
     errors: [

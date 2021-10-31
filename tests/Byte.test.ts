@@ -1,6 +1,6 @@
 /* global describe, test, expect */
 
-import { Kind, ValueNode } from 'graphql/language';
+import { Kind, ObjectValueNode, ValueNode } from 'graphql/language';
 import { GraphQLByte } from '../src/scalars/Byte';
 
 const byte = Buffer.from([
@@ -23,7 +23,10 @@ const looksLikeHex = 'xARzdGF0';
 const looksLikeHexBuffer = Buffer.from(looksLikeHex, 'base64');
 const notByte = 1;
 
-function createBufferObject(type: string, values: ValueNode[]) {
+function createBufferObject(
+  type: string,
+  values: ValueNode[],
+): ObjectValueNode {
   return {
     fields: [
       {

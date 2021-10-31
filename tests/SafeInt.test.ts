@@ -62,7 +62,7 @@ describe('SafeInt', () => {
 
   describe('valid', () => {
     test('serialize', async () => {
-      const query = /* GraphQL */ `
+      const source = /* GraphQL */ `
         {
           a: inc(num: 1)
           b: inc(num: 9007199254740990)
@@ -75,7 +75,7 @@ describe('SafeInt', () => {
           i: isString
         }
       `;
-      const { data, errors } = await graphql(schema, query);
+      const { data, errors } = await graphql({ schema, source });
 
       expect(data.a).toEqual(2);
       expect(data.b).toEqual(9007199254740991);
@@ -90,8 +90,8 @@ describe('SafeInt', () => {
     });
 
     test('parseValue', async () => {
-      const query = /* GraphQL */ `
-        query($a: SafeInt!, $b: SafeInt!, $c: SafeInt!, $d: SafeInt!) {
+      const source = /* GraphQL */ `
+        query ($a: SafeInt!, $b: SafeInt!, $c: SafeInt!, $d: SafeInt!) {
           a: echo(num: $a)
           b: echo(num: $b)
           c: echo(num: $c)
@@ -104,7 +104,11 @@ describe('SafeInt', () => {
         c: -1,
         d: -9007199254740991,
       };
-      const { data, errors } = await graphql(schema, query, {}, {}, variables);
+      const { data, errors } = await graphql({
+        schema,
+        source,
+        variableValues: variables,
+      });
 
       expect(data.a).toEqual(1);
       expect(data.b).toEqual(9007199254740991);
@@ -114,7 +118,7 @@ describe('SafeInt', () => {
     });
 
     test('parseLiteral', async () => {
-      const query = /* GraphQL */ `
+      const source = /* GraphQL */ `
         {
           a: echo(num: 1)
           b: echo(num: 9007199254740991)
@@ -122,7 +126,7 @@ describe('SafeInt', () => {
           d: echo(num: -9007199254740991)
         }
       `;
-      const { data, errors } = await graphql(schema, query);
+      const { data, errors } = await graphql({ schema, source });
 
       expect(data.a).toEqual(1);
       expect(data.b).toEqual(9007199254740991);
@@ -134,7 +138,7 @@ describe('SafeInt', () => {
 
   describe('invalid', () => {
     test('serialize', async () => {
-      const query = /* GraphQL */ `
+      const source = /* GraphQL */ `
         {
           a: inc(num: 9007199254740991)
           b: dec(num: -9007199254740991)
@@ -142,7 +146,7 @@ describe('SafeInt', () => {
           d: isFloat
         }
       `;
-      const { errors } = await graphql(schema, query);
+      const { errors } = await graphql({ schema, source });
 
       expect(errors).toHaveLength(4);
       expect(errors[0].message).toEqual(
@@ -160,8 +164,8 @@ describe('SafeInt', () => {
     });
 
     test('parseValue', async () => {
-      const query = /* GraphQL */ `
-        query($a: SafeInt!, $b: SafeInt!) {
+      const source = /* GraphQL */ `
+        query ($a: SafeInt!, $b: SafeInt!) {
           a: echo(num: $a)
           b: echo(num: $b)
         }
@@ -170,7 +174,11 @@ describe('SafeInt', () => {
         a: 9007199254740992,
         b: -9007199254740992,
       };
-      const { errors } = await graphql(schema, query, {}, {}, variables);
+      const { errors } = await graphql({
+        schema,
+        source,
+        variableValues: variables,
+      });
 
       expect(errors).toHaveLength(2);
       expect(errors[0].message).toEqual(
@@ -182,14 +190,14 @@ describe('SafeInt', () => {
     });
 
     test('parseLiteral', async () => {
-      const query = /* GraphQL */ `
+      const source = /* GraphQL */ `
         {
           a: echo(num: 9007199254740992)
           b: echo(num: -9007199254740992)
           c: echo(num: "42")
         }
       `;
-      const { errors } = await graphql(schema, query);
+      const { errors } = await graphql({ schema, source });
 
       expect(errors).toHaveLength(3);
       expect(errors[0].message).toEqual(

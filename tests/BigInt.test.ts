@@ -92,14 +92,14 @@ describe('BigInt', () => {
   };
 
   it('2', async () => {
-    const { data, errors } = await graphql(schema, invalidQuery2);
+    const { data, errors } = await graphql({ schema, source: invalidQuery2 });
 
     expect(errors).toHaveLength(1);
     expect(errors[0].message).toContain('is not an integer');
     expect(data).toEqual(null);
   });
   it('3', async () => {
-    const { data, errors } = await graphql(schema, validQuery);
+    const { data, errors } = await graphql({ schema, source: validQuery });
     expect(errors).toEqual(undefined);
     expect(data).toEqual({
       a: 2n,
@@ -111,13 +111,11 @@ describe('BigInt', () => {
     });
   });
   it('4', async () => {
-    const { data, errors } = await graphql(
+    const { data, errors } = await graphql({
       schema,
-      validMutation,
-      null,
-      null,
-      validVariables,
-    );
+      source: validMutation,
+      variableValues: validVariables,
+    });
     expect(errors).toEqual(undefined);
     expect(data).toEqual({
       a: { result: 2147483647n },
