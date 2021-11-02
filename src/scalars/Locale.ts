@@ -3,7 +3,7 @@ import tags from 'language-tags';
 
 function validateLanguageTag(value: any) {
   if (tags(value).valid()) {
-    return value;
+    return tags(value).format();
   }
   throw new TypeError(`Value is not a valid Locale: ${value}`);
 }
@@ -12,7 +12,7 @@ export const GraphQLLocale = /*#__PURE__*/ new GraphQLScalarType({
   name: 'Locale',
   description:
     "A Locale language tag as specified in IETF BCP 47 (RFC 5646) defining the user's language, " +
-    'region and any special variant preferences, e.g. en-US or fr',
+    'region and any special variant preferences, e.g. en-US',
   serialize: validateLanguageTag,
   parseValue: validateLanguageTag,
   parseLiteral(ast) {
