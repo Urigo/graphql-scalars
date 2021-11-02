@@ -52,6 +52,7 @@ import {
   GraphQLIBAN,
   GraphQLObjectID,
   GraphQLVoid,
+  GraphQLDID,
 } from './scalars';
 import { GraphQLDuration } from './scalars/iso-date/Duration';
 
@@ -106,6 +107,7 @@ export {
   IBAN as IBANTypeDefinition,
   ObjectID as ObjectIDTypeDefinition,
   Void as VoidTypeDefinition,
+  DID as DIDDefinition,
 } from './typeDefs';
 
 export { typeDefs } from './typeDefs';
@@ -163,6 +165,7 @@ export {
   GraphQLIBAN as IBANResolver,
   GraphQLObjectID as ObjectIDResolver,
   GraphQLVoid as VoidResolver,
+  GraphQLDID as DIDResolver,
 };
 
 export const resolvers = {
@@ -218,6 +221,7 @@ export const resolvers = {
   IBAN: GraphQLIBAN,
   ObjectID: GraphQLObjectID,
   Void: GraphQLVoid,
+  DID: GraphQLDID,
 };
 
 export {
@@ -273,6 +277,7 @@ export {
   IBAN as IBANMock,
   ObjectID as ObjectIDMock,
   Void as VoidMock,
+  DID as DIDMock,
 } from './mocks';
 
 export { mocks };
@@ -336,4 +341,5 @@ export {
   GraphQLIBAN,
   GraphQLObjectID,
   GraphQLVoid,
+  GraphQLDID,
 };

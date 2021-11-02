@@ -52,6 +52,7 @@ export const Long = 'scalar Long';
 export const ObjectID = 'scalar ObjectID';
 
 export const Void = 'scalar Void';
+export const DID = 'scalar DID';
 
 export const typeDefs = [
   Date,
@@ -106,4 +107,5 @@ export const typeDefs = [
   IBAN,
   ObjectID,
   Void,
+  DID,
 ];
