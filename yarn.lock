@@ -1683,6 +1683,11 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
+"@types/language-tags@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/language-tags/-/language-tags-1.0.0.tgz#81829b5c50e324c0e6637264cd0d2754e7d7ba1a"
+  integrity sha512-pSCb1l71akSb46t3+kKyjEEe1Gb1NxxWfVeUacXwpYc4KGKF1+QnECQ26cGwVCTp9lqKAmNNN2d0FYMO2LV03Q==
+
 "@types/mongodb@4.0.6":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@types/mongodb/-/mongodb-4.0.6.tgz#3732d725e6cdef0a5e95f2944af1dd9c79759371"
@@ -4130,6 +4135,18 @@ kleur@^3.0.3:
   version "3.0.3"
   resolved "https://registry.npmjs.org/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
+
+language-subtag-registry@~0.3.2:
+  version "0.3.21"
+  resolved "https://registry.yarnpkg.com/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz#04ac218bea46f04cb039084602c6da9e788dd45a"
+  integrity sha512-L0IqwlIXjilBVVYKFT37X9Ih11Um5NEl9cbJIuU/SwP/zEEAbBPOnEeeuxVMf45ydWQRDQN3Nqc96OgbH1K+Pg==
+
+language-tags@1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/language-tags/-/language-tags-1.0.5.tgz#d321dbc4da30ba8bf3024e040fa5c14661f9193a"
+  integrity sha1-0yHbxNowuovzAk4ED6XBRmH5GTo=
+  dependencies:
+    language-subtag-registry "~0.3.2"
 
 leven@^3.1.0:
   version "3.1.0"
