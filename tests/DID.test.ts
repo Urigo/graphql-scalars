@@ -2,7 +2,7 @@
 import { Kind } from 'graphql/language';
 import { GraphQLDID } from '../src/scalars/DID';
 
-describe('URL', () => {
+describe('DID', () => {
   describe('valid - DID', () => {
     test('serialize', () => {
       expect(GraphQLDID.serialize('did:example:123456789abcdefghi')).toBe(
