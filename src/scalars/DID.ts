@@ -1,4 +1,9 @@
-import { GraphQLScalarType, Kind, GraphQLError } from 'graphql';
+import {
+  GraphQLScalarType,
+  Kind,
+  GraphQLError,
+  GraphQLScalarTypeConfig,
+} from 'graphql';
 
 // See: https://www.w3.org/TR/2021/PR-did-core-20210803/#did-syntax
 const DID_REGEX =
@@ -16,7 +21,9 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLDID = new GraphQLScalarType({
+const specifiedByURL = 'https://www.w3.org/TR/did-core/';
+
+export const GraphQLDIDConfig = {
   name: 'DID',
 
   description:
@@ -36,8 +43,11 @@ export const GraphQLDID = new GraphQLScalarType({
     return validate(ast.value);
   },
 
-  specifiedByURL: 'https://www.w3.org/TR/did-core/',
+  specifiedByURL,
+  specifiedByUrl: specifiedByURL,
   extensions: {
     codegenScalarType: 'string',
   },
-});
+} as GraphQLScalarTypeConfig<string, string>;
+
+export const GraphQLDID = new GraphQLScalarType(GraphQLDIDConfig);

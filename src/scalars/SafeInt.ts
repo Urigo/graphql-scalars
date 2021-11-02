@@ -57,16 +57,16 @@ function parseSafeIntValue(inputValue: any): number {
   return inputValue;
 }
 
-export const GraphQLSafeIntConfig: GraphQLScalarTypeConfig<
-  number | string,
-  number
-> = {
+const specifiedByURL =
+  'https://www.ecma-international.org/ecma-262/#sec-number.issafeinteger';
+
+export const GraphQLSafeIntConfig = {
   name: 'SafeInt',
   description:
     'The `SafeInt` scalar type represents non-fractional signed whole numeric values that are ' +
     'considered safe as defined by the ECMAScript specification.',
-  specifiedByURL:
-    'https://www.ecma-international.org/ecma-262/#sec-number.issafeinteger',
+  specifiedByURL,
+  specifiedByUrl: specifiedByURL,
   serialize: serializeSafeIntValue,
   parseValue: parseSafeIntValue,
   parseLiteral(ast) {
@@ -82,7 +82,7 @@ export const GraphQLSafeIntConfig: GraphQLScalarTypeConfig<
   extensions: {
     codegenScalarType: 'number',
   },
-};
+} as GraphQLScalarTypeConfig<number | string, number>;
 
 export const GraphQLSafeInt = /*#__PURE__*/ new GraphQLScalarType(
   GraphQLSafeIntConfig,
