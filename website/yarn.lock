@@ -6372,10 +6372,10 @@ fraction.js@^4.1.1:
   resolved "https://registry.npmjs.org/fraction.js/-/fraction.js-4.1.1.tgz"
   integrity sha512-MHOhvvxHTfRFpF1geTK9czMIZ6xclsEor2wkIGYYq+PxcQqT7vStJqjhe6S1TenZrMZzo+wlqOufBDVepUEgPg==
 
-framer-motion@5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-5.0.2.tgz#968ac1815eab9ac9b6ae4b83010f88d023376b98"
-  integrity sha512-9noBJ3CxSE8MCe0Dj0MqCXBnPFjaOMyx4q6zqV3CWqvsPZSUxsyUaF6Ds3FhFOAABQFesFYCX968Wf48Lalztw==
+framer-motion@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-5.1.0.tgz#55ee74143a234d1fbf05364cad1ea37599a39018"
+  integrity sha512-T5eR/2UE2C+1BaUKzB3J6YulwihM480CRsezAJ9oTHcdUZzpYB4s/sWPDGEgSwqWyQobOC1i4FYCZ2MgUszsjQ==
   dependencies:
     framesync "6.0.1"
     hey-listen "^1.0.8"
