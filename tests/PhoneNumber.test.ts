@@ -32,7 +32,7 @@ describe('PhoneNumber', () => {
         expect(() =>
           GraphQLPhoneNumber.serialize('this is not a phone number'),
         ).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
         );
       });
 
@@ -40,7 +40,7 @@ describe('PhoneNumber', () => {
         expect(() =>
           GraphQLPhoneNumber.parseValue('this is not a phone number'),
         ).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
         );
       });
 
@@ -51,7 +51,7 @@ describe('PhoneNumber', () => {
             {},
           ),
         ).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
         );
       });
     });
@@ -79,7 +79,7 @@ describe('PhoneNumber', () => {
     describe('too long', () => {
       test('serialize', () => {
         expect(() => GraphQLPhoneNumber.serialize('+1789555123456789')).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
         );
       });
 
@@ -87,7 +87,7 @@ describe('PhoneNumber', () => {
         expect(() =>
           GraphQLPhoneNumber.parseValue('+1789555123456789'),
         ).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
         );
       });
 
@@ -98,7 +98,32 @@ describe('PhoneNumber', () => {
             {},
           ),
         ).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
+        );
+      });
+    });
+
+    describe('too small', () => {
+      test('serialize', () => {
+        expect(() => GraphQLPhoneNumber.serialize('+123')).toThrow(
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
+        );
+      });
+
+      test('parseValue', () => {
+        expect(() => GraphQLPhoneNumber.parseValue('+123')).toThrow(
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
+        );
+      });
+
+      test('parseLiteral', () => {
+        expect(() =>
+          GraphQLPhoneNumber.parseLiteral(
+            { value: '+123', kind: Kind.STRING },
+            {},
+          ),
+        ).toThrow(
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
         );
       });
     });
@@ -106,13 +131,13 @@ describe('PhoneNumber', () => {
     describe('no plus sign', () => {
       test('serialize', () => {
         expect(() => GraphQLPhoneNumber.serialize('17895551234')).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
         );
       });
 
       test('parseValue', () => {
         expect(() => GraphQLPhoneNumber.parseValue('17895551234')).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
         );
       });
 
@@ -123,7 +148,7 @@ describe('PhoneNumber', () => {
             {},
           ),
         ).toThrow(
-          /^Value is not a valid phone number of the form \+17895551234 \(10-15 digits\)/,
+          /^Value is not a valid phone number of the form \+17895551234 \(7-15 digits\)/,
         );
       });
     });
