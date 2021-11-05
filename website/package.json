@@ -24,7 +24,7 @@
     "babel-preset-minify": "0.5.1",
     "classnames": "2.3.1",
     "framer-motion": "5.2.1",
-    "next": "12.0.2",
+    "next": "12.0.3",
     "next-i18next": "8.10.0",
     "next-seo": "4.28.1",
     "react": "17.0.2",
@@ -47,7 +47,7 @@
   "pnpm": { "overrides": { "esbuild": "^0.12.9" } },
   "resolutions": { "esbuild": "0.13.12" },
   "devDependencies": {
-    "@next/bundle-analyzer": "12.0.2",
+    "@next/bundle-analyzer": "12.0.3",
     "@types/concurrently": "6.3.0",
     "@types/mdx-js__react": "1.5.5",
     "@types/node": "16.11.6",
