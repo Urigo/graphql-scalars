@@ -32,7 +32,7 @@
     "react-icons": "4.3.1",
     "react-use": "17.3.1",
     "remark-admonitions": "1.2.1",
-    "remark-code-import": "0.3.0",
+    "remark-code-import": "0.4.0",
     "remark-import-partial": "0.0.2",
     "shiki": "0.9.12"
   },
