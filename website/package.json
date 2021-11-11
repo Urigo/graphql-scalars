@@ -9,10 +9,10 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
-    "@chakra-ui/icons": "1.0.17",
-    "@chakra-ui/react": "1.6.12",
-    "@chakra-ui/theme-tools": "1.2.3",
-    "@chakra-ui/utils": "1.8.4",
+    "@chakra-ui/icons": "1.1.0",
+    "@chakra-ui/react": "1.7.0",
+    "@chakra-ui/theme-tools": "1.3.0",
+    "@chakra-ui/utils": "1.9.0",
     "@docusaurus/core": "2.0.0-beta.9",
     "@docusaurus/preset-classic": "2.0.0-beta.9",
     "@emotion/react": "11.5.0",
