@@ -18,7 +18,7 @@
     "@emotion/react": "11.5.0",
     "@emotion/styled": "11.3.0",
     "@guild-docs/client": "1.2.2",
-    "@guild-docs/server": "2.1.1",
+    "@guild-docs/server": "2.1.2",
     "@mdx-js/react": "1.6.22",
     "@theguild/components": "1.7.1",
     "babel-preset-minify": "0.5.1",
