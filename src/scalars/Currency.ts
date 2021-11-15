@@ -52,6 +52,5 @@ export const GraphQLCurrencyConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLCurrency = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLCurrencyConfig,
-);
+export const GraphQLCurrency: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLCurrencyConfig);

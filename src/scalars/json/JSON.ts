@@ -20,6 +20,5 @@ export const GraphQLJSONConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<any, any>;
 
-export const GraphQLJSON = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLJSONConfig,
-);
+export const GraphQLJSON: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLJSONConfig);

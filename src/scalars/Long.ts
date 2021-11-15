@@ -9,6 +9,5 @@ export const GraphQLLongConfig = /*#__PURE__*/ Object.assign(
   },
 );
 
-export const GraphQLLong = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLLongConfig,
-);
+export const GraphQLLong: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLLongConfig);

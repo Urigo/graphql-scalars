@@ -49,6 +49,5 @@ export const GraphQLEmailAddressConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLEmailAddress = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLEmailAddressConfig,
-);
+export const GraphQLEmailAddress: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLEmailAddressConfig);

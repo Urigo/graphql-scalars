@@ -150,16 +150,16 @@ describe('SafeInt', () => {
 
       expect(errors).toHaveLength(4);
       expect(errors[0].message).toEqual(
-        'SafeInt cannot represent non-safe-integer value: 9007199254740992',
+        'SafeInt cannot represent unsafe integer value: 9007199254740992',
       );
       expect(errors[1].message).toEqual(
-        'SafeInt cannot represent non-safe-integer value: -9007199254740992',
+        'SafeInt cannot represent unsafe integer value: -9007199254740992',
       );
       expect(errors[2].message).toEqual(
-        'SafeInt cannot represent non-safe-integer value: ',
+        'SafeInt cannot represent non-integer value: ',
       );
       expect(errors[3].message).toEqual(
-        'SafeInt cannot represent non-safe-integer value: 3.14',
+        'SafeInt cannot represent non-integer value: 3.14',
       );
     });
 
@@ -182,10 +182,10 @@ describe('SafeInt', () => {
 
       expect(errors).toHaveLength(2);
       expect(errors[0].message).toEqual(
-        'Variable "$a" got invalid value 9007199254740992; SafeInt cannot represent non-safe-integer value: 9007199254740992',
+        'Variable "$a" got invalid value 9007199254740992; SafeInt cannot represent unsafe integer value: 9007199254740992',
       );
       expect(errors[1].message).toEqual(
-        'Variable "$b" got invalid value -9007199254740992; SafeInt cannot represent non-safe-integer value: -9007199254740992',
+        'Variable "$b" got invalid value -9007199254740992; SafeInt cannot represent unsafe integer value: -9007199254740992',
       );
     });
 
@@ -201,10 +201,10 @@ describe('SafeInt', () => {
 
       expect(errors).toHaveLength(3);
       expect(errors[0].message).toEqual(
-        'SafeInt cannot represent non-safe-integer value: 9007199254740992',
+        'SafeInt cannot represent unsafe integer value: 9007199254740992',
       );
       expect(errors[1].message).toEqual(
-        'SafeInt cannot represent non-safe-integer value: -9007199254740992',
+        'SafeInt cannot represent unsafe integer value: -9007199254740992',
       );
       expect(errors[2].message).toEqual(
         'SafeInt cannot represent non-integer value: "42"',

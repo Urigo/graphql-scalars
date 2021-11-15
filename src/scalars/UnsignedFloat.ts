@@ -9,6 +9,5 @@ const GraphQLUnsignedFloatConfig = /*#__PURE__*/ Object.assign(
   },
 );
 
-export const GraphQLUnsignedFloat = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLUnsignedFloatConfig,
-);
+export const GraphQLUnsignedFloat: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLUnsignedFloatConfig);

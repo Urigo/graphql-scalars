@@ -40,29 +40,30 @@ const validate = (value: any): number => {
   throw new TypeError(`Value is not a valid latitude: ${value}`);
 };
 
-export const GraphQLLatitude = /*#__PURE__*/ new GraphQLScalarType({
-  name: `Latitude`,
+export const GraphQLLatitude: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: `Latitude`,
 
-  description: `A field whose value is a valid decimal degrees latitude number (53.471): https://en.wikipedia.org/wiki/Latitude`,
+    description: `A field whose value is a valid decimal degrees latitude number (53.471): https://en.wikipedia.org/wiki/Latitude`,
 
-  serialize(value) {
-    return validate(value);
-  },
+    serialize(value) {
+      return validate(value);
+    },
 
-  parseValue(value) {
-    return validate(value);
-  },
+    parseValue(value) {
+      return validate(value);
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate floats or strings as latitude but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate floats or strings as latitude but got a: ${ast.kind}`,
+        );
+      }
 
-    return validate(ast.value);
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

@@ -15,29 +15,30 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLHSLA = /*#__PURE__*/ new GraphQLScalarType({
-  name: `HSLA`,
+export const GraphQLHSLA: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: `HSLA`,
 
-  description: `A field whose value is a CSS HSLA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().`,
+    description: `A field whose value is a CSS HSLA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().`,
 
-  serialize(value) {
-    return validate(value);
-  },
+    serialize(value) {
+      return validate(value);
+    },
 
-  parseValue(value) {
-    return validate(value);
-  },
+    parseValue(value) {
+      return validate(value);
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as HSLA colors but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as HSLA colors but got a: ${ast.kind}`,
+        );
+      }
 
-    return validate(ast.value);
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

@@ -69,50 +69,51 @@ function _testPostalCode(postalCode: string) {
   return result;
 }
 
-export const GraphQLPostalCode = /*#__PURE__*/ new GraphQLScalarType({
-  name: 'PostalCode',
+export const GraphQLPostalCode: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: 'PostalCode',
 
-  description:
-    'A field whose value conforms to the standard postal code formats for United States, United Kingdom, Germany, Canada, France, Italy, Australia, Netherlands, Spain, Denmark, Sweden, Belgium, India, Austria, Portugal, Switzerland or Luxembourg.',
+    description:
+      'A field whose value conforms to the standard postal code formats for United States, United Kingdom, Germany, Canada, France, Italy, Australia, Netherlands, Spain, Denmark, Sweden, Belgium, India, Austria, Portugal, Switzerland or Luxembourg.',
 
-  serialize(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
-    }
+    serialize(value) {
+      if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+      }
 
-    if (!_testPostalCode(value)) {
-      throw new TypeError(`Value is not a valid postal code: ${value}`);
-    }
+      if (!_testPostalCode(value)) {
+        throw new TypeError(`Value is not a valid postal code: ${value}`);
+      }
 
-    return value;
-  },
+      return value;
+    },
 
-  parseValue(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
-    }
+    parseValue(value) {
+      if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+      }
 
-    if (!_testPostalCode(value)) {
-      throw new TypeError(`Value is not a valid postal code: ${value}`);
-    }
+      if (!_testPostalCode(value)) {
+        throw new TypeError(`Value is not a valid postal code: ${value}`);
+      }
 
-    return value;
-  },
+      return value;
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as postal codes but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as postal codes but got a: ${ast.kind}`,
+        );
+      }
 
-    if (!_testPostalCode(ast.value)) {
-      throw new TypeError(`Value is not a valid postal code: ${ast.value}`);
-    }
+      if (!_testPostalCode(ast.value)) {
+        throw new TypeError(`Value is not a valid postal code: ${ast.value}`);
+      }
 
-    return ast.value;
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+      return ast.value;
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

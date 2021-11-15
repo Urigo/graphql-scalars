@@ -53,4 +53,5 @@ export const GraphQLHSLConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLHSL = /*#__PURE__*/ new GraphQLScalarType(GraphQLHSLConfig);
+export const GraphQLHSL: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLHSLConfig);

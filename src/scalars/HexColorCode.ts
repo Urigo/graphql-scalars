@@ -51,6 +51,5 @@ export const GraphQLHexColorCodeConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLHexColorCode = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLHexColorCodeConfig,
-);
+export const GraphQLHexColorCode: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLHexColorCodeConfig);

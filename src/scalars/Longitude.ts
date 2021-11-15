@@ -40,29 +40,30 @@ const validate = (value: any): number => {
   throw new TypeError(`Value is not a valid longitude: ${value}`);
 };
 
-export const GraphQLLongitude = /*#__PURE__*/ new GraphQLScalarType({
-  name: `Longitude`,
+export const GraphQLLongitude: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: `Longitude`,
 
-  description: `A field whose value is a valid decimal degrees longitude number (53.471): https://en.wikipedia.org/wiki/Longitude`,
+    description: `A field whose value is a valid decimal degrees longitude number (53.471): https://en.wikipedia.org/wiki/Longitude`,
 
-  serialize(value) {
-    return validate(value);
-  },
+    serialize(value) {
+      return validate(value);
+    },
 
-  parseValue(value) {
-    return validate(value);
-  },
+    parseValue(value) {
+      return validate(value);
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate floats or strings as longitude but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate floats or strings as longitude but got a: ${ast.kind}`,
+        );
+      }
 
-    return validate(ast.value);
-  },
-  extensions: {
-    codegenScalarType: 'string | number',
-  },
-});
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string | number',
+    },
+  });

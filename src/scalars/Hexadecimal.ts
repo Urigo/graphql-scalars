@@ -47,6 +47,5 @@ export const GraphQLHexadecimalConfig: GraphQLScalarTypeConfig<string, string> =
     },
   };
 
-export const GraphQLHexadecimal = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLHexadecimalConfig,
-);
+export const GraphQLHexadecimal: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLHexadecimalConfig);

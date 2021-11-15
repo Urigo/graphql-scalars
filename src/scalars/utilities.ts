@@ -11,7 +11,8 @@ enum VALUE_TYPES {
 }
 
 // More info about Sexagesimal: https://en.wikipedia.org/wiki/Sexagesimal
-const SEXAGESIMAL_REGEX = /^([0-9]{1,3})°\s*([0-9]{1,3}(?:\.(?:[0-9]{1,}))?)['′]\s*(([0-9]{1,3}(\.([0-9]{1,}))?)["″]\s*)?([NEOSW]?)$/;
+const SEXAGESIMAL_REGEX =
+  /^([0-9]{1,3})°\s*([0-9]{1,3}(?:\.(?:[0-9]{1,}))?)['′]\s*(([0-9]{1,3}(\.([0-9]{1,}))?)["″]\s*)?([NEOSW]?)$/;
 
 // TODO: Consider implementing coercion like this...
 // See: https://github.com/graphql/graphql-js/blob/master/src/type/scalars.js#L13
@@ -170,4 +171,30 @@ export function sexagesimalToDecimal(value: any) {
 
   // Southern and western coordinates must be negative decimals
   return ['S', 'W'].includes(data[7]) ? -decimal : decimal;
+}
+
+export function isObjectLike(
+  value: unknown,
+): value is { [key: string]: unknown } {
+  return typeof value === 'object' && value !== null;
+}
+
+// Taken from https://github.com/graphql/graphql-js/blob/30b446938a9b5afeb25c642d8af1ea33f6c849f3/src/type/scalars.ts#L267
+
+// Support serializing objects with custom valueOf() or toJSON() functions -
+// a common way to represent a complex value which can be represented as
+// a string (ex: MongoDB id objects).
+export function serializeObject(outputValue: unknown): unknown {
+  if (isObjectLike(outputValue)) {
+    if (typeof outputValue.valueOf === 'function') {
+      const valueOfResult = outputValue.valueOf();
+      if (!isObjectLike(valueOfResult)) {
+        return valueOfResult;
+      }
+    }
+    if (typeof outputValue.toJSON === 'function') {
+      return outputValue.toJSON();
+    }
+  }
+  return outputValue;
 }

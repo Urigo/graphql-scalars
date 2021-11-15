@@ -88,14 +88,16 @@ describe('BigInt', () => {
   const validVariables = {
     input1: { num: 2147483646 },
     input2: { num: 9007199254740990n },
-    input4: { num: '1' },
+    input4: { num: 1 },
   };
 
   it('2', async () => {
     const { data, errors } = await graphql({ schema, source: invalidQuery2 });
 
     expect(errors).toHaveLength(1);
-    expect(errors[0].message).toContain('is not an integer');
+    expect(errors[0].message).toContain(
+      'BigInt cannot represent non-integer value: ',
+    );
     expect(data).toEqual(null);
   });
   it('3', async () => {

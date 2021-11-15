@@ -14,26 +14,27 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLUtcOffset = /*#__PURE__*/ new GraphQLScalarType({
-  name: 'UtcOffset',
+export const GraphQLUtcOffset: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: 'UtcOffset',
 
-  description:
-    'A field whose value is a UTC Offset: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones',
+    description:
+      'A field whose value is a UTC Offset: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones',
 
-  serialize: validate,
+    serialize: validate,
 
-  parseValue: validate,
+    parseValue: validate,
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as UTC Offset but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as UTC Offset but got a: ${ast.kind}`,
+        );
+      }
 
-    return validate(ast.value);
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

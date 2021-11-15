@@ -35,15 +35,16 @@ function parseDateFromLiteral(ast: ValueNode) {
   return null;
 }
 
-export const GraphQLTimestamp = /*#__PURE__*/ new GraphQLScalarType({
-  name: 'Timestamp',
-  description:
-    'The javascript `Date` as integer. Type represents date and time ' +
-    'as number of milliseconds from start of UNIX epoch.',
-  serialize: serializeDate,
-  parseValue: parseDate,
-  parseLiteral: parseDateFromLiteral,
-  extensions: {
-    codegenScalarType: 'Date | string | number',
-  },
-});
+export const GraphQLTimestamp: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: 'Timestamp',
+    description:
+      'The javascript `Date` as integer. Type represents date and time ' +
+      'as number of milliseconds from start of UNIX epoch.',
+    serialize: serializeDate,
+    parseValue: parseDate,
+    parseLiteral: parseDateFromLiteral,
+    extensions: {
+      codegenScalarType: 'Date | string | number',
+    },
+  });

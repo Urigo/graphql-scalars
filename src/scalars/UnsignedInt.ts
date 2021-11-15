@@ -9,6 +9,5 @@ const GraphQLUnsignedIntConfig = /*#__PURE__*/ Object.assign(
   },
 );
 
-export const GraphQLUnsignedInt = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLUnsignedIntConfig,
-);
+export const GraphQLUnsignedInt: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLUnsignedIntConfig);
