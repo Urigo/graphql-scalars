@@ -13,10 +13,12 @@ declare global {
   }
 }
 
-if (!BigInt.prototype.toJSON) {
-  BigInt.prototype.toJSON = function () {
-    return Number(this);
-  };
+function patchBigInt() {
+  if (!BigInt.prototype.toJSON) {
+    BigInt.prototype.toJSON = function () {
+      return Number(this);
+    };
+  }
 }
 
 export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
@@ -27,6 +29,7 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
   description:
     'The `BigInt` scalar type represents non-fractional signed whole numeric values.',
   serialize(outputValue) {
+    patchBigInt();
     const coercedValue = serializeObject(outputValue);
 
     let num = coercedValue;
