@@ -34,8 +34,21 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
 
     let num = coercedValue;
 
+    if (
+      typeof coercedValue === 'object' &&
+      coercedValue != null &&
+      'toString' in coercedValue
+    ) {
+      num = BigInt(coercedValue.toString());
+      if (num.toString() !== coercedValue.toString()) {
+        throw new GraphQLError(
+          `BigInt cannot represent non-integer value: ${coercedValue}`,
+        );
+      }
+    }
+
     if (typeof coercedValue === 'boolean') {
-      num = coercedValue ? 1 : 0;
+      num = BigInt(coercedValue);
     }
 
     if (typeof coercedValue === 'string' && coercedValue !== '') {
