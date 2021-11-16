@@ -14,29 +14,30 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLIPv6 = /*#__PURE__*/ new GraphQLScalarType({
-  name: `IPv6`,
+export const GraphQLIPv6: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: `IPv6`,
 
-  description: `A field whose value is a IPv6 address: https://en.wikipedia.org/wiki/IPv6.`,
+    description: `A field whose value is a IPv6 address: https://en.wikipedia.org/wiki/IPv6.`,
 
-  serialize(value) {
-    return validate(value);
-  },
+    serialize(value) {
+      return validate(value);
+    },
 
-  parseValue(value) {
-    return validate(value);
-  },
+    parseValue(value) {
+      return validate(value);
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as IPv6 addresses but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as IPv6 addresses but got a: ${ast.kind}`,
+        );
+      }
 
-    return validate(ast.value);
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

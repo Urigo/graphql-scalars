@@ -20,10 +20,9 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLEmailAddressConfig: GraphQLScalarTypeConfig<
-  string,
-  string
-> = /*#__PURE__*/ {
+const specifiedByURL = 'https://www.w3.org/Protocols/rfc822/';
+
+export const GraphQLEmailAddressConfig = /*#__PURE__*/ {
   name: 'EmailAddress',
 
   description:
@@ -43,12 +42,12 @@ export const GraphQLEmailAddressConfig: GraphQLScalarTypeConfig<
     return validate(ast.value);
   },
 
-  specifiedByURL: 'https://www.w3.org/Protocols/rfc822/',
+  specifiedByURL,
+  specifiedByUrl: specifiedByURL,
   extensions: {
     codegenScalarType: 'string',
   },
-};
+} as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLEmailAddress = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLEmailAddressConfig,
-);
+export const GraphQLEmailAddress: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLEmailAddressConfig);

@@ -20,36 +20,37 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLCurrencyConfig: GraphQLScalarTypeConfig<string, string> =
-  /*#__PURE__*/ {
-    name: `Currency`,
+const specifiedByURL = 'https://en.wikipedia.org/wiki/ISO_4217';
 
-    description: `A field whose value is a Currency: https://en.wikipedia.org/wiki/ISO_4217.`,
+export const GraphQLCurrencyConfig = /*#__PURE__*/ {
+  name: `Currency`,
 
-    serialize(value) {
-      return validate(value);
-    },
+  description: `A field whose value is a Currency: https://en.wikipedia.org/wiki/ISO_4217.`,
 
-    parseValue(value) {
-      return validate(value);
-    },
+  serialize(value) {
+    return validate(value);
+  },
 
-    parseLiteral(ast) {
-      if (ast.kind !== Kind.STRING) {
-        throw new GraphQLError(
-          `Can only validate strings as a currency but got a: ${ast.kind}`,
-        );
-      }
+  parseValue(value) {
+    return validate(value);
+  },
 
-      return validate(ast.value);
-    },
+  parseLiteral(ast) {
+    if (ast.kind !== Kind.STRING) {
+      throw new GraphQLError(
+        `Can only validate strings as a currency but got a: ${ast.kind}`,
+      );
+    }
 
-    specifiedByURL: 'https://en.wikipedia.org/wiki/ISO_4217',
-    extensions: {
-      codegenScalarType: 'string',
-    },
-  };
+    return validate(ast.value);
+  },
 
-export const GraphQLCurrency = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLCurrencyConfig,
-);
+  specifiedByURL,
+  specifiedByUrl: specifiedByURL,
+  extensions: {
+    codegenScalarType: 'string',
+  },
+} as GraphQLScalarTypeConfig<string, string>;
+
+export const GraphQLCurrency: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLCurrencyConfig);

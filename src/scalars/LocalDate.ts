@@ -31,32 +31,33 @@ function validateLocalDate(value: any) {
   return value;
 }
 
-export const GraphQLLocalDate = /*#__PURE__*/ new GraphQLScalarType({
-  name: 'LocalDate',
-  description:
-    'A local date string (i.e., with no associated timezone) in `YYYY-MM-DD` format, e.g. `2020-01-01`.',
+export const GraphQLLocalDate: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: 'LocalDate',
+    description:
+      'A local date string (i.e., with no associated timezone) in `YYYY-MM-DD` format, e.g. `2020-01-01`.',
 
-  serialize(value) {
-    // value sent to client as string
-    return validateLocalDate(value);
-  },
+    serialize(value) {
+      // value sent to client as string
+      return validateLocalDate(value);
+    },
 
-  parseValue(value) {
-    // value from client as json
-    return validateLocalDate(value);
-  },
+    parseValue(value) {
+      // value from client as json
+      return validateLocalDate(value);
+    },
 
-  parseLiteral(ast) {
-    // value from client in ast
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as local dates but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      // value from client in ast
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as local dates but got a: ${ast.kind}`,
+        );
+      }
 
-    return validateLocalDate(ast.value);
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+      return validateLocalDate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

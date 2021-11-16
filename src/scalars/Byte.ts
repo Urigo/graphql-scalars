@@ -97,6 +97,5 @@ export const GraphQLByteConfig: GraphQLScalarTypeConfig<
   },
 };
 
-export const GraphQLByte = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLByteConfig,
-);
+export const GraphQLByte: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLByteConfig);

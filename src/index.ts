@@ -1,3 +1,4 @@
+import { GraphQLScalarType } from 'graphql';
 import * as mocks from './mocks';
 
 import {
@@ -168,7 +169,7 @@ export {
   GraphQLDID as DIDResolver,
 };
 
-export const resolvers = {
+export const resolvers: Record<string, GraphQLScalarType> = {
   Date: GraphQLDate,
   Time: GraphQLTime,
   DateTime: GraphQLDateTime,

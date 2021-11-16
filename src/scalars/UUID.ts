@@ -52,6 +52,5 @@ export const GraphQLUUIDConfig: GraphQLScalarTypeConfig<string, string> =
     },
   };
 
-export const GraphQLUUID = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLUUIDConfig,
-);
+export const GraphQLUUID: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLUUIDConfig);

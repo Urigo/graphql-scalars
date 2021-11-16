@@ -3,21 +3,22 @@
 import { GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 import { identity, parseLiteral } from './utils';
 
-export const GraphQLJSONConfig: GraphQLScalarTypeConfig<any, any> =
-  /*#__PURE__*/ {
-    name: 'JSON',
-    description:
-      'The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).',
-    serialize: identity,
-    parseValue: identity,
-    parseLiteral,
-    specifiedByURL:
-      'http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf',
-    extensions: {
-      codegenScalarType: 'any',
-    },
-  };
+const specifiedByURL =
+  'http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf';
 
-export const GraphQLJSON = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLJSONConfig,
-);
+export const GraphQLJSONConfig = /*#__PURE__*/ {
+  name: 'JSON',
+  description:
+    'The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).',
+  serialize: identity,
+  parseValue: identity,
+  parseLiteral,
+  specifiedByURL,
+  specifiedByUrl: specifiedByURL,
+  extensions: {
+    codegenScalarType: 'any',
+  },
+} as GraphQLScalarTypeConfig<any, any>;
+
+export const GraphQLJSON: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLJSONConfig);

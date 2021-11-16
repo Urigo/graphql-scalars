@@ -391,47 +391,48 @@ function validate(iban: string): boolean {
   return !!countryStructure && _testIBAN(iban, countryCode, countryStructure);
 }
 
-export const GraphQLIBAN = /*#__PURE__*/ new GraphQLScalarType({
-  name: `IBAN`,
-  description: `A field whose value is an International Bank Account Number (IBAN): https://en.wikipedia.org/wiki/International_Bank_Account_Number.`,
-  serialize(value: string) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
-    }
+export const GraphQLIBAN: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: `IBAN`,
+    description: `A field whose value is an International Bank Account Number (IBAN): https://en.wikipedia.org/wiki/International_Bank_Account_Number.`,
+    serialize(value: string) {
+      if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+      }
 
-    if (!validate(value)) {
-      throw new TypeError(`Value is not a valid IBAN: ${value}`);
-    }
+      if (!validate(value)) {
+        throw new TypeError(`Value is not a valid IBAN: ${value}`);
+      }
 
-    return value;
-  },
+      return value;
+    },
 
-  parseValue(value: string) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
-    }
+    parseValue(value: string) {
+      if (typeof value !== 'string') {
+        throw new TypeError(`Value is not string: ${value}`);
+      }
 
-    if (!validate(value)) {
-      throw new TypeError(`Value is not a valid IBAN: ${value}`);
-    }
+      if (!validate(value)) {
+        throw new TypeError(`Value is not a valid IBAN: ${value}`);
+      }
 
-    return value;
-  },
+      return value;
+    },
 
-  parseLiteral(ast: { kind: any; value: string }) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as IBANs but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast: { kind: any; value: string }) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as IBANs but got a: ${ast.kind}`,
+        );
+      }
 
-    if (!validate(ast.value)) {
-      throw new TypeError(`Value is not a valid IBAN: ${ast.value}`);
-    }
+      if (!validate(ast.value)) {
+        throw new TypeError(`Value is not a valid IBAN: ${ast.value}`);
+      }
 
-    return ast.value;
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+      return ast.value;
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

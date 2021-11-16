@@ -12,24 +12,25 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLNonEmptyString = /*#__PURE__*/ new GraphQLScalarType({
-  name: 'NonEmptyString',
+export const GraphQLNonEmptyString: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: 'NonEmptyString',
 
-  description: 'A string that cannot be passed as an empty value',
+    description: 'A string that cannot be passed as an empty value',
 
-  serialize: validate,
+    serialize: validate,
 
-  parseValue: validate,
+    parseValue: validate,
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings but got a: ${ast.kind}`,
-      );
-    }
-    return validate(ast.value);
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings but got a: ${ast.kind}`,
+        );
+      }
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

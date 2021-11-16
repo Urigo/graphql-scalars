@@ -15,29 +15,30 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLIPv4 = /*#__PURE__*/ new GraphQLScalarType({
-  name: `IPv4`,
+export const GraphQLIPv4: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: `IPv4`,
 
-  description: `A field whose value is a IPv4 address: https://en.wikipedia.org/wiki/IPv4.`,
+    description: `A field whose value is a IPv4 address: https://en.wikipedia.org/wiki/IPv4.`,
 
-  serialize(value) {
-    return validate(value);
-  },
+    serialize(value) {
+      return validate(value);
+    },
 
-  parseValue(value) {
-    return validate(value);
-  },
+    parseValue(value) {
+      return validate(value);
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as IPv4 addresses but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as IPv4 addresses but got a: ${ast.kind}`,
+        );
+      }
 
-    return validate(ast.value);
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

@@ -86,6 +86,5 @@ export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> =
  *    This scalar serializes javascript Dates and
  *    RFC 3339 date strings to RFC 3339 date strings.
  */
-export const GraphQLDate = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLDateConfig,
-);
+export const GraphQLDate: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLDateConfig);

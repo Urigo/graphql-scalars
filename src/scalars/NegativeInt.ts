@@ -1,29 +1,30 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 import { processValue } from './utilities';
 
-export const GraphQLNegativeInt = /*#__PURE__*/ new GraphQLScalarType({
-  name: 'NegativeInt',
+export const GraphQLNegativeInt: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: 'NegativeInt',
 
-  description: 'Integers that will have a value less than 0.',
+    description: 'Integers that will have a value less than 0.',
 
-  serialize(value) {
-    return processValue(value, 'NegativeInt');
-  },
+    serialize(value) {
+      return processValue(value, 'NegativeInt');
+    },
 
-  parseValue(value) {
-    return processValue(value, 'NegativeInt');
-  },
+    parseValue(value) {
+      return processValue(value, 'NegativeInt');
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.INT) {
-      throw new GraphQLError(
-        `Can only validate integers as negative integers but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.INT) {
+        throw new GraphQLError(
+          `Can only validate integers as negative integers but got a: ${ast.kind}`,
+        );
+      }
 
-    return processValue(ast.value, 'NegativeInt');
-  },
-  extensions: {
-    codegenScalarType: 'number',
-  },
-});
+      return processValue(ast.value, 'NegativeInt');
+    },
+    extensions: {
+      codegenScalarType: 'number',
+    },
+  });

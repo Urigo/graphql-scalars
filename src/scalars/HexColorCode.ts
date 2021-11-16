@@ -19,10 +19,9 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLHexColorCodeConfig: GraphQLScalarTypeConfig<
-  string,
-  string
-> = /*#__PURE__*/ {
+const specifiedByURL = 'https://en.wikipedia.org/wiki/Web_colors';
+
+export const GraphQLHexColorCodeConfig = /*#__PURE__*/ {
   name: `HexColorCode`,
 
   description: `A field whose value is a hex color code: https://en.wikipedia.org/wiki/Web_colors.`,
@@ -45,12 +44,12 @@ export const GraphQLHexColorCodeConfig: GraphQLScalarTypeConfig<
     return validate(ast.value);
   },
 
-  specifiedByURL: 'https://en.wikipedia.org/wiki/Web_colors',
+  specifiedByURL,
+  specifiedByUrl: specifiedByURL,
   extensions: {
     codegenScalarType: 'string',
   },
-};
+} as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLHexColorCode = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLHexColorCodeConfig,
-);
+export const GraphQLHexColorCode: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLHexColorCodeConfig);

@@ -109,6 +109,5 @@ export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, Date> =
  *    RFC 3339 date-time strings and unix timestamps
  *    to RFC 3339 UTC date-time strings.
  */
-export const GraphQLDateTime = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLDateTimeConfig,
-);
+export const GraphQLDateTime: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLDateTimeConfig);

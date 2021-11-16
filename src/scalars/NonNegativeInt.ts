@@ -34,6 +34,5 @@ export const GraphQLNonNegativeIntConfig: GraphQLScalarTypeConfig<any, any> =
     },
   };
 
-export const GraphQLNonNegativeInt = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLNonNegativeIntConfig,
-);
+export const GraphQLNonNegativeInt: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLNonNegativeIntConfig);

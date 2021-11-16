@@ -79,12 +79,14 @@ export const GraphQLDurationConfig: GraphQLScalarTypeConfig<string, string> =
     },
   };
 
-export const GraphQLISO8601Duration = /*#__PURE__*/ new GraphQLScalarType({
-  ...GraphQLDurationConfig,
-  name: 'ISO8601Duration',
-});
+export const GraphQLISO8601Duration: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    ...GraphQLDurationConfig,
+    name: 'ISO8601Duration',
+  });
 
-export const GraphQLDuration = /*#__PURE__*/ new GraphQLScalarType({
-  ...GraphQLDurationConfig,
-  name: 'Duration',
-});
+export const GraphQLDuration: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    ...GraphQLDurationConfig,
+    name: 'Duration',
+  });
