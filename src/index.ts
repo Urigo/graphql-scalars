@@ -169,7 +169,7 @@ export {
   GraphQLDID as DIDResolver,
 };
 
-export const resolver: Record<string, GraphQLScalarType> = {
+export const resolvers: Record<string, GraphQLScalarType> = {
   Date: GraphQLDate,
   Time: GraphQLTime,
   DateTime: GraphQLDateTime,
