@@ -64,7 +64,7 @@
     "json-bigint-patch": "0.0.4",
     "graphql": "16.0.1",
     "husky": "7.0.4",
-    "jest": "27.4.0",
+    "jest": "27.4.2",
     "lint-staged": "12.1.2",
     "mockdate": "3.0.5",
     "mongodb": "4.2.0",
