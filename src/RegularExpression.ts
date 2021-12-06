@@ -5,6 +5,7 @@ export type RegularExpressionErrorMessageFn = (r: RegExp, v: any) => string;
 export interface RegularExpressionOptions {
   errorMessage?: RegularExpressionErrorMessageFn;
   description?: string;
+  stringOnly?: boolean;
 }
 
 export class RegularExpression extends GraphQLScalarType {
@@ -43,6 +44,12 @@ export class RegularExpression extends GraphQLScalarType {
           return null;
         }
 
+        if (options.stringOnly && ast.kind !== Kind.STRING) {
+          throw new GraphQLError(
+            `Can only validate strings but got a: ${ast.kind}`,
+          );
+        }
+
         if (!('value' in ast)) {
           throw new GraphQLError(
             `Can only validate primitive values but got a: ${ast.kind}`,
@@ -56,7 +63,9 @@ export class RegularExpression extends GraphQLScalarType {
         return ast.value;
       },
       extensions: {
-        codegenScalarType: 'string | number | boolean',
+        codegenScalarType: options.stringOnly
+          ? 'string'
+          : 'string | number | boolean',
       },
     });
   }
