@@ -1,4 +1,4 @@
-import { GraphQLError, GraphQLScalarType } from 'graphql';
+import { GraphQLError, GraphQLScalarType, Kind } from 'graphql';
 
 export type RegularExpressionErrorMessageFn = (r: RegExp, v: any) => string;
 
@@ -13,19 +13,17 @@ export class RegularExpression extends GraphQLScalarType {
     regex: RegExp,
     options: RegularExpressionOptions = {},
   ) {
-    const REGEX = /*#__PURE__*/ regex;
     const errorMessage: RegularExpressionErrorMessageFn = options.errorMessage
       ? options.errorMessage
-      : (r, v) => `Value does not match the regular expression ${r}: ${v}`;
+      : (r, v) => `Value does not match ${r}: ${v}`;
     super({
       name,
 
       description:
-        options.description ||
-        `A field whose value matches the provided regular expression ${regex}.`,
+        options.description || `A field whose value matches ${regex}.`,
 
       serialize(value) {
-        if (!REGEX.test(value?.toString())) {
+        if (value != null && !regex.test(value.toString())) {
           throw new TypeError(errorMessage(regex, value));
         }
 
@@ -33,7 +31,7 @@ export class RegularExpression extends GraphQLScalarType {
       },
 
       parseValue(value) {
-        if (!REGEX.test(value?.toString())) {
+        if (value != null && !regex.test(value?.toString())) {
           throw new TypeError(errorMessage(regex, value));
         }
 
@@ -41,20 +39,24 @@ export class RegularExpression extends GraphQLScalarType {
       },
 
       parseLiteral(ast) {
+        if (ast.kind === Kind.NULL) {
+          return null;
+        }
+
         if (!('value' in ast)) {
           throw new GraphQLError(
-            `Can only validate primitive values as regular expressions but got a: ${ast.kind}`,
+            `Can only validate primitive values but got a: ${ast.kind}`,
           );
         }
 
-        if (!REGEX.test(ast.value.toString())) {
+        if (ast.value != null && !regex.test(ast.value.toString())) {
           throw new TypeError(errorMessage(regex, ast.value));
         }
 
         return ast.value;
       },
       extensions: {
-        codegenScalarType: 'string',
+        codegenScalarType: 'string | number | boolean',
       },
     });
   }

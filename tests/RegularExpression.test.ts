@@ -26,13 +26,13 @@ describe('RegularExpression', () => {
     describe('does not match', () => {
       test('serialize', () => {
         expect(() => GraphQLAbc.serialize('this does not match')).toThrow(
-          /Value does not match the regular expression/,
+          /Value does not match/,
         );
       });
 
       test('parseValue', () => {
         expect(() => GraphQLAbc.parseValue('this does not match')).toThrow(
-          /Value does not match the regular expression/,
+          /Value does not match/,
         );
       });
 
@@ -42,7 +42,7 @@ describe('RegularExpression', () => {
             { value: 'this does not match', kind: Kind.STRING },
             {},
           ),
-        ).toThrow(/Value does not match the regular expression/);
+        ).toThrow(/Value does not match/);
       });
     });
 
