@@ -46,13 +46,13 @@ export class RegularExpression extends GraphQLScalarType {
 
         if (options.stringOnly && ast.kind !== Kind.STRING) {
           throw new GraphQLError(
-            `Can only validate strings but got a: ${ast.kind}`,
+            `Can only validate strings as ${name} but got a: ${ast.kind}`,
           );
         }
 
-        if (!('value' in ast)) {
+        if (!('value' in ast) || ast.kind === Kind.ENUM) {
           throw new GraphQLError(
-            `Can only validate primitive values but got a: ${ast.kind}`,
+            `Can only validate primitive values as ${name} but got a: ${ast.kind}`,
           );
         }
 
