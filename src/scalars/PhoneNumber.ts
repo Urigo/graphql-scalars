@@ -1,6 +1,6 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
 
-const PHONE_NUMBER_REGEX = /^\+[1-9]\d{1,14}$/;
+const PHONE_NUMBER_REGEX = /^\+[1-9]\d{6,14}$/;
 
 export const GraphQLPhoneNumber: GraphQLScalarType =
   /*#__PURE__*/ new GraphQLScalarType({
@@ -16,7 +16,7 @@ export const GraphQLPhoneNumber: GraphQLScalarType =
 
       if (!PHONE_NUMBER_REGEX.test(value)) {
         throw new TypeError(
-          `Value is not a valid phone number of the form +17895551234 (10-15 digits): ${value}`,
+          `Value is not a valid phone number of the form +17895551234 (7-15 digits): ${value}`,
         );
       }
 
@@ -30,7 +30,7 @@ export const GraphQLPhoneNumber: GraphQLScalarType =
 
       if (!PHONE_NUMBER_REGEX.test(value)) {
         throw new TypeError(
-          `Value is not a valid phone number of the form +17895551234 (10-15 digits): ${value}`,
+          `Value is not a valid phone number of the form +17895551234 (7-15 digits): ${value}`,
         );
       }
 
@@ -46,7 +46,7 @@ export const GraphQLPhoneNumber: GraphQLScalarType =
 
       if (!PHONE_NUMBER_REGEX.test(ast.value)) {
         throw new TypeError(
-          `Value is not a valid phone number of the form +17895551234 (10-15 digits): ${ast.value}`,
+          `Value is not a valid phone number of the form +17895551234 (7-15 digits): ${ast.value}`,
         );
       }
 
