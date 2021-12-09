@@ -34,7 +34,7 @@
     "remark-admonitions": "1.2.1",
     "remark-code-import": "0.4.0",
     "remark-import-partial": "0.0.2",
-    "shiki": "0.9.14"
+    "shiki": "0.9.15"
   },
   "browserslist": {
     "production": [">0.2%", "not dead", "not op_mini all"],
