@@ -6485,10 +6485,10 @@ esbuild-openbsd-64@0.14.2:
   resolved "https://registry.yarnpkg.com/esbuild-openbsd-64/-/esbuild-openbsd-64-0.14.2.tgz#3c5f199eed459b2f88865548394c0b77383d9ca4"
   integrity sha512-120HgMe9elidWUvM2E6mMf0csrGwx8sYDqUIJugyMy1oHm+/nT08bTAVXuwYG/rkMIqsEO9AlMxuYnwR6En/3Q==
 
-esbuild-register@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/esbuild-register/-/esbuild-register-3.2.0.tgz#7bfc6c8d5b20263492b2a357985f3f7b3132663c"
-  integrity sha512-i1sYwESrRHJz15Cl1u2OgLjBBp/bWtGoDdFXVLL1clsp+pFdqIpRfHIQGkgvQAlAecP5IC/bObYrKCyx/lE50Q==
+esbuild-register@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/esbuild-register/-/esbuild-register-3.2.1.tgz#500db2ed42f35d1d5139a9a5d657b86fcd0ec387"
+  integrity sha512-LFgzsqCHsFUpTZdYJFTl1o5p60+C4nZ65BzFYPS1jKGwiKk6JLH8tuLwuydvpgreNUAeDUhTPJgJNjmpZKSOpQ==
   dependencies:
     jsonc-parser "^3.0.0"
 
