@@ -110,6 +110,7 @@ export {
   ObjectID as ObjectIDTypeDefinition,
   Void as VoidTypeDefinition,
   DID as DIDDefinition,
+  CountryCode as CountryCodeDefinition,
 } from './typeDefs';
 
 export { typeDefs } from './typeDefs';
