@@ -50,3 +50,4 @@ export { GraphQLIBAN } from './IBAN';
 export { GraphQLObjectID } from './ObjectID';
 export { GraphQLVoid } from './Void';
 export { GraphQLDID } from './DID';
+export { GraphQLCountryCode } from './CountryCode';
