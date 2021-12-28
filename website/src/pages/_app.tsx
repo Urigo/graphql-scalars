@@ -13,6 +13,7 @@ import {
   AppSeoProps,
 } from '@guild-docs/client';
 import {Header, Subheader, FooterExtended} from '@theguild/components';
+import Script from 'next/script';
 
 import type { AppProps } from 'next/app';
 
@@ -68,6 +69,7 @@ function AppContent(appProps: AppProps) {
 
   return (
     <>
+      <Script src="https://the-guild.dev/static/crisp.js" />
       <Header accentColor={accentColor} activeLink="/open-source" themeSwitch />
       <Subheader
         activeLink={router.asPath}
