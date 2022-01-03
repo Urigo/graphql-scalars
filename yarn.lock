@@ -2151,10 +2151,10 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
-bob-the-bundler@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/bob-the-bundler/-/bob-the-bundler-1.6.0.tgz#ca22f076af3eeeccbb3a8969dd8c981cd30bbc8c"
-  integrity sha512-6uBKHsrwwaoytdkz8/7iBqQZgnhVD+AvUt2rMadPPQtGDhtJpXmjD0EPLNI8K4jxrZnOzm+U417ZR8dmf+VLcQ==
+bob-the-bundler@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/bob-the-bundler/-/bob-the-bundler-1.6.1.tgz#b6cb48b52f2b807bd59b4526bb37ad995b9c8cb0"
+  integrity sha512-cqrsMX8GvknsFyUrx1eFOCkO2Hv69j0GmckF8Ul09Gt6g/I/WOpDs4dckYsvKkpEErs6NvFWcdzweeRQKVjaeA==
   dependencies:
     "@rollup/plugin-json" "4.1.0"
     "@rollup/plugin-node-resolve" "7.1.1"
