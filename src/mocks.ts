@@ -114,6 +114,7 @@ export const IBAN = () => 'NL55INGB4789170233';
 export const Void = (): null => null;
 export const SafeInt = () => Number.MAX_SAFE_INTEGER;
 export const DID = () => 'did:example:123456789abcdefghi';
+export const CountryCode = () => 'US';
 
 export {
   DateMock as Date,
