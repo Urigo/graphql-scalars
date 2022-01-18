@@ -9913,13 +9913,14 @@ remark-admonitions@1.2.1, remark-admonitions@^1.2.1:
     unified "^8.4.2"
     unist-util-visit "^2.0.1"
 
-remark-code-import@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/remark-code-import/-/remark-code-import-0.4.0.tgz#94cbfe74087c55a84e65f0a972c0977cac8fc7f6"
-  integrity sha512-3UHRIfr7+kRBGOy6Bzp4c1dl8BLCLv+saBTAgW4+lPfs56vV6yBhO038i6MJTEoyXX1zli7l8tMGIHbYANdtZg==
+remark-code-import@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/remark-code-import/-/remark-code-import-1.1.0.tgz#b9b26648fcc1d679b3f919d9e1effb916859536b"
+  integrity sha512-lzIGbdfAvlVyPB9EkO8QqqgozR6/FhKaue4gOHPSh98c2XnKz3KpBlLIuUyyJHbgyRDxKXR9fY47bmJSG6wAig==
   dependencies:
+    strip-indent "^4.0.0"
     to-gatsby-remark-plugin "^0.1.0"
-    unist-util-visit "^2.0.1"
+    unist-util-visit "^4.1.0"
 
 remark-emoji@^2.1.0:
   version "2.2.0"
