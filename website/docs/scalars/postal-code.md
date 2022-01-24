@@ -23,6 +23,7 @@ Which gives us the following countries:
 - BE - Belgium
 - IN - India
 - IR - Iran
+- JP - Japan
 
 This is really a practical decision of weight (of the package) vs. completeness.
 
