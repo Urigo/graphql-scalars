@@ -296,6 +296,25 @@ describe('PostalCode', () => {
         ).toBe('1345678987');
       });
     });
+
+    describe('Japan', () => {
+      test('serialize', () => {
+        expect(GraphQLPostalCode.serialize('123-4567')).toBe('123-4567');
+      });
+
+      test('parseValue', () => {
+        expect(GraphQLPostalCode.parseValue('123-4567')).toBe('123-4567');
+      });
+
+      test('parseLiteral', () => {
+        expect(
+          GraphQLPostalCode.parseLiteral(
+            { value: '123-4567', kind: Kind.STRING },
+            {},
+          ),
+        ).toBe('123-4567');
+      });
+    });
   });
 
   describe('invalid', () => {
