@@ -116,6 +116,7 @@ export const SafeInt = () => Number.MAX_SAFE_INTEGER;
 export const DID = () => 'did:example:123456789abcdefghi';
 export const CountryCode = () => 'US';
 export const Locale = () => 'zh-cmn-Hans-CN';
+export const RoutingNumber = () => '111000025';
 
 export {
   DateMock as Date,

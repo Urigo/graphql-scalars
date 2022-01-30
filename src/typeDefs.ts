@@ -44,6 +44,7 @@ export const SafeInt = `scalar SafeInt`;
 export const URL = 'scalar URL';
 export const USCurrency = `scalar USCurrency`;
 export const Currency = `scalar Currency`;
+export const RoutingNumber = 'scalar RoutingNumber';
 
 export const UnsignedFloat = 'scalar UnsignedFloat';
 export const UnsignedInt = 'scalar UnsignedInt';
@@ -112,4 +113,5 @@ export const typeDefs = [
   DID,
   CountryCode,
   Locale,
+  RoutingNumber,
 ];
