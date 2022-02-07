@@ -57,6 +57,7 @@ import {
   GraphQLCountryCode,
   GraphQLLocale,
   GraphQLRoutingNumber,
+  GraphQLAccountNumber,
 } from './scalars';
 import { GraphQLDuration } from './scalars/iso-date/Duration';
 
@@ -115,6 +116,7 @@ export {
   CountryCode as CountryCodeDefinition,
   Locale as LocaleDefinition,
   RoutingNumber as RoutingNumberDefinition,
+  AccountNumber as AccountNumberDefinition,
 } from './typeDefs';
 
 export { typeDefs } from './typeDefs';
@@ -176,6 +178,7 @@ export {
   GraphQLCountryCode as CountryCodeResolver,
   GraphQLLocale as LocaleResolver,
   GraphQLRoutingNumber as RoutingNumberResolver,
+  GraphQLAccountNumber as AccountNumberResolver,
 };
 
 export const resolvers: Record<string, GraphQLScalarType> = {
@@ -235,6 +238,7 @@ export const resolvers: Record<string, GraphQLScalarType> = {
   CountryCode: GraphQLCountryCode,
   Locale: GraphQLLocale,
   RoutingNumber: GraphQLRoutingNumber,
+  AccountNumber: GraphQLAccountNumber,
 };
 
 export {
@@ -294,6 +298,7 @@ export {
   CountryCode as CountryCodeMock,
   Locale as LocaleMock,
   RoutingNumber as RoutingNumberMock,
+  AccountNumber as AccountNumberMock,
 } from './mocks';
 
 export { mocks };
@@ -361,4 +366,5 @@ export {
   GraphQLCountryCode,
   GraphQLLocale,
   GraphQLRoutingNumber,
+  GraphQLAccountNumber,
 };

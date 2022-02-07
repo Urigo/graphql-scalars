@@ -117,6 +117,7 @@ export const DID = () => 'did:example:123456789abcdefghi';
 export const CountryCode = () => 'US';
 export const Locale = () => 'zh-cmn-Hans-CN';
 export const RoutingNumber = () => '111000025';
+export const AccountNumber = () => '000000012345';
 
 export {
   DateMock as Date,
