@@ -54,6 +54,7 @@ export const ObjectID = 'scalar ObjectID';
 export const Void = 'scalar Void';
 export const DID = 'scalar DID';
 export const CountryCode = 'scalar CountryCode';
+export const Locale = 'scalar Locale';
 
 export const typeDefs = [
   Date,
@@ -110,4 +111,5 @@ export const typeDefs = [
   Void,
   DID,
   CountryCode,
+  Locale,
 ];
