@@ -23,7 +23,7 @@
     "@theguild/components": "1.9.0",
     "babel-preset-minify": "0.5.1",
     "classnames": "2.3.1",
-    "framer-motion": "6.2.6",
+    "framer-motion": "6.2.7",
     "next": "12.1.0",
     "next-i18next": "10.3.0",
     "next-seo": "5.1.0",
