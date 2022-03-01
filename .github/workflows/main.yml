@@ -17,7 +17,7 @@ jobs:
         node_version: [12, 16]
     steps:
       - name: Checkout Master
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Use Node ${{matrix.node_version}}
         uses: actions/setup-node@master
         with:
