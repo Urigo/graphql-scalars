@@ -55,6 +55,7 @@ import {
   GraphQLVoid,
   GraphQLDID,
   GraphQLCountryCode,
+  GraphQLLocale,
 } from './scalars';
 import { GraphQLDuration } from './scalars/iso-date/Duration';
 
@@ -111,6 +112,7 @@ export {
   Void as VoidTypeDefinition,
   DID as DIDDefinition,
   CountryCode as CountryCodeDefinition,
+  Locale as LocaleDefinition,
 } from './typeDefs';
 
 export { typeDefs } from './typeDefs';
@@ -170,6 +172,7 @@ export {
   GraphQLVoid as VoidResolver,
   GraphQLDID as DIDResolver,
   GraphQLCountryCode as CountryCodeResolver,
+  GraphQLLocale as LocaleResolver,
 };
 
 export const resolvers: Record<string, GraphQLScalarType> = {
@@ -227,6 +230,7 @@ export const resolvers: Record<string, GraphQLScalarType> = {
   Void: GraphQLVoid,
   DID: GraphQLDID,
   CountryCode: GraphQLCountryCode,
+  Locale: GraphQLLocale,
 };
 
 export {
@@ -284,6 +288,7 @@ export {
   Void as VoidMock,
   DID as DIDMock,
   CountryCode as CountryCodeMock,
+  Locale as LocaleMock,
 } from './mocks';
 
 export { mocks };
@@ -349,4 +354,5 @@ export {
   GraphQLVoid,
   GraphQLDID,
   GraphQLCountryCode,
+  GraphQLLocale,
 };

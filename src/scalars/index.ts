@@ -51,3 +51,4 @@ export { GraphQLObjectID } from './ObjectID';
 export { GraphQLVoid } from './Void';
 export { GraphQLDID } from './DID';
 export { GraphQLCountryCode } from './CountryCode';
+export { GraphQLLocale } from './Locale';
