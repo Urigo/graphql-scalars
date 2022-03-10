@@ -15,7 +15,7 @@
     "@chakra-ui/utils": "1.10.4",
     "@docusaurus/core": "2.0.0-beta.17",
     "@docusaurus/preset-classic": "2.0.0-beta.17",
-    "@emotion/react": "11.8.1",
+    "@emotion/react": "11.8.2",
     "@emotion/styled": "11.8.1",
     "@guild-docs/client": "1.4.0",
     "@guild-docs/server": "2.2.0",
