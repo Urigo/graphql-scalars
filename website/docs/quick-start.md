@@ -102,3 +102,17 @@ type Person {
 ```
 
 These scalars can be used just like the base, built-in ones.
+
+## GraphQL Code Generator integration
+
+```yml
+generates:
+  ./src/graphql/types.ts:
+    plugins:
+      - typescript
+    config:
+      scalars:
+        JSON: string
+        UUID: string
+        Date: string
+```
