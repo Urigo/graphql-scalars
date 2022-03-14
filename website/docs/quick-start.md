@@ -103,7 +103,7 @@ type Person {
 
 These scalars can be used just like the base, built-in ones.
 
-## Changing types.ts
+## GraphQL Code Generator integration
 
 ```yml
 generates:
