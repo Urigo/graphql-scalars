@@ -4212,10 +4212,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@theguild/components@1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@theguild/components/-/components-1.10.0.tgz#990cd24c83e5a26553ac15bf0086e90da849c330"
-  integrity sha512-OS8G4mjH9/MbSM0CQYWg8mb70pHKBU2BASjMNIHnPYuNzTYxRmlKpvEB6achkyp9kCsakRBZ3gI/tGoEX/fN7Q==
+"@theguild/components@1.10.1":
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/@theguild/components/-/components-1.10.1.tgz#62bb0089b5e999f45c80f6aed4ab71352166b51d"
+  integrity sha512-xegO3ZnjlIJpigSwpC8UMiyOxN0S+invrkl3T34zn/XVP7G3WqGU8n3mJ/7DbJuK5V9SRZUG3+CaXvQYYXfOVw==
   dependencies:
     "@emotion/react" "11.7.1"
     "@emotion/styled" "11.6.0"
