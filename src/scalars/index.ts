@@ -2,6 +2,7 @@ export { GraphQLDate } from './iso-date/Date';
 export { GraphQLTime } from './iso-date/Time';
 export { GraphQLDateTime } from './iso-date/DateTime';
 export { GraphQLTimestamp } from './Timestamp';
+export { GraphQLTimeZone } from './TimeZone';
 export { GraphQLUtcOffset } from './UtcOffset';
 export { GraphQLISO8601Duration } from './iso-date/Duration';
 export { GraphQLLocalDate } from './LocalDate';
