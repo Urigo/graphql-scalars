@@ -23,35 +23,36 @@ const validate = (value: any) => {
 const specifiedByURL =
   'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()';
 
-export const GraphQLHSLConfig = /*#__PURE__*/ {
-  name: `HSL`,
+export const GraphQLHSLConfig: GraphQLScalarTypeConfig<string, string> =
+  /*#__PURE__*/ {
+    name: `HSL`,
 
-  description: `A field whose value is a CSS HSL color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().`,
+    description: `A field whose value is a CSS HSL color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().`,
 
-  serialize(value) {
-    return validate(value);
-  },
+    serialize(value) {
+      return validate(value);
+    },
 
-  parseValue(value) {
-    return validate(value);
-  },
+    parseValue(value) {
+      return validate(value);
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as HSL colors but got a: ${ast.kind}`,
-      );
-    }
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as HSL colors but got a: ${ast.kind}`,
+        );
+      }
 
-    return validate(ast.value);
-  },
+      return validate(ast.value);
+    },
 
-  specifiedByURL,
-  specifiedByUrl: specifiedByURL,
-  extensions: {
-    codegenScalarType: 'string',
-  },
-} as GraphQLScalarTypeConfig<string, string>;
+    specifiedByURL,
+    specifiedByUrl: specifiedByURL,
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  } as GraphQLScalarTypeConfig<string, string>;
 
 export const GraphQLHSL: GraphQLScalarType =
   /*#__PURE__*/ new GraphQLScalarType(GraphQLHSLConfig);

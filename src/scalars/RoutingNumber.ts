@@ -96,6 +96,5 @@ export const GraphQLRoutingNumberConfig: GraphQLScalarTypeConfig<
   },
 };
 
-export const GraphQLRoutingNumber = new GraphQLScalarType(
-  GraphQLRoutingNumberConfig,
-);
+export const GraphQLRoutingNumber: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLRoutingNumberConfig);

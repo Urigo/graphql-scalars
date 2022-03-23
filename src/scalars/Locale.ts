@@ -16,19 +16,20 @@ function validate(value: string) {
   return value;
 }
 
-export const GraphQLLocale: GraphQLScalarType = new GraphQLScalarType({
-  name: 'Locale',
-  description:
-    'The locale in the format of a BCP 47 (RFC 5646) standard string',
-  serialize: validate,
-  parseValue: validate,
-  parseLiteral(ast) {
-    if (ast.kind === Kind.STRING) {
-      return validate(ast.value);
-    }
-    throw new GraphQLError(`Value is not a string. Received: ${ast.kind}`);
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+export const GraphQLLocale: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: 'Locale',
+    description:
+      'The locale in the format of a BCP 47 (RFC 5646) standard string',
+    serialize: validate,
+    parseValue: validate,
+    parseLiteral(ast) {
+      if (ast.kind === Kind.STRING) {
+        return validate(ast.value);
+      }
+      throw new GraphQLError(`Value is not a string. Received: ${ast.kind}`);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

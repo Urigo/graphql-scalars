@@ -14,26 +14,27 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLCountryCode: GraphQLScalarType = new GraphQLScalarType({
-  name: 'CountryCode',
-  description: 'A country code as defined by ISO 3166-1 alpha-2',
-  serialize(value) {
-    return validate(value);
-  },
+export const GraphQLCountryCode: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType({
+    name: 'CountryCode',
+    description: 'A country code as defined by ISO 3166-1 alpha-2',
+    serialize(value) {
+      return validate(value);
+    },
 
-  parseValue(value) {
-    return validate(value);
-  },
+    parseValue(value) {
+      return validate(value);
+    },
 
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as country codes but got a: ${ast.kind}`,
-      );
-    }
-    return validate(ast.value);
-  },
-  extensions: {
-    codegenScalarType: 'string',
-  },
-});
+    parseLiteral(ast) {
+      if (ast.kind !== Kind.STRING) {
+        throw new GraphQLError(
+          `Can only validate strings as country codes but got a: ${ast.kind}`,
+        );
+      }
+      return validate(ast.value);
+    },
+    extensions: {
+      codegenScalarType: 'string',
+    },
+  });

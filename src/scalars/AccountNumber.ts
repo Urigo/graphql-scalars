@@ -57,6 +57,5 @@ export const GraphQLAccountNumberConfig: GraphQLScalarTypeConfig<
   },
 };
 
-export const GraphQLAccountNumber = new GraphQLScalarType(
-  GraphQLAccountNumberConfig,
-);
+export const GraphQLAccountNumber: GraphQLScalarType =
+  /*#__PURE__*/ new GraphQLScalarType(GraphQLAccountNumberConfig);
