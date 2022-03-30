@@ -3,6 +3,7 @@ export const Byte = 'scalar Byte';
 export const Date = 'scalar Date';
 export const Time = 'scalar Time';
 export const Timestamp = 'scalar Timestamp';
+export const TimeZone = 'scalar TimeZone';
 export const DateTime = 'scalar DateTime';
 export const UtcOffset = 'scalar UtcOffset';
 export const Duration = 'scalar Duration';
@@ -63,6 +64,7 @@ export const typeDefs = [
   Time,
   DateTime,
   Timestamp,
+  TimeZone,
   UtcOffset,
   Duration,
   ISO8601Duration,
