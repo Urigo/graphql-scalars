@@ -5,10 +5,8 @@ import {
 } from 'graphql/type/definition';
 import { GraphQLSchema, graphql } from 'graphql';
 import { GraphQLBigInt } from '../src/scalars/BigInt';
+import 'json-bigint-patch';
 
-(BigInt as any).prototype.toJSON = function () {
-  return this.toString();
-};
 describe('BigInt', () => {
   const Query = new GraphQLObjectType({
     name: 'Query',
