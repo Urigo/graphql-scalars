@@ -50,7 +50,7 @@
     "@next/bundle-analyzer": "12.1.5",
     "@types/concurrently": "6.4.0",
     "@types/mdx-js__react": "1.5.5",
-    "@types/node": "16.11.27",
+    "@types/node": "16.11.28",
     "@types/react": "17.0.44",
     "@types/react-dom": "17.0.15",
     "concurrently": "7.1.0",
