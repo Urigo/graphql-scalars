@@ -12,10 +12,13 @@ import {
   DocsPage,
   AppSeoProps,
 } from '@guild-docs/client';
-import {Header, Subheader, FooterExtended} from '@theguild/components';
+import { Header, Subheader, FooterExtended } from '@theguild/components';
 import Script from 'next/script';
 
 import type { AppProps } from 'next/app';
+
+import '@algolia/autocomplete-theme-classic';
+import '@theguild/components/dist/static/css/SearchBarV2.css';
 
 ExtendComponents({
   HelloWorld() {
@@ -70,7 +73,12 @@ function AppContent(appProps: AppProps) {
   return (
     <>
       <Script src="https://the-guild.dev/static/crisp.js" />
-      <Header accentColor={accentColor} activeLink="/open-source" themeSwitch />
+      <Header
+        accentColor={accentColor}
+        activeLink="/open-source"
+        themeSwitch
+        searchBarProps={{ version: 'v2' }}
+      />
       <Subheader
         activeLink={router.asPath}
         product={{
@@ -99,9 +107,9 @@ function AppContent(appProps: AppProps) {
             children: 'Github',
             target: '_blank',
             rel: 'noopener norefereer',
-            title: 'Head to the project\'s GitHub',
-            href: 'https://github.com/urigo/graphql-scalars'
-          }
+            title: "Head to the project's GitHub",
+            href: 'https://github.com/urigo/graphql-scalars',
+          },
         ]}
         cta={{
           children: 'Get Started',
