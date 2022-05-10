@@ -20,7 +20,7 @@
     "@guild-docs/client": "1.4.0",
     "@guild-docs/server": "2.2.0",
     "@mdx-js/react": "2.1.1",
-    "@theguild/components": "1.11.2",
+    "@theguild/components": "1.11.6",
     "babel-preset-minify": "0.5.2",
     "classnames": "2.3.1",
     "framer-motion": "6.3.3",
