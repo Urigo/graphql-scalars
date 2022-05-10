@@ -16,7 +16,7 @@ export default function Index() {
         }}
         version={<NPMBadge name="graphql-scalars" />}
         colors={['#ff3289', '#000000']}
-/*        image={{
+        /*        image={{
           src: '/assets/home-claw.png',
           alt: 'Illustration',
         }}*/
