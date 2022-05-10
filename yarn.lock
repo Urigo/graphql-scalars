@@ -1380,10 +1380,10 @@
   dependencies:
     mongodb "*"
 
-"@types/node@*", "@types/node@16.11.33":
-  version "16.11.33"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.33.tgz#566713b1b626f781c5c58fe3531307283e00720c"
-  integrity sha512-0PJ0vg+JyU0MIan58IOIFRtSvsb7Ri+7Wltx2qAg94eMOrpg4+uuP3aUHCpxXc1i0jCXiC+zIamSZh3l9AbcQA==
+"@types/node@*", "@types/node@16.11.34":
+  version "16.11.34"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.34.tgz#520224e4be4448c279ecad09639ab460cc441a50"
+  integrity sha512-UrWGDyLAlQ2Z8bNOGWTsqbP9ZcBeTYBVuTRNxXTztBy5KhWUFI3BaeDWoCP/CzV/EVGgO1NTYzv9ZytBI9GAEw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -1757,10 +1757,10 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
-bob-the-bundler@1.7.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/bob-the-bundler/-/bob-the-bundler-1.7.1.tgz#42fdf6a5426343ad956d70eedeae447add78b527"
-  integrity sha512-jycXxGEXysR522hIMqtGg3zKoLYxGrwCxsDOTjQN8fxREFx6lP9xk4cIMi7SVt9ma0UVPlWCzpsK9eLh3cX0Hw==
+bob-the-bundler@1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/bob-the-bundler/-/bob-the-bundler-1.7.2.tgz#edbf1e1fd0df7d37ed9f61d0a8c4f51b345b9f81"
+  integrity sha512-8d6B9U9TjnpABvbs29PEeja13pnHo903taygnV28ThlqC4dyfDjVAaO7H6S4uTrs9sinmY5JV8lJlXuxivaTEQ==
   dependencies:
     "@rollup/plugin-json" "4.1.0"
     "@rollup/plugin-node-resolve" "7.1.1"
