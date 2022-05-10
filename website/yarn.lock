@@ -2883,10 +2883,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@theguild/components@1.11.6":
-  version "1.11.6"
-  resolved "https://registry.yarnpkg.com/@theguild/components/-/components-1.11.6.tgz#6eb16fa52e66836d8810b1c70e1b9311620152be"
-  integrity sha512-37PXhBsVlO0He1Z8iyIjT2X7eMCLSlDHtBCxKKft2sHbayTGhftccLYGJgcQ6yJiUg7Hjc6/K0WHPHSKdkQFCA==
+"@theguild/components@1.11.7":
+  version "1.11.7"
+  resolved "https://registry.yarnpkg.com/@theguild/components/-/components-1.11.7.tgz#27c264e0d5db18fa3c1b96ac8c9dc82efaea95bd"
+  integrity sha512-B2qX0unMQ0RJmSUEp4Zi+aXfxGKlV0Vhow5lXNdnzhPUs+kfac6MDIBzfAkTQ2qa6WoN0YcvnJniLqw43DUHWA==
   dependencies:
     "@algolia/autocomplete-js" "^1.6.2"
     "@algolia/autocomplete-plugin-algolia-insights" "^1.6.2"
@@ -3102,10 +3102,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.21.tgz#864b987c0c68d07b4345845c3e63b75edd143644"
   integrity sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==
 
-"@types/node@16.11.33":
-  version "16.11.33"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.33.tgz#566713b1b626f781c5c58fe3531307283e00720c"
-  integrity sha512-0PJ0vg+JyU0MIan58IOIFRtSvsb7Ri+7Wltx2qAg94eMOrpg4+uuP3aUHCpxXc1i0jCXiC+zIamSZh3l9AbcQA==
+"@types/node@16.11.34":
+  version "16.11.34"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.34.tgz#520224e4be4448c279ecad09639ab460cc441a50"
+  integrity sha512-UrWGDyLAlQ2Z8bNOGWTsqbP9ZcBeTYBVuTRNxXTztBy5KhWUFI3BaeDWoCP/CzV/EVGgO1NTYzv9ZytBI9GAEw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -3398,12 +3398,7 @@ acorn-walk@^7.0.0:
   resolved "https://registry.npmjs.org/acorn-walk/-/acorn-walk-7.2.0.tgz"
   integrity sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA==
 
-acorn-walk@^8.0.0:
-  version "8.1.1"
-  resolved "https://registry.npmjs.org/acorn-walk/-/acorn-walk-8.1.1.tgz"
-  integrity sha512-FbJdceMlPHEAWJOILDk1fXD8lnTlEIWFkqtfk+MvmL5q/qlHfN7GEHcsFZWt/Tea9jRNPWUZG4G976nqAAmU9w==
-
-acorn-walk@^8.1.1:
+acorn-walk@^8.0.0, acorn-walk@^8.1.1:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.2.0.tgz#741210f2e2426454508853a2f44d0ab83b7f69c1"
   integrity sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==
