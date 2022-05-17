@@ -21,7 +21,7 @@
     "@guild-docs/client": "1.4.0",
     "@guild-docs/server": "2.2.0",
     "@mdx-js/react": "2.1.1",
-    "@theguild/components": "1.11.7",
+    "@theguild/components": "1.11.8",
     "babel-preset-minify": "0.5.2",
     "classnames": "2.3.1",
     "framer-motion": "6.3.3",
@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "ts-node": "10.7.0",
-    "@guild-docs/algolia": "0.0.4",
+    "@guild-docs/algolia": "0.0.5",
     "@next/bundle-analyzer": "12.1.6",
     "@types/concurrently": "6.4.0",
     "@types/mdx-js__react": "1.5.5",
