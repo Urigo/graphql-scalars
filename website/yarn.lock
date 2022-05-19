@@ -2296,10 +2296,10 @@
   resolved "https://registry.npmjs.org/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@guild-docs/algolia@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@guild-docs/algolia/-/algolia-0.0.5.tgz#478b6208f7ee71bb6ab78e53752be8146e2bed71"
-  integrity sha512-vSkXadOlTS23LOa06gqXuNsfyAEbZy0n/AR4JOGmq607KY1bmstgRp03mkdVPDplU7j5APgZ3iIMJM+f8k302g==
+"@guild-docs/algolia@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@guild-docs/algolia/-/algolia-0.0.6.tgz#0fecdd9e72cf38ac5e624d700604219897576d4a"
+  integrity sha512-Q1YHnuRf/iR745TQIqhXuxYHG7/6nTdAeKi1rCNVSF/EZTVYDU2nGy+zBftG57lQLHyufiRpl1qOL1WTUnupgw==
   dependencies:
     algoliasearch "^4.13.0"
     github-slugger "^1.4.0"
