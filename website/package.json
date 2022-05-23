@@ -66,7 +66,7 @@
     "@types/node": "16.11.36",
     "@types/react": "17.0.45",
     "@types/react-dom": "18.0.4",
-    "concurrently": "7.2.0",
+    "concurrently": "7.2.1",
     "cross-env": "7.0.3",
     "esbuild": "0.14.39",
     "esbuild-register": "3.3.2",
