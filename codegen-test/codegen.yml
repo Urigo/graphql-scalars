@@ -1,0 +1,6 @@
+schema: ./test-schema.js
+
+generates:
+  types.ts:
+    plugins:
+      - typescript

@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "graphql-scalars": ["../src/index.ts"]
+    }
+  },
+  "files": ["./types.ts"]
+}
