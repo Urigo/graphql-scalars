@@ -1211,7 +1211,7 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.13.17", "@babel/runtime@^7.14.5", "@babel/runtime@^7.17.8", "@babel/runtime@^7.18.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.13.17", "@babel/runtime@^7.14.5", "@babel/runtime@^7.17.2", "@babel/runtime@^7.17.8", "@babel/runtime@^7.18.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
   version "7.18.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.3.tgz#c7b654b57f6f63cf7f8b418ac9ca04408c4579f4"
   integrity sha512-38Y8f7YUhce/K7RMwTp7m0uCumpv9hZkitCbBClqQIow1qSbCvGkcegKOXpEWCQLfWmevgRiWokZ1GkpfhbZug==
@@ -7274,17 +7274,17 @@ hyphenate-style-name@^1.0.2:
   resolved "https://registry.npmjs.org/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
-i18next-fs-backend@^1.0.7:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/i18next-fs-backend/-/i18next-fs-backend-1.1.1.tgz"
-  integrity sha512-RFkfy10hNxJqc7MVAp5iAZq0Tum6msBCNebEe3OelOBvrROvzHUPaR8Qe10RQrOGokTm0W4vJGEJzruFkEt+hQ==
+i18next-fs-backend@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-1.1.4.tgz#d0e9b9ed2fa7a0f11002d82b9fa69c3c3d6482da"
+  integrity sha512-/MfAGMP0jHonV966uFf9PkWWuDjPYLIcsipnSO3NxpNtAgRUKLTwvm85fEmsF6hGeu0zbZiCQ3W74jwO6K9uXA==
 
-i18next@^21.6.12:
-  version "21.6.12"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.6.12.tgz#5080a611af98f4104062a88452b30704b29fa924"
-  integrity sha512-xlGTPdu2g5PZEUIE6TA1mQ9EIAAv9nMFONzgwAIrKL/KTmYYWufQNGgOmp5Og1PvgUji+6i1whz0rMdsz1qaKw==
+i18next@^21.6.14:
+  version "21.8.8"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.8.8.tgz#725a05f2529689d059bce17221cf86fcdccf7665"
+  integrity sha512-iN/5JuWStyivyBgmUgy5BRiFs0lZrgCRaeV9q4yVH/eR9NID7pZSMt3rpF8C16GplchoEjDP0JalKwZMJ1CJAA==
   dependencies:
-    "@babel/runtime" "^7.12.0"
+    "@babel/runtime" "^7.17.2"
 
 iconv-lite@0.4, iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
@@ -9130,18 +9130,18 @@ neo-async@^2.5.0, neo-async@^2.6.2:
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-i18next@10.5.0:
-  version "10.5.0"
-  resolved "https://registry.yarnpkg.com/next-i18next/-/next-i18next-10.5.0.tgz#cf9f5f1cb01cc5e900807630bcf01ac3b3d58f28"
-  integrity sha512-+Xj/v5gqpEUBKKAaFCZ76+Ps6OGAaIgGowJTF67wTcmIQbHrcHMPjHwPTbnpXy7uHrH8os7i4eAfRENAv/6xwg==
+next-i18next@11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/next-i18next/-/next-i18next-11.0.0.tgz#2857d13c58a5ed976fe57c44286f1520b07f7c96"
+  integrity sha512-phxbQiZGSJTTBE2FI4+BnqFZl88AI2V+6MrEQnT9aPFAXq/fATQ/F0pOUM3J7kU4nEeCfn3hjISq+ygGHlEz0g==
   dependencies:
     "@babel/runtime" "^7.13.17"
     "@types/hoist-non-react-statics" "^3.3.1"
     core-js "^3"
     hoist-non-react-statics "^3.2.0"
-    i18next "^21.6.12"
-    i18next-fs-backend "^1.0.7"
-    react-i18next "^11.15.5"
+    i18next "^21.6.14"
+    i18next-fs-backend "^1.1.4"
+    react-i18next "^11.16.2"
 
 next-remote-watch@1.0.0:
   version "1.0.0"
@@ -10312,10 +10312,10 @@ react-helmet-async@*, react-helmet-async@^1.3.0:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
-react-i18next@^11.15.5:
-  version "11.15.5"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.15.5.tgz#3de940a1c5a27956d8265663ca67494881f385e8"
-  integrity sha512-vBWuVEQgrhZrGKpyv8FmJ7Zs5jRQWl794Tte7yzJ0okZqqi3jd6j2pLYNg441WcREsbIOvWdiDXbY7W6E93p1A==
+react-i18next@^11.16.2:
+  version "11.17.0"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.17.0.tgz#44a0689dac7903352733e40303b743fa465eb797"
+  integrity sha512-ewq2S4bVUTRqOMAdM/XvzCn9xUPIryzeBQRghmJ8lC6VI/8Kp7z1GwoLyt8j7GB2ywhN2SjPk7LU4sHzVeu7aw==
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-escaper "^2.0.2"
