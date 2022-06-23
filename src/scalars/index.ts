@@ -55,3 +55,4 @@ export { GraphQLCountryCode } from './CountryCode';
 export { GraphQLLocale } from './Locale';
 export { GraphQLRoutingNumber } from './RoutingNumber';
 export { GraphQLAccountNumber } from './AccountNumber';
+export { GraphQLCuid } from './Cuid';
