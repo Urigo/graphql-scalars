@@ -24,7 +24,7 @@
     "@theguild/components": "1.11.8",
     "babel-preset-minify": "0.5.2",
     "classnames": "2.3.1",
-    "framer-motion": "6.3.11",
+    "framer-motion": "6.3.15",
     "next": "12.1.6",
     "next-i18next": "11.0.0",
     "next-seo": "5.4.0",
