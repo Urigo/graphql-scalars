@@ -14,11 +14,12 @@ Where an RFC 3339 compliant date-time string has a time-zone other than UTC, it 
 
 **Result Coercion**
 
-JavaScript Date instances and timestamps (represented as 32-bit signed integers) are coerced to RFC 3339 compliant date-time strings. Invalid Date instances raise a field error.
+JavaScript Date instances, RFC 3339 compliant date-time strings and timestamps (represented as 32-bit signed integers) are coerced to JavaScript Date objects.
+Invalid Date instances raise a field error.
+HTTP servers serialize `Date` objects to RFC 3339 compliant date-time strings but `ExecutionResult` will still have `Date` objects while HTTP response has the date-time strings.
 
 **Input Coercion**
 
 When expected as an input type, only RFC 3339 compliant date-time strings are accepted. All other input values raise a query error indicating an incorrect type.
 
 > Taken from [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date/)
-

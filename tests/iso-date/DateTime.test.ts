@@ -7,10 +7,15 @@
  *
  */
 
-import { GraphQLDateTime } from '../../src/scalars/iso-date/DateTime';
-import { Kind } from 'graphql';
+import { GraphQLDateTime as NonTypedGraphQLDateTime } from '../../src/scalars/iso-date/DateTime';
+import { Kind, GraphQLScalarType, StringValueNode } from 'graphql';
 // flowlint-next-line untyped-import:off
 import { stringify } from 'jest-matcher-utils';
+
+const GraphQLDateTime = NonTypedGraphQLDateTime as GraphQLScalarType<
+  Date,
+  Date
+>;
 
 const invalidDates = [
   // General
@@ -147,7 +152,7 @@ describe('GraphQLDateTime', () => {
 
   describe('literal parsing', () => {
     validDates.forEach(([value, expected]) => {
-      const literal = {
+      const literal: StringValueNode = {
         kind: Kind.STRING,
         value: value.toString(),
       };
@@ -160,7 +165,7 @@ describe('GraphQLDateTime', () => {
     });
 
     invalidDates.forEach((value) => {
-      const invalidLiteral = {
+      const invalidLiteral: StringValueNode = {
         kind: Kind.STRING,
         value,
       };
