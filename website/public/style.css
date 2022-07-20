@@ -1,4 +1,4 @@
-code[class*='language-'],
+/* code[class*='language-'],
 pre[class*='language-'] {
   white-space: pre-wrap !important;
   word-break: break-word !important;
@@ -19,4 +19,12 @@ article {
 
 #__next {
   font-family: TGCFont, sans-serif;
+} */
+
+@tailwind components;
+@tailwind utilities;
+
+/* quick fix for menu on mobile */
+.nextra-sidebar-search {
+  display: none;
 }

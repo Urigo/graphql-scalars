@@ -1,41 +1,43 @@
 {
-  "name": "@graphql-scalars/website",
+  "name": "website",
   "version": "0.7.0",
   "private": true,
   "scripts": {
     "algolia-sync": "ts-node scripts/algolia-ci.ts",
     "build": "next build",
-    "dev": "concurrently -r \"next-remote-watch ./docs ./src/pages/_app.tsx ./src/pages/_document.tsx\" \"wait-on -s 1 http://localhost:3000 && open-cli http://localhost:3000\"",
+    "dev": "next dev",
     "next": "next",
-    "analyze": "cross-env ANALYZE=true next build"
+    "analyze": "cross-env ANALYZE=true next build",
+    "postinstall": "patch-package"
   },
   "dependencies": {
-    "@chakra-ui/icons": "2.0.4",
-    "@chakra-ui/react": "2.2.4",
-    "@chakra-ui/theme-tools": "2.0.5",
-    "@chakra-ui/utils": "2.0.4",
+    "@chakra-ui/icons": "1.1.7",
+    "@chakra-ui/react": "1.8.8",
+    "@chakra-ui/theme-tools": "1.3.6",
+    "@chakra-ui/utils": "1.10.4",
     "@docusaurus/core": "2.0.0-rc.1",
     "@docusaurus/preset-classic": "2.0.0-rc.1",
     "@emotion/react": "11.9.3",
     "@emotion/styled": "11.9.3",
-    "@guild-docs/client": "3.1.0",
-    "@guild-docs/server": "4.0.0",
+    "@guild-docs/client": "4.0.0-alpha-977f9d3.0",
     "@mdx-js/react": "2.1.2",
-    "@theguild/components": "1.11.8",
+    "@theguild/components": "2.0.0-alpha-9d29815.0",
     "babel-preset-minify": "0.5.2",
     "classnames": "2.3.1",
     "framer-motion": "6.5.1",
     "next": "12.2.2",
     "next-i18next": "11.1.1",
     "next-seo": "5.4.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-icons": "4.4.0",
     "react-use": "17.4.0",
     "remark-admonitions": "1.2.1",
     "remark-code-import": "1.1.1",
     "remark-import-partial": "0.0.2",
-    "shiki": "0.10.1"
+    "shiki": "0.10.1",
+    "rehype-mdx-title": "^1.0.0",
+    "nextra": "2.0.0-alpha.56"
   },
   "browserslist": {
     "production": [
@@ -64,7 +66,7 @@
     "@types/concurrently": "6.4.0",
     "@types/mdx-js__react": "1.5.5",
     "@types/node": "16.11.44",
-    "@types/react": "18.0.15",
+    "@types/react": "17.0.39",
     "concurrently": "7.2.2",
     "cross-env": "7.0.3",
     "esbuild": "0.14.49",
@@ -72,6 +74,11 @@
     "next-remote-watch": "1.0.0",
     "open-cli": "7.0.1",
     "typescript": "4.7.4",
-    "wait-on": "6.0.1"
+    "wait-on": "6.0.1",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.6",
+    "cssnano": "^5.1.12",
+    "patch-package": "6.4.7"
   }
 }
