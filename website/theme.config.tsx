@@ -1,13 +1,13 @@
 import { ScalarsLogo } from '@theguild/components';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 
-const SITE_NAME = 'GraphQL Mesh';
+const SITE_NAME = 'GraphQL Scalars';
 
 const config: DocsThemeConfig = {
   titleSuffix: ` – ${SITE_NAME}`,
-  projectLink: 'https://github.com/urigo/graphql-mesh', // GitHub link in the navbar
+  projectLink: 'https://github.com/urigo/graphql-scalars', // GitHub link in the navbar
   docsRepositoryBase:
-    'https://github.com/Urigo/graphql-mesh/tree/master/website/src/pages', // base URL for the docs repository
+    'https://github.com/Urigo/graphql-scalars/tree/master/website/src/pages', // base URL for the docs repository
   nextLinks: true,
   prevLinks: true,
   search: false,
@@ -21,7 +21,7 @@ const config: DocsThemeConfig = {
       <div>
         <h1 className="md:text-md text-sm font-medium">{SITE_NAME}</h1>
         <h2 className="hidden text-xs sm:!block">
-          Query anything, run anywhere
+          Common custom GraphQL Scalars for precise type-safe GraphQL schemas
         </h2>
       </div>
     </>

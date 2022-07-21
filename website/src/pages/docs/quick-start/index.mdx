@@ -1,18 +1,10 @@
----
-id: quick-start
-title: Quick Start
-sidebar_label: Quick Start
----
+import { Callout, PackageCmd } from '@theguild/components';
 
-## Installation
+# Installation
 
-To get started with GraphQL Scalars, install the packages as follows
+To get started with GraphQL Scalars, install the packages as follows:
 
-`npm install --save graphql-scalars`
-
-or
-
-`yarn add graphql-scalars`
+<PackageCmd packages={['graphql-scalars']} />
 
 ## Integration to your existing GraphQL Schema
 
@@ -20,7 +12,7 @@ GraphQL Scalars is easy to integrate into your existing GraphQL Schema. You need
 
 ### In your SDL type definitions
 
-```graphql
+```graphql filename="schema.graphql"
 scalar ScalarName
 ```
 
@@ -47,7 +39,7 @@ const typeDefs = [
 ];
 ```
 
-### Importing it in your resolver map
+### Importing it into your resolver map
 
 You can either import the specific scalar's resolvers or all of the resolvers once.
 
@@ -82,7 +74,7 @@ const myResolverMap = {
 
 That's it. Now you can use these scalar types in your schema definition like this:
 
-```graphql
+```graphql filename="schema.graphql"
 type Person {
   birthDate: DateTime
   ageInYears: PositiveInt
@@ -100,7 +92,7 @@ These scalars can be used just like the base, built-in ones.
 
 ## GraphQL Code Generator integration
 
-```yaml
+```yaml filename="config.yaml"
 generates:
   ./src/graphql/types.ts:
     plugins:
