@@ -1,4 +1,4 @@
-import { MeshLogo } from '@theguild/components';
+import { ScalarsLogo } from '@theguild/components';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 
 const SITE_NAME = 'GraphQL Mesh';
@@ -11,14 +11,13 @@ const config: DocsThemeConfig = {
   nextLinks: true,
   prevLinks: true,
   search: false,
-  unstable_flexsearch: false,
   floatTOC: true,
   darkMode: true,
   footer: false,
   footerEditLink: 'Edit this page on GitHub',
   logo: (
     <>
-      <MeshLogo className="mr-1.5 h-9 w-9" />
+      <ScalarsLogo className="mr-1.5 h-9 w-9" />
       <div>
         <h1 className="md:text-md text-sm font-medium">{SITE_NAME}</h1>
         <h2 className="hidden text-xs sm:!block">

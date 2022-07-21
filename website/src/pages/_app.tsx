@@ -1,6 +1,5 @@
-import 'remark-admonitions/styles/infima.css';
-import '../../public/style.css';
-
+import Script from 'next/script';
+import { AppProps } from 'next/app';
 import { AppSeoProps } from '@guild-docs/client';
 import { FooterExtended, Header, ThemeProvider } from '@theguild/components';
 
@@ -8,16 +7,14 @@ import 'nextra-theme-docs/style.css';
 import '../../public/style.css';
 import '@algolia/autocomplete-theme-classic';
 import '@theguild/components/dist/static/css/SearchBarV2.css';
-import Script from 'next/script';
 
-import type { AppProps } from 'next/app';
-
-const accentColor = '#1CC8EE';
+const accentColor = '#1cc8ee';
 
 export default function App(appProps: AppProps) {
   const { Component, pageProps } = appProps;
   // @ts-expect-error
   const { getLayout } = Component;
+  // @ts-ignore
   const childComponent = <Component {...pageProps} />;
   return (
     <ThemeProvider>

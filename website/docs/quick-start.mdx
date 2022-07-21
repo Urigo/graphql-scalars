@@ -82,20 +82,15 @@ const myResolverMap = {
 
 That's it. Now you can use these scalar types in your schema definition like this:
 
-```typescript
+```graphql
 type Person {
   birthDate: DateTime
   ageInYears: PositiveInt
-
   heightInInches: PositiveFloat
-
   minimumHourlyRate: NonNegativeFloat
-
   currentlyActiveProjects: NonNegativeInt
-
   email: EmailAddress
   homePage: URL
-
   phoneNumber: PhoneNumber
   homePostalCode: PostalCode
 }
@@ -105,7 +100,7 @@ These scalars can be used just like the base, built-in ones.
 
 ## GraphQL Code Generator integration
 
-```yml
+```yaml
 generates:
   ./src/graphql/types.ts:
     plugins:

@@ -1,0 +1,19 @@
+---
+title: Home
+---
+
+import { HeroGradient, NPMBadge } from '@theguild/components';
+import { handlePushRoute } from '@guild-docs/client';
+
+<HeroGradient
+  title="GraphQL Scalars"
+  description="Data Integrity and Strict Validations on GraphQL"
+  link={{
+    href: '/docs',
+    children: 'Get Started',
+    title: 'Get started with GraphQL Scalars',
+    onClick: (e) => handlePushRoute('/docs', e),
+  }}
+  version={<NPMBadge name="graphql-scalars" />}
+  colors={['#ff3289', '#000']}
+/>
