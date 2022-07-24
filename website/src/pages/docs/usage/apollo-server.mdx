@@ -1,10 +1,4 @@
----
-id: apollo-server
-title: Usage with Apollo Server
-sidebar_label: Apollo Server
----
-
-### Usage with Apollo Server
+# Usage with Apollo Server
 
 ```javascript
 import { ApolloServer } from 'apollo-server';
@@ -30,12 +24,12 @@ const server = new ApolloServer({
       scalarResolvers,
       // DateTimeResolver,
       // ...
-      // ... remainder of resolver map ...
+      // ... the remainder of the resolver map ...
     ],
   }),
 });
 
-server.listen().then(({ url }) => {
+server.listen().then(({ URL }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
 ```

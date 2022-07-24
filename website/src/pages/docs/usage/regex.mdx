@@ -1,13 +1,8 @@
----
-id: regex
-title: Using the RegularExpression Scalar Factory
-sidebar_label: Generate your own scalars from regular expressions
----
+# Using the RegularExpression Scalar Factory
 
-### Using the RegularExpression scalar
+## Using the RegularExpression scalar
 
-First an explanation: To create a new scalar type to the GraphQL schema language, you must create an
-instance of a new `GraphQLScalarType` object that implements three general functions/methods:
+First an explanation: To create a new scalar type for the GraphQL schema language, you must create an instance of a new `GraphQLScalarType` object that implements three general functions/methods:
 `serialize`, `parseValue` and `parseLiteral` which are used at different stages of processing your
 GraphQL types during queries and mutations. So creating a new scalar looks like this:
 
@@ -42,8 +37,8 @@ parameters. That's the approach we take here.
 Therefore the `RegularExpression` scalar type is really a `GraphQLScalarType` object _generator_
 that takes two arguments:
 
-- a name
-- the regex you want it to use
+- A name
+- The regex you want it to use
 
 So to create a new scalar for a given regex, you will do this:
 
@@ -55,7 +50,7 @@ Now `MyRegexType` is your new GraphQL scalar type that will enforce a value of, 
 
 Add your new scalar type to your resolver map:
 
-```javascript
+```javascript filename="resolver.js"
 export default {
   MyRegexType,
 };
@@ -63,13 +58,13 @@ export default {
 
 And to your schema:
 
-```graphql
+```graphql filename="schema.graphql"
 scalar MyRegexType
 ```
 
 That's it. Now you can use `MyRegexType` as a type in the rest of your schema.
 
-#### RegularExpression options
+## RegularExpression options
 
 There is an optional third `options` argument to the RegularExpression constructor that can be used like this:
 

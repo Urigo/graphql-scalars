@@ -1,16 +1,13 @@
----
-id: mocks
-title: Using GraphQL Scalars Mocks
-sidebar_label: Mocks
----
+# Using GraphQL Scalars Mocks
 
 GraphQL Scalars provides mock implementations out-of-box that is compatible with [GraphQL Tools Mocking](https://www.graphql-tools.com/docs/mocking). It can be used with `ApolloServer` like below as well.
 
-### Using mocks with GraphQL Tools
+## Using mocks with GraphQL Tools
 
-#### Import all scalars with all mocks
+### Import all scalars with all mocks
 
 This example imports all scalars to the schema.
+
 ```javascript
 import { addMocksToSchema } from '@graphql-tools/mock';
 import { typeDefs: scalarsTypeDefs, resolvers: scalarsResolvers, mocks: scalarsMocks } from 'graphql-scalars';
@@ -35,11 +32,15 @@ const mockedSchema = addMocksToSchema({
 });
 ```
 
-#### Import individual scalars with their own mocks
+### Import individual scalars with their mocks
 
 ```javascript
 import { addMocksToSchema } from '@graphql-tools/mock';
-import { DateTimeTypeDefinition, DateTimeResolver, DateTimeMock } from 'graphql-scalars';
+import {
+  DateTimeTypeDefinition,
+  DateTimeResolver,
+  DateTimeMock,
+} from 'graphql-scalars';
 
 const schema = makeExecutableSchema({
   typeDefs: [
@@ -47,19 +48,19 @@ const schema = makeExecutableSchema({
     // all other typeDefs
   ],
   resolvers: {
-    DateTime: DateTimeResolver
+    DateTime: DateTimeResolver,
   },
 });
 
 const mockedSchema = addMocksToSchema({
   schema,
   mocks: {
-    DateTime: DateTimeMock
-  }
+    DateTime: DateTimeMock,
+  },
 });
 ```
 
-### Using mocks with Apollo Server
+## Using mocks with Apollo Server
 
 ```javascript
 import { ApolloServer } from 'apollo-server';
@@ -82,7 +83,7 @@ const server = new ApolloServer({
     ...resolvers,
     // DateTimeResolver,
     // ...
-    // ... remainder of resolver map ...
+    // ... the remainder of the resolver map ...
   },
   mocks: {
     // use spread syntax to add scalar resolvers to your resolver map
