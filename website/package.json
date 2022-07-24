@@ -45,6 +45,7 @@
   "devDependencies": {
     "@guild-docs/algolia": "0.1.0-alpha-4da5dd0.0",
     "@next/bundle-analyzer": "12.2.2",
+    "@types/node": "18.0.6",
     "@types/react": "17.0.39",
     "autoprefixer": "10.4.7",
     "cross-env": "7.0.3",
