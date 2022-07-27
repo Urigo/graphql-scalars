@@ -3,9 +3,9 @@
 *.iml
 .*.haste_cache.*
 .DS_Store
-.idea
-npm-debug.log
-node_modules
-dist
-yarn-error.log
+.idea/
+node_modules/
+dist/
+*.log
 package-lock.json
+.next/

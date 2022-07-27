@@ -1,0 +1,33 @@
+# Usage with Apollo Server
+
+```js
+import { ApolloServer } from 'apollo-server'
+import { makeExecutableSchema } from '@graphql-tools/schema'
+// import all scalars and resolvers
+import {
+  typeDefs as scalarTypeDefs,
+  resolvers as scalarResolvers
+} from 'graphql-scalars'
+// Alternatively, import individual scalars and resolvers
+// import { DateTimeResolver, DateTimeTypeDefinition, ... } from "graphql-scalars"
+
+const server = new ApolloServer({
+  schema: makeExecutableSchema({
+    typeDefs: [
+      // use spread syntax to add scalar definitions to your schema
+      ...scalarTypeDefs
+      // DateTimeTypeDefinition,
+      // ... other type definitions
+    ],
+    resolvers: [
+      scalarResolvers
+      // DateTimeResolver,
+      // ... the remainder of the resolver map
+    ]
+  })
+})
+
+server.listen().then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`)
+})
+```
