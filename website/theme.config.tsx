@@ -1,13 +1,11 @@
-import { ScalarsLogo } from '@theguild/components';
-import { DocsThemeConfig } from 'nextra-theme-docs';
+import { ScalarsLogo, DocsThemeConfig } from '@theguild/components';
 
 const SITE_NAME = 'GraphQL Scalars';
 
 const config: DocsThemeConfig = {
   titleSuffix: ` – ${SITE_NAME}`,
   projectLink: 'https://github.com/urigo/graphql-scalars', // GitHub link in the navbar
-  docsRepositoryBase:
-    'https://github.com/Urigo/graphql-scalars/tree/master/website/src/pages', // base URL for the docs repository
+  docsRepositoryBase: 'https://github.com/urigo/graphql-scalars/tree/master/website/src/pages', // base URL for the docs repository
   nextLinks: true,
   prevLinks: true,
   search: false,

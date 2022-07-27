@@ -1,96 +1,94 @@
-# Using GraphQL Scalars Mocks
+import { Tabs, Tab } from '@theguild/components'
 
-GraphQL Scalars provides mock implementations out-of-box that is compatible with [GraphQL Tools Mocking](https://www.graphql-tools.com/docs/mocking). It can be used with `ApolloServer` like below as well.
+# Using Mocks
+
+GraphQL Scalars provides mock implementations out-of-box that is compatible with
+[GraphQL Tools Mocking](https://graphql-tools.com/docs/mocking). It can be used with `ApolloServer` like below as well.
 
 ## Using mocks with GraphQL Tools
 
-### Import all scalars with all mocks
-
-This example imports all scalars to the schema.
-
-```javascript
-import { addMocksToSchema } from '@graphql-tools/mock';
-import { typeDefs: scalarsTypeDefs, resolvers: scalarsResolvers, mocks: scalarsMocks } from 'graphql-scalars';
+<Tabs items={["Import all scalars with all mocks","Import individual scalars with their mocks"]}>
+  <Tab>
+```ts
+import { addMocksToSchema } from '@graphql-tools/mock'
+import { typeDefs as scalarsTypeDefs, resolvers as scalarsResolvers, mocks as scalarsMocks } from 'graphql-scalars'
 
 const schema = makeExecutableSchema({
   typeDefs: [
-    ...scalarsTypeDefs,
-    // all other typeDefs
+    ...scalarsTypeDefs
+    // all others typeDefs
   ],
   resolvers: {
-    ...scalarsResolvers,
-    // all other resolvers
-  },
-});
-
-const mockedSchema = addMocksToSchema({
-  schema,
-  mocks: {
-    ...scalarsMocks,
-    // other mocks
+    ...scalarsResolvers
+    // all others resolvers
   }
-});
-```
-
-### Import individual scalars with their mocks
-
-```javascript
-import { addMocksToSchema } from '@graphql-tools/mock';
-import {
-  DateTimeTypeDefinition,
-  DateTimeResolver,
-  DateTimeMock,
-} from 'graphql-scalars';
-
-const schema = makeExecutableSchema({
-  typeDefs: [
-    DateTimeTypeDefinition,
-    // all other typeDefs
-  ],
-  resolvers: {
-    DateTime: DateTimeResolver,
-  },
-});
+})
 
 const mockedSchema = addMocksToSchema({
   schema,
   mocks: {
-    DateTime: DateTimeMock,
-  },
-});
+    ...scalarsMocks
+    // others mocks
+  }
+})
 ```
+  </Tab>
+  <Tab>
+```ts
+import { addMocksToSchema } from '@graphql-tools/mock'
+import { DateTimeTypeDefinition, DateTimeResolver, DateTimeMock } from 'graphql-scalars'
+
+const schema = makeExecutableSchema({
+  typeDefs: [
+    DateTimeTypeDefinition
+    // all others typeDefs
+  ],
+  resolvers: {
+    DateTime: DateTimeResolver
+    // all others resolvers
+  }
+})
+
+const mockedSchema = addMocksToSchema({
+  schema,
+  mocks: {
+    DateTime: DateTimeMock
+    // others mocks
+  }
+})
+```
+  </Tab>
+</Tabs>
+
 
 ## Using mocks with Apollo Server
 
-```javascript
-import { ApolloServer } from 'apollo-server';
-import { makeExecutableSchema } from '@graphql-tools/schema';
+```ts
+import { ApolloServer } from 'apollo-server'
+import { makeExecutableSchema } from '@graphql-tools/schema'
 // import all scalars and resolvers
-import { typeDefs, resolvers, mocks } from 'graphql-scalars';
+import { typeDefs, resolvers, mocks } from 'graphql-scalars'
 // Alternatively, import individual scalars and resolvers
-// import { DateTimeResolver, DateTimeTypeDefinition, DateTimeMock, ... } from "graphql-scalars"
+// import { DateTimeResolver, DateTimeTypeDefinition, DateTimeMock, ... } from 'graphql-scalars'
 
 const server = new ApolloServer({
   typeDefs: [
     // use spread syntax to add scalar definitions to your schema
-    ...typeDefs,
+    ...typeDefs
     // DateTimeTypeDefinition,
-    // ...
-    // ... other type definitions ...
+    // ... other type definitions
   ],
   resolvers: {
     // use spread syntax to add scalar resolvers to your resolver map
-    ...resolvers,
+    ...resolvers
     // DateTimeResolver,
-    // ...
-    // ... the remainder of the resolver map ...
+    // ... the remainder of the resolver map
   },
   mocks: {
     // use spread syntax to add scalar resolvers to your resolver map
-    ...mocks,
+    ...mocks
     // DateTimeMock,
-    // ...
-    // ... other mocks ...
-  },
-});
+    // ... other mocks
+  }
+})
 ```

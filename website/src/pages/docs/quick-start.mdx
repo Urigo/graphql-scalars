@@ -1,4 +1,10 @@
+<<<<<<<< HEAD:website/src/pages/docs/quick-start/index.mdx
 import { Callout, PackageCmd } from '@theguild/components';
+========
+import { PackageCmd } from '@theguild/components';
+
+# Quick Start
+>>>>>>>> 4e5e202 (fix):website/src/pages/docs/quick-start.mdx
 
 # Installation
 
@@ -6,19 +12,23 @@ To get started with GraphQL Scalars, install the packages as follows:
 
 <PackageCmd packages={['graphql-scalars']} />
 
+<<<<<<<< HEAD:website/src/pages/docs/quick-start/index.mdx
 ## Integration to your existing GraphQL Schema
+========
+## Integration to your Existing GraphQL Schema
+>>>>>>>> 4e5e202 (fix):website/src/pages/docs/quick-start.mdx
 
 GraphQL Scalars is easy to integrate into your existing GraphQL Schema. You need to add a scalar definition to your SDL type definitions and resolvers like below;
 
-### In your SDL type definitions
+### In your SDL Type Definitions
 
 ```graphql filename="schema.graphql"
 scalar ScalarName
 ```
 
-You can also import ready-to-use type definitions for scalars like below;
+You can also import ready-to-use type definitions for scalars like below:
 
-```typescript
+```ts
 // or import specific typeDefs only with ES6 Import
 import { ScalarNameTypeDefinition } from 'graphql-scalars';
 // or import specific typeDefs only with CommonJS
@@ -39,11 +49,15 @@ const typeDefs = [
 ];
 ```
 
+<<<<<<<< HEAD:website/src/pages/docs/quick-start/index.mdx
 ### Importing it into your resolver map
+========
+### Importing it into your Resolver Map
+>>>>>>>> 4e5e202 (fix):website/src/pages/docs/quick-start.mdx
 
 You can either import the specific scalar's resolvers or all of the resolvers once.
 
-```typescript
+```ts
 // or import specific resolvers only with ES6 Import
 import { ScalarNameResolver } from 'graphql-scalars';
 // or import specific resolvers only with CommonJS
@@ -54,9 +68,9 @@ import { resolvers as scalarResolvers } from 'graphql-scalars';
 const { resolvers: scalarResolvers } = require('graphql-scalars');
 ```
 
-### Adding to the root resolver map
+### Adding to the Root Resolver Map
 
-```typescript
+```ts
 const myResolverMap = {
   ScalarName: ScalarNameResolver,
 
@@ -70,7 +84,7 @@ const myResolverMap = {
 };
 ```
 
-### Using it in your type definitions
+### Using it in your Type Definitions
 
 That's it. Now you can use these scalar types in your schema definition like this:
 
@@ -90,9 +104,13 @@ type Person {
 
 These scalars can be used just like the base, built-in ones.
 
-## GraphQL Code Generator integration
+## GraphQL Code Generator Integration
 
+<<<<<<<< HEAD:website/src/pages/docs/quick-start/index.mdx
 ```yaml filename="config.yaml"
+========
+```yaml filename="config.yml"
+>>>>>>>> 4e5e202 (fix):website/src/pages/docs/quick-start.mdx
 generates:
   ./src/graphql/types.ts:
     plugins:

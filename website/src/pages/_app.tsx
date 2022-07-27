@@ -1,41 +1,28 @@
 import Script from 'next/script';
 import { AppProps } from 'next/app';
-import { AppSeoProps } from '@guild-docs/client';
 import { FooterExtended, Header, ThemeProvider } from '@theguild/components';
+import 'guild-docs/style.css';
 
-import 'nextra-theme-docs/style.css';
-import '../../public/style.css';
-import '@algolia/autocomplete-theme-classic';
-import '@theguild/components/dist/static/css/SearchBarV2.css';
-
-const accentColor = '#1cc8ee';
-
-export default function App(appProps: AppProps) {
-  const { Component, pageProps } = appProps;
-  // @ts-expect-error
-  const { getLayout } = Component;
-  // @ts-ignore
-  const childComponent = <Component {...pageProps} />;
+export default function App({ Component, pageProps }: AppProps) {
+  // @ts-expect-error -- getLayout is custom function from nextra
+  const { getLayout = page => page } = Component;
   return (
     <ThemeProvider>
       <Script src="https://the-guild.dev/static/crisp.js" />
-      <Header
-        accentColor={accentColor}
-        themeSwitch
-        searchBarProps={{ version: 'v2' }}
-      />
-      {getLayout ? getLayout(childComponent) : childComponent}
+      <Header accentColor="#FF3388" themeSwitch searchBarProps={{ version: 'v2' }} />
+      {/* @ts-ignore */}
+      {getLayout(<Component {...pageProps} />)}
       <FooterExtended />
     </ThemeProvider>
   );
 }
 
-const defaultSeo: AppSeoProps = {
-  title: 'GraphQL Scalars',
-  description: 'GraphQL Scalars',
-  logo: {
-    url: 'https://the-guild-docs.vercel.app/assets/subheader-logo.png',
-    width: 50,
-    height: 54,
-  },
-};
+// const defaultSeo: AppSeoProps = {
+//   title: 'GraphQL Scalars',
+//   description: 'GraphQL Scalars',
+//   logo: {
+//     url: 'https://the-guild-docs.vercel.app/assets/subheader-logo.png',
+//     width: 50,
+//     height: 54,
+//   },
+// };

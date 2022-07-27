@@ -1,5 +1,5 @@
 {
   "apollo-server": "Apollo Server",
   "mocks": "Mocks",
-  "regex": "Regex"
+  "regex": "Generate your own scalars from regex"
 }

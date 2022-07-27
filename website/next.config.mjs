@@ -1,27 +1,14 @@
-import nextBundleAnalyzer from '@next/bundle-analyzer';
-import nextra from 'nextra';
+import { withGuildDocs } from 'guild-docs/next.config';
 
-const withNextra = nextra({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
-  unstable_staticImage: true,
-});
-
-const withBundleAnalyzer = nextBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
-});
-
-export default withBundleAnalyzer(
-  withNextra({
-    eslint: {
-      ignoreDuringBuilds: true,
+export default withGuildDocs({
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  redirects: () => [
+    {
+      source: '/docs/introduction',
+      destination: '/docs',
+      permanent: true,
     },
-    redirects: () => [
-      {
-        source: '/docs/introduction',
-        destination: '/docs',
-        permanent: true,
-      },
-    ],
-  }),
-);
+  ],
+});
