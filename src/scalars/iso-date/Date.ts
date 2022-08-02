@@ -71,7 +71,7 @@ export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> =
       );
     },
     extensions: {
-      codegenScalarType: 'Date | string',
+      codegenScalarType: 'Date',
     },
   };
 

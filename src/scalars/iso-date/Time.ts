@@ -81,7 +81,7 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
     );
   },
   extensions: {
-    codegenScalarType: 'Date | string',
+    codegenScalarType: 'Date',
   },
 };
 
