@@ -73,7 +73,7 @@ export const validateTime = (time: string): boolean => {
 // 12            December             31
 //
 export const validateDate = (datestring: string): boolean => {
-  const RFC_3339_REGEX = /^(\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01]))$/;
+  const RFC_3339_REGEX = /^(\d{1,4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01]))$/;
 
   if (!RFC_3339_REGEX.test(datestring)) {
     return false;
