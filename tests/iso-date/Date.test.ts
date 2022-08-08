@@ -17,6 +17,7 @@ const invalidDates = ['invalid date', '2015-02-29', '2021-07-32'];
 const validDates = [
   ['2016-12-17', new Date(Date.UTC(2016, 11, 17))],
   ['2016-02-01', new Date(Date.UTC(2016, 1, 1))],
+  ['0001-01-01', new Date('0001-01-01T00:00:00.000Z')],
 ];
 
 describe('GraphQLDate', () => {
