@@ -960,14 +960,6 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@graphql-tools/merge@8.3.1":
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-8.3.1.tgz#06121942ad28982a14635dbc87b5d488a041d722"
-  integrity sha512-BMm99mqdNZbEYeTPK3it9r9S6rsZsQKtlqJsSBknAclXq2pGEfOxjcIZi+kBSkHZKPKCRrYDd5vY0+rUmIHVLg==
-  dependencies:
-    "@graphql-tools/utils" "8.9.0"
-    tslib "^2.4.0"
-
 "@graphql-tools/merge@8.3.2":
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-8.3.2.tgz#a058e0307b9a145c6965420fd67ee1405cf033e8"
@@ -985,13 +977,6 @@
     "@graphql-tools/utils" "8.9.1"
     tslib "^2.4.0"
     value-or-promise "1.0.11"
-
-"@graphql-tools/utils@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-8.9.0.tgz#c6aa5f651c9c99e1aca55510af21b56ec296cdb7"
-  integrity sha512-pjJIWH0XOVnYGXCqej8g/u/tsfV4LvLlj0eATKQu5zwnxd/TiTHq7Cg313qUPTFFHZ3PP5wJ15chYVtLDwaymg==
-  dependencies:
-    tslib "^2.4.0"
 
 "@graphql-tools/utils@8.9.1":
   version "8.9.1"
