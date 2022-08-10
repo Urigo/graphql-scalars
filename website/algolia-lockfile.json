@@ -1,5 +1,29 @@
 [
   {
+    "objectID": "scalars-404",
+    "headings": [],
+    "toc": [],
+    "content": "-",
+    "url": "https://www.graphql-scalars.dev//404",
+    "domain": "https://www.graphql-scalars.dev/",
+    "hierarchy": [],
+    "source": "Scalars",
+    "title": "404",
+    "type": "Documentation"
+  },
+  {
+    "objectID": "scalars-500",
+    "headings": [],
+    "toc": [],
+    "content": "-",
+    "url": "https://www.graphql-scalars.dev//500",
+    "domain": "https://www.graphql-scalars.dev/",
+    "hierarchy": [],
+    "source": "Scalars",
+    "title": "500",
+    "type": "Documentation"
+  },
+  {
     "objectID": "scalars-docs-index",
     "headings": ["What's this All About?", "Why?", "Validation Using Scalars", "Serialization and Parsing", "Thanks"],
     "toc": [
