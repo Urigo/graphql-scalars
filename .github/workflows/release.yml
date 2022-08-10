@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    name: stable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: Install Dependencies using Yarn
+        run: yarn
+
+      - name: Build Packages
+        run: yarn build
+
+      - name: set version variables
+        id: vars
+        shell: bash
+        run: |
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+          echo "::set-output name=date::$(date +"%B %d, %Y")"
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: dotansimha/changesets-action@v1.3.1
+        with:
+          publish: yarn release
+          commit: "chore(release): update monorepo packages versions"
+          title: "Upcoming Release Changes"
+          createGithubReleases: aggregate
+          githubReleaseName: '${{ steps.vars.outputs.date }} (${{ steps.vars.outputs.sha_short }})'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
