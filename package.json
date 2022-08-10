@@ -32,7 +32,7 @@
     "deploy:website": "cd website && yarn deploy",
     "test": "jest --forceExit --no-watchman && yarn bundlesize",
     "prerelease": "yarn build && bob prepack",
-    "release": "changeset version",
+    "release": "changeset publish",
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test",
     "prepare": "husky install"
   },
