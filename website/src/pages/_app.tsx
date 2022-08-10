@@ -4,14 +4,12 @@ import { FooterExtended, Header, ThemeProvider } from '@theguild/components';
 import 'guild-docs/style.css';
 
 export default function App({ Component, pageProps }: AppProps) {
-  // @ts-expect-error -- getLayout is custom function from nextra
-  const { getLayout = page => page } = Component;
   return (
     <ThemeProvider>
       <Script src="https://the-guild.dev/static/crisp.js" />
       <Header accentColor="#FF3388" themeSwitch searchBarProps={{ version: 'v2' }} />
       {/* @ts-ignore */}
-      {getLayout(<Component {...pageProps} />)}
+      <Component {...pageProps} />
       <FooterExtended />
     </ThemeProvider>
   );
