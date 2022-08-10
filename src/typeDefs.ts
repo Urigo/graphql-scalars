@@ -47,6 +47,7 @@ export const USCurrency = `scalar USCurrency`;
 export const Currency = `scalar Currency`;
 export const RoutingNumber = 'scalar RoutingNumber';
 export const AccountNumber = 'scalar AccountNumber';
+export const Cuid = 'scalar Cuid';
 
 export const UnsignedFloat = 'scalar UnsignedFloat';
 export const UnsignedInt = 'scalar UnsignedInt';
@@ -118,4 +119,5 @@ export const typeDefs = [
   Locale,
   RoutingNumber,
   AccountNumber,
+  Cuid,
 ];
