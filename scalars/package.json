@@ -1,0 +1,66 @@
+{
+  "name": "graphql-scalars",
+  "version": "1.18.0",
+  "description": "A collection of scalar types not included in base GraphQL.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Urigo/graphql-scalars.git",
+    "directory": "scalars"
+  },
+  "sideEffects": false,
+  "buildOptions": {
+    "input": "./src/index.ts"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "typescript": {
+    "definition": "dist/index.d.ts"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "prepack": "bob prepack",
+    "lint": "eslint --ext .ts \"./src/**/*.ts\"",
+    "test": "jest --forceExit --no-watchman && yarn bundlesize",
+    "bundlesize": "yarn build && cd ../bundle-test/ && yarn && yarn test"
+  },
+  "devDependencies": {
+    "@babel/core": "7.18.10",
+    "@babel/preset-env": "7.18.10",
+    "@babel/preset-typescript": "7.18.6",
+    "@graphql-tools/merge": "8.3.3",
+    "@graphql-tools/schema": "9.0.1",
+    "@types/jest": "28.1.6",
+    "@types/mongodb": "4.0.6",
+    "graphql": "16.5.0",
+    "json-bigint-patch": "0.0.8",
+    "mockdate": "3.0.5",
+    "mongodb": "4.8.1",
+    "semver": "7.3.7",
+    "ts-jest": "28.0.7",
+    "bob-the-bundler": "1.7.3"
+  },
+  "dependencies": {
+    "tslib": "~2.4.0"
+  },
+  "peerDependencies": {
+    "graphql": "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  }
+}

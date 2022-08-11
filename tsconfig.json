@@ -1,6 +1,5 @@
 {
   "extends": "./tsconfig.all.json",
-  "rootDir": "./src/",
-  "include": ["src/**/*.ts"],
+  "include": ["scalars/src/**/*.ts"],
   "exclude": ["node_modules"]
 }

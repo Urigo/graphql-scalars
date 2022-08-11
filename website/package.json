@@ -8,6 +8,8 @@
     "dev": "next dev",
     "next": "next",
     "start": "next start",
+    "lint": "next lint",
+    "test": "exit 0",
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
