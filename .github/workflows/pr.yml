@@ -1,0 +1,22 @@
+name: PR
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+   dependencies:
+     uses: the-guild-org/shared-config/.github/workflows/changesets-dependencies.yaml@main
+     secrets:
+       githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+   canary:
+     uses: the-guild-org/shared-config/.github/workflows/release-snapshot.yml@main
+     with:
+       npmTag: alpha
+       buildScript: build
+       nodeVersion: 16
+     secrets:
+       githubToken: ${{ secrets.GITHUB_TOKEN }}
+       npmToken: ${{ secrets.NODE_AUTH_TOKEN }}
