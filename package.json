@@ -28,6 +28,7 @@
     "clean": "rm -rf dist",
     "prebuild": "yarn clean",
     "lint": "eslint --ext .ts \"./src/**/*.ts\"",
+    "ci:lint": "eslint --ext .ts \"./src/**/*.ts\" --output-file eslint_report.json --format json",
     "build": "bob build --single",
     "deploy:website": "cd website && yarn deploy",
     "test": "jest --forceExit --no-watchman && yarn bundlesize",
