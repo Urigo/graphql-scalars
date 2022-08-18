@@ -11,20 +11,14 @@ on:
 jobs:
   test:
     name: Testing on Node ${{matrix.node_version}}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: [12, 16]
-    steps:
-      - name: Checkout Master
-        uses: actions/checkout@v3
-      - name: Use Node ${{matrix.node_version}}
-        uses: actions/setup-node@master
-        with:
-          version: ${{ matrix.node_version }}
-      - name: Install Dependencies using Yarn
-        run: yarn install
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test
+    uses: the-guild-org/shared-config/.github/workflows/ci-node-matrix.yml@main
+    with:
+      script: yarn test
+      nodeVersions: '[12,16]'
+  lint:
+    uses: the-guild-org/shared-config/.github/workflows/lint.yml@main
+    with:
+      script: yarn ci:lint
+    secrets:
+      githubToken: ${{ secrets.GITHUB_TOKEN }}
+
