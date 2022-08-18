@@ -65,7 +65,7 @@
     "json-bigint-patch": "0.0.8",
     "lint-staged": "13.0.3",
     "mockdate": "3.0.5",
-    "mongodb": "4.8.1",
+    "mongodb": "4.9.0",
     "prettier": "2.7.1",
     "semver": "7.3.7",
     "ts-jest": "28.0.8",
