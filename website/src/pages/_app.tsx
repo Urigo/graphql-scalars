@@ -6,9 +6,7 @@ import 'guild-docs/style.css';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
-      <Script src="https://the-guild.dev/static/crisp.js" />
       <Header accentColor="#FF3388" themeSwitch searchBarProps={{ version: 'v2' }} />
-      {/* @ts-ignore */}
       <Component {...pageProps} />
       <FooterExtended />
     </ThemeProvider>
