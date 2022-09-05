@@ -23,6 +23,7 @@ jobs:
         with:
           nodeVersion: 18
           packageManager: yarn 
+          workingDirectory: website
 
       - uses: the-guild-org/shared-config/website-cf@main
         name: build and deploy website
