@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { AppProps } from 'next/app';
 import { FooterExtended, Header, ThemeProvider } from '@theguild/components';
 import 'guild-docs/style.css';
