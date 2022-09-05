@@ -2,6 +2,7 @@ import { withGuildDocs } from 'guild-docs/next.config';
 import { applyUnderscoreRedirects } from 'guild-docs/underscore-redirects';
 
 export default withGuildDocs({
+  basePath: process.env.NEXT_BASE_PATH && process.env.NEXT_BASE_PATH !== '' ? process.env.NEXT_BASE_PATH : undefined,
   experimental: {
     images: {
       unoptimized: true,
