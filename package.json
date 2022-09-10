@@ -16,11 +16,13 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     },
     "./*": {
       "require": "./dist/*.js",
-      "import": "./dist/*.mjs"
+      "import": "./dist/*.mjs",
+      "types": "./dist/*.d.ts"
     }
   },
   "license": "MIT",
