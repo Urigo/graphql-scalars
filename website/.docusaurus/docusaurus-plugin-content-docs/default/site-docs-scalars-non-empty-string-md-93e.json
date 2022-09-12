@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/non-empty-string",
+  "id": "scalars/non-empty-string",
+  "isDocsHomePage": false,
+  "title": "NonEmptyString",
+  "description": "A field whose value can accept any string except empty ones. It will trim any additional white space before validation. This is useful for required strings that you wish to also force a value for. \"\" or \" \" are both considered invalid values.",
+  "source": "@site/docs/scalars/non-empty-string.md",
+  "slug": "/scalars/non-empty-string",
+  "permalink": "/docs/scalars/non-empty-string",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/non-empty-string.md",
+  "version": "current",
+  "sidebar_label": "NonEmptyString",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "NegativeInt",
+    "permalink": "/docs/scalars/negative-int"
+  },
+  "next": {
+    "title": "NonNegativeFloat",
+    "permalink": "/docs/scalars/non-negative-float"
+  }
+}

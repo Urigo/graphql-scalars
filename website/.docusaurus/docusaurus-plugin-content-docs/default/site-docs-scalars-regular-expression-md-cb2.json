@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/regular-expression",
+  "id": "scalars/regular-expression",
+  "isDocsHomePage": false,
+  "title": "RegularExpression",
+  "description": "A GraphQLScalarType object generator that takes two arguments:",
+  "source": "@site/docs/scalars/regular-expression.md",
+  "slug": "/scalars/regular-expression",
+  "permalink": "/docs/scalars/regular-expression",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/regular-expression.md",
+  "version": "current",
+  "sidebar_label": "RegularExpression",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "PostalCode",
+    "permalink": "/docs/scalars/postal-code"
+  },
+  "next": {
+    "title": "RGB",
+    "permalink": "/docs/scalars/rgb"
+  }
+}

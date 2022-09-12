@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/object-id",
+  "id": "scalars/object-id",
+  "isDocsHomePage": false,
+  "title": "ObjectID",
+  "description": "A field whose value conforms to the mongodb object id format as explained in the documentation",
+  "source": "@site/docs/scalars/object-id.md",
+  "slug": "/scalars/object-id",
+  "permalink": "/docs/scalars/object-id",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/object-id.md",
+  "version": "current",
+  "sidebar_label": "ObjectID",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "NonPositiveInt",
+    "permalink": "/docs/scalars/non-positive-int"
+  },
+  "next": {
+    "title": "PhoneNumber",
+    "permalink": "/docs/scalars/phone-number"
+  }
+}

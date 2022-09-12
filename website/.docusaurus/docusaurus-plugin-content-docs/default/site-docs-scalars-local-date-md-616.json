@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/local-date",
+  "id": "scalars/local-date",
+  "isDocsHomePage": false,
+  "title": "LocalDate",
+  "description": "A local date string (i.e., with no associated timezone) in YYYY-MM-DD format, e.g. 2020-01-01. The value is serialized and deserialized as a string as a signal to both clients and resolvers that special care must be taken with the value when converting it to any date/time type that includes a timezone, e.g., a JavaScript Date.",
+  "source": "@site/docs/scalars/local-date.md",
+  "slug": "/scalars/local-date",
+  "permalink": "/docs/scalars/local-date",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/local-date.md",
+  "version": "current",
+  "sidebar_label": "LocalDate",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Latitude",
+    "permalink": "/docs/scalars/latitude"
+  },
+  "next": {
+    "title": "LocalEndTime",
+    "permalink": "/docs/scalars/local-end-time"
+  }
+}

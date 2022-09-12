@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/duration",
+  "id": "scalars/duration",
+  "isDocsHomePage": false,
+  "title": "Duration",
+  "description": "A string representing a duration conforming to the ISO8601 standard,",
+  "source": "@site/docs/scalars/duration.md",
+  "slug": "/scalars/duration",
+  "permalink": "/docs/scalars/duration",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/duration.md",
+  "version": "current",
+  "sidebar_label": "Duration",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Date",
+    "permalink": "/docs/scalars/date"
+  },
+  "next": {
+    "title": "EmailAddress",
+    "permalink": "/docs/scalars/email-address"
+  }
+}

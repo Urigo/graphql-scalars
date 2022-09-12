@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/jwt",
+  "id": "scalars/jwt",
+  "isDocsHomePage": false,
+  "title": "JWT",
+  "description": "A field whose value is a JSON Web Token (JWT).",
+  "source": "@site/docs/scalars/jwt.md",
+  "slug": "/scalars/jwt",
+  "permalink": "/docs/scalars/jwt",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/jwt.md",
+  "version": "current",
+  "sidebar_label": "JWT",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "JSON",
+    "permalink": "/docs/scalars/json"
+  },
+  "next": {
+    "title": "Latitude",
+    "permalink": "/docs/scalars/latitude"
+  }
+}

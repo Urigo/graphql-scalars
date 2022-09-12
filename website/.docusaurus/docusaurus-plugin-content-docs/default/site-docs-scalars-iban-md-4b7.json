@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/iban",
+  "id": "scalars/iban",
+  "isDocsHomePage": false,
+  "title": "IBAN",
+  "description": "Includes IBAN specifications for the following countries:",
+  "source": "@site/docs/scalars/iban.md",
+  "slug": "/scalars/iban",
+  "permalink": "/docs/scalars/iban",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/iban.md",
+  "version": "current",
+  "sidebar_label": "IBAN",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "IPv6",
+    "permalink": "/docs/scalars/i-pv-6"
+  },
+  "next": {
+    "title": "ISBN",
+    "permalink": "/docs/scalars/isbn"
+  }
+}

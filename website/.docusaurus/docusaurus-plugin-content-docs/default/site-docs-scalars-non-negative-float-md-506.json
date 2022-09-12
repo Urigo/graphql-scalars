@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/non-negative-float",
+  "id": "scalars/non-negative-float",
+  "isDocsHomePage": false,
+  "title": "NonNegativeFloat",
+  "description": "Floats that will have a value of 0 or more. Uses parseFloat().",
+  "source": "@site/docs/scalars/non-negative-float.md",
+  "slug": "/scalars/non-negative-float",
+  "permalink": "/docs/scalars/non-negative-float",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/non-negative-float.md",
+  "version": "current",
+  "sidebar_label": "NonNegativeFloat",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "NonEmptyString",
+    "permalink": "/docs/scalars/non-empty-string"
+  },
+  "next": {
+    "title": "NonNegativeInt",
+    "permalink": "/docs/scalars/non-negative-int"
+  }
+}

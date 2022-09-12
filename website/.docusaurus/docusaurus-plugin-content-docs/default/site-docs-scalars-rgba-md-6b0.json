@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/rgba",
+  "id": "scalars/rgba",
+  "isDocsHomePage": false,
+  "title": "RGBA",
+  "description": "A field whose value is a CSS RGBA color.",
+  "source": "@site/docs/scalars/rgba.md",
+  "slug": "/scalars/rgba",
+  "permalink": "/docs/scalars/rgba",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/rgba.md",
+  "version": "current",
+  "sidebar_label": "RGBA",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "RGB",
+    "permalink": "/docs/scalars/rgb"
+  },
+  "next": {
+    "title": "SafeInt",
+    "permalink": "/docs/scalars/safe-int"
+  }
+}

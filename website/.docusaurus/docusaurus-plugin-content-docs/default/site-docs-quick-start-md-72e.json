@@ -1,0 +1,22 @@
+{
+  "unversionedId": "quick-start",
+  "id": "quick-start",
+  "isDocsHomePage": false,
+  "title": "Quick Start",
+  "description": "Installation",
+  "source": "@site/docs/quick-start.md",
+  "slug": "/quick-start",
+  "permalink": "/docs/quick-start",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/quick-start.md",
+  "version": "current",
+  "sidebar_label": "Quick Start",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/docs/introduction"
+  },
+  "next": {
+    "title": "Usage with Apollo Server",
+    "permalink": "/docs/usage/apollo-server"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/isbn",
+  "id": "scalars/isbn",
+  "isDocsHomePage": false,
+  "title": "ISBN",
+  "description": "A field whose value is a ISBN-10 or ISBN-13 number.",
+  "source": "@site/docs/scalars/isbn.md",
+  "slug": "/scalars/isbn",
+  "permalink": "/docs/scalars/isbn",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/isbn.md",
+  "version": "current",
+  "sidebar_label": "ISBN",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "IBAN",
+    "permalink": "/docs/scalars/iban"
+  },
+  "next": {
+    "title": "JSONObject",
+    "permalink": "/docs/scalars/json-object"
+  }
+}

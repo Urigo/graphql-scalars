@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/rgb",
+  "id": "scalars/rgb",
+  "isDocsHomePage": false,
+  "title": "RGB",
+  "description": "A field whose value is a CSS RGB color.",
+  "source": "@site/docs/scalars/rgb.md",
+  "slug": "/scalars/rgb",
+  "permalink": "/docs/scalars/rgb",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/rgb.md",
+  "version": "current",
+  "sidebar_label": "RGB",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "RegularExpression",
+    "permalink": "/docs/scalars/regular-expression"
+  },
+  "next": {
+    "title": "RGBA",
+    "permalink": "/docs/scalars/rgba"
+  }
+}

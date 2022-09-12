@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/non-negative-int",
+  "id": "scalars/non-negative-int",
+  "isDocsHomePage": false,
+  "title": "NonNegativeInt",
+  "description": "Integers that will have a value of 0 or more. Uses parseInt().",
+  "source": "@site/docs/scalars/non-negative-int.md",
+  "slug": "/scalars/non-negative-int",
+  "permalink": "/docs/scalars/non-negative-int",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/non-negative-int.md",
+  "version": "current",
+  "sidebar_label": "NonNegativeInt",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "NonNegativeFloat",
+    "permalink": "/docs/scalars/non-negative-float"
+  },
+  "next": {
+    "title": "NonPositiveFloat",
+    "permalink": "/docs/scalars/non-positive-float"
+  }
+}

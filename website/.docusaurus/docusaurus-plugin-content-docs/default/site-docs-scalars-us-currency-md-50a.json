@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/us-currency",
+  "id": "scalars/us-currency",
+  "isDocsHomePage": false,
+  "title": "USCurrency",
+  "description": "A US currency string, such as \\$21.25.",
+  "source": "@site/docs/scalars/us-currency.md",
+  "slug": "/scalars/us-currency",
+  "permalink": "/docs/scalars/us-currency",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/us-currency.md",
+  "version": "current",
+  "sidebar_label": "USCurrency",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "URL",
+    "permalink": "/docs/scalars/url"
+  },
+  "next": {
+    "title": "UtcOffset",
+    "permalink": "/docs/scalars/utc-offset"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/hsl",
+  "id": "scalars/hsl",
+  "isDocsHomePage": false,
+  "title": "HSL",
+  "description": "A field whose value is a CSS HSL color.",
+  "source": "@site/docs/scalars/hsl.md",
+  "slug": "/scalars/hsl",
+  "permalink": "/docs/scalars/hsl",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/hsl.md",
+  "version": "current",
+  "sidebar_label": "HSL",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Hexadecimal",
+    "permalink": "/docs/scalars/hexadecimal"
+  },
+  "next": {
+    "title": "IPv4",
+    "permalink": "/docs/scalars/i-pv-4"
+  }
+}

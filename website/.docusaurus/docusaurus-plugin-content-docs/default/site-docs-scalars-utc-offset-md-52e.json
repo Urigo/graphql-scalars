@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/utc-offset",
+  "id": "scalars/utc-offset",
+  "isDocsHomePage": false,
+  "title": "UtcOffset",
+  "description": "String that will have a value of format ±hh:mm. List of tz database time zones.",
+  "source": "@site/docs/scalars/utc-offset.md",
+  "slug": "/scalars/utc-offset",
+  "permalink": "/docs/scalars/utc-offset",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/utc-offset.md",
+  "version": "current",
+  "sidebar_label": "UtcOffset",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "USCurrency",
+    "permalink": "/docs/scalars/us-currency"
+  },
+  "next": {
+    "title": "UUID",
+    "permalink": "/docs/scalars/uuid"
+  }
+}

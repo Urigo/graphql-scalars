@@ -1,0 +1,22 @@
+{
+  "unversionedId": "usage/commonjs-imports",
+  "id": "usage/commonjs-imports",
+  "isDocsHomePage": false,
+  "title": "apollo-server-express and CommonJS imports",
+  "description": "Usage with apollo-server-express and CommonJS imports",
+  "source": "@site/docs/usage/commonjs-imports.md",
+  "slug": "/usage/commonjs-imports",
+  "permalink": "/docs/usage/commonjs-imports",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/usage/commonjs-imports.md",
+  "version": "current",
+  "sidebar_label": "apollo-server-express and CommonJS imports",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Mocks with Apollo Server",
+    "permalink": "/docs/usage/mocks-apollo-server"
+  },
+  "next": {
+    "title": "Supported Types",
+    "permalink": "/docs/types/types"
+  }
+}

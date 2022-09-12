@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/local-end-time",
+  "id": "scalars/local-end-time",
+  "isDocsHomePage": false,
+  "title": "LocalEndTime",
+  "description": "A local time string (i.e., with no associated timezone) in 24-hr HHss[.SSS]] format, e.g. 14252500 as a valid value to indicate midnight of the following day. This is useful when using the scalar to represent the exclusive upper bound of a time block.",
+  "source": "@site/docs/scalars/local-end-time.md",
+  "slug": "/scalars/local-end-time",
+  "permalink": "/docs/scalars/local-end-time",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/local-end-time.md",
+  "version": "current",
+  "sidebar_label": "LocalEndTime",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "LocalDate",
+    "permalink": "/docs/scalars/local-date"
+  },
+  "next": {
+    "title": "LocalTime",
+    "permalink": "/docs/scalars/local-time"
+  }
+}

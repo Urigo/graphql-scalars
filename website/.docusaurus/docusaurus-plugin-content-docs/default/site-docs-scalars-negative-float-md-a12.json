@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/negative-float",
+  "id": "scalars/negative-float",
+  "isDocsHomePage": false,
+  "title": "NegativeFloat",
+  "description": "Floats that will have a value less than 0. Uses parseFloat().",
+  "source": "@site/docs/scalars/negative-float.md",
+  "slug": "/scalars/negative-float",
+  "permalink": "/docs/scalars/negative-float",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/negative-float.md",
+  "version": "current",
+  "sidebar_label": "NegativeFloat",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "MAC",
+    "permalink": "/docs/scalars/mac"
+  },
+  "next": {
+    "title": "NegativeInt",
+    "permalink": "/docs/scalars/negative-int"
+  }
+}

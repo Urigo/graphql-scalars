@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/big-int",
+  "id": "scalars/big-int",
+  "isDocsHomePage": false,
+  "title": "BigInt",
+  "description": "A long integer type for graphql-js. It uses native BigInt implementation of JavaScript.",
+  "source": "@site/docs/scalars/big-int.md",
+  "slug": "/scalars/big-int",
+  "permalink": "/docs/scalars/big-int",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/big-int.md",
+  "version": "current",
+  "sidebar_label": "BigInt",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Using the RegularExpression Scalar Factory",
+    "permalink": "/docs/usage/regex"
+  },
+  "next": {
+    "title": "Byte",
+    "permalink": "/docs/scalars/byte"
+  }
+}

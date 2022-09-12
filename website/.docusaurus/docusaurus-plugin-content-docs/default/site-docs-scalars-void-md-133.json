@@ -1,0 +1,18 @@
+{
+  "unversionedId": "scalars/void",
+  "id": "scalars/void",
+  "isDocsHomePage": false,
+  "title": "Void",
+  "description": "The Void scalar type represents no value being returned",
+  "source": "@site/docs/scalars/void.md",
+  "slug": "/scalars/void",
+  "permalink": "/docs/scalars/void",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/void.md",
+  "version": "current",
+  "sidebar_label": "Void",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "UUID",
+    "permalink": "/docs/scalars/uuid"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/postal-code",
+  "id": "scalars/postal-code",
+  "isDocsHomePage": false,
+  "title": "PostalCode",
+  "description": "We're going to start with a limited set as suggested here",
+  "source": "@site/docs/scalars/postal-code.md",
+  "slug": "/scalars/postal-code",
+  "permalink": "/docs/scalars/postal-code",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/postal-code.md",
+  "version": "current",
+  "sidebar_label": "PostalCode",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "PositiveInt",
+    "permalink": "/docs/scalars/positive-int"
+  },
+  "next": {
+    "title": "RegularExpression",
+    "permalink": "/docs/scalars/regular-expression"
+  }
+}

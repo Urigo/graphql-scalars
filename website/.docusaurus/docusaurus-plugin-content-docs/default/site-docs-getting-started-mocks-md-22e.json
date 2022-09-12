@@ -1,0 +1,13 @@
+{
+  "unversionedId": "getting-started/usage",
+  "id": "getting-started/usage",
+  "isDocsHomePage": false,
+  "title": "Usage",
+  "description": "To use these scalars you'll need to add them in two places, your schema and your resolvers map.",
+  "source": "@site/docs/getting-started/mocks.md",
+  "slug": "/getting-started/usage",
+  "permalink": "/docs/getting-started/usage",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/getting-started/mocks.md",
+  "version": "current",
+  "sidebar_label": "3. Usage"
+}

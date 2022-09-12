@@ -1,0 +1,22 @@
+{
+  "unversionedId": "scalars/byte",
+  "id": "scalars/byte",
+  "isDocsHomePage": false,
+  "title": "Byte",
+  "description": "The Byte scalar type represents byte value as specified by NodeJS Buffer type",
+  "source": "@site/docs/scalars/byte.md",
+  "slug": "/scalars/byte",
+  "permalink": "/docs/scalars/byte",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/scalars/byte.md",
+  "version": "current",
+  "sidebar_label": "Byte",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "BigInt",
+    "permalink": "/docs/scalars/big-int"
+  },
+  "next": {
+    "title": "Currency",
+    "permalink": "/docs/scalars/currency"
+  }
+}

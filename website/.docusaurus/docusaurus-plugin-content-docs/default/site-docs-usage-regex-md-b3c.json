@@ -1,0 +1,22 @@
+{
+  "unversionedId": "usage/regex",
+  "id": "usage/regex",
+  "isDocsHomePage": false,
+  "title": "Using the RegularExpression Scalar Factory",
+  "description": "Using the RegularExpression scalar",
+  "source": "@site/docs/usage/regex.md",
+  "slug": "/usage/regex",
+  "permalink": "/docs/usage/regex",
+  "editUrl": "https://github.com/urigo/graphql-scalars/edit/master/website/docs/usage/regex.md",
+  "version": "current",
+  "sidebar_label": "Generate your own scalars from regular expressions",
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "Using GraphQL Scalars Mocks",
+    "permalink": "/docs/usage/mocks"
+  },
+  "next": {
+    "title": "BigInt",
+    "permalink": "/docs/scalars/big-int"
+  }
+}
