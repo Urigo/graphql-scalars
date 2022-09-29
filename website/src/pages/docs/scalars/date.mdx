@@ -12,5 +12,5 @@ JavaScript Date instances are coerced to an RFC 3339 compliant date string. Inva
 
 ## Input Coercion
 
-When expected as an input type, only RFC 3339 compliant date strings are accepted. All other input values raise a query
+When expected as an input type, only RFC 3339 compliant date strings are accepted, and are coerced to `Date` objects. All other input values raise a query
 error indicating an incorrect type.
