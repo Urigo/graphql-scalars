@@ -37,6 +37,7 @@ import {
   GraphQLHexColorCode,
   GraphQLHSL,
   GraphQLHSLA,
+  GraphQLIP,
   GraphQLIPv4,
   GraphQLIPv6,
   GraphQLISBN,
@@ -98,6 +99,7 @@ export {
   HexColorCode as HexColorCodeDefinition,
   HSL as HSLDefinition,
   HSLA as HSLADefinition,
+  IP as IPDefinition,
   IPv4 as IPv4Definition,
   IPv6 as IPv6Definition,
   ISBN as ISBNDefinition,
@@ -162,6 +164,7 @@ export {
   GraphQLHexColorCode as HexColorCodeResolver,
   GraphQLHSL as HSLResolver,
   GraphQLHSLA as HSLAResolver,
+  GraphQLIP as IPResolver,
   GraphQLIPv4 as IPv4Resolver,
   GraphQLIPv6 as IPv6Resolver,
   GraphQLISBN as ISBNResolver,
@@ -224,6 +227,7 @@ export const resolvers: Record<string, GraphQLScalarType> = {
   HexColorCode: GraphQLHexColorCode,
   HSL: GraphQLHSL,
   HSLA: GraphQLHSLA,
+  IP: GraphQLIP,
   IPv4: GraphQLIPv4,
   IPv6: GraphQLIPv6,
   ISBN: GraphQLISBN,
@@ -286,6 +290,7 @@ export {
   HexColorCode as HexColorCodeMock,
   HSL as HSLMock,
   HSLA as HSLAMock,
+  IP as IPMock,
   IPv4 as IPv4Mock,
   IPv6 as IPv6Mock,
   ISBN as ISBNMock,
@@ -313,11 +318,7 @@ export {
 
 export { mocks };
 
-export {
-  RegularExpression,
-  RegularExpressionOptions,
-  RegularExpressionErrorMessageFn,
-} from './RegularExpression';
+export { RegularExpression, RegularExpressionOptions, RegularExpressionErrorMessageFn } from './RegularExpression';
 
 export {
   GraphQLDate,
@@ -356,6 +357,7 @@ export {
   GraphQLHexColorCode,
   GraphQLHSL,
   GraphQLHSLA,
+  GraphQLIP,
   GraphQLIPv4,
   GraphQLIPv6,
   GraphQLISBN,

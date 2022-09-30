@@ -33,6 +33,7 @@ export { GraphQLHexadecimal } from './Hexadecimal';
 export { GraphQLHexColorCode } from './HexColorCode';
 export { GraphQLHSL } from './HSL';
 export { GraphQLHSLA } from './HSLA';
+export { GraphQLIP } from './IP';
 export { GraphQLIPv4 } from './IPv4';
 export { GraphQLIPv6 } from './IPv6';
 export { GraphQLISBN } from './ISBN';
