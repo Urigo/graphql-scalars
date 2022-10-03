@@ -1,16 +1,19 @@
-import { withGuildDocs } from 'guild-docs/next.config';
-import { applyUnderscoreRedirects } from 'guild-docs/underscore-redirects';
+import { withGuildDocs } from '@theguild/components/next.config';
 
 export default withGuildDocs({
-  basePath: process.env.NEXT_BASE_PATH && process.env.NEXT_BASE_PATH !== '' ? process.env.NEXT_BASE_PATH : undefined,
-    images: {
-      unoptimized: true,
-      allowFutureImage: true,
-    },
-  webpack(config, meta) {
-    applyUnderscoreRedirects(config, meta);
-
-    return config;
+  images: {
+    unoptimized: true,
   },
-  redirects: () => [],
+  redirects: () =>
+    Object.entries({
+      '/docs/introduction': '/docs',
+      '/docs/scalars': '/docs/scalars/account-number',
+      '/en/docs/scalars/:scalar': '/docs/scalars/:scalar',
+      '/docs/scalars/datetime': '/docs/scalars/date-time',
+      '/docs/scalars/jsonobject': '/docs/scalars/json-object',
+    }).map(([from, to]) => ({
+      source: from,
+      destination: to,
+      permanent: true,
+    })),
 });
