@@ -4,7 +4,7 @@ const SITE_NAME = 'GraphQL Scalars';
 
 export default defineConfig({
   titleSuffix: ` – ${SITE_NAME}`,
-  docsRepositoryBase: 'https://github.com/urigo/graphql-scalars/tree/master/website/src/pages', // base URL for the docs repository
+  docsRepositoryBase: 'https://github.com/urigo/graphql-scalars/tree/master/website', // base URL for the docs repository
   logo: (
     <>
       <ScalarsLogo className="mr-1.5 h-9 w-9" />
