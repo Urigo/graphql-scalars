@@ -48,6 +48,7 @@ export const Currency = `scalar Currency`;
 export const RoutingNumber = 'scalar RoutingNumber';
 export const AccountNumber = 'scalar AccountNumber';
 export const Cuid = 'scalar Cuid';
+export const SemVer = 'scalar SemVer';
 
 export const UnsignedFloat = 'scalar UnsignedFloat';
 export const UnsignedInt = 'scalar UnsignedInt';
@@ -120,4 +121,5 @@ export const typeDefs = [
   RoutingNumber,
   AccountNumber,
   Cuid,
+  SemVer,
 ];
