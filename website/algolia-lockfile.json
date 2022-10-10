@@ -214,6 +214,18 @@
     "type": "Documentation"
   },
   {
+    "objectID": "scalars-docs-available-scalars-ip",
+    "headings": [],
+    "toc": [],
+    "content": "c0ab50192bbb79b0109d46ec113eaa9c",
+    "url": "https://www.graphql-scalars.dev/docs/scalars/ip",
+    "domain": "https://www.graphql-scalars.dev/",
+    "hierarchy": ["Docs", "Available Scalars"],
+    "source": "Scalars",
+    "title": "ip",
+    "type": "Documentation"
+  },
+  {
     "objectID": "scalars-docs-available-scalars-isbn",
     "headings": [],
     "toc": [],
