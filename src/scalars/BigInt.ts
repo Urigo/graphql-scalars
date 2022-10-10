@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, GraphQLError, print } from 'graphql';
 import { serializeObject } from './utilities.js';
 
-export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | bigint | string | number> = /*#__PURE__*/ {
+export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | BigInt | string | number> = /*#__PURE__*/ {
   name: 'BigInt',
   description: 'The `BigInt` scalar type represents non-fractional signed whole numeric values.',
   serialize(outputValue) {
@@ -42,7 +43,7 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | bigin
       return num;
     }
 
-    return new Proxy({} as bigint, {
+    return new Proxy({} as BigInt, {
       has(_, prop) {
         if (prop === 'toJSON') {
           return true;
