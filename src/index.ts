@@ -60,6 +60,7 @@ import {
   GraphQLRoutingNumber,
   GraphQLAccountNumber,
   GraphQLCuid,
+  GraphQLSemVer,
 } from './scalars';
 import { GraphQLDuration } from './scalars/iso-date/Duration';
 
@@ -121,6 +122,7 @@ export {
   RoutingNumber as RoutingNumberDefinition,
   AccountNumber as AccountNumberDefinition,
   Cuid as CuidDefinition,
+  SemVer as SemVerDefinition,
 } from './typeDefs';
 
 export { typeDefs } from './typeDefs';
@@ -185,6 +187,7 @@ export {
   GraphQLRoutingNumber as RoutingNumberResolver,
   GraphQLAccountNumber as AccountNumberResolver,
   GraphQLCuid as CuidResolver,
+  GraphQLSemVer as SemVerResolver,
 };
 
 export const resolvers: Record<string, GraphQLScalarType> = {
@@ -247,6 +250,7 @@ export const resolvers: Record<string, GraphQLScalarType> = {
   RoutingNumber: GraphQLRoutingNumber,
   AccountNumber: GraphQLAccountNumber,
   Cuid: GraphQLCuid,
+  SemVer: GraphQLSemVer,
 };
 
 export {
@@ -309,15 +313,12 @@ export {
   RoutingNumber as RoutingNumberMock,
   AccountNumber as AccountNumberMock,
   Cuid as CuidMock,
+  SemVer as SemVerMock,
 } from './mocks';
 
 export { mocks };
 
-export {
-  RegularExpression,
-  RegularExpressionOptions,
-  RegularExpressionErrorMessageFn,
-} from './RegularExpression';
+export { RegularExpression, RegularExpressionOptions, RegularExpressionErrorMessageFn } from './RegularExpression';
 
 export {
   GraphQLDate,
@@ -379,4 +380,5 @@ export {
   GraphQLRoutingNumber,
   GraphQLAccountNumber,
   GraphQLCuid,
+  GraphQLSemVer,
 };
