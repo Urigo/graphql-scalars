@@ -45,7 +45,7 @@
     "@changesets/cli": "2.25.0",
     "@graphql-tools/merge": "8.3.6",
     "@graphql-tools/schema": "9.0.4",
-    "@theguild/prettier-config": "0.0.3",
+    "@theguild/prettier-config": "0.1.0",
     "@types/jest": "28.1.8",
     "@types/mongodb": "4.0.6",
     "@types/node": "16.11.64",
