@@ -74,7 +74,7 @@
         "anchor": "input-coercion"
       }
     ],
-    "content": "6fffbb805048ef56e7d5216f76e37e46",
+    "content": "0c7945da377b9e56d9b7e25ab38da725",
     "url": "https://www.graphql-scalars.dev/docs/scalars/date",
     "domain": "https://www.graphql-scalars.dev/",
     "hierarchy": ["Docs", "Available Scalars"],
@@ -559,6 +559,18 @@
     "hierarchy": ["Docs", "Available Scalars"],
     "source": "Scalars",
     "title": "SafeInt",
+    "type": "Documentation"
+  },
+  {
+    "objectID": "scalars-docs-available-scalars-sermver",
+    "headings": [],
+    "toc": [],
+    "content": "0bf0bdc5a4f3314a4a939e91d0c51da3",
+    "url": "https://www.graphql-scalars.dev/docs/scalars/sermver",
+    "domain": "https://www.graphql-scalars.dev/",
+    "hierarchy": ["Docs", "Available Scalars"],
+    "source": "Scalars",
+    "title": "sermver",
     "type": "Documentation"
   },
   {
