@@ -30,7 +30,7 @@
     ]
   },
   "devDependencies": {
-    "next-sitemap": "3.1.22",
+    "next-sitemap": "3.1.24",
     "@theguild/algolia": "0.1.0",
     "@theguild/tailwind-config": "0.1.1",
     "@types/node": "18.6.1",
