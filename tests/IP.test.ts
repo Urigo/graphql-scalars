@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 import { Kind } from 'graphql/language';
-import { GraphQLIP } from '../src/scalars/IP';
+import { GraphQLIP } from '../src/scalars/IP.js';
 
 // Taken from https://github.com/hapijs/joi/blob/master/test/types/string.js
 const addresses = [

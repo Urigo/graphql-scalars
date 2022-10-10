@@ -1,5 +1,5 @@
 import { GraphQLScalarType } from 'graphql';
-import * as mocks from './mocks';
+import * as mocks from './mocks.js';
 
 import {
   GraphQLDate,
@@ -62,8 +62,8 @@ import {
   GraphQLAccountNumber,
   GraphQLCuid,
   GraphQLSemVer,
-} from './scalars';
-import { GraphQLDuration } from './scalars/iso-date/Duration';
+} from './scalars/index.js';
+import { GraphQLDuration } from './scalars/iso-date/Duration.js';
 
 export {
   Date as DateTypeDefinition,
@@ -125,9 +125,9 @@ export {
   AccountNumber as AccountNumberDefinition,
   Cuid as CuidDefinition,
   SemVer as SemVerDefinition,
-} from './typeDefs';
+} from './typeDefs.js';
 
-export { typeDefs } from './typeDefs';
+export { typeDefs } from './typeDefs.js';
 
 export {
   GraphQLDate as DateResolver,
@@ -319,11 +319,11 @@ export {
   AccountNumber as AccountNumberMock,
   Cuid as CuidMock,
   SemVer as SemVerMock,
-} from './mocks';
+} from './mocks.js';
 
 export { mocks };
 
-export { RegularExpression, RegularExpressionOptions, RegularExpressionErrorMessageFn } from './RegularExpression';
+export { RegularExpression, RegularExpressionOptions, RegularExpressionErrorMessageFn } from './RegularExpression.js';
 
 export {
   GraphQLDate,

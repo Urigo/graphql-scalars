@@ -1,10 +1,6 @@
-import {
-  GraphQLObjectType,
-  GraphQLNonNull,
-  GraphQLInputObjectType,
-} from 'graphql/type/definition';
+import { GraphQLObjectType, GraphQLNonNull, GraphQLInputObjectType } from 'graphql/type/definition';
 import { GraphQLSchema, graphql } from 'graphql';
-import { GraphQLBigInt } from '../src/scalars/BigInt';
+import { GraphQLBigInt } from '../src/scalars/BigInt.js';
 import 'json-bigint-patch';
 
 describe('BigInt', () => {
@@ -39,7 +35,7 @@ describe('BigInt', () => {
             fields: {
               result: { type: new GraphQLNonNull(GraphQLBigInt) },
             },
-          }),
+          })
         ),
         args: {
           input: {
@@ -49,7 +45,7 @@ describe('BigInt', () => {
                 fields: {
                   num: { type: new GraphQLNonNull(GraphQLBigInt) },
                 },
-              }),
+              })
             ),
           },
         },
@@ -96,9 +92,7 @@ describe('BigInt', () => {
     const { data, errors } = await graphql({ schema, source: invalidQuery2 });
 
     expect(errors).toHaveLength(1);
-    expect(errors[0].message).toContain(
-      'BigInt cannot represent non-integer value: ',
-    );
+    expect(errors[0].message).toContain('BigInt cannot represent non-integer value: ');
     expect(data).toEqual(null);
   });
   it('3', async () => {

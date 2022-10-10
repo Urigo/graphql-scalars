@@ -1,8 +1,5 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
-import {
-  typeDefs as scalarTypeDefs,
-  resolvers as scalarResolvers,
-} from '../src';
+import { typeDefs as scalarTypeDefs, resolvers as scalarResolvers } from '../src/index.js';
 import { mergeTypeDefs, mergeResolvers } from '@graphql-tools/merge';
 import { GraphQLSchema, graphql } from 'graphql';
 

@@ -1,7 +1,7 @@
 /* global describe, test, expect */
 
 import { Kind } from 'graphql/language';
-import { GraphQLUtcOffset } from '../src/scalars/UtcOffset';
+import { GraphQLUtcOffset } from '../src/scalars/UtcOffset.js';
 
 describe('UtcOffset', () => {
   describe('valid', () => {
@@ -23,8 +23,8 @@ describe('UtcOffset', () => {
             value: '-12:30',
             kind: Kind.STRING,
           },
-          {},
-        ),
+          {}
+        )
       ).toEqual(result);
     });
   });
@@ -32,15 +32,15 @@ describe('UtcOffset', () => {
   describe('invalid', () => {
     describe('not a valid date', () => {
       test('serialize', () => {
-        expect(() =>
-          GraphQLUtcOffset.serialize('this is not an utc offset'),
-        ).toThrow(/Value is not a valid UTC Offset/);
+        expect(() => GraphQLUtcOffset.serialize('this is not an utc offset')).toThrow(
+          /Value is not a valid UTC Offset/
+        );
       });
 
       test('parseValue', () => {
-        expect(() =>
-          GraphQLUtcOffset.parseValue('this is not an utc offset'),
-        ).toThrow(/Value is not a valid UTC Offset/);
+        expect(() => GraphQLUtcOffset.parseValue('this is not an utc offset')).toThrow(
+          /Value is not a valid UTC Offset/
+        );
       });
 
       test('parseLiteral', () => {
@@ -50,8 +50,8 @@ describe('UtcOffset', () => {
               value: 'this is not an utc offset',
               kind: Kind.STRING,
             },
-            {},
-          ),
+            {}
+          )
         ).toThrow(/Value is not a valid UTC Offset/);
       });
 
@@ -62,8 +62,8 @@ describe('UtcOffset', () => {
               value: 'this is not an utc offset',
               kind: Kind.INT,
             },
-            {},
-          ),
+            {}
+          )
         ).toThrow(/Can only validate strings as UTC Offset/);
       });
     });

@@ -1,4 +1,4 @@
-import { GraphQLRoutingNumber } from '../src/scalars/RoutingNumber';
+import { GraphQLRoutingNumber } from '../src/scalars/RoutingNumber.js';
 import { Kind } from 'graphql';
 
 const invalids: [string, string | number, RegExp][] = [
@@ -11,12 +11,7 @@ const invalids: [string, string | number, RegExp][] = [
   ['negative number', -111000025, /must have nine digits/],
 ];
 
-const valids: (string | number)[] = [
-  '111000025',
-  111000025,
-  '031001175',
-  '021000021',
-];
+const valids: (string | number)[] = ['111000025', 111000025, '031001175', '021000021'];
 
 describe('ABA Routing Number', () => {
   describe('invalid', () => {
@@ -27,16 +22,12 @@ describe('ABA Routing Number', () => {
         GraphQLRoutingNumber.parseLiteral({
           kind: Kind.FLOAT,
           value: '' + value,
-        }),
+        })
       ).toThrow(/can only parse Integer or String/);
 
-      expect(() => GraphQLRoutingNumber.serialize(value)).toThrow(
-        /must be integer or string/,
-      );
+      expect(() => GraphQLRoutingNumber.serialize(value)).toThrow(/must be integer or string/);
 
-      expect(() => GraphQLRoutingNumber.parseValue(value)).toThrow(
-        /must be integer or string/,
-      );
+      expect(() => GraphQLRoutingNumber.parseValue(value)).toThrow(/must be integer or string/);
     });
 
     test.each(invalids)(`%s`, (_, routingNumber, reason) => {
@@ -44,21 +35,17 @@ describe('ABA Routing Number', () => {
         GraphQLRoutingNumber.parseLiteral({
           kind: typeof routingNumber === 'string' ? Kind.STRING : Kind.INT,
           value: '' + routingNumber,
-        }),
+        })
       ).toThrow(reason);
 
-      expect(() => GraphQLRoutingNumber.parseValue(routingNumber)).toThrow(
-        reason,
-      );
+      expect(() => GraphQLRoutingNumber.parseValue(routingNumber)).toThrow(reason);
 
-      expect(() => GraphQLRoutingNumber.serialize(routingNumber)).toThrow(
-        reason,
-      );
+      expect(() => GraphQLRoutingNumber.serialize(routingNumber)).toThrow(reason);
     });
   });
 
   describe('valid', () => {
-    test.each(valids)('scalar: %s', (routing) => {
+    test.each(valids)('scalar: %s', routing => {
       const parsed = '' + routing;
       expect(GraphQLRoutingNumber.parseValue(routing)).toBe(parsed);
       expect(GraphQLRoutingNumber.serialize(routing)).toBe(parsed);
@@ -66,7 +53,7 @@ describe('ABA Routing Number', () => {
         GraphQLRoutingNumber.parseLiteral({
           kind: Kind.STRING,
           value: '' + routing,
-        }),
+        })
       ).toBe(parsed);
     });
   });

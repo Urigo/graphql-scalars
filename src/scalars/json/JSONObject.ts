@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-import { ensureObject, parseObject } from './utils';
+import { ensureObject, parseObject } from './utils.js';
 
-const specifiedByURL =
-  'http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf';
+const specifiedByURL = 'http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf';
 
 export const GraphQLJSONObjectConfig = /*#__PURE__*/ {
   name: 'JSONObject',
@@ -19,5 +18,4 @@ export const GraphQLJSONObjectConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<object, object>;
 
-export const GraphQLJSONObject: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(GraphQLJSONObjectConfig);
+export const GraphQLJSONObject: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLJSONObjectConfig);

@@ -1,10 +1,9 @@
 // This named export is intended for users of CommonJS. Users of ES modules
 
 import { GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-import { identity, parseLiteral } from './utils';
+import { identity, parseLiteral } from './utils.js';
 
-const specifiedByURL =
-  'http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf';
+const specifiedByURL = 'http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf';
 
 export const GraphQLJSONConfig = /*#__PURE__*/ {
   name: 'JSON',
@@ -20,5 +19,4 @@ export const GraphQLJSONConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<any, any>;
 
-export const GraphQLJSON: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(GraphQLJSONConfig);
+export const GraphQLJSON: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLJSONConfig);

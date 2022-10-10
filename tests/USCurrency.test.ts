@@ -1,12 +1,9 @@
 import { graphql, GraphQLObjectType, GraphQLSchema } from 'graphql';
-import { GraphQLUSCurrency } from '../src/scalars/USCurrency';
+import { GraphQLUSCurrency } from '../src/scalars/USCurrency.js';
 
 const noop = () => {};
 
-const createGraphQLSchema = (
-  queryResolver,
-  mutationResolver: (...args: any[]) => any = noop,
-) => {
+const createGraphQLSchema = (queryResolver, mutationResolver: (...args: any[]) => any = noop) => {
   return new GraphQLSchema({
     query: new GraphQLObjectType({
       name: 'Query',
@@ -45,11 +42,9 @@ describe('USCurrency', () => {
         currencyValue
       }
     `;
-    return graphql({ schema, source }).then((result) => {
+    return graphql({ schema, source }).then(result => {
       const { errors } = result;
-      expect(errors[0].message).toEqual(
-        `Currency cannot represent non integer type "${value}"`,
-      );
+      expect(errors[0].message).toEqual(`Currency cannot represent non integer type "${value}"`);
     });
   });
 
@@ -82,7 +77,7 @@ describe('USCurrency', () => {
         currencyValue
       }
     `;
-    return graphql({ schema, source }).then((result) => {
+    return graphql({ schema, source }).then(result => {
       const {
         data: { currencyValue },
       } = result;
@@ -100,10 +95,8 @@ describe('USCurrency', () => {
         setCurrency(currencyValue:${value})
       }
     `;
-    return graphql({ schema, source }).catch((e) => {
-      expect(e.message).toEqual(
-        `Currency cannot represent an invalid currency-string ${value}.`,
-      );
+    return graphql({ schema, source }).catch(e => {
+      expect(e.message).toEqual(`Currency cannot represent an invalid currency-string ${value}.`);
     });
   });
 
@@ -117,10 +110,8 @@ describe('USCurrency', () => {
         setCurrency(currencyValue:${value})
       }
     `;
-    return graphql({ schema, source }).catch((e) => {
-      expect(e.message).toEqual(
-        `Currency cannot represent an invalid currency-string ${value}.`,
-      );
+    return graphql({ schema, source }).catch(e => {
+      expect(e.message).toEqual(`Currency cannot represent an invalid currency-string ${value}.`);
     });
   });
 
@@ -135,7 +126,7 @@ describe('USCurrency', () => {
         setCurrency(currencyValue:"${value}")
       }
     `;
-    return graphql({ schema, source }).then((result) => {
+    return graphql({ schema, source }).then(result => {
       expect(result.errors).toBeFalsy();
     });
   });
@@ -151,7 +142,7 @@ describe('USCurrency', () => {
         setCurrency(currencyValue:"${value}")
       }
     `;
-    return graphql({ schema, source }).then((result) => {
+    return graphql({ schema, source }).then(result => {
       expect(result.errors).toBeFalsy();
     });
   });
@@ -171,7 +162,7 @@ describe('USCurrency', () => {
       schema,
       source,
       variableValues: { currency: value },
-    }).then((result) => {
+    }).then(result => {
       expect(result.errors).toBeFalsy();
     });
   });
@@ -191,7 +182,7 @@ describe('USCurrency', () => {
       schema,
       source,
       variableValues: { currency: value },
-    }).then((result) => {
+    }).then(result => {
       expect(result.errors).toBeFalsy();
     });
   });

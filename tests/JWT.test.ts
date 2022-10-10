@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 import { Kind } from 'graphql/language';
-import { GraphQLJWT } from '../src/scalars/JWT';
+import { GraphQLJWT } from '../src/scalars/JWT.js';
 
 // HEADER: {
 //   "alg": "HS256",
@@ -39,8 +39,8 @@ describe(`JWT`, () => {
             value: JWT,
             kind: Kind.STRING,
           },
-          {},
-        ),
+          {}
+        )
       ).toEqual(JWT);
     });
   });
@@ -49,55 +49,36 @@ describe(`JWT`, () => {
     describe(`not a valid JWT`, () => {
       it(`serialize`, () => {
         expect(() => GraphQLJWT.serialize(123)).toThrow(/Value is not string/);
-        expect(() => GraphQLJWT.serialize(`this is not a jwt`)).toThrow(
-          /Value is not a valid JWT/,
-        );
-        expect(() => GraphQLJWT.serialize(`missing.signature`)).toThrow(
-          /Value is not a valid JWT/,
-        );
-        expect(() => GraphQLJWT.serialize(`missing.`)).toThrow(
-          /Value is not a valid JWT/,
-        );
-        expect(() => GraphQLJWT.serialize(`missing`)).toThrow(
-          /Value is not a valid JWT/,
-        );
+        expect(() => GraphQLJWT.serialize(`this is not a jwt`)).toThrow(/Value is not a valid JWT/);
+        expect(() => GraphQLJWT.serialize(`missing.signature`)).toThrow(/Value is not a valid JWT/);
+        expect(() => GraphQLJWT.serialize(`missing.`)).toThrow(/Value is not a valid JWT/);
+        expect(() => GraphQLJWT.serialize(`missing`)).toThrow(/Value is not a valid JWT/);
       });
 
       it(`parseValue`, () => {
         expect(() => GraphQLJWT.parseValue(123)).toThrow(/Value is not string/);
-        expect(() => GraphQLJWT.parseValue(`this is not a JWT`)).toThrow(
-          /Value is not a valid JWT/,
-        );
-        expect(() => GraphQLJWT.parseValue(`missing.signature`)).toThrow(
-          /Value is not a valid JWT/,
-        );
-        expect(() => GraphQLJWT.parseValue(`missing.`)).toThrow(
-          /Value is not a valid JWT/,
-        );
-        expect(() => GraphQLJWT.parseValue(`missing`)).toThrow(
-          /Value is not a valid JWT/,
-        );
+        expect(() => GraphQLJWT.parseValue(`this is not a JWT`)).toThrow(/Value is not a valid JWT/);
+        expect(() => GraphQLJWT.parseValue(`missing.signature`)).toThrow(/Value is not a valid JWT/);
+        expect(() => GraphQLJWT.parseValue(`missing.`)).toThrow(/Value is not a valid JWT/);
+        expect(() => GraphQLJWT.parseValue(`missing`)).toThrow(/Value is not a valid JWT/);
       });
 
       it(`parseLiteral`, () => {
-        expect(() =>
-          GraphQLJWT.parseLiteral({ value: 123, kind: Kind.INT } as any, {}),
-        ).toThrow(/Can only validate strings as JWT but got a/);
+        expect(() => GraphQLJWT.parseLiteral({ value: 123, kind: Kind.INT } as any, {})).toThrow(
+          /Can only validate strings as JWT but got a/
+        );
 
-        expect(() =>
-          GraphQLJWT.parseLiteral(
-            { value: `this is not a JWT`, kind: Kind.STRING },
-            {},
-          ),
-        ).toThrow(/Value is not a valid JWT/);
+        expect(() => GraphQLJWT.parseLiteral({ value: `this is not a JWT`, kind: Kind.STRING }, {})).toThrow(
+          /Value is not a valid JWT/
+        );
         expect(() =>
           GraphQLJWT.parseLiteral(
             {
               value: `missing.signature`,
               kind: Kind.STRING,
             },
-            {},
-          ),
+            {}
+          )
         ).toThrow(/Value is not a valid JWT/);
         expect(() =>
           GraphQLJWT.parseLiteral(
@@ -105,8 +86,8 @@ describe(`JWT`, () => {
               value: `missing.`,
               kind: Kind.STRING,
             },
-            {},
-          ),
+            {}
+          )
         ).toThrow(/Value is not a valid JWT/);
         expect(() =>
           GraphQLJWT.parseLiteral(
@@ -114,8 +95,8 @@ describe(`JWT`, () => {
               value: `missing`,
               kind: Kind.STRING,
             },
-            {},
-          ),
+            {}
+          )
         ).toThrow(/Value is not a valid JWT/);
       });
     });

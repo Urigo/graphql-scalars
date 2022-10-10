@@ -1,6 +1,6 @@
 // Inspired by Geolib: https://github.com/manuelbieh/geolib
 import { GraphQLError, GraphQLScalarType, Kind } from 'graphql';
-import { isDecimal, isSexagesimal, sexagesimalToDecimal } from './utilities';
+import { isDecimal, isSexagesimal, sexagesimalToDecimal } from './utilities.js';
 
 // Minimum longitude
 const MIN_LON = -180.0;
@@ -21,13 +21,10 @@ const validate = (value: any): number => {
   }
 
   if (isDecimal(value)) {
-    const decimalValue =
-      typeof value === 'string' ? Number.parseFloat(value) : value;
+    const decimalValue = typeof value === 'string' ? Number.parseFloat(value) : value;
 
     if (decimalValue < MIN_LON || decimalValue > MAX_LON) {
-      throw new RangeError(
-        `Value must be between ${MIN_LON} and ${MAX_LON}: ${value}`,
-      );
+      throw new RangeError(`Value must be between ${MIN_LON} and ${MAX_LON}: ${value}`);
     }
 
     return Number.parseFloat(decimalValue.toFixed(MAX_PRECISION));
@@ -40,30 +37,27 @@ const validate = (value: any): number => {
   throw new TypeError(`Value is not a valid longitude: ${value}`);
 };
 
-export const GraphQLLongitude: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType({
-    name: `Longitude`,
+export const GraphQLLongitude: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+  name: `Longitude`,
 
-    description: `A field whose value is a valid decimal degrees longitude number (53.471): https://en.wikipedia.org/wiki/Longitude`,
+  description: `A field whose value is a valid decimal degrees longitude number (53.471): https://en.wikipedia.org/wiki/Longitude`,
 
-    serialize(value) {
-      return validate(value);
-    },
+  serialize(value) {
+    return validate(value);
+  },
 
-    parseValue(value) {
-      return validate(value);
-    },
+  parseValue(value) {
+    return validate(value);
+  },
 
-    parseLiteral(ast) {
-      if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.STRING) {
-        throw new GraphQLError(
-          `Can only validate floats or strings as longitude but got a: ${ast.kind}`,
-        );
-      }
+  parseLiteral(ast) {
+    if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.STRING) {
+      throw new GraphQLError(`Can only validate floats or strings as longitude but got a: ${ast.kind}`);
+    }
 
-      return validate(ast.value);
-    },
-    extensions: {
-      codegenScalarType: 'string | number',
-    },
-  });
+    return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string | number',
+  },
+});

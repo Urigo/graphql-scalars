@@ -2,7 +2,7 @@
 
 import { Kind } from 'graphql/language';
 
-import { GraphQLURL } from '../src/scalars/URL';
+import { GraphQLURL } from '../src/scalars/URL.js';
 import { URL } from 'url';
 
 /*
@@ -12,70 +12,49 @@ import { URL } from 'url';
 describe('URL', () => {
   describe('valid - localhost', () => {
     test('serialize', () => {
-      expect(GraphQLURL.serialize('http://localhost/')).toBe(
-        'http://localhost/',
-      );
+      expect(GraphQLURL.serialize('http://localhost/')).toBe('http://localhost/');
     });
 
     test('parseValue', () => {
-      expect(GraphQLURL.parseValue('http://localhost/')).toMatchObject(
-        new URL('http://localhost/'),
-      );
+      expect(GraphQLURL.parseValue('http://localhost/')).toMatchObject(new URL('http://localhost/'));
     });
 
     test('parseLiteral', () => {
-      expect(
-        GraphQLURL.parseLiteral(
-          { value: 'http://localhost/', kind: Kind.STRING },
-          {},
-        ),
-      ).toMatchObject(new URL('http://localhost/'));
+      expect(GraphQLURL.parseLiteral({ value: 'http://localhost/', kind: Kind.STRING }, {})).toMatchObject(
+        new URL('http://localhost/')
+      );
     });
   });
 
   describe('valid - localhost with port', () => {
     test('serialize', () => {
-      expect(GraphQLURL.serialize('http://localhost:3000/')).toBe(
-        'http://localhost:3000/',
-      );
+      expect(GraphQLURL.serialize('http://localhost:3000/')).toBe('http://localhost:3000/');
     });
 
     test('parseValue', () => {
-      expect(GraphQLURL.parseValue('http://localhost:3000/')).toMatchObject(
-        new URL('http://localhost:3000/'),
-      );
+      expect(GraphQLURL.parseValue('http://localhost:3000/')).toMatchObject(new URL('http://localhost:3000/'));
     });
 
     test('parseLiteral', () => {
-      expect(
-        GraphQLURL.parseLiteral(
-          { value: 'http://localhost:3000/', kind: Kind.STRING },
-          {},
-        ),
-      ).toMatchObject(new URL('http://localhost:3000/'));
+      expect(GraphQLURL.parseLiteral({ value: 'http://localhost:3000/', kind: Kind.STRING }, {})).toMatchObject(
+        new URL('http://localhost:3000/')
+      );
     });
   });
 
   describe('invalid', () => {
     describe('not a URL', () => {
-      expect(() => GraphQLURL.serialize('invalidurlexample')).toThrow(
-        /Invalid URL/,
-      );
+      expect(() => GraphQLURL.serialize('invalidurlexample')).toThrow(/Invalid URL/);
     });
 
     test(`parseValue invalidurlexample`, () => {
-      expect(() => GraphQLURL.parseValue('invalidurlexample')).toThrow(
-        /Invalid URL/,
-      );
+      expect(() => GraphQLURL.parseValue('invalidurlexample')).toThrow(/Invalid URL/);
     });
 
     test(`parseLiteral invalidurlexample`, () => {
-      expect(() =>
-        GraphQLURL.parseLiteral(
-          { value: 'invalidurlexample', kind: Kind.STRING },
-          {},
-        ),
-      ).toThrow(/Invalid URL/);
+      expect(() => GraphQLURL.parseLiteral({ value: 'invalidurlexample', kind: Kind.STRING }, {})).toThrow(
+        /Invalid URL/
+      );
     });
   });
 
@@ -89,9 +68,7 @@ describe('URL', () => {
     });
 
     test('parseLiteral', () => {
-      expect(() =>
-        GraphQLURL.parseLiteral({ value: '123', kind: Kind.INT }, {}),
-      ).toThrow();
+      expect(() => GraphQLURL.parseLiteral({ value: '123', kind: Kind.INT }, {})).toThrow();
     });
   });
 
@@ -105,9 +82,7 @@ describe('URL', () => {
     });
 
     test('parseLiteral', () => {
-      expect(
-        GraphQLURL.parseLiteral({ value: null, kind: Kind.STRING }, {}),
-      ).toBeNull();
+      expect(GraphQLURL.parseLiteral({ value: null, kind: Kind.STRING }, {})).toBeNull();
     });
   });
 
@@ -121,9 +96,7 @@ describe('URL', () => {
     });
 
     test('parseLiteral', () => {
-      expect(() =>
-        GraphQLURL.parseLiteral({ value: '', kind: Kind.STRING }, {}),
-      ).toThrow();
+      expect(() => GraphQLURL.parseLiteral({ value: '', kind: Kind.STRING }, {})).toThrow();
     });
   });
 });

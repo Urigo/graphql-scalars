@@ -1,8 +1,8 @@
 import { graphql, GraphQLInt, GraphQLObjectType, GraphQLSchema } from 'graphql';
 
 // eslint-disable-next-line import/no-named-as-default
-import { GraphQLJSONObject } from '../src/scalars/json/JSONObject';
-import { GraphQLJSON } from '../src/scalars/json/JSON';
+import { GraphQLJSONObject } from '../src/scalars/json/JSONObject.js';
+import { GraphQLJSON } from '../src/scalars/json/JSON.js';
 
 const FIXTURE = {
   string: 'string',
@@ -36,7 +36,7 @@ function createSchema(type) {
         },
         rootValue: {
           type,
-          resolve: (obj) => obj,
+          resolve: obj => obj,
         },
       },
     }),
@@ -99,14 +99,7 @@ describe('GraphQLJSON', () => {
                 true: true
                 false: false
                 null: null
-                object: {
-                  string: "string"
-                  int: $intValue
-                  float: 3.14
-                  true: true
-                  false: false
-                  null: null
-                }
+                object: { string: "string", int: $intValue, float: 3.14, true: true, false: false, null: null }
                 array: ["string", $intValue, 3.14, true, false, null]
               }
             )
@@ -277,14 +270,7 @@ describe('GraphQLJSONObject', () => {
                 true: true
                 false: false
                 null: null
-                object: {
-                  string: "string"
-                  int: $intValue
-                  float: 3.14
-                  true: true
-                  false: false
-                  null: null
-                }
+                object: { string: "string", int: $intValue, float: 3.14, true: true, false: false, null: null }
                 array: ["string", $intValue, 3.14, true, false, null]
               }
             )

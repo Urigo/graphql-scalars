@@ -1,5 +1,5 @@
 import { Kind } from 'graphql/language';
-import { GraphQLIBAN } from '../src/scalars/IBAN';
+import { GraphQLIBAN } from '../src/scalars/IBAN.js';
 
 // List was taken from https://www.iban.com/structure
 const IBANs = [
@@ -103,8 +103,8 @@ describe(`IBAN`, () => {
               value,
               kind: Kind.STRING,
             },
-            {},
-          ),
+            {}
+          )
         ).toEqual(value);
       }
     });
@@ -114,29 +114,22 @@ describe(`IBAN`, () => {
     describe(`not a valid IBAN`, () => {
       it(`serialize`, () => {
         expect(() => GraphQLIBAN.serialize(123)).toThrow(/Value is not string/);
-        expect(() => GraphQLIBAN.serialize(`this is not an IBAN`)).toThrow(
-          /Value is not a valid IBAN/,
-        );
+        expect(() => GraphQLIBAN.serialize(`this is not an IBAN`)).toThrow(/Value is not a valid IBAN/);
       });
 
       it(`parseValue`, () => {
         expect(() => GraphQLIBAN.serialize(123)).toThrow(/Value is not string/);
-        expect(() => GraphQLIBAN.parseValue(`this is not an IBAN`)).toThrow(
-          /Value is not a valid/,
-        );
+        expect(() => GraphQLIBAN.parseValue(`this is not an IBAN`)).toThrow(/Value is not a valid/);
       });
 
       it(`parseLiteral`, () => {
-        expect(() =>
-          GraphQLIBAN.parseLiteral({ value: 123, kind: Kind.INT } as any, {}),
-        ).toThrow(/Can only validate strings as IBANs but got a/);
+        expect(() => GraphQLIBAN.parseLiteral({ value: 123, kind: Kind.INT } as any, {})).toThrow(
+          /Can only validate strings as IBANs but got a/
+        );
 
-        expect(() =>
-          GraphQLIBAN.parseLiteral(
-            { value: `this is not an IBAN number`, kind: Kind.STRING },
-            {},
-          ),
-        ).toThrow(/Value is not a valid IBAN/);
+        expect(() => GraphQLIBAN.parseLiteral({ value: `this is not an IBAN number`, kind: Kind.STRING }, {})).toThrow(
+          /Value is not a valid IBAN/
+        );
       });
     });
   });

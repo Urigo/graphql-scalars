@@ -1,6 +1,6 @@
 import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
-import { IPV4_REGEX } from './IPv4';
-import { IPV6_REGEX } from './IPv6';
+import { IPV4_REGEX } from './IPv4.js';
+import { IPV6_REGEX } from './IPv6.js';
 
 const validate = (value: any) => {
   if (typeof value !== 'string') {

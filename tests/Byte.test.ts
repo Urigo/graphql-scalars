@@ -1,14 +1,11 @@
 /* global describe, test, expect */
 
 import { Kind, ObjectValueNode, ValueNode } from 'graphql/language';
-import { GraphQLByte } from '../src/scalars/Byte';
+import { GraphQLByte } from '../src/scalars/Byte.js';
 
-const byte = Buffer.from([
-  68, 111, 100, 103, 101, 114, 115, 32, 82, 117, 108, 101, 33,
-]);
+const byte = Buffer.from([68, 111, 100, 103, 101, 114, 115, 32, 82, 117, 108, 101, 33]);
 const slashByte = Buffer.from([
-  82, 71, 57, 107, 90, 50, 86, 121, 99, 121, 66, 83, 100, 87, 120, 108, 73, 81,
-  47, 97, 81, 61,
+  82, 71, 57, 107, 90, 50, 86, 121, 99, 121, 66, 83, 100, 87, 120, 108, 73, 81, 47, 97, 81, 61,
 ]);
 const byteLeading0 = Buffer.from([4, 8, 15, 16, 23, 42]);
 const base64String = byte.toString('base64');
@@ -23,10 +20,7 @@ const looksLikeHex = 'xARzdGF0';
 const looksLikeHexBuffer = Buffer.from(looksLikeHex, 'base64');
 const notByte = 1;
 
-function createBufferObject(
-  type: string,
-  values: ValueNode[],
-): ObjectValueNode {
+function createBufferObject(type: string, values: ValueNode[]): ObjectValueNode {
   return {
     fields: [
       {
@@ -78,8 +72,8 @@ describe.each<[string, Buffer | string, string | number]>([
               value,
               kind: Kind.STRING,
             },
-            {},
-          ),
+            {}
+          )
         ).toEqual(byte);
       } else {
         const bufferJson = value.toJSON();
@@ -87,13 +81,13 @@ describe.each<[string, Buffer | string, string | number]>([
           GraphQLByte.parseLiteral(
             createBufferObject(
               'Buffer',
-              bufferJson.data.map((value) => ({
+              bufferJson.data.map(value => ({
                 kind: Kind.INT,
                 value: value.toString(),
-              })),
+              }))
             ),
-            {},
-          ),
+            {}
+          )
         ).toEqual(byte);
       }
     });
@@ -116,8 +110,8 @@ describe.each<[string, Buffer | string, string | number]>([
               value: notValue,
               kind: Kind.INT,
             },
-            {},
-          ),
+            {}
+          )
         ).toThrow(/Can only parse/);
       } else {
         expect(() => {

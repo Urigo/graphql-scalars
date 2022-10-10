@@ -9,3 +9,4 @@ dist/
 *.log
 package-lock.json
 .next/
+.bob

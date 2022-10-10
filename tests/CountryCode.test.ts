@@ -1,6 +1,6 @@
 import { Kind } from 'graphql/language';
 
-import { GraphQLCountryCode } from '../src/scalars/CountryCode';
+import { GraphQLCountryCode } from '../src/scalars/CountryCode.js';
 
 describe('CountryCode', () => {
   describe('valid', () => {
@@ -270,8 +270,8 @@ describe('CountryCode', () => {
                 value: countryCode,
                 kind: Kind.STRING,
               },
-              {},
-            ),
+              {}
+            )
           ).toBe(countryCode);
         });
       });
@@ -280,44 +280,37 @@ describe('CountryCode', () => {
   describe('invalid', () => {
     describe('not a postal code', () => {
       test('serialize', () => {
-        expect(() =>
-          GraphQLCountryCode.serialize('this is not a country code'),
-        ).toThrow(/^Value is not a valid country code/);
+        expect(() => GraphQLCountryCode.serialize('this is not a country code')).toThrow(
+          /^Value is not a valid country code/
+        );
       });
 
       test('parseValue', () => {
-        expect(() =>
-          GraphQLCountryCode.parseValue('this is not a country code'),
-        ).toThrow(/^Value is not a valid country code/);
+        expect(() => GraphQLCountryCode.parseValue('this is not a country code')).toThrow(
+          /^Value is not a valid country code/
+        );
       });
 
       test('parseLiteral', () => {
         expect(() =>
-          GraphQLCountryCode.parseLiteral(
-            { value: 'this is not a country code', kind: Kind.STRING },
-            {},
-          ),
+          GraphQLCountryCode.parseLiteral({ value: 'this is not a country code', kind: Kind.STRING }, {})
         ).toThrow(/^Value is not a valid country code/);
       });
     });
 
     describe('not a string', () => {
       test('serialize', () => {
-        expect(() => GraphQLCountryCode.serialize(123)).toThrow(
-          /Value is not string/,
-        );
+        expect(() => GraphQLCountryCode.serialize(123)).toThrow(/Value is not string/);
       });
 
       test('parseValue', () => {
-        expect(() => GraphQLCountryCode.parseValue(123)).toThrow(
-          /Value is not string/,
-        );
+        expect(() => GraphQLCountryCode.parseValue(123)).toThrow(/Value is not string/);
       });
 
       test('parseLiteral', () => {
-        expect(() =>
-          GraphQLCountryCode.parseLiteral({ value: '123', kind: Kind.INT }, {}),
-        ).toThrow(/Can only validate strings as country codes but got a/);
+        expect(() => GraphQLCountryCode.parseLiteral({ value: '123', kind: Kind.INT }, {})).toThrow(
+          /Can only validate strings as country codes but got a/
+        );
       });
     });
   });

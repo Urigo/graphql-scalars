@@ -9,8 +9,8 @@
 
 import { GraphQLScalarType, Kind } from 'graphql';
 import type { GraphQLScalarTypeConfig } from 'graphql'; // eslint-disable-line
-import { validateJSDate, validateTime } from './validator';
-import { serializeTime, serializeTimeString, parseTime } from './formatter';
+import { validateJSDate, validateTime } from './validator.js';
+import { serializeTime, serializeTimeString, parseTime } from './formatter.js';
 
 /**
  * An RFC 3339 compliant time scalar.
@@ -41,49 +41,36 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
       if (validateTime(value)) {
         return serializeTimeString(value);
       }
-      throw new TypeError(
-        `Time cannot represent an invalid time-string ${value}.`,
-      );
+      throw new TypeError(`Time cannot represent an invalid time-string ${value}.`);
     } else {
       throw new TypeError(
-        'Time cannot be serialized from a non string, ' +
-          'or non Date type ' +
-          JSON.stringify(value),
+        'Time cannot be serialized from a non string, ' + 'or non Date type ' + JSON.stringify(value)
       );
     }
   },
   parseValue(value: any): Date {
     if (!(typeof value === 'string')) {
-      throw new TypeError(
-        `Time cannot represent non string type ${JSON.stringify(value)}`,
-      );
+      throw new TypeError(`Time cannot represent non string type ${JSON.stringify(value)}`);
     }
 
     if (validateTime(value)) {
       return parseTime(value);
     }
-    throw new TypeError(
-      `Time cannot represent an invalid time-string ${value}.`,
-    );
+    throw new TypeError(`Time cannot represent an invalid time-string ${value}.`);
   },
   parseLiteral(ast): Date {
     if (ast.kind !== Kind.STRING) {
-      throw new TypeError(
-        `Time cannot represent non string type ${'value' in ast && ast.value}`,
-      );
+      throw new TypeError(`Time cannot represent non string type ${'value' in ast && ast.value}`);
     }
     const value = ast.value;
     if (validateTime(value)) {
       return parseTime(value);
     }
-    throw new TypeError(
-      `Time cannot represent an invalid time-string ${String(value)}.`,
-    );
+    throw new TypeError(`Time cannot represent an invalid time-string ${String(value)}.`);
   },
   extensions: {
     codegenScalarType: 'Date | string',
   },
 };
 
-export const GraphQLTime: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(config);
+export const GraphQLTime: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(config);

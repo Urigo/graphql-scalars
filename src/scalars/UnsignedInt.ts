@@ -1,13 +1,8 @@
 import { GraphQLScalarType } from 'graphql';
-import { GraphQLNonNegativeIntConfig } from './NonNegativeInt';
+import { GraphQLNonNegativeIntConfig } from './NonNegativeInt.js';
 
-const GraphQLUnsignedIntConfig = /*#__PURE__*/ Object.assign(
-  {},
-  GraphQLNonNegativeIntConfig,
-  {
-    name: 'UnsignedInt',
-  },
-);
+const GraphQLUnsignedIntConfig = /*#__PURE__*/ Object.assign({}, GraphQLNonNegativeIntConfig, {
+  name: 'UnsignedInt',
+});
 
-export const GraphQLUnsignedInt: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(GraphQLUnsignedIntConfig);
+export const GraphQLUnsignedInt: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLUnsignedIntConfig);

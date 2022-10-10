@@ -1,51 +1,37 @@
 /* global describe, test, expect */
 import { Kind } from 'graphql/language';
-import { GraphQLDID } from '../src/scalars/DID';
+import { GraphQLDID } from '../src/scalars/DID.js';
 
 describe('DID', () => {
   describe('valid - DID', () => {
     test('serialize', () => {
-      expect(GraphQLDID.serialize('did:example:123456789abcdefghi')).toBe(
-        'did:example:123456789abcdefghi',
-      );
+      expect(GraphQLDID.serialize('did:example:123456789abcdefghi')).toBe('did:example:123456789abcdefghi');
     });
 
     test('parseValue', () => {
-      expect(GraphQLDID.parseValue('did:example:123456789abcdefghi')).toEqual(
-        'did:example:123456789abcdefghi',
-      );
+      expect(GraphQLDID.parseValue('did:example:123456789abcdefghi')).toEqual('did:example:123456789abcdefghi');
     });
 
     test('parseLiteral', () => {
-      expect(
-        GraphQLDID.parseLiteral(
-          { value: 'did:example:123456789abcdefghi', kind: Kind.STRING },
-          {},
-        ),
-      ).toEqual('did:example:123456789abcdefghi');
+      expect(GraphQLDID.parseLiteral({ value: 'did:example:123456789abcdefghi', kind: Kind.STRING }, {})).toEqual(
+        'did:example:123456789abcdefghi'
+      );
     });
   });
 
   describe('invalid', () => {
     describe('not a DID', () => {
-      expect(() => GraphQLDID.serialize('invaliddid')).toThrow(
-        /Value is not a valid DID/,
-      );
+      expect(() => GraphQLDID.serialize('invaliddid')).toThrow(/Value is not a valid DID/);
     });
 
     test(`parseValue invaliddidexample`, () => {
-      expect(() => GraphQLDID.parseValue('invaliddidexample')).toThrow(
-        /Value is not a valid DID/,
-      );
+      expect(() => GraphQLDID.parseValue('invaliddidexample')).toThrow(/Value is not a valid DID/);
     });
 
     test(`parseLiteral invaliddidexample`, () => {
-      expect(() =>
-        GraphQLDID.parseLiteral(
-          { value: 'invaliddidexample', kind: Kind.STRING },
-          {},
-        ),
-      ).toThrow(/Value is not a valid DID/);
+      expect(() => GraphQLDID.parseLiteral({ value: 'invaliddidexample', kind: Kind.STRING }, {})).toThrow(
+        /Value is not a valid DID/
+      );
     });
   });
 
@@ -59,9 +45,7 @@ describe('DID', () => {
     });
 
     test('parseLiteral', () => {
-      expect(() =>
-        GraphQLDID.parseLiteral({ value: '123', kind: Kind.INT }, {}),
-      ).toThrow();
+      expect(() => GraphQLDID.parseLiteral({ value: '123', kind: Kind.INT }, {})).toThrow();
     });
   });
 
@@ -75,9 +59,7 @@ describe('DID', () => {
     });
 
     test('parseLiteral', () => {
-      expect(() =>
-        GraphQLDID.parseLiteral({ value: '', kind: Kind.STRING }, {}),
-      ).toThrow();
+      expect(() => GraphQLDID.parseLiteral({ value: '', kind: Kind.STRING }, {})).toThrow();
     });
   });
 });

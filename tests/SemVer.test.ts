@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 import { Kind } from 'graphql/language';
-import { GraphQLSemVer } from '../src/scalars/SemVer';
+import { GraphQLSemVer } from '../src/scalars/SemVer.js';
 
 // Taken from https://regex101.com/r/vkijKf/1/
 const validSemanticVersions = [

@@ -1,4 +1,4 @@
-import { GraphQLAccountNumber } from '../src/scalars/AccountNumber';
+import { GraphQLAccountNumber } from '../src/scalars/AccountNumber.js';
 import { Kind } from 'graphql';
 
 const invalids = [
@@ -19,16 +19,12 @@ describe('ABA Routing Number', () => {
         GraphQLAccountNumber.parseLiteral({
           kind: Kind.INT,
           value: '' + value,
-        }),
+        })
       ).toThrow(/can only parse String/);
 
-      expect(() => GraphQLAccountNumber.serialize(value)).toThrow(
-        /can only parse String/,
-      );
+      expect(() => GraphQLAccountNumber.serialize(value)).toThrow(/can only parse String/);
 
-      expect(() => GraphQLAccountNumber.parseValue(value)).toThrow(
-        /can only parse String/,
-      );
+      expect(() => GraphQLAccountNumber.parseValue(value)).toThrow(/can only parse String/);
     });
 
     test.each(invalids)(`%s`, (_, routingNumber) => {
@@ -36,28 +32,24 @@ describe('ABA Routing Number', () => {
         GraphQLAccountNumber.parseLiteral({
           kind: Kind.STRING,
           value: routingNumber,
-        }),
+        })
       ).toThrow(/must be alphanumeric between 5-17/);
 
-      expect(() => GraphQLAccountNumber.parseValue(routingNumber)).toThrow(
-        /must be alphanumeric between 5-17/,
-      );
+      expect(() => GraphQLAccountNumber.parseValue(routingNumber)).toThrow(/must be alphanumeric between 5-17/);
 
-      expect(() => GraphQLAccountNumber.serialize(routingNumber)).toThrow(
-        /must be alphanumeric between 5-17/,
-      );
+      expect(() => GraphQLAccountNumber.serialize(routingNumber)).toThrow(/must be alphanumeric between 5-17/);
     });
   });
 
   describe('valid', () => {
-    test.each(valids)('scalar: %s', (routing) => {
+    test.each(valids)('scalar: %s', routing => {
       expect(GraphQLAccountNumber.parseValue(routing)).toBe(routing);
       expect(GraphQLAccountNumber.serialize(routing)).toBe(routing);
       expect(
         GraphQLAccountNumber.parseLiteral({
           kind: Kind.STRING,
           value: routing,
-        }),
+        })
       ).toBe(routing);
     });
   });

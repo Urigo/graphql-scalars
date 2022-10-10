@@ -7,13 +7,8 @@
  *
  */
 
-import {
-  graphql,
-  GraphQLObjectType,
-  GraphQLSchema,
-  GraphQLError,
-} from 'graphql';
-import { GraphQLTime } from '../../src/scalars/iso-date/Time';
+import { graphql, GraphQLObjectType, GraphQLSchema, GraphQLError } from 'graphql';
+import { GraphQLTime } from '../../src/scalars/iso-date/Time.js';
 // flowlint-next-line untyped-import:off
 import MockDate from 'mockdate';
 
@@ -105,7 +100,7 @@ it('shifts an input time to UTC', async () => {
   });
 });
 
-it('parses input to a JS Date', (done) => {
+it('parses input to a JS Date', done => {
   const schema = new GraphQLSchema({
     query: new GraphQLObjectType({
       name: 'Query',
@@ -119,9 +114,7 @@ it('parses input to a JS Date', (done) => {
           },
           resolve: (_, input) => {
             try {
-              expect(input.time).toEqual(
-                new Date(Date.UTC(2016, 11, 31, 22, 30)),
-              );
+              expect(input.time).toEqual(new Date(Date.UTC(2016, 11, 31, 22, 30)));
               done();
             } catch (e) {
               done.fail(e);
@@ -163,9 +156,7 @@ it('errors if there is an invalid time returned from the resolver', async () => 
     errors: [
       new GraphQLError('Time cannot represent an invalid time-string 2222.'),
       new GraphQLError('Time cannot represent an invalid Date instance'),
-      new GraphQLError(
-        'Time cannot be serialized from a non string, or non Date type 5',
-      ),
+      new GraphQLError('Time cannot be serialized from a non string, or non Date type 5'),
     ],
   });
 });
@@ -184,7 +175,7 @@ it('errors if the variable value is not a valid time', async () => {
   expect(response).toEqual({
     errors: [
       new GraphQLError(
-        'Variable "$time" got invalid value "__2222"; Expected type "Time". Time cannot represent an invalid time-string __2222.',
+        'Variable "$time" got invalid value "__2222"; Expected type "Time". Time cannot represent an invalid time-string __2222.'
       ),
     ],
   });
@@ -204,7 +195,7 @@ it('errors if the variable value is not of type string', async () => {
   expect(response).toEqual({
     errors: [
       new GraphQLError(
-        'Variable "$time" got invalid value 4; Expected type "Time". Time cannot represent non string type 4',
+        'Variable "$time" got invalid value 4; Expected type "Time". Time cannot represent non string type 4'
       ),
     ],
   });
@@ -222,7 +213,7 @@ it('errors if the literal input value is not a valid time', async () => {
   expect(response).toEqual({
     errors: [
       new GraphQLError(
-        'Expected value of type "Time", found "__invalid__"; Time cannot represent an invalid time-string __invalid__.',
+        'Expected value of type "Time", found "__invalid__"; Time cannot represent an invalid time-string __invalid__.'
       ),
     ],
   });
@@ -238,10 +229,6 @@ it('errors if the literal input value in a query is not a string', async () => {
   const response = await graphql({ schema, source });
 
   expect(response).toEqual({
-    errors: [
-      new GraphQLError(
-        'Expected value of type "Time", found 4; Time cannot represent non string type 4',
-      ),
-    ],
+    errors: [new GraphQLError('Expected value of type "Time", found 4; Time cannot represent non string type 4')],
   });
 });
