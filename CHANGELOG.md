@@ -1,5 +1,13 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.19.0
+
+### Minor Changes
+
+- [`8ba194c`](https://github.com/Urigo/graphql-scalars/commit/8ba194c60fa8e84d20c6ada6bbc30555b9c832c0) Thanks
+  [@ardatan](https://github.com/ardatan)! - - feat: add IP scalar (#1717) - Thanks @mammadatei!
+  - feat: add SemVer scalar (#1728) - Thanks @mammadatei!
+
 ## 1.18.0
 
 ### Minor Changes
