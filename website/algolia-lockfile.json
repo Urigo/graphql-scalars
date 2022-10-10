@@ -48,6 +48,18 @@
     "type": "Documentation"
   },
   {
+    "objectID": "scalars-docs-available-scalars-cuid",
+    "headings": [],
+    "toc": [],
+    "content": "21482badad31053950523084284753b0",
+    "url": "https://www.graphql-scalars.dev/docs/scalars/cuid",
+    "domain": "https://www.graphql-scalars.dev/",
+    "hierarchy": ["Docs", "Available Scalars"],
+    "source": "Scalars",
+    "title": "cuid",
+    "type": "Documentation"
+  },
+  {
     "objectID": "scalars-docs-available-scalars-currency",
     "headings": [],
     "toc": [],
