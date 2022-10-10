@@ -49,6 +49,7 @@ const randomVal = (min: number, max: number) => {
 export const HSL = () => `hsl(${randomVal(0, 360)}, ${randomVal(30, 95)}%, ${randomVal(30, 80)}%)`;
 export const HSLA = () => `hsla(${randomVal(0, 360)}, ${randomVal(30, 95)}%, ${randomVal(30, 80)}%, ${Math.random()})`;
 
+export const IP = () => '2001:0db8:85a3:0000:0000:8a2e:0370:7334';
 // https://stackoverflow.com/questions/43464519/creating-fake-ip-address-using-javascript
 export const IPv4 = () =>
   Math.floor(Math.random() * 255) +

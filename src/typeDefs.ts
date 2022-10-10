@@ -18,6 +18,7 @@ export const HexColorCode = `scalar HexColorCode`;
 export const HSL = `scalar HSL`;
 export const HSLA = `scalar HSLA`;
 export const IBAN = `scalar IBAN`;
+export const IP = `scalar IP`;
 export const IPv4 = `scalar IPv4`;
 export const IPv6 = `scalar IPv6`;
 export const ISBN = `scalar ISBN`;
@@ -97,6 +98,7 @@ export const typeDefs = [
   HexColorCode,
   HSL,
   HSLA,
+  IP,
   IPv4,
   IPv6,
   ISBN,
