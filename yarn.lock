@@ -1579,10 +1579,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@theguild/prettier-config@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@theguild/prettier-config/-/prettier-config-0.1.0.tgz#eb3408e848461938c908ebdbbe1fe1af49e176ed"
-  integrity sha512-H6k6JfWvx021nkEh2CPnDvYydh1DXQq5QSZj1in4R/VSif0ci7RJFnJWsH/hcZBcssPZh7uSdkVJIncapgQo0g==
+"@theguild/prettier-config@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@theguild/prettier-config/-/prettier-config-0.1.1.tgz#31935992aaacabe6bcc6578ba1b2c0166dab3410"
+  integrity sha512-vZ0DtusRtMWIM4Bmztq+FimDcKftncteEsKhfDeTj7Oos3+lv8bT4e2VR5HKVKVXZn/cLv6eRwR65/puUakOAQ==
   dependencies:
     prettier-plugin-sh "^0.12.8"
 
