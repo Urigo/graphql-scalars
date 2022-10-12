@@ -6,21 +6,20 @@ on:
       - master
 
 jobs:
-   dependencies:
-     uses: the-guild-org/shared-config/.github/workflows/changesets-dependencies.yaml@main
-     secrets:
-       githubToken: ${{ secrets.GITHUB_TOKEN }}
+  dependencies:
+    uses: the-guild-org/shared-config/.github/workflows/changesets-dependencies.yaml@main
+    secrets:
+      githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-   canary:
-     uses: the-guild-org/shared-config/.github/workflows/release-snapshot.yml@main
-     with:
-       npmTag: alpha
-       buildScript: build
-       nodeVersion: 16
-     secrets:
-       githubToken: ${{ secrets.GITHUB_TOKEN }}
-       npmToken: ${{ secrets.NODE_AUTH_TOKEN }}
-
+  canary:
+    uses: the-guild-org/shared-config/.github/workflows/release-snapshot.yml@main
+    with:
+      npmTag: alpha
+      buildScript: build
+      nodeVersion: 16
+    secrets:
+      githubToken: ${{ secrets.GITHUB_TOKEN }}
+      npmToken: ${{ secrets.NODE_AUTH_TOKEN }}
 
   algolia:
     uses: the-guild-org/shared-config/.github/workflows/algolia-integrity.yml@main
