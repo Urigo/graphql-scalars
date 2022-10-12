@@ -4,9 +4,12 @@
     "headings": [],
     "toc": [],
     "content": "6698eab2248545d9205478165f11edba",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/account-number",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/account-number",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "AccountNumber",
     "type": "Documentation"
@@ -16,9 +19,12 @@
     "headings": [],
     "toc": [],
     "content": "0a6836898d748d488185feabc716da57",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/big-int",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/big-int",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "BigInt",
     "type": "Documentation"
@@ -28,9 +34,12 @@
     "headings": [],
     "toc": [],
     "content": "aba392e9e04e1d1bd44dcee80fe0da6d",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/byte",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/byte",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Byte",
     "type": "Documentation"
@@ -40,9 +49,12 @@
     "headings": [],
     "toc": [],
     "content": "f63f5223e413da75ec90315b78a33453",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/country-code",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/country-code",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "CountryCode",
     "type": "Documentation"
@@ -52,9 +64,12 @@
     "headings": [],
     "toc": [],
     "content": "21482badad31053950523084284753b0",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/cuid",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/cuid",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "cuid",
     "type": "Documentation"
@@ -64,16 +79,22 @@
     "headings": [],
     "toc": [],
     "content": "e1becebafe9e4c86840192853d9fd4b2",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/currency",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/currency",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Currency",
     "type": "Documentation"
   },
   {
     "objectID": "scalars-docs-available-scalars-date",
-    "headings": ["Result Coercion", "Input Coercion"],
+    "headings": [
+      "Result Coercion",
+      "Input Coercion"
+    ],
     "toc": [
       {
         "children": [],
@@ -87,16 +108,22 @@
       }
     ],
     "content": "0c7945da377b9e56d9b7e25ab38da725",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/date",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/date",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Date",
     "type": "Documentation"
   },
   {
     "objectID": "scalars-docs-available-scalars-date-time",
-    "headings": ["Result Coercion", "Input Coercion"],
+    "headings": [
+      "Result Coercion",
+      "Input Coercion"
+    ],
     "toc": [
       {
         "children": [],
@@ -110,9 +137,12 @@
       }
     ],
     "content": "e6070eb6d52b80035c4f8a5b23902e0d",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/date-time",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/date-time",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "DateTime",
     "type": "Documentation"
@@ -122,9 +152,12 @@
     "headings": [],
     "toc": [],
     "content": "5affabe86d74d8b2475a39e9cf3581f8",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/did",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/did",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "DID",
     "type": "Documentation"
@@ -134,9 +167,12 @@
     "headings": [],
     "toc": [],
     "content": "68c347f518073c49119e1c5482d5dc70",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/duration",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/duration",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Duration",
     "type": "Documentation"
@@ -146,9 +182,12 @@
     "headings": [],
     "toc": [],
     "content": "94d1f7a9690ca0c474295d8881c1859c",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/email-address",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/email-address",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "EmailAddress",
     "type": "Documentation"
@@ -158,9 +197,12 @@
     "headings": [],
     "toc": [],
     "content": "e6ee160f674aa47441e9ecc343e93525",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/hex-color-code",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/hex-color-code",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "HexColorCode",
     "type": "Documentation"
@@ -170,9 +212,12 @@
     "headings": [],
     "toc": [],
     "content": "9ff25cc2d1b59e056cebcc33a6a62ddb",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/hexadecimal",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/hexadecimal",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Hexadecimal",
     "type": "Documentation"
@@ -182,9 +227,12 @@
     "headings": [],
     "toc": [],
     "content": "39bde734089bf1dad47a911e3dca2391",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/hsl",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/hsl",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "HSL",
     "type": "Documentation"
@@ -194,9 +242,12 @@
     "headings": [],
     "toc": [],
     "content": "e930986600a9c06f1178d12d0b969555",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/i-pv-4",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/i-pv-4",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "IPv4",
     "type": "Documentation"
@@ -206,9 +257,12 @@
     "headings": [],
     "toc": [],
     "content": "9c62ac0d5efbbbb15c0f0816dd01ce4c",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/i-pv-6",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/i-pv-6",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "IPv6",
     "type": "Documentation"
@@ -218,9 +272,12 @@
     "headings": [],
     "toc": [],
     "content": "462540d5a6743656cee91866cb3c189c",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/iban",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/iban",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "IBAN",
     "type": "Documentation"
@@ -230,9 +287,12 @@
     "headings": [],
     "toc": [],
     "content": "c0ab50192bbb79b0109d46ec113eaa9c",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/ip",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/ip",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "ip",
     "type": "Documentation"
@@ -242,9 +302,12 @@
     "headings": [],
     "toc": [],
     "content": "5c65f7dd5c31c8bbaf0098e17e94ae60",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/isbn",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/isbn",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "ISBN",
     "type": "Documentation"
@@ -254,9 +317,12 @@
     "headings": [],
     "toc": [],
     "content": "ad8e8ce6dfa4829f8e2d21fd6b6b6720",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/json",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/json",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "JSON",
     "type": "Documentation"
@@ -266,9 +332,12 @@
     "headings": [],
     "toc": [],
     "content": "fc0ce76ac726696988101ba51a86427c",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/json-object",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/json-object",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "JSONObject",
     "type": "Documentation"
@@ -278,9 +347,12 @@
     "headings": [],
     "toc": [],
     "content": "d344d5ca122161e054b07e7117b9b784",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/jwt",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/jwt",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "JWT",
     "type": "Documentation"
@@ -290,9 +362,12 @@
     "headings": [],
     "toc": [],
     "content": "ce27cb83911791125b05e5f337842b1b",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/latitude",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/latitude",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Latitude",
     "type": "Documentation"
@@ -302,9 +377,12 @@
     "headings": [],
     "toc": [],
     "content": "f90269377c45fbb8c512d13d3bfc7505",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/local-date",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/local-date",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "LocalDate",
     "type": "Documentation"
@@ -314,9 +392,12 @@
     "headings": [],
     "toc": [],
     "content": "52e65d2f744c49243979a9430708c576",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/local-end-time",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/local-end-time",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "LocalEndTime",
     "type": "Documentation"
@@ -326,9 +407,12 @@
     "headings": [],
     "toc": [],
     "content": "9dd817bc8436fd4cd41de9e4911927a7",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/local-time",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/local-time",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "LocalTime",
     "type": "Documentation"
@@ -338,9 +422,12 @@
     "headings": [],
     "toc": [],
     "content": "3ae4dee7a144506612c232b9c65b2aef",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/locale",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/locale",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Locale",
     "type": "Documentation"
@@ -350,9 +437,12 @@
     "headings": [],
     "toc": [],
     "content": "28f9d65f91943fa8846ae9770cae59c6",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/longitude",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/longitude",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Longitude",
     "type": "Documentation"
@@ -362,9 +452,12 @@
     "headings": [],
     "toc": [],
     "content": "3e06b1b8b1e64638323b377cf26f8742",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/mac",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/mac",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "MAC",
     "type": "Documentation"
@@ -374,9 +467,12 @@
     "headings": [],
     "toc": [],
     "content": "197f31905acd37ae881af5c2fb689b83",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/negative-float",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/negative-float",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "NegativeFloat",
     "type": "Documentation"
@@ -386,9 +482,12 @@
     "headings": [],
     "toc": [],
     "content": "b56471883acb83e8f5c518dc278fb9ed",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/negative-int",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/negative-int",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "NegativeInt",
     "type": "Documentation"
@@ -398,9 +497,12 @@
     "headings": [],
     "toc": [],
     "content": "9ff463088fee46b5343e9e40416752ca",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/non-empty-string",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/non-empty-string",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "NonEmptyString",
     "type": "Documentation"
@@ -410,9 +512,12 @@
     "headings": [],
     "toc": [],
     "content": "1837bc8a411ce4c1a20313cb3c903564",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/non-negative-float",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/non-negative-float",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "NonNegativeFloat",
     "type": "Documentation"
@@ -422,9 +527,12 @@
     "headings": [],
     "toc": [],
     "content": "c6d9a29f867fc5b1f8790087bf380aa8",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/non-negative-int",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/non-negative-int",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "NonNegativeInt",
     "type": "Documentation"
@@ -434,9 +542,12 @@
     "headings": [],
     "toc": [],
     "content": "5078c101ea18174a2c944b56a0d11c73",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/non-positive-float",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/non-positive-float",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "NonPositiveFloat",
     "type": "Documentation"
@@ -446,9 +557,12 @@
     "headings": [],
     "toc": [],
     "content": "7b48a439db42fdaa063a8ad00b3f326e",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/non-positive-int",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/non-positive-int",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "NonPositiveInt",
     "type": "Documentation"
@@ -458,9 +572,12 @@
     "headings": [],
     "toc": [],
     "content": "35b249a53a2fd9e5c731aa68bbd9d860",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/object-id",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/object-id",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "ObjectID",
     "type": "Documentation"
@@ -470,9 +587,12 @@
     "headings": [],
     "toc": [],
     "content": "b6e681d9634eb4cf7ef9d9dfc6570c58",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/phone-number",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/phone-number",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "PhoneNumber",
     "type": "Documentation"
@@ -482,9 +602,12 @@
     "headings": [],
     "toc": [],
     "content": "2a91cf1575adbcc2c1d9ebc58618c62e",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/port",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/port",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Port",
     "type": "Documentation"
@@ -494,9 +617,12 @@
     "headings": [],
     "toc": [],
     "content": "3c4892d75e840e14caa9e6e90f98034f",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/positive-float",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/positive-float",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "PositiveFloat",
     "type": "Documentation"
@@ -506,9 +632,12 @@
     "headings": [],
     "toc": [],
     "content": "c17560c52d8445378981131d6acfa1a6",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/positive-int",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/positive-int",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "PositiveInt",
     "type": "Documentation"
@@ -518,9 +647,12 @@
     "headings": [],
     "toc": [],
     "content": "88498916c11530252dd8e70b03c18a72",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/postal-code",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/postal-code",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "PostalCode",
     "type": "Documentation"
@@ -530,9 +662,12 @@
     "headings": [],
     "toc": [],
     "content": "9cfafae86feddd132d0420b3286e75a8",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/regular-expression",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/regular-expression",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "RegularExpression",
     "type": "Documentation"
@@ -542,9 +677,12 @@
     "headings": [],
     "toc": [],
     "content": "8b20e0df8dba4ef7c72b320de39d2060",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/rgb",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/rgb",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "RGB",
     "type": "Documentation"
@@ -554,9 +692,12 @@
     "headings": [],
     "toc": [],
     "content": "d8dc4adb84d0caabd68b85d4d04e3930",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/rgba",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/rgba",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "RGBA",
     "type": "Documentation"
@@ -566,9 +707,12 @@
     "headings": [],
     "toc": [],
     "content": "0f18e84af12d20fb20db4f8385698c3b",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/routing-number",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/routing-number",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "RoutingNumber",
     "type": "Documentation"
@@ -578,9 +722,12 @@
     "headings": [],
     "toc": [],
     "content": "67d503ee6bf79bfdcb0f17789dfee743",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/safe-int",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/safe-int",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "SafeInt",
     "type": "Documentation"
@@ -590,16 +737,22 @@
     "headings": [],
     "toc": [],
     "content": "0bf0bdc5a4f3314a4a939e91d0c51da3",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/sermver",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/sermver",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "sermver",
     "type": "Documentation"
   },
   {
     "objectID": "scalars-docs-available-scalars-time",
-    "headings": ["Result Coercion", "Input Coercion"],
+    "headings": [
+      "Result Coercion",
+      "Input Coercion"
+    ],
     "toc": [
       {
         "children": [],
@@ -613,9 +766,12 @@
       }
     ],
     "content": "df0ac7c6460dd625ad2be67f500bcb00",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/time",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/time",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Time",
     "type": "Documentation"
@@ -625,9 +781,12 @@
     "headings": [],
     "toc": [],
     "content": "7da63ff0872864ebf49fa7582bf38d5a",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/time-zone",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/time-zone",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "TimeZone",
     "type": "Documentation"
@@ -637,9 +796,12 @@
     "headings": [],
     "toc": [],
     "content": "84764dc87179d82ad9e8b145b9a55d2a",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/timestamp",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/timestamp",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Timestamp",
     "type": "Documentation"
@@ -649,9 +811,12 @@
     "headings": [],
     "toc": [],
     "content": "e0610576bde5e3c6fe43280e10134a15",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/url",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/url",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "URL",
     "type": "Documentation"
@@ -661,9 +826,12 @@
     "headings": [],
     "toc": [],
     "content": "0f23a5cf49ebe8c8edd53677a66a2188",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/us-currency",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/us-currency",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "USCurrency",
     "type": "Documentation"
@@ -673,9 +841,12 @@
     "headings": [],
     "toc": [],
     "content": "5bde8a76267e83c74367fd299df38770",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/utc-offset",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/utc-offset",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "UTCOffset",
     "type": "Documentation"
@@ -685,9 +856,12 @@
     "headings": [],
     "toc": [],
     "content": "eb0e342e18d2bb3316ad6df587dd2a59",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/uuid",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/uuid",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "UUID",
     "type": "Documentation"
@@ -697,16 +871,25 @@
     "headings": [],
     "toc": [],
     "content": "0c8d00d40dddfabb15625fe115c06386",
-    "url": "https://www.graphql-scalars.dev/docs/scalars/void",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Available Scalars"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/void",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
     "source": "Scalars",
     "title": "Void",
     "type": "Documentation"
   },
   {
     "objectID": "scalars-docs-index",
-    "headings": ["What's this All About?", "Why?", "Validation Using Scalars", "Serialization and Parsing", "Thanks"],
+    "headings": [
+      "What's this All About?",
+      "Why?",
+      "Validation Using Scalars",
+      "Serialization and Parsing",
+      "Thanks"
+    ],
     "toc": [
       {
         "children": [],
@@ -735,16 +918,21 @@
       }
     ],
     "content": "bc9a345170b59a782bbeb41dd7c68fba",
-    "url": "https://www.graphql-scalars.dev/docs/index",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/index",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs"
+    ],
     "source": "Scalars",
     "title": "Introduction",
     "type": "Documentation"
   },
   {
     "objectID": "scalars-docs-quick-start",
-    "headings": ["Integration to your Existing GraphQL Schema", "GraphQL Code Generator Integration"],
+    "headings": [
+      "Integration to your Existing GraphQL Schema",
+      "GraphQL Code Generator Integration"
+    ],
     "toc": [
       {
         "children": [
@@ -780,9 +968,11 @@
       }
     ],
     "content": "27aa7ba2ea52e2268f6487b5d503582d",
-    "url": "https://www.graphql-scalars.dev/docs/quick-start",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/quick-start",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs"
+    ],
     "source": "Scalars",
     "title": "Quick Start",
     "type": "Documentation"
@@ -792,9 +982,12 @@
     "headings": [],
     "toc": [],
     "content": "d41d8cd98f00b204e9800998ecf8427e",
-    "url": "https://www.graphql-scalars.dev/docs/usage/apollo-server",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Usage"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/usage/apollo-server",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Usage"
+    ],
     "source": "Scalars",
     "title": "Apollo Server",
     "type": "Documentation"
@@ -804,16 +997,22 @@
     "headings": [],
     "toc": [],
     "content": "7d5c691de8197151776dbd4cef14583f",
-    "url": "https://www.graphql-scalars.dev/docs/usage/index",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Usage"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/usage/index",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Usage"
+    ],
     "source": "Scalars",
     "title": "Usage Example",
     "type": "Documentation"
   },
   {
     "objectID": "scalars-docs-usage-mocks",
-    "headings": ["Using mocks with GraphQL Tools", "Using mocks with Apollo Server"],
+    "headings": [
+      "Using mocks with GraphQL Tools",
+      "Using mocks with Apollo Server"
+    ],
     "toc": [
       {
         "children": [],
@@ -827,16 +1026,21 @@
       }
     ],
     "content": "2333d642719b65b50e0cbc9ce7f57ef3",
-    "url": "https://www.graphql-scalars.dev/docs/usage/mocks",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Usage"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/usage/mocks",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Usage"
+    ],
     "source": "Scalars",
     "title": "Mocks",
     "type": "Documentation"
   },
   {
     "objectID": "scalars-docs-usage-regex",
-    "headings": ["RegularExpression options"],
+    "headings": [
+      "RegularExpression options"
+    ],
     "toc": [
       {
         "children": [],
@@ -845,9 +1049,12 @@
       }
     ],
     "content": "c73afbb4fbc09faf9bfbef48663166a6",
-    "url": "https://www.graphql-scalars.dev/docs/usage/regex",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Usage"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/usage/regex",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Usage"
+    ],
     "source": "Scalars",
     "title": "Generate your own scalars from regex",
     "type": "Documentation"
@@ -857,9 +1064,12 @@
     "headings": [],
     "toc": [],
     "content": "4aec4086f1d9fd0bdebc27f945b49058",
-    "url": "https://www.graphql-scalars.dev/docs/usage/yoga",
-    "domain": "https://www.graphql-scalars.dev/",
-    "hierarchy": ["Docs", "Usage"],
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/usage/yoga",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
+    "hierarchy": [
+      "Docs",
+      "Usage"
+    ],
     "source": "Scalars",
     "title": "GraphQL-Yoga",
     "type": "Documentation"
@@ -869,8 +1079,8 @@
     "headings": [],
     "toc": [],
     "content": "7c8b7d59947fc7348eb48fe592ad2e49",
-    "url": "https://www.graphql-scalars.dev//index",
-    "domain": "https://www.graphql-scalars.dev/",
+    "url": "https://www.the-guild.dev/graphql/scalars//index",
+    "domain": "https://www.the-guild.dev/graphql/scalars/",
     "hierarchy": [],
     "source": "Scalars",
     "title": "Home",
