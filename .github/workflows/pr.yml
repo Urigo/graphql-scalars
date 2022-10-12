@@ -24,7 +24,6 @@ jobs:
   algolia:
     uses: the-guild-org/shared-config/.github/workflows/algolia-integrity.yml@main
     with:
-      with:
       domain: https://www.the-guild.dev/graphql/scalars/
       source: 'Scalars'
       setupEnvWorkingDirectory: './website'
