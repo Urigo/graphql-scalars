@@ -1,4 +1,5 @@
-import { ScalarsLogo, defineConfig } from '@theguild/components';
+import { defineConfig, Giscus, ScalarsLogo, useTheme } from '@theguild/components';
+import { useRouter } from 'next/router';
 
 const SITE_NAME = 'GraphQL Scalars';
 
@@ -23,4 +24,26 @@ export default defineConfig({
       <meta name="og:title" content={`${SITE_NAME}: documentation`} />
     </>
   ),
+  main: {
+    extraContent() {
+      const { resolvedTheme } = useTheme();
+      const { route } = useRouter();
+
+      if (route === '/') {
+        return null;
+      }
+      return (
+        <Giscus
+          // ensure giscus is reloaded when client side route is changed
+          key={route}
+          repo="Urigo/graphql-scalars"
+          repoId="MDEwOlJlcG9zaXRvcnk5NDU2MjE3Mw=="
+          category="Docs Discussions"
+          categoryId="DIC_kwDOBaLnfc4CSDVs"
+          mapping="pathname"
+          theme={resolvedTheme}
+        />
+      );
+    },
+  },
 });
