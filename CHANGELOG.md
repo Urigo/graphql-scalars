@@ -1,5 +1,12 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.20.0
+
+### Minor Changes
+
+- [`89a867a`](https://github.com/Urigo/graphql-scalars/commit/89a867afaa0d7a0e5365dce8508aecf67586061a) Thanks
+  [@ardatan](https://github.com/ardatan)! - Add JSON Schema annotations for SOFA
+
 ## 1.19.0
 
 ### Minor Changes
