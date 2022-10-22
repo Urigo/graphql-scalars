@@ -23,6 +23,11 @@ export const GraphQLNonNegativeIntConfig: GraphQLScalarTypeConfig<any, any> = /*
   },
   extensions: {
     codegenScalarType: 'number',
+    jsonSchema: {
+      title: 'NonNegativeInt',
+      type: 'integer',
+      minimum: 0,
+    },
   },
 };
 

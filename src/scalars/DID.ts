@@ -1,13 +1,7 @@
-import {
-  GraphQLScalarType,
-  Kind,
-  GraphQLError,
-  GraphQLScalarTypeConfig,
-} from 'graphql';
+import { GraphQLScalarType, Kind, GraphQLError, GraphQLScalarTypeConfig } from 'graphql';
 
 // See: https://www.w3.org/TR/2021/PR-did-core-20210803/#did-syntax
-const DID_REGEX =
-  /^did:[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+:[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+$/;
+const DID_REGEX = /^did:[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+:[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+$/;
 
 const validate = (value: any) => {
   if (typeof value !== 'string') {
@@ -35,9 +29,7 @@ export const GraphQLDIDConfig = {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as DID but got a: ${ast.kind}`,
-      );
+      throw new GraphQLError(`Can only validate strings as DID but got a: ${ast.kind}`);
     }
 
     return validate(ast.value);
@@ -47,8 +39,12 @@ export const GraphQLDIDConfig = {
   specifiedByUrl: specifiedByURL,
   extensions: {
     codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'DID',
+      type: 'string',
+      pattern: DID_REGEX.source,
+    },
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLDID: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(GraphQLDIDConfig);
+export const GraphQLDID: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLDIDConfig);

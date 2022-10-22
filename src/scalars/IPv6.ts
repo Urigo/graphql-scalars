@@ -36,5 +36,9 @@ export const GraphQLIPv6: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
   },
   extensions: {
     codegenScalarType: 'string',
+    jsonSchema: {
+      type: 'string',
+      format: 'ipv6',
+    },
   },
 });

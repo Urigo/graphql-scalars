@@ -1,5 +1,5 @@
 import { GraphQLScalarType, Kind, GraphQLError } from 'graphql';
-import { validateLocalTime } from './LocalTime.js';
+import { validateLocalTime, LOCAL_TIME_FORMAT } from './LocalTime.js';
 
 const LOCAL_END_TIMES = ['24:00', '24:00:00', '24:00:00.000'];
 
@@ -38,5 +38,19 @@ export const GraphQLLocalEndTime: GraphQLScalarType = /*#__PURE__*/ new GraphQLS
   },
   extensions: {
     codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'LocalEndTime',
+      type: 'string',
+      oneOf: [
+        {
+          type: 'string',
+          pattern: LOCAL_TIME_FORMAT.source,
+        },
+        {
+          type: 'string',
+          enum: LOCAL_END_TIMES,
+        },
+      ],
+    },
   },
 });

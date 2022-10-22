@@ -70,6 +70,10 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
   },
   extensions: {
     codegenScalarType: 'Date | string',
+    jsonSchema: {
+      type: 'string',
+      format: 'time',
+    },
   },
 };
 

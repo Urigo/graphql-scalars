@@ -1,13 +1,7 @@
-import {
-  Kind,
-  GraphQLError,
-  GraphQLScalarType,
-  GraphQLScalarTypeConfig,
-} from 'graphql';
+import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 
+const HEXADECIMAL_REGEX = /^[a-f0-9]+$/i;
 const validate = (value: any) => {
-  const HEXADECIMAL_REGEX = /^[a-f0-9]+$/i;
-
   if (typeof value !== 'string') {
     throw new TypeError(`Value is not string: ${value}`);
   }
@@ -19,33 +13,34 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLHexadecimalConfig: GraphQLScalarTypeConfig<string, string> =
-  /*#__PURE__*/ {
-    name: `Hexadecimal`,
+export const GraphQLHexadecimalConfig: GraphQLScalarTypeConfig<string, string> = /*#__PURE__*/ {
+  name: `Hexadecimal`,
 
-    description: `A field whose value is a hexadecimal: https://en.wikipedia.org/wiki/Hexadecimal.`,
+  description: `A field whose value is a hexadecimal: https://en.wikipedia.org/wiki/Hexadecimal.`,
 
-    serialize(value) {
-      return validate(value);
+  serialize(value) {
+    return validate(value);
+  },
+
+  parseValue(value) {
+    return validate(value);
+  },
+
+  parseLiteral(ast) {
+    if (ast.kind !== Kind.STRING) {
+      throw new GraphQLError(`Can only validate strings as a hexadecimal but got a: ${ast.kind}`);
+    }
+
+    return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'Hexadecimal',
+      type: 'string',
+      pattern: HEXADECIMAL_REGEX.source,
     },
+  },
+};
 
-    parseValue(value) {
-      return validate(value);
-    },
-
-    parseLiteral(ast) {
-      if (ast.kind !== Kind.STRING) {
-        throw new GraphQLError(
-          `Can only validate strings as a hexadecimal but got a: ${ast.kind}`,
-        );
-      }
-
-      return validate(ast.value);
-    },
-    extensions: {
-      codegenScalarType: 'string',
-    },
-  };
-
-export const GraphQLHexadecimal: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(GraphQLHexadecimalConfig);
+export const GraphQLHexadecimal: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLHexadecimalConfig);

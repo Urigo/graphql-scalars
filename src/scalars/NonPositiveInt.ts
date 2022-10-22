@@ -23,5 +23,10 @@ export const GraphQLNonPositiveInt: GraphQLScalarType = /*#__PURE__*/ new GraphQ
   },
   extensions: {
     codegenScalarType: 'number',
+    jsonSchema: {
+      title: 'NonPositiveInt',
+      type: 'integer',
+      maximum: 0,
+    },
   },
 });

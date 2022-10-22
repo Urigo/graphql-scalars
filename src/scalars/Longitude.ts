@@ -59,5 +59,10 @@ export const GraphQLLongitude: GraphQLScalarType = /*#__PURE__*/ new GraphQLScal
   },
   extensions: {
     codegenScalarType: 'string | number',
+    jsonSchema: {
+      type: 'number',
+      minimum: MIN_LON,
+      maximum: MAX_LON,
+    },
   },
 });

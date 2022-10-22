@@ -1,9 +1,4 @@
-import {
-  Kind,
-  GraphQLError,
-  GraphQLScalarType,
-  GraphQLScalarTypeConfig,
-} from 'graphql';
+import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 
 const validate = (value: any) => {
   const EMAIL_ADDRESS_REGEX =
@@ -34,9 +29,7 @@ export const GraphQLEmailAddressConfig = /*#__PURE__*/ {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as email addresses but got a: ${ast.kind}`,
-      );
+      throw new GraphQLError(`Can only validate strings as email addresses but got a: ${ast.kind}`);
     }
 
     return validate(ast.value);
@@ -46,8 +39,11 @@ export const GraphQLEmailAddressConfig = /*#__PURE__*/ {
   specifiedByUrl: specifiedByURL,
   extensions: {
     codegenScalarType: 'string',
+    jsonSchema: {
+      type: 'string',
+      format: 'email',
+    },
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLEmailAddress: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(GraphQLEmailAddressConfig);
+export const GraphQLEmailAddress: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLEmailAddressConfig);

@@ -1,9 +1,4 @@
-import {
-  Kind,
-  GraphQLError,
-  GraphQLScalarType,
-  GraphQLScalarTypeConfig,
-} from 'graphql';
+import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 
 const HEX_COLOR_CODE = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$/;
 
@@ -36,9 +31,7 @@ export const GraphQLHexColorCodeConfig = /*#__PURE__*/ {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as hex color codes but got a: ${ast.kind}`,
-      );
+      throw new GraphQLError(`Can only validate strings as hex color codes but got a: ${ast.kind}`);
     }
 
     return validate(ast.value);
@@ -48,8 +41,12 @@ export const GraphQLHexColorCodeConfig = /*#__PURE__*/ {
   specifiedByUrl: specifiedByURL,
   extensions: {
     codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'HexColorCode',
+      type: 'string',
+      pattern: HEX_COLOR_CODE.source,
+    },
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLHexColorCode: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(GraphQLHexColorCodeConfig);
+export const GraphQLHexColorCode: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLHexColorCodeConfig);

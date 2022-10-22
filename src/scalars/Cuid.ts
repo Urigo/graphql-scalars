@@ -1,13 +1,8 @@
-import {
-  Kind,
-  GraphQLError,
-  GraphQLScalarType,
-  GraphQLScalarTypeConfig,
-} from 'graphql';
+import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+
+const CUID_REGEX = /^c[^\s-]{8,}$/i;
 
 const validate = (value: any) => {
-  const CUID_REGEX = /^c[^\s-]{8,}$/i;
-
   if (typeof value !== 'string') {
     throw new TypeError(`Value is not string: ${value}`);
   }
@@ -33,9 +28,7 @@ export const GraphQLCuidConfig = /*#__PURE__*/ {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(
-        `Can only validate strings as cuids but got a: ${ast.kind}`,
-      );
+      throw new GraphQLError(`Can only validate strings as cuids but got a: ${ast.kind}`);
     }
 
     return validate(ast.value);
@@ -45,8 +38,12 @@ export const GraphQLCuidConfig = /*#__PURE__*/ {
   specifiedByUrl: specifiedByURL,
   extensions: {
     codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'Cuid',
+      type: 'string',
+      pattern: CUID_REGEX.source,
+    },
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLCuid: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(GraphQLCuidConfig);
+export const GraphQLCuid: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLCuidConfig);

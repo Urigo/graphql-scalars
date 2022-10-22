@@ -55,6 +55,12 @@ export const GraphQLSafeIntConfig = {
   },
   extensions: {
     codegenScalarType: 'number',
+    jsonSchema: {
+      title: 'SafeInt',
+      type: 'integer',
+      minimum: Number.MIN_SAFE_INTEGER,
+      maximum: Number.MAX_SAFE_INTEGER,
+    },
   },
 } as GraphQLScalarTypeConfig<number | string, number>;
 

@@ -15,30 +15,32 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLJWT: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType({
-    name: `JWT`,
+export const GraphQLJWT: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+  name: `JWT`,
 
-    description: `A field whose value is a JSON Web Token (JWT): https://jwt.io/introduction.`,
+  description: `A field whose value is a JSON Web Token (JWT): https://jwt.io/introduction.`,
 
-    serialize(value) {
-      return validate(value);
+  serialize(value) {
+    return validate(value);
+  },
+
+  parseValue(value) {
+    return validate(value);
+  },
+
+  parseLiteral(ast) {
+    if (ast.kind !== Kind.STRING) {
+      throw new GraphQLError(`Can only validate strings as JWT but got a: ${ast.kind}`);
+    }
+
+    return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'JWT',
+      type: 'string',
+      pattern: JWS_REGEX.source,
     },
-
-    parseValue(value) {
-      return validate(value);
-    },
-
-    parseLiteral(ast) {
-      if (ast.kind !== Kind.STRING) {
-        throw new GraphQLError(
-          `Can only validate strings as JWT but got a: ${ast.kind}`,
-        );
-      }
-
-      return validate(ast.value);
-    },
-    extensions: {
-      codegenScalarType: 'string',
-    },
-  });
+  },
+});

@@ -3,9 +3,7 @@ import { Kind, GraphQLScalarType } from 'graphql';
 
 function generateCurrency(value: any) {
   if (typeof value !== 'number') {
-    throw new TypeError(
-      `Currency cannot represent non integer type ${JSON.stringify(value)}`,
-    );
+    throw new TypeError(`Currency cannot represent non integer type ${JSON.stringify(value)}`);
   }
 
   const currencyInCents = parseInt(value.toString(), 10);
@@ -34,33 +32,31 @@ function generateCents(value: string) {
  *    currency strings.
  */
 
-export const GraphQLUSCurrency: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType({
-    name: 'USCurrency',
-    description: 'A currency string, such as $21.25',
-    serialize: generateCurrency,
-    parseValue(value) {
-      if (typeof value !== 'string') {
-        throw new TypeError(
-          `Currency cannot represent non string type ${JSON.stringify(value)}`,
-        );
-      }
+export const GraphQLUSCurrency: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+  name: 'USCurrency',
+  description: 'A currency string, such as $21.25',
+  serialize: generateCurrency,
+  parseValue(value) {
+    if (typeof value !== 'string') {
+      throw new TypeError(`Currency cannot represent non string type ${JSON.stringify(value)}`);
+    }
 
-      return generateCents(value);
-    },
-    parseLiteral(ast) {
-      if (ast.kind === Kind.STRING) {
-        if (typeof ast.value === 'string') {
-          return generateCents(ast.value);
-        }
+    return generateCents(value);
+  },
+  parseLiteral(ast) {
+    if (ast.kind === Kind.STRING) {
+      if (typeof ast.value === 'string') {
+        return generateCents(ast.value);
       }
-      throw new TypeError(
-        `Currency cannot represent an invalid currency-string ${JSON.stringify(
-          ast,
-        )}.`,
-      );
+    }
+    throw new TypeError(`Currency cannot represent an invalid currency-string ${JSON.stringify(ast)}.`);
+  },
+  extensions: {
+    codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'USCurrency',
+      type: 'string',
+      pattern: '^\\$[0-9]+(\\.[0-9]{2})?$',
     },
-    extensions: {
-      codegenScalarType: 'string',
-    },
-  });
+  },
+});

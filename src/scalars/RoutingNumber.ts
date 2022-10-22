@@ -1,9 +1,4 @@
-import {
-  GraphQLScalarType,
-  GraphQLScalarTypeConfig,
-  Kind,
-  locatedError,
-} from 'graphql';
+import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind, locatedError } from 'graphql';
 
 interface Validator {
   (rtn: string): boolean;
@@ -11,7 +6,7 @@ interface Validator {
 
 const routingNumber = (rtn: number | string) => '' + rtn;
 
-const haveNineDigits: Validator = (rtn) => /^\d{9}$/.test(rtn);
+const haveNineDigits: Validator = rtn => /^\d{9}$/.test(rtn);
 
 /**
  * Calculates checksum for MIRC format XXXXYYYYC where C is the check digit
@@ -28,25 +23,20 @@ const haveNineDigits: Validator = (rtn) => /^\d{9}$/.test(rtn);
  * ____________________________________
  * 75 + 5 (check digit) = 80 (Must multiple of 10)
  */
-const checksum: Validator = (rtn) => {
+const checksum: Validator = rtn => {
   const weight = [3, 7, 1];
   const accumulator = (acc: number, curr: number): number => acc + curr;
 
-  const digits = rtn.split('').map((digit) => Number.parseInt(digit, 10));
+  const digits = rtn.split('').map(digit => Number.parseInt(digit, 10));
   const checkDigit = digits.pop();
 
-  const sum = digits
-    .map((digit, index) => digit * weight[index % 3])
-    .reduce(accumulator, 0);
+  const sum = digits.map((digit, index) => digit * weight[index % 3]).reduce(accumulator, 0);
 
   return (sum + checkDigit) % 10 === 0;
 };
 
 const validate = (value: unknown) => {
-  if (
-    typeof value !== 'string' &&
-    !(typeof value === 'number' && Number.isInteger(value))
-  ) {
+  if (typeof value !== 'string' && !(typeof value === 'number' && Number.isInteger(value))) {
     throw locatedError(new TypeError('must be integer or string'), null);
   }
 
@@ -63,10 +53,7 @@ const validate = (value: unknown) => {
   return rtn;
 };
 
-export const GraphQLRoutingNumberConfig: GraphQLScalarTypeConfig<
-  string,
-  string
-> = {
+export const GraphQLRoutingNumberConfig: GraphQLScalarTypeConfig<string, string> = {
   name: 'RoutingNumber',
   description:
     'In the US, an ABA routing transit number (`ABA RTN`) is a nine-digit ' +
@@ -88,13 +75,18 @@ export const GraphQLRoutingNumberConfig: GraphQLScalarTypeConfig<
     }
 
     throw locatedError(
-      new TypeError(
-        `ABA Routing Transit Number can only parse Integer or String but got '${ast.kind}'`,
-      ),
-      ast,
+      new TypeError(`ABA Routing Transit Number can only parse Integer or String but got '${ast.kind}'`),
+      ast
     );
+  },
+  extensions: {
+    codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'RoutingNumber',
+      type: 'string',
+      pattern: /^\d{9}$/.source,
+    },
   },
 };
 
-export const GraphQLRoutingNumber: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType(GraphQLRoutingNumberConfig);
+export const GraphQLRoutingNumber: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLRoutingNumberConfig);

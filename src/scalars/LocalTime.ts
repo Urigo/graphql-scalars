@@ -1,8 +1,7 @@
 import { GraphQLScalarType, Kind, GraphQLError } from 'graphql';
 
 // 24-hour time with optional seconds and milliseconds - `HH:mm[:ss[.SSS]]`
-const LOCAL_TIME_FORMAT =
-  /^([0-1][0-9]|2[0-3]):([0-5][0-9])(:[0-5][0-9](\.\d{3})?)?$/;
+export const LOCAL_TIME_FORMAT = /^([0-1][0-9]|2[0-3]):([0-5][0-9])(:[0-5][0-9](\.\d{3})?)?$/;
 
 export function validateLocalTime(value: any) {
   if (typeof value !== 'string') {
@@ -17,33 +16,35 @@ export function validateLocalTime(value: any) {
   return value;
 }
 
-export const GraphQLLocalTime: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType({
-    name: 'LocalTime',
-    description:
-      'A local time string (i.e., with no associated timezone) in 24-hr `HH:mm[:ss[.SSS]]` format, e.g. `14:25` or `14:25:06` or `14:25:06.123`.',
+export const GraphQLLocalTime: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+  name: 'LocalTime',
+  description:
+    'A local time string (i.e., with no associated timezone) in 24-hr `HH:mm[:ss[.SSS]]` format, e.g. `14:25` or `14:25:06` or `14:25:06.123`.',
 
-    serialize(value) {
-      // value sent to client as string
-      return validateLocalTime(value);
-    },
+  serialize(value) {
+    // value sent to client as string
+    return validateLocalTime(value);
+  },
 
-    parseValue(value) {
-      // value from client as json
-      return validateLocalTime(value);
-    },
+  parseValue(value) {
+    // value from client as json
+    return validateLocalTime(value);
+  },
 
-    parseLiteral(ast) {
-      // value from client in ast
-      if (ast.kind !== Kind.STRING) {
-        throw new GraphQLError(
-          `Can only validate strings as local times but got a: ${ast.kind}`,
-        );
-      }
+  parseLiteral(ast) {
+    // value from client in ast
+    if (ast.kind !== Kind.STRING) {
+      throw new GraphQLError(`Can only validate strings as local times but got a: ${ast.kind}`);
+    }
 
-      return validateLocalTime(ast.value);
+    return validateLocalTime(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'LocalTime',
+      type: 'string',
+      pattern: LOCAL_TIME_FORMAT.source,
     },
-    extensions: {
-      codegenScalarType: 'string',
-    },
-  });
+  },
+});

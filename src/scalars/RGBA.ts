@@ -15,30 +15,32 @@ const validate = (value: any) => {
   return value;
 };
 
-export const GraphQLRGBA: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType({
-    name: `RGBA`,
+export const GraphQLRGBA: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+  name: `RGBA`,
 
-    description: `A field whose value is a CSS RGBA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba().`,
+  description: `A field whose value is a CSS RGBA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba().`,
 
-    serialize(value) {
-      return validate(value);
+  serialize(value) {
+    return validate(value);
+  },
+
+  parseValue(value) {
+    return validate(value);
+  },
+
+  parseLiteral(ast) {
+    if (ast.kind !== Kind.STRING) {
+      throw new GraphQLError(`Can only validate strings as RGBA colors but got a: ${ast.kind}`);
+    }
+
+    return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'RGBA',
+      type: 'string',
+      pattern: RGBA_REGEX.source,
     },
-
-    parseValue(value) {
-      return validate(value);
-    },
-
-    parseLiteral(ast) {
-      if (ast.kind !== Kind.STRING) {
-        throw new GraphQLError(
-          `Can only validate strings as RGBA colors but got a: ${ast.kind}`,
-        );
-      }
-
-      return validate(ast.value);
-    },
-    extensions: {
-      codegenScalarType: 'string',
-    },
-  });
+  },
+});

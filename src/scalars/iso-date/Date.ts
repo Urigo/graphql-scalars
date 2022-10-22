@@ -56,6 +56,10 @@ export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PUR
   },
   extensions: {
     codegenScalarType: 'Date | string',
+    jsonSchema: {
+      type: 'string',
+      format: 'date',
+    },
   },
 };
 

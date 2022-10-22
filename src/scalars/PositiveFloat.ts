@@ -25,5 +25,10 @@ export const GraphQLPositiveFloat: GraphQLScalarType = /*#__PURE__*/ new GraphQL
   },
   extensions: {
     codegenScalarType: 'number',
+    jsonSchema: {
+      title: 'PositiveFloat',
+      type: 'number',
+      minimum: 0,
+    },
   },
 });

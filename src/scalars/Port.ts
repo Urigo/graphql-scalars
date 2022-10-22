@@ -18,30 +18,33 @@ const validate = (value: any) => {
   return parsed;
 };
 
-export const GraphQLPort: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType({
-    name: `Port`,
+export const GraphQLPort: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+  name: `Port`,
 
-    description: `A field whose value is a valid TCP port within the range of 0 to 65535: https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_ports`,
+  description: `A field whose value is a valid TCP port within the range of 0 to 65535: https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_ports`,
 
-    serialize(value) {
-      return validate(value);
+  serialize(value) {
+    return validate(value);
+  },
+
+  parseValue(value) {
+    return validate(value);
+  },
+
+  parseLiteral(ast) {
+    if (ast.kind !== Kind.INT) {
+      throw new GraphQLError(`Can only validate integers as TCP ports but got a: ${ast.kind}`);
+    }
+
+    return validate(ast.value);
+  },
+  extensions: {
+    codegenScalarType: 'string | number',
+    jsonSchema: {
+      title: 'Port',
+      type: 'integer',
+      minimum: 0,
+      maximum: 65535,
     },
-
-    parseValue(value) {
-      return validate(value);
-    },
-
-    parseLiteral(ast) {
-      if (ast.kind !== Kind.INT) {
-        throw new GraphQLError(
-          `Can only validate integers as TCP ports but got a: ${ast.kind}`,
-        );
-      }
-
-      return validate(ast.value);
-    },
-    extensions: {
-      codegenScalarType: 'string | number',
-    },
-  });
+  },
+});

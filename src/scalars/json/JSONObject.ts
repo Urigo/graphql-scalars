@@ -15,6 +15,10 @@ export const GraphQLJSONObjectConfig = /*#__PURE__*/ {
   specifiedByUrl: specifiedByURL,
   extensions: {
     codegenScalarType: 'Record<string, any>',
+    jsonSchema: {
+      type: 'object',
+      additionalProperties: true,
+    },
   },
 } as GraphQLScalarTypeConfig<object, object>;
 

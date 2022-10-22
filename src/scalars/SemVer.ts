@@ -37,5 +37,10 @@ export const GraphQLSemVer: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarT
   },
   extensions: {
     codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'SemVer',
+      type: 'string',
+      pattern: SEMVER_REGEX.source,
+    },
   },
 });

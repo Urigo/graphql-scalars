@@ -23,5 +23,10 @@ export const GraphQLPositiveInt: GraphQLScalarType = /*#__PURE__*/ new GraphQLSc
   },
   extensions: {
     codegenScalarType: 'number',
+    jsonSchema: {
+      title: 'PositiveInt',
+      type: 'integer',
+      minimum: 1,
+    },
   },
 });

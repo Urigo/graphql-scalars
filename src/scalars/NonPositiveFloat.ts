@@ -25,5 +25,10 @@ export const GraphQLNonPositiveFloat: GraphQLScalarType = /*#__PURE__*/ new Grap
   },
   extensions: {
     codegenScalarType: 'number',
+    jsonSchema: {
+      title: 'NonPositiveFloat',
+      type: 'number',
+      maximum: 0,
+    },
   },
 });

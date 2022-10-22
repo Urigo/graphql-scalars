@@ -59,5 +59,11 @@ export const GraphQLLatitude: GraphQLScalarType = /*#__PURE__*/ new GraphQLScala
   },
   extensions: {
     codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'Latitude',
+      type: 'number',
+      minimum: MIN_LAT,
+      maximum: MAX_LAT,
+    },
   },
 });

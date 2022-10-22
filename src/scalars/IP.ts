@@ -36,5 +36,18 @@ export const GraphQLIP: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(
   },
   extensions: {
     codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'IP',
+      oneOf: [
+        {
+          type: 'string',
+          format: 'ipv4',
+        },
+        {
+          type: 'string',
+          format: 'ipv6',
+        },
+      ],
+    },
   },
 });

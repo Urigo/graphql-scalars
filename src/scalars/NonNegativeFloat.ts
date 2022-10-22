@@ -25,6 +25,11 @@ export const GraphQLNonNegativeFloatConfig: GraphQLScalarTypeConfig<any, any> = 
   },
   extensions: {
     codegenScalarType: 'number',
+    jsonSchema: {
+      title: 'NonNegativeFloat',
+      type: 'number',
+      minimum: 0,
+    },
   },
 };
 

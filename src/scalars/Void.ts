@@ -1,23 +1,22 @@
 import { GraphQLScalarType } from 'graphql';
 
-export const GraphQLVoid: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType({
-    name: 'Void',
+export const GraphQLVoid: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+  name: 'Void',
 
-    description: 'Represents NULL values',
+  description: 'Represents NULL values',
 
-    serialize() {
-      return null;
-    },
+  serialize() {
+    return '';
+  },
 
-    parseValue() {
-      return null;
-    },
+  parseValue() {
+    return null;
+  },
 
-    parseLiteral() {
-      return null;
-    },
-    extensions: {
-      codegenScalarType: 'void',
-    },
-  });
+  parseLiteral() {
+    return null;
+  },
+  extensions: {
+    codegenScalarType: 'void',
+  },
+});

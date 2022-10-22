@@ -9,27 +9,28 @@ function validate(value: string) {
   }
   const isValidFormat = BCP_47_REGEX.test(value);
   if (!isValidFormat) {
-    throw new TypeError(
-      `Value is not a valid BCP-47 standard formatted string. Received: ${value}`,
-    );
+    throw new TypeError(`Value is not a valid BCP-47 standard formatted string. Received: ${value}`);
   }
   return value;
 }
 
-export const GraphQLLocale: GraphQLScalarType =
-  /*#__PURE__*/ new GraphQLScalarType({
-    name: 'Locale',
-    description:
-      'The locale in the format of a BCP 47 (RFC 5646) standard string',
-    serialize: validate,
-    parseValue: validate,
-    parseLiteral(ast) {
-      if (ast.kind === Kind.STRING) {
-        return validate(ast.value);
-      }
-      throw new GraphQLError(`Value is not a string. Received: ${ast.kind}`);
+export const GraphQLLocale: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+  name: 'Locale',
+  description: 'The locale in the format of a BCP 47 (RFC 5646) standard string',
+  serialize: validate,
+  parseValue: validate,
+  parseLiteral(ast) {
+    if (ast.kind === Kind.STRING) {
+      return validate(ast.value);
+    }
+    throw new GraphQLError(`Value is not a string. Received: ${ast.kind}`);
+  },
+  extensions: {
+    codegenScalarType: 'string',
+    jsonSchema: {
+      title: 'Locale',
+      type: 'string',
+      pattern: BCP_47_REGEX.source,
     },
-    extensions: {
-      codegenScalarType: 'string',
-    },
-  });
+  },
+});
