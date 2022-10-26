@@ -733,18 +733,18 @@
     "type": "Documentation"
   },
   {
-    "objectID": "scalars-docs-available-scalars-sermver",
+    "objectID": "scalars-docs-available-scalars-semver",
     "headings": [],
     "toc": [],
     "content": "0bf0bdc5a4f3314a4a939e91d0c51da3",
-    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/sermver",
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/semver",
     "domain": "https://www.the-guild.dev/graphql/scalars/",
     "hierarchy": [
       "Docs",
       "Available Scalars"
     ],
     "source": "Scalars",
-    "title": "sermver",
+    "title": "semver",
     "type": "Documentation"
   },
   {
