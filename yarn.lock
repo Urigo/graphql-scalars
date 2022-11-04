@@ -1861,28 +1861,28 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@graphql-tools/merge@8.3.8":
-  version "8.3.8"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-8.3.8.tgz#6d1232b7d0e927edec27789b78853e01233a8f29"
-  integrity sha512-L9YE8OpxSlzADcdrc4IG7/33H/iWVXTJXX2ie67cWAb5MFN2t3JBdQMa0bnBcAoOrKB7A8g2+dIp8oXTpdzxjg==
+"@graphql-tools/merge@8.3.10":
+  version "8.3.10"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-8.3.10.tgz#81f374bc1e8c81d45cb1003d8ed05f181b7e6bd5"
+  integrity sha512-/hSg69JwqEA+t01wQmMGKPuaJ9VJBSz6uAXhbNNrTBJu8bmXljw305NVXM49pCwDKFVUGtbTqYrBeLcfT3RoYw==
   dependencies:
-    "@graphql-tools/utils" "8.13.1"
+    "@graphql-tools/utils" "9.0.1"
     tslib "^2.4.0"
 
-"@graphql-tools/schema@9.0.6":
-  version "9.0.6"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-9.0.6.tgz#4ecd2ef2f29cf1a1a47759a91c73e2043f89e9ec"
-  integrity sha512-/aznltpnVrurfWqXB4chWtaNmBFSk9v/KEJSpvas2fnlwwS9QnzWh6Sm/hsybWesirn5J2w60LLjMrrcCd58UA==
+"@graphql-tools/schema@9.0.8":
+  version "9.0.8"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-9.0.8.tgz#df3119c8543e6dacf425998f83aa714e2ee86eb0"
+  integrity sha512-PnES7sNkhQ/FdPQhP7cup0OIzwzQh+nfjklilU7YJzE209ACIyEQtxoNCfvPW5eV6hc9bWsBQeI3Jm4mMtwxNA==
   dependencies:
-    "@graphql-tools/merge" "8.3.8"
-    "@graphql-tools/utils" "8.13.1"
+    "@graphql-tools/merge" "8.3.10"
+    "@graphql-tools/utils" "9.0.1"
     tslib "^2.4.0"
     value-or-promise "1.0.11"
 
-"@graphql-tools/utils@8.13.1":
-  version "8.13.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-8.13.1.tgz#b247607e400365c2cd87ff54654d4ad25a7ac491"
-  integrity sha512-qIh9yYpdUFmctVqovwMdheVNJqFh+DQNWIhX87FJStfXYnmweBUDATok9fWPleKeFwxnW8IapKmY8m8toJEkAw==
+"@graphql-tools/utils@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-9.0.1.tgz#04933b34c3435ef9add4f8bdfdf452040376f9d0"
+  integrity sha512-z6FimVa5E44bHKmqK0/uMp9hHvHo2Tkt9A5rlLb40ReD/8IFKehSXLzM4b2N1vcP7mSsbXIdDK9Aoc8jT/he1Q==
   dependencies:
     tslib "^2.4.0"
 
