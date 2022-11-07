@@ -1,15 +1,15 @@
-import { Kind, ValueNode, ObjectValueNode } from 'graphql';
+import { Kind, ValueNode, ObjectValueNode, GraphQLError } from 'graphql';
 
 export function identity<T>(value: T): T {
   return value;
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export function ensureObject(value: any): object {
+export function ensureObject(value: any, ast?: ValueNode): object {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
-    throw new TypeError(
-      `JSONObject cannot represent non-object value: ${value}`,
-    );
+    throw new GraphQLError(`JSONObject cannot represent non-object value: ${value}`, {
+      nodes: ast ? [ast] : undefined,
+    });
   }
 
   return value;
@@ -17,7 +17,7 @@ export function ensureObject(value: any): object {
 
 export function parseObject(ast: ObjectValueNode, variables: any): any {
   const value = Object.create(null);
-  ast.fields.forEach((field) => {
+  ast.fields.forEach(field => {
     // eslint-disable-next-line no-use-before-define
     value[field.name.value] = parseLiteral(field.value, variables);
   });
@@ -36,7 +36,7 @@ export function parseLiteral(ast: ValueNode, variables: any): any {
     case Kind.OBJECT:
       return parseObject(ast, variables);
     case Kind.LIST:
-      return ast.values.map((n) => parseLiteral(n, variables));
+      return ast.values.map(n => parseLiteral(n, variables));
     case Kind.NULL:
       return null;
     case Kind.VARIABLE: {

@@ -1,11 +1,13 @@
 import {
   ASTNode,
+  GraphQLError,
   GraphQLScalarType,
   GraphQLScalarTypeConfig,
   IntValueNode,
   Kind,
   ObjectValueNode,
   print,
+  ValueNode,
 } from 'graphql';
 
 type BufferJson = { type: 'Buffer'; data: number[] };
@@ -25,15 +27,19 @@ function hexValidator(value: string) {
   return parseInt(value, 16).toString(16) === sanitizedValue;
 }
 
-function validate(value: Buffer | string | BufferJson) {
+function validate(value: Buffer | string | BufferJson, ast?: ValueNode) {
   if (typeof value !== 'string' && !(value instanceof global.Buffer)) {
-    throw new TypeError(`Value is not an instance of Buffer: ${JSON.stringify(value)}`);
+    throw new GraphQLError(`Value is not an instance of Buffer: ${JSON.stringify(value)}`, {
+      nodes: ast ? [ast] : undefined,
+    });
   }
   if (typeof value === 'string') {
     const isBase64 = base64Validator.test(value);
     const isHex = hexValidator(value);
     if (!isBase64 && !isHex) {
-      throw new TypeError(`Value is not a valid base64 or hex encoded string: ${JSON.stringify(value)}`);
+      throw new GraphQLError(`Value is not a valid base64 or hex encoded string: ${JSON.stringify(value)}`, {
+        nodes: ast ? [ast] : undefined,
+      });
     }
     return global.Buffer.from(value, isHex ? 'hex' : 'base64');
   }
@@ -47,7 +53,9 @@ function parseObject(ast: ObjectValueNode) {
   if (ast.fields.length === 2 && key.kind === Kind.STRING && key.value === 'Buffer' && value.kind === Kind.LIST) {
     return global.Buffer.from(value.values.map((astValue: IntValueNode) => parseInt(astValue.value)));
   }
-  throw new TypeError(`Value is not a JSON representation of Buffer: ${print(ast)}`);
+  throw new GraphQLError(`Value is not a JSON representation of Buffer: ${print(ast)}`, {
+    nodes: [ast],
+  });
 }
 
 export const GraphQLByteConfig: GraphQLScalarTypeConfig<Buffer | string | BufferJson, Buffer> = /*#__PURE__*/ {
@@ -58,11 +66,13 @@ export const GraphQLByteConfig: GraphQLScalarTypeConfig<Buffer | string | Buffer
   parseLiteral(ast: ASTNode) {
     switch (ast.kind) {
       case Kind.STRING:
-        return validate(ast.value);
+        return validate(ast.value, ast);
       case Kind.OBJECT:
         return parseObject(ast);
       default:
-        throw new TypeError(`Can only parse base64 or hex encoded strings as Byte, but got a: ${ast.kind}`);
+        throw new GraphQLError(`Can only parse base64 or hex encoded strings as Byte, but got a: ${ast.kind}`, {
+          nodes: [ast],
+        });
     }
   },
   extensions: {

@@ -1,4 +1,4 @@
-import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind, locatedError } from 'graphql';
+import { GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig, Kind, ValueNode } from 'graphql';
 
 interface Validator {
   (rtn: string): boolean;
@@ -8,13 +8,17 @@ const regexp = /^([a-zA-Z0-9]){5,17}$/;
 
 const validator: Validator = rtn => regexp.test(rtn);
 
-const validate = (account: unknown): string => {
+const validate = (account: unknown, ast?: ValueNode): string => {
   if (typeof account !== 'string') {
-    throw locatedError(new TypeError('can only parse String'), null);
+    throw new GraphQLError('can only parse String', {
+      nodes: ast ? [ast] : undefined,
+    });
   }
 
   if (!validator(account)) {
-    throw locatedError(new TypeError('must be alphanumeric between 5-17'), null);
+    throw new GraphQLError('must be alphanumeric between 5-17', {
+      nodes: ast ? [ast] : undefined,
+    });
   }
 
   return account;
@@ -35,10 +39,12 @@ export const GraphQLAccountNumberConfig: GraphQLScalarTypeConfig<string, string>
 
   parseLiteral(ast) {
     if (ast.kind === Kind.STRING) {
-      return validate(ast.value);
+      return validate(ast.value, ast);
     }
 
-    throw locatedError(new TypeError(`Account Number can only parse String but got '${ast.kind}'`), ast);
+    throw new GraphQLError(`Account Number can only parse String but got '${ast.kind}'`, {
+      nodes: [ast],
+    });
   },
   extensions: {
     codegenScalarType: 'string',
