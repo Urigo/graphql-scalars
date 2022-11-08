@@ -29,12 +29,14 @@ describe('GraphQLLocale', () => {
   });
 
   describe.each(invalidLocales)('invalid locales', (locale: string) => {
-    it(`${locale} throws on serialize`, async () => expect(() => GraphQLLocale.serialize(locale)).toThrow(TypeError));
+    it(`${locale} throws on serialize`, async () =>
+      expect(() => GraphQLLocale.serialize(locale)).toThrow(GraphQLError));
 
-    it(`${locale} throws on parseValue`, async () => expect(() => GraphQLLocale.parseValue(locale)).toThrow(TypeError));
+    it(`${locale} throws on parseValue`, async () =>
+      expect(() => GraphQLLocale.parseValue(locale)).toThrow(GraphQLError));
 
     it(`${locale} throws on parseLiteral`, async () =>
-      expect(() => GraphQLLocale.parseLiteral({ kind: Kind.STRING, value: locale }, null)).toThrow(TypeError));
+      expect(() => GraphQLLocale.parseLiteral({ kind: Kind.STRING, value: locale }, null)).toThrow(GraphQLError));
   });
 
   it('throws an error on other kind', () =>
