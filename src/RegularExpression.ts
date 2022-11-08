@@ -1,4 +1,5 @@
-import { GraphQLError, GraphQLScalarType, Kind } from 'graphql';
+import { GraphQLScalarType, Kind } from 'graphql';
+import { createGraphQLError } from './error';
 
 export type RegularExpressionErrorMessageFn = (r: RegExp, v: any) => string;
 
@@ -20,7 +21,7 @@ export class RegularExpression extends GraphQLScalarType {
 
       serialize(value) {
         if (value != null && !regex.test(value.toString())) {
-          throw new GraphQLError(errorMessage(regex, value));
+          throw createGraphQLError(errorMessage(regex, value));
         }
 
         return value;
@@ -28,7 +29,7 @@ export class RegularExpression extends GraphQLScalarType {
 
       parseValue(value) {
         if (value != null && !regex.test(value?.toString())) {
-          throw new GraphQLError(errorMessage(regex, value));
+          throw createGraphQLError(errorMessage(regex, value));
         }
 
         return value;
@@ -40,17 +41,17 @@ export class RegularExpression extends GraphQLScalarType {
         }
 
         if (options.stringOnly && ast.kind !== Kind.STRING) {
-          throw new GraphQLError(`Can only validate strings as ${name} but got a: ${ast.kind}`);
+          throw createGraphQLError(`Can only validate strings as ${name} but got a: ${ast.kind}`);
         }
 
         if (!('value' in ast) || ast.kind === Kind.ENUM) {
-          throw new GraphQLError(`Can only validate primitive values as ${name} but got a: ${ast.kind}`, {
+          throw createGraphQLError(`Can only validate primitive values as ${name} but got a: ${ast.kind}`, {
             nodes: [ast],
           });
         }
 
         if (ast.value != null && !regex.test(ast.value.toString())) {
-          throw new GraphQLError(errorMessage(regex, ast.value), { nodes: ast });
+          throw createGraphQLError(errorMessage(regex, ast.value), { nodes: ast });
         }
 
         return ast.value;

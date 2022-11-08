@@ -25,7 +25,10 @@ const validate = (value: any, ast?: ASTNode): number => {
     const decimalValue = typeof value === 'string' ? Number.parseFloat(value) : value;
 
     if (decimalValue < MIN_LAT || decimalValue > MAX_LAT) {
-      throw new RangeError(`Value must be between ${MIN_LAT} and ${MAX_LAT}: ${value}`);
+      throw createGraphQLError(
+        `Value must be between ${MIN_LAT} and ${MAX_LAT}: ${value}`,
+        ast ? { nodes: ast } : undefined
+      );
     }
 
     return Number.parseFloat(decimalValue.toFixed(MAX_PRECISION));

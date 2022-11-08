@@ -1,4 +1,5 @@
-import { Kind, ValueNode, ObjectValueNode, GraphQLError } from 'graphql';
+import { Kind, ValueNode, ObjectValueNode } from 'graphql';
+import { createGraphQLError } from '../../error';
 
 export function identity<T>(value: T): T {
   return value;
@@ -7,7 +8,7 @@ export function identity<T>(value: T): T {
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function ensureObject(value: any, ast?: ValueNode): object {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
-    throw new GraphQLError(
+    throw createGraphQLError(
       `JSONObject cannot represent non-object value: ${value}`,
       ast
         ? {

@@ -1,4 +1,5 @@
-import { GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig, Kind, ValueNode } from 'graphql';
+import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind, ValueNode } from 'graphql';
+import { createGraphQLError } from '../error';
 
 interface Validator {
   (rtn: string): boolean;
@@ -10,7 +11,7 @@ const validator: Validator = rtn => regexp.test(rtn);
 
 const validate = (account: unknown, ast?: ValueNode): string => {
   if (typeof account !== 'string') {
-    throw new GraphQLError(
+    throw createGraphQLError(
       'can only parse String',
       ast
         ? {
@@ -21,7 +22,7 @@ const validate = (account: unknown, ast?: ValueNode): string => {
   }
 
   if (!validator(account)) {
-    throw new GraphQLError(
+    throw createGraphQLError(
       'must be alphanumeric between 5-17',
       ast
         ? {
@@ -52,7 +53,7 @@ export const GraphQLAccountNumberConfig: GraphQLScalarTypeConfig<string, string>
       return validate(ast.value, ast);
     }
 
-    throw new GraphQLError(`Account Number can only parse String but got '${ast.kind}'`, {
+    throw createGraphQLError(`Account Number can only parse String but got '${ast.kind}'`, {
       nodes: [ast],
     });
   },

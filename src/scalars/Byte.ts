@@ -1,6 +1,5 @@
 import {
   ASTNode,
-  GraphQLError,
   GraphQLScalarType,
   GraphQLScalarTypeConfig,
   IntValueNode,
@@ -9,6 +8,7 @@ import {
   print,
   ValueNode,
 } from 'graphql';
+import { createGraphQLError } from '../error';
 
 type BufferJson = { type: 'Buffer'; data: number[] };
 const base64Validator = /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/;
@@ -29,7 +29,7 @@ function hexValidator(value: string) {
 
 function validate(value: Buffer | string | BufferJson, ast?: ValueNode) {
   if (typeof value !== 'string' && !(value instanceof global.Buffer)) {
-    throw new GraphQLError(
+    throw createGraphQLError(
       `Value is not an instance of Buffer: ${JSON.stringify(value)}`,
       ast
         ? {
@@ -42,7 +42,7 @@ function validate(value: Buffer | string | BufferJson, ast?: ValueNode) {
     const isBase64 = base64Validator.test(value);
     const isHex = hexValidator(value);
     if (!isBase64 && !isHex) {
-      throw new GraphQLError(
+      throw createGraphQLError(
         `Value is not a valid base64 or hex encoded string: ${JSON.stringify(value)}`,
         ast
           ? {
@@ -63,7 +63,7 @@ function parseObject(ast: ObjectValueNode) {
   if (ast.fields.length === 2 && key.kind === Kind.STRING && key.value === 'Buffer' && value.kind === Kind.LIST) {
     return global.Buffer.from(value.values.map((astValue: IntValueNode) => parseInt(astValue.value)));
   }
-  throw new GraphQLError(`Value is not a JSON representation of Buffer: ${print(ast)}`, {
+  throw createGraphQLError(`Value is not a JSON representation of Buffer: ${print(ast)}`, {
     nodes: [ast],
   });
 }
@@ -80,7 +80,7 @@ export const GraphQLByteConfig: GraphQLScalarTypeConfig<Buffer | string | Buffer
       case Kind.OBJECT:
         return parseObject(ast);
       default:
-        throw new GraphQLError(`Can only parse base64 or hex encoded strings as Byte, but got a: ${ast.kind}`, {
+        throw createGraphQLError(`Can only parse base64 or hex encoded strings as Byte, but got a: ${ast.kind}`, {
           nodes: [ast],
         });
     }

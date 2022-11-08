@@ -1,10 +1,11 @@
-import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig, ValueNode } from 'graphql';
+import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ValueNode } from 'graphql';
+import { createGraphQLError } from '../error';
 
 const CUID_REGEX = /^c[^\s-]{8,}$/i;
 
 const validate = (value: any, ast?: ValueNode) => {
   if (typeof value !== 'string') {
-    throw new GraphQLError(
+    throw createGraphQLError(
       `Value is not string: ${value}`,
       ast
         ? {
@@ -15,7 +16,7 @@ const validate = (value: any, ast?: ValueNode) => {
   }
 
   if (!CUID_REGEX.test(value)) {
-    throw new GraphQLError(
+    throw createGraphQLError(
       `Value is not a valid cuid: ${value}`,
       ast
         ? {
@@ -42,7 +43,7 @@ export const GraphQLCuidConfig = /*#__PURE__*/ {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as cuids but got a: ${ast.kind}`, {
+      throw createGraphQLError(`Can only validate strings as cuids but got a: ${ast.kind}`, {
         nodes: [ast],
       });
     }
