@@ -1,4 +1,5 @@
-import { GraphQLScalarType, Kind, GraphQLError } from 'graphql';
+import { GraphQLScalarType, Kind } from 'graphql';
+import { createGraphQLError } from 'src/error.js';
 import { validateLocalTime, LOCAL_TIME_FORMAT } from './LocalTime.js';
 
 const LOCAL_END_TIMES = ['24:00', '24:00:00', '24:00:00.000'];
@@ -31,7 +32,7 @@ export const GraphQLLocalEndTime: GraphQLScalarType = /*#__PURE__*/ new GraphQLS
   parseLiteral(ast) {
     // value from client in ast
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as local times but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as local times but got a: ${ast.kind}`, { nodes: ast });
     }
 
     return validateLocalEndTime(ast.value);

@@ -1,15 +1,16 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { createGraphQLError } from '../error';
 
 const RGBA_REGEX =
   /^rgba\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*.\d+)\s*\)$/;
 
-const validate = (value: any) => {
+const validate = (value: any, ast?: ASTNode) => {
   if (typeof value !== 'string') {
-    throw new TypeError(`Value is not string: ${value}`);
+    throw createGraphQLError(`Value is not string: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   if (!RGBA_REGEX.test(value)) {
-    throw new TypeError(`Value is not a valid RGBA color: ${value}`);
+    throw createGraphQLError(`Value is not a valid RGBA color: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   return value;
@@ -30,10 +31,10 @@ export const GraphQLRGBA: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as RGBA colors but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as RGBA colors but got a: ${ast.kind}`, { nodes: ast });
     }
 
-    return validate(ast.value);
+    return validate(ast.value, ast);
   },
   extensions: {
     codegenScalarType: 'string',

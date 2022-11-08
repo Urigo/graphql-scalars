@@ -1,4 +1,5 @@
-import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind, locatedError } from 'graphql';
+import { ASTNode, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
+import { createGraphQLError } from '../error';
 
 interface Validator {
   (rtn: string): boolean;
@@ -35,19 +36,19 @@ const checksum: Validator = rtn => {
   return (sum + checkDigit) % 10 === 0;
 };
 
-const validate = (value: unknown) => {
+const validate = (value: unknown, ast?: ASTNode) => {
   if (typeof value !== 'string' && !(typeof value === 'number' && Number.isInteger(value))) {
-    throw locatedError(new TypeError('must be integer or string'), null);
+    throw createGraphQLError('must be integer or string', ast ? { nodes: ast } : undefined);
   }
 
   const rtn = routingNumber(value);
 
   if (!haveNineDigits(rtn)) {
-    throw new TypeError('must have nine digits');
+    throw createGraphQLError('must have nine digits', ast ? { nodes: ast } : undefined);
   }
 
   if (!checksum(rtn)) {
-    throw new TypeError("checksum doens't match");
+    throw createGraphQLError("checksum doens't match", ast ? { nodes: ast } : undefined);
   }
 
   return rtn;
@@ -71,13 +72,12 @@ export const GraphQLRoutingNumberConfig: GraphQLScalarTypeConfig<string, string>
 
   parseLiteral(ast) {
     if (ast.kind === Kind.INT || ast.kind === Kind.STRING) {
-      return validate(ast.value);
+      return validate(ast.value, ast);
     }
 
-    throw locatedError(
-      new TypeError(`ABA Routing Transit Number can only parse Integer or String but got '${ast.kind}'`),
-      ast
-    );
+    throw createGraphQLError(`ABA Routing Transit Number can only parse Integer or String but got '${ast.kind}'`, {
+      nodes: ast,
+    });
   },
   extensions: {
     codegenScalarType: 'string',

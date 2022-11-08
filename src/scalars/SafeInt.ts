@@ -1,6 +1,7 @@
 // Based on https://github.com/stems/graphql-bigint/
 
-import { GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig, Kind, print } from 'graphql';
+import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind, print } from 'graphql';
+import { createGraphQLError } from '../error.js';
 import { serializeObject } from './utilities.js';
 
 const specifiedByURL = 'https://www.ecma-international.org/ecma-262/#sec-number.issafeinteger';
@@ -25,31 +26,33 @@ export const GraphQLSafeIntConfig = {
     }
 
     if (typeof num !== 'number' || !Number.isInteger(num)) {
-      throw new GraphQLError(`SafeInt cannot represent non-integer value: ${coercedValue}`);
+      throw createGraphQLError(`SafeInt cannot represent non-integer value: ${coercedValue}`);
     }
     if (!Number.isSafeInteger(num)) {
-      throw new GraphQLError('SafeInt cannot represent unsafe integer value: ' + coercedValue);
+      throw createGraphQLError('SafeInt cannot represent unsafe integer value: ' + coercedValue);
     }
     return num;
   },
 
   parseValue(inputValue) {
     if (typeof inputValue !== 'number' || !Number.isInteger(inputValue)) {
-      throw new GraphQLError(`SafeInt cannot represent non-integer value: ${inputValue}`);
+      throw createGraphQLError(`SafeInt cannot represent non-integer value: ${inputValue}`);
     }
     if (!Number.isSafeInteger(inputValue)) {
-      throw new GraphQLError(`SafeInt cannot represent unsafe integer value: ${inputValue}`);
+      throw createGraphQLError(`SafeInt cannot represent unsafe integer value: ${inputValue}`);
     }
     return inputValue;
   },
 
   parseLiteral(valueNode) {
     if (valueNode.kind !== Kind.INT) {
-      throw new GraphQLError(`SafeInt cannot represent non-integer value: ${print(valueNode)}`, valueNode);
+      throw createGraphQLError(`SafeInt cannot represent non-integer value: ${print(valueNode)}`, { nodes: valueNode });
     }
     const num = parseInt(valueNode.value, 10);
     if (!Number.isSafeInteger(num)) {
-      throw new GraphQLError(`SafeInt cannot represent unsafe integer value: ${valueNode.value}`, valueNode);
+      throw createGraphQLError(`SafeInt cannot represent unsafe integer value: ${valueNode.value}`, {
+        nodes: valueNode,
+      });
     }
     return num;
   },

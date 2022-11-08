@@ -1,11 +1,12 @@
-import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
+import { createGraphQLError } from '../error';
 
-const validate = (value: any) => {
+const validate = (value: any, ast?: ASTNode) => {
   const UUID_REGEX =
     /^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$/gi;
 
   if (typeof value !== 'string') {
-    throw new TypeError(`Value is not string: ${value}`);
+    throw createGraphQLError(`Value is not string: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   if (value.startsWith('{')) {
@@ -13,7 +14,7 @@ const validate = (value: any) => {
   }
 
   if (!UUID_REGEX.test(value)) {
-    throw new TypeError(`Value is not a valid UUID: ${value}`);
+    throw createGraphQLError(`Value is not a valid UUID: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   return value;
@@ -34,10 +35,10 @@ export const GraphQLUUIDConfig: GraphQLScalarTypeConfig<string, string> = /*#__P
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as UUIDs but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as UUIDs but got a: ${ast.kind}`, { nodes: ast });
     }
 
-    return validate(ast.value);
+    return validate(ast.value, ast);
   },
   extensions: {
     codegenScalarType: 'string',

@@ -1,15 +1,16 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { createGraphQLError } from '../error';
 
 const SEMVER_REGEX =
   /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
 
-const validate = (value: any) => {
+const validate = (value: any, ast?: ASTNode) => {
   if (typeof value !== 'string') {
-    throw new TypeError(`Value is not string: ${value}`);
+    throw createGraphQLError(`Value is not string: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   if (!SEMVER_REGEX.test(value)) {
-    throw new TypeError(`Value is not a valid Semantic Version: ${value}`);
+    throw createGraphQLError(`Value is not a valid Semantic Version: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   return value;
@@ -30,10 +31,10 @@ export const GraphQLSemVer: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarT
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as Semantic Version but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as Semantic Version but got a: ${ast.kind}`, { nodes: ast });
     }
 
-    return validate(ast.value);
+    return validate(ast.value, ast);
   },
   extensions: {
     codegenScalarType: 'string',

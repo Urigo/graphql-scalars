@@ -1,3 +1,5 @@
+import { createGraphQLError } from '../error';
+
 enum VALUE_RANGES {
   NEGATIVE,
   NON_NEGATIVE,
@@ -20,21 +22,21 @@ const SEXAGESIMAL_REGEX =
 
 function _validateInt(value: any) {
   if (!Number.isFinite(value)) {
-    throw new TypeError(`Value is not a finite number: ${value}`);
+    throw createGraphQLError(`Value is not a finite number: ${value}`);
   }
 
   if (!Number.isInteger(value)) {
-    throw new TypeError(`Value is not an integer: ${value}`);
+    throw createGraphQLError(`Value is not an integer: ${value}`);
   }
 
   if (!Number.isSafeInteger(value)) {
-    throw new TypeError(`Value is not a safe integer: ${value}`);
+    throw createGraphQLError(`Value is not a safe integer: ${value}`);
   }
 }
 
 function _validateFloat(value: any) {
   if (!Number.isFinite(value)) {
-    throw new TypeError(`Value is not a finite number: ${value}`);
+    throw createGraphQLError(`Value is not a finite number: ${value}`);
   }
 }
 
@@ -79,14 +81,8 @@ export function processValue(value: any, scalarName: string) {
 
   /* eslint-disable no-restricted-globals */
   /* eslint-disable use-isnan */
-  if (
-    value === null ||
-    typeof value === 'undefined' ||
-    isNaN(value) ||
-    Number.isNaN(value) ||
-    value === Number.NaN
-  ) {
-    throw new TypeError(`Value is not a number: ${value}`);
+  if (value === null || typeof value === 'undefined' || isNaN(value) || Number.isNaN(value) || value === Number.NaN) {
+    throw createGraphQLError(`Value is not a number: ${value}`);
   }
   /* eslint-enable */
 
@@ -113,11 +109,7 @@ export function processValue(value: any, scalarName: string) {
     (range === VALUE_RANGES.POSITIVE && !(parsedValue > 0)) ||
     (range === VALUE_RANGES.NON_POSITIVE && !(parsedValue <= 0))
   ) {
-    throw new TypeError(
-      `Value is not a ${VALUE_RANGES[range]
-        .toLowerCase()
-        .replace('_', '-')} number: ${value}`,
-    );
+    throw createGraphQLError(`Value is not a ${VALUE_RANGES[range].toLowerCase().replace('_', '-')} number: ${value}`);
   }
 
   return parsedValue;
@@ -162,7 +154,7 @@ export function sexagesimalToDecimal(value: any) {
   const data = SEXAGESIMAL_REGEX.exec(value);
 
   if (typeof data === 'undefined' || data === null) {
-    throw new TypeError(`Value is not in sexagesimal format: ${value}`);
+    throw createGraphQLError(`Value is not in sexagesimal format: ${value}`);
   }
 
   const min = Number(data[2]) / 60 || 0;
@@ -173,9 +165,7 @@ export function sexagesimalToDecimal(value: any) {
   return ['S', 'W'].includes(data[7]) ? -decimal : decimal;
 }
 
-export function isObjectLike(
-  value: unknown,
-): value is { [key: string]: unknown } {
+export function isObjectLike(value: unknown): value is { [key: string]: unknown } {
   return typeof value === 'object' && value !== null;
 }
 
