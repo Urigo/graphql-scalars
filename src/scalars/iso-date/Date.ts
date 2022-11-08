@@ -11,7 +11,7 @@ import { GraphQLScalarType, Kind } from 'graphql';
 import type { GraphQLScalarTypeConfig } from 'graphql';
 import { validateJSDate, validateDate } from './validator.js';
 import { serializeDate, parseDate } from './formatter.js';
-import { createGraphQLError } from '../error.js';
+import { createGraphQLError } from '../../error.js';
 
 export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PURE__*/ {
   name: 'Date',
