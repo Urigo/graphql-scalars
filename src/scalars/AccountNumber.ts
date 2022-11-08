@@ -10,15 +10,25 @@ const validator: Validator = rtn => regexp.test(rtn);
 
 const validate = (account: unknown, ast?: ValueNode): string => {
   if (typeof account !== 'string') {
-    throw new GraphQLError('can only parse String', {
-      nodes: ast ? [ast] : undefined,
-    });
+    throw new GraphQLError(
+      'can only parse String',
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
 
   if (!validator(account)) {
-    throw new GraphQLError('must be alphanumeric between 5-17', {
-      nodes: ast ? [ast] : undefined,
-    });
+    throw new GraphQLError(
+      'must be alphanumeric between 5-17',
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
 
   return account;

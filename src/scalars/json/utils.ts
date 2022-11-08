@@ -7,9 +7,14 @@ export function identity<T>(value: T): T {
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function ensureObject(value: any, ast?: ValueNode): object {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
-    throw new GraphQLError(`JSONObject cannot represent non-object value: ${value}`, {
-      nodes: ast ? [ast] : undefined,
-    });
+    throw new GraphQLError(
+      `JSONObject cannot represent non-object value: ${value}`,
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
 
   return value;

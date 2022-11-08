@@ -50,7 +50,7 @@ export class RegularExpression extends GraphQLScalarType {
         }
 
         if (ast.value != null && !regex.test(ast.value.toString())) {
-          throw new GraphQLError(errorMessage(regex, ast.value), { nodes: [ast] });
+          throw new GraphQLError(errorMessage(regex, ast.value), { nodes: ast });
         }
 
         return ast.value;

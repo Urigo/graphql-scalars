@@ -5,15 +5,25 @@ const COUNTRY_CODE_REGEX =
 
 const validate = (value: any, ast?: ValueNode) => {
   if (typeof value !== 'string') {
-    throw new GraphQLError(`Value is not string: ${value}`, {
-      nodes: ast ? [ast] : undefined,
-    });
+    throw new GraphQLError(
+      `Value is not string: ${value}`,
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
 
   if (!COUNTRY_CODE_REGEX.test(value)) {
-    throw new GraphQLError(`Value is not a valid country code: ${value}`, {
-      nodes: ast ? [ast] : undefined,
-    });
+    throw new GraphQLError(
+      `Value is not a valid country code: ${value}`,
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
   return value;
 };

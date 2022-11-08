@@ -29,17 +29,27 @@ function hexValidator(value: string) {
 
 function validate(value: Buffer | string | BufferJson, ast?: ValueNode) {
   if (typeof value !== 'string' && !(value instanceof global.Buffer)) {
-    throw new GraphQLError(`Value is not an instance of Buffer: ${JSON.stringify(value)}`, {
-      nodes: ast ? [ast] : undefined,
-    });
+    throw new GraphQLError(
+      `Value is not an instance of Buffer: ${JSON.stringify(value)}`,
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
   if (typeof value === 'string') {
     const isBase64 = base64Validator.test(value);
     const isHex = hexValidator(value);
     if (!isBase64 && !isHex) {
-      throw new GraphQLError(`Value is not a valid base64 or hex encoded string: ${JSON.stringify(value)}`, {
-        nodes: ast ? [ast] : undefined,
-      });
+      throw new GraphQLError(
+        `Value is not a valid base64 or hex encoded string: ${JSON.stringify(value)}`,
+        ast
+          ? {
+              nodes: ast,
+            }
+          : undefined
+      );
     }
     return global.Buffer.from(value, isHex ? 'hex' : 'base64');
   }

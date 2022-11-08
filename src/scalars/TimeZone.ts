@@ -2,9 +2,14 @@ import { GraphQLScalarType, GraphQLError, Kind, ValueNode } from 'graphql';
 
 const validateTimeZone = (str: string, ast?: ValueNode) => {
   if (!Intl?.DateTimeFormat().resolvedOptions().timeZone) {
-    throw new GraphQLError('Time zones are not available in this environment', {
-      nodes: ast ? [ast] : undefined,
-    });
+    throw new GraphQLError(
+      'Time zones are not available in this environment',
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
 
   try {
@@ -12,13 +17,23 @@ const validateTimeZone = (str: string, ast?: ValueNode) => {
     return str;
   } catch (ex) {
     if (ex instanceof RangeError) {
-      throw new GraphQLError(`Value is not a valid IANA time zone: ${str}`, {
-        nodes: ast ? [ast] : undefined,
-      });
+      throw new GraphQLError(
+        `Value is not a valid IANA time zone: ${str}`,
+        ast
+          ? {
+              nodes: ast,
+            }
+          : undefined
+      );
     } else {
-      throw new GraphQLError('Could not validate time zone.', {
-        nodes: ast ? [ast] : undefined,
-      });
+      throw new GraphQLError(
+        'Could not validate time zone.',
+        ast
+          ? {
+              nodes: ast,
+            }
+          : undefined
+      );
     }
   }
 };

@@ -4,15 +4,25 @@ const CUID_REGEX = /^c[^\s-]{8,}$/i;
 
 const validate = (value: any, ast?: ValueNode) => {
   if (typeof value !== 'string') {
-    throw new GraphQLError(`Value is not string: ${value}`, {
-      nodes: ast ? [ast] : undefined,
-    });
+    throw new GraphQLError(
+      `Value is not string: ${value}`,
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
 
   if (!CUID_REGEX.test(value)) {
-    throw new GraphQLError(`Value is not a valid cuid: ${value}`, {
-      nodes: ast ? [ast] : undefined,
-    });
+    throw new GraphQLError(
+      `Value is not a valid cuid: ${value}`,
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
 
   return value;
