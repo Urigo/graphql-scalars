@@ -1,5 +1,5 @@
 import { GraphQLScalarType, Kind } from 'graphql';
-import { createGraphQLError } from 'src/error.js';
+import { createGraphQLError } from '../error.js';
 import { validateLocalTime, LOCAL_TIME_FORMAT } from './LocalTime.js';
 
 const LOCAL_END_TIMES = ['24:00', '24:00:00', '24:00:00.000'];
