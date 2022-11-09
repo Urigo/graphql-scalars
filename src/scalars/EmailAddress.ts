@@ -6,11 +6,11 @@ const validate = (value: any, ast?: ASTNode) => {
     /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
   if (typeof value !== 'string') {
-    throw createGraphQLError(`Value is not string: ${value}`);
+    throw createGraphQLError(`Value is not string: ${value}`, { nodes: ast });
   }
 
   if (!EMAIL_ADDRESS_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid email address: ${value}`);
+    throw createGraphQLError(`Value is not a valid email address: ${value}`, { nodes: ast });
   }
 
   return value;
