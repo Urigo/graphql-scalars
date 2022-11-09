@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const SEMVER_REGEX =
   /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;

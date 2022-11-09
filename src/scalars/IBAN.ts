@@ -1,7 +1,7 @@
 // Based on https://github.com/arhs/iban.js
 
 import { Kind, GraphQLScalarType } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 interface Specification {
   length: number;

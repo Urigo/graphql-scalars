@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const ISBN_REGEX_ARR = [
   /^(?:ISBN(?:-10)?:? *)?((?=\d{1,5}([ -]?)\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}[\dX])$/i,

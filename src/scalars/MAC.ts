@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const MAC_REGEX = /^(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})(?:(?:\1|\.)(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})){2}$/;
 

@@ -1,5 +1,5 @@
 import { Kind, ValueNode, ObjectValueNode } from 'graphql';
-import { createGraphQLError } from '../../error';
+import { createGraphQLError } from '../../error.js';
 
 export function identity<T>(value: T): T {
   return value;

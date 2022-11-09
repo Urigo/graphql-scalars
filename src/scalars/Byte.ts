@@ -8,7 +8,7 @@ import {
   print,
   ValueNode,
 } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 type BufferJson = { type: 'Buffer'; data: number[] };
 const base64Validator = /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/;

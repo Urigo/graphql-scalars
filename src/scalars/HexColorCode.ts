@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const HEX_COLOR_CODE = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$/;
 

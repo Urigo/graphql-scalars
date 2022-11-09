@@ -1,6 +1,6 @@
 // https://github.com/abhiaiyer91/graphql-currency-scalars
 import { Kind, GraphQLScalarType } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 function generateCurrency(value: any) {
   if (typeof value !== 'number') {

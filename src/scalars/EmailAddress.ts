@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const validate = (value: any, ast?: ASTNode) => {
   const EMAIL_ADDRESS_REGEX =

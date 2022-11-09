@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const validate = (value: any, ast?: ASTNode) => {
   const parsed = typeof value === 'string' ? parseInt(value, 10) : value;

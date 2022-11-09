@@ -1,5 +1,5 @@
 import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind, ValueNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 interface Validator {
   (rtn: string): boolean;

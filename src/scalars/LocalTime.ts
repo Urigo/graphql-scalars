@@ -1,5 +1,5 @@
 import { GraphQLScalarType, Kind, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 // 24-hour time with optional seconds and milliseconds - `HH:mm[:ss[.SSS]]`
 export const LOCAL_TIME_FORMAT = /^([0-1][0-9]|2[0-3]):([0-5][0-9])(:[0-5][0-9](\.\d{3})?)?$/;

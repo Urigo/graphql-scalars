@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 // We're going to start with a limited set as suggested here:
 // http://www.pixelenvision.com/1708/zip-postal-code-validation-regex-php-code-for-12-countries/

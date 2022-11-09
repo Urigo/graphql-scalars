@@ -1,7 +1,7 @@
 // Inspired by Geolib: https://github.com/manuelbieh/geolib
 import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
 import { isDecimal, isSexagesimal, sexagesimalToDecimal } from './utilities.js';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 // Minimum longitude
 const MIN_LON = -180.0;

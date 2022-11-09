@@ -1,5 +1,5 @@
 import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 // See https://github.com/auth0/node-jws/blob/master/lib/verify-stream.js#L8
 const JWS_REGEX = /^[a-zA-Z0-9\-_]+?\.[a-zA-Z0-9\-_]+?\.([a-zA-Z0-9\-_]+)?$/;

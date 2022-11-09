@@ -1,5 +1,5 @@
 import { GraphQLScalarType, Kind, ValueNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const validateTimeZone = (str: string, ast?: ValueNode) => {
   if (!Intl?.DateTimeFormat().resolvedOptions().timeZone) {

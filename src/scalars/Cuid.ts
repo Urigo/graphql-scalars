@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ValueNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const CUID_REGEX = /^c[^\s-]{8,}$/i;
 

@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const HEXADECIMAL_REGEX = /^[a-f0-9]+$/i;
 const validate = (value: any, ast?: ASTNode) => {

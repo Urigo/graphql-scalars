@@ -1,5 +1,5 @@
 import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
-import { createGraphQLError } from '../../error';
+import { createGraphQLError } from '../../error.js';
 
 export type ISO8601Duration = string;
 

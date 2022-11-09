@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 export const GraphQLURL: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
   name: 'URL',

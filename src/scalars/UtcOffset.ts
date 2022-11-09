@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const UTC_OFFSET_REGEX = /^([+-]?)(\d{2}):(\d{2})$/;
 const validate = (value: any, ast?: ASTNode) => {

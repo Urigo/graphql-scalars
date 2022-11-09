@@ -1,5 +1,5 @@
 import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const LOCAL_DATE_FORMAT = /^\d{4}-\d{2}-\d{2}$/;
 

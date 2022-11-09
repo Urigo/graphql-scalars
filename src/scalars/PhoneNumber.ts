@@ -1,5 +1,5 @@
 import { Kind, GraphQLScalarType } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 const PHONE_NUMBER_REGEX = /^\+[1-9]\d{6,14}$/;
 

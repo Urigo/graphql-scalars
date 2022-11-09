@@ -1,4 +1,4 @@
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 enum VALUE_RANGES {
   NEGATIVE,

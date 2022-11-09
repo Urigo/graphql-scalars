@@ -1,5 +1,5 @@
 import { GraphQLScalarType, Kind, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
-import { createGraphQLError } from '../error';
+import { createGraphQLError } from '../error.js';
 
 // See: https://www.w3.org/TR/2021/PR-did-core-20210803/#did-syntax
 const DID_REGEX = /^did:[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+:[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+$/;
