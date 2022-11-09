@@ -1,5 +1,13 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.20.1
+
+### Patch Changes
+
+- [#1764](https://github.com/Urigo/graphql-scalars/pull/1764)
+  [`41551b8`](https://github.com/Urigo/graphql-scalars/commit/41551b8a1cfa616fefe2b67dbaea91d5ca76eeac) Thanks
+  [@ardatan](https://github.com/ardatan)! - Throw located GraphQLErrors instead of TypeError
+
 ## 1.20.0
 
 ### Minor Changes
