@@ -7,7 +7,7 @@
  *
  */
 
-import { graphql, GraphQLObjectType, GraphQLSchema, GraphQLError } from 'graphql';
+import { graphql, GraphQLObjectType, GraphQLSchema } from 'graphql';
 import { GraphQLDateTime } from '../../src/scalars/iso-date/DateTime.js';
 
 const schema = new GraphQLSchema({
@@ -147,18 +147,20 @@ it('errors if an invalid date-time is returned from the resolver', async () => {
 
   const response = await graphql({ schema, source });
 
-  expect(response).toEqual({
-    data: {
-      invalidDateString: null,
-      invalidDate: null,
-      invalidType: null,
-    },
-    errors: [
-      new GraphQLError('DateTime cannot represent an invalid date-time-string 2017-01-001T00:00:00Z.'),
-      new GraphQLError('DateTime cannot represent an invalid Date instance'),
-      new GraphQLError('DateTime cannot be serialized from a non string, non numeric or non Date type []'),
-    ],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "data": {
+        "invalidDate": null,
+        "invalidDateString": null,
+        "invalidType": null,
+      },
+      "errors": [
+        [GraphQLError: DateTime cannot represent an invalid date-time-string 2017-01-001T00:00:00Z.],
+        [GraphQLError: DateTime cannot represent an invalid Date instance],
+        [GraphQLError: DateTime cannot be serialized from a non string, non numeric or non Date type []],
+      ],
+    }
+  `);
 });
 
 it('errors if the variable value is not a valid date-time', async () => {
@@ -172,13 +174,13 @@ it('errors if the variable value is not a valid date-time', async () => {
 
   const response = await graphql({ schema, source, variableValues: variables });
 
-  expect(response).toEqual({
-    errors: [
-      new GraphQLError(
-        'Variable "$date" got invalid value "2017-10-001T00:00:00Z"; Expected type "DateTime". DateTime cannot represent an invalid date-time-string 2017-10-001T00:00:00Z.'
-      ),
-    ],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "errors": [
+        [GraphQLError: Variable "$date" got invalid value "2017-10-001T00:00:00Z"; DateTime cannot represent an invalid date-time-string 2017-10-001T00:00:00Z.],
+      ],
+    }
+  `);
 });
 
 it('errors if the variable value is not of type string', async () => {
@@ -192,13 +194,13 @@ it('errors if the variable value is not of type string', async () => {
 
   const response = await graphql({ schema, source, variableValues: variables });
 
-  expect(response).toEqual({
-    errors: [
-      new GraphQLError(
-        'Variable "$date" got invalid value 4; Expected type "DateTime". DateTime cannot represent non string or Date type 4'
-      ),
-    ],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "errors": [
+        [GraphQLError: Variable "$date" got invalid value 4; DateTime cannot represent non string or Date type 4],
+      ],
+    }
+  `);
 });
 
 it('errors if the literal input value is not a valid date-time', async () => {
@@ -210,13 +212,13 @@ it('errors if the literal input value is not a valid date-time', async () => {
 
   const response = await graphql({ schema, source });
 
-  expect(response).toEqual({
-    errors: [
-      new GraphQLError(
-        'Expected value of type "DateTime", found "2017-10-001T00:00:00"; DateTime cannot represent an invalid date-time-string 2017-10-001T00:00:00.'
-      ),
-    ],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "errors": [
+        [GraphQLError: DateTime cannot represent an invalid date-time-string 2017-10-001T00:00:00.],
+      ],
+    }
+  `);
 });
 
 it('errors if the literal input value in a query is not a string', async () => {
@@ -228,11 +230,11 @@ it('errors if the literal input value in a query is not a string', async () => {
 
   const response = await graphql({ schema, source });
 
-  expect(response).toEqual({
-    errors: [
-      new GraphQLError(
-        'Expected value of type "DateTime", found 4; DateTime cannot represent non string or Date type 4'
-      ),
-    ],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "errors": [
+        [GraphQLError: DateTime cannot represent non string or Date type 4],
+      ],
+    }
+  `);
 });

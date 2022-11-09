@@ -1,13 +1,14 @@
-import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
 const HEXADECIMAL_REGEX = /^[a-f0-9]+$/i;
-const validate = (value: any) => {
+const validate = (value: any, ast?: ASTNode) => {
   if (typeof value !== 'string') {
-    throw new TypeError(`Value is not string: ${value}`);
+    throw createGraphQLError(`Value is not string: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   if (!HEXADECIMAL_REGEX.test(value)) {
-    throw new TypeError(`Value is not a valid hexadecimal value: ${value}`);
+    throw createGraphQLError(`Value is not a valid hexadecimal value: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   return value;
@@ -28,10 +29,10 @@ export const GraphQLHexadecimalConfig: GraphQLScalarTypeConfig<string, string> =
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as a hexadecimal but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as a hexadecimal but got a: ${ast.kind}`, { nodes: ast });
     }
 
-    return validate(ast.value);
+    return validate(ast.value, ast);
   },
   extensions: {
     codegenScalarType: 'string',

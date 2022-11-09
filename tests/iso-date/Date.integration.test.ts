@@ -7,7 +7,7 @@
  *
  */
 
-import { graphql, GraphQLObjectType, GraphQLSchema, GraphQLError } from 'graphql';
+import { graphql, GraphQLObjectType, GraphQLSchema } from 'graphql';
 import { GraphQLDate } from '../../src/scalars/iso-date/Date.js';
 
 const schema = new GraphQLSchema({
@@ -117,18 +117,20 @@ it('errors if there is an invalid date returned from the resolver', async () => 
 
   const response = await graphql({ schema, source });
 
-  expect(response).toEqual({
-    data: {
-      invalidDateString: null,
-      invalidDate: null,
-      invalidType: null,
-    },
-    errors: [
-      new GraphQLError('Date cannot represent an invalid date-string 2017-01-001.'),
-      new GraphQLError('Date cannot represent an invalid Date instance'),
-      new GraphQLError('Date cannot represent a non string, or non Date type 5'),
-    ],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "data": {
+        "invalidDate": null,
+        "invalidDateString": null,
+        "invalidType": null,
+      },
+      "errors": [
+        [GraphQLError: Date cannot represent an invalid date-string 2017-01-001.],
+        [GraphQLError: Date cannot represent an invalid Date instance],
+        [GraphQLError: Date cannot represent a non string, or non Date type 5],
+      ],
+    }
+  `);
 });
 
 it('errors if the variable value is not a valid date', async () => {
@@ -142,13 +144,13 @@ it('errors if the variable value is not a valid date', async () => {
 
   const response = await graphql({ schema, source, variableValues: variables });
 
-  expect(response).toEqual({
-    errors: [
-      new GraphQLError(
-        'Variable "$date" got invalid value "2017-10-001"; Expected type "Date". Date cannot represent an invalid date-string 2017-10-001.'
-      ),
-    ],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "errors": [
+        [GraphQLError: Variable "$date" got invalid value "2017-10-001"; Date cannot represent an invalid date-string 2017-10-001.],
+      ],
+    }
+  `);
 });
 
 it('errors if the variable value is not of type string', async () => {
@@ -162,13 +164,13 @@ it('errors if the variable value is not of type string', async () => {
 
   const response = await graphql({ schema, source, variableValues: variables });
 
-  expect(response).toEqual({
-    errors: [
-      new GraphQLError(
-        'Variable "$date" got invalid value 4; Expected type "Date". Date cannot represent non string type 4'
-      ),
-    ],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "errors": [
+        [GraphQLError: Variable "$date" got invalid value 4; Date cannot represent non string type 4],
+      ],
+    }
+  `);
 });
 
 it('errors if the literal input value is not a valid date', async () => {
@@ -180,13 +182,13 @@ it('errors if the literal input value is not a valid date', async () => {
 
   const response = await graphql({ schema, source });
 
-  expect(response).toEqual({
-    errors: [
-      new GraphQLError(
-        'Expected value of type "Date", found "2017-10-001"; Date cannot represent an invalid date-string 2017-10-001.'
-      ),
-    ],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "errors": [
+        [GraphQLError: Date cannot represent an invalid date-string 2017-10-001.],
+      ],
+    }
+  `);
 });
 
 it('errors if the literal input value in a query is not a string', async () => {
@@ -198,7 +200,11 @@ it('errors if the literal input value in a query is not a string', async () => {
 
   const response = await graphql({ schema, source });
 
-  expect(response).toEqual({
-    errors: [new GraphQLError('Expected value of type "Date", found 4; Date cannot represent non string type 4')],
-  });
+  expect(response).toMatchInlineSnapshot(`
+    {
+      "errors": [
+        [GraphQLError: Date cannot represent non string type 4],
+      ],
+    }
+  `);
 });

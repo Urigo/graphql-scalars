@@ -1,4 +1,5 @@
-import { Kind, GraphQLError, GraphQLScalarType, ValueNode } from 'graphql';
+import { Kind, GraphQLScalarType, ValueNode } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
 const MONGODB_OBJECTID_REGEX = /*#__PURE__*/ /^[A-Fa-f0-9]{24}$/;
 
@@ -10,7 +11,7 @@ export const GraphQLObjectID: GraphQLScalarType = /*#__PURE__*/ new GraphQLScala
 
   serialize(value: string) {
     if (!MONGODB_OBJECTID_REGEX.test(value)) {
-      throw new TypeError(`Value is not a valid mongodb object id of form: ${value}`);
+      throw createGraphQLError(`Value is not a valid mongodb object id of form: ${value}`);
     }
 
     return value;
@@ -18,7 +19,7 @@ export const GraphQLObjectID: GraphQLScalarType = /*#__PURE__*/ new GraphQLScala
 
   parseValue(value: string) {
     if (!MONGODB_OBJECTID_REGEX.test(value)) {
-      throw new TypeError(`Value is not a valid mongodb object id of form: ${value}`);
+      throw createGraphQLError(`Value is not a valid mongodb object id of form: ${value}`);
     }
 
     return value;
@@ -26,11 +27,13 @@ export const GraphQLObjectID: GraphQLScalarType = /*#__PURE__*/ new GraphQLScala
 
   parseLiteral(ast: ValueNode) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as mongodb object id but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as mongodb object id but got a: ${ast.kind}`, {
+        nodes: [ast],
+      });
     }
 
     if (!MONGODB_OBJECTID_REGEX.test(ast.value)) {
-      throw new TypeError(`Value is not a valid mongodb object id of form: ${ast.value}`);
+      throw createGraphQLError(`Value is not a valid mongodb object id of form: ${ast.value}`, { nodes: ast });
     }
 
     return ast.value;

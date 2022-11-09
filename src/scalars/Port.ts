@@ -1,18 +1,19 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
-const validate = (value: any) => {
+const validate = (value: any, ast?: ASTNode) => {
   const parsed = typeof value === 'string' ? parseInt(value, 10) : value;
 
   if (typeof parsed !== 'number' || Number.isNaN(parsed)) {
-    throw new TypeError(`Value is not a number: ${value}`);
+    throw createGraphQLError(`Value is not a number: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   if (parsed === Infinity || parsed === -Infinity) {
-    throw new TypeError(`Value is not a finite number: ${value}`);
+    throw createGraphQLError(`Value is not a finite number: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   if (parsed <= 0 || parsed > 65535) {
-    throw new TypeError(`Value is not a valid TCP port: ${value}`);
+    throw createGraphQLError(`Value is not a valid TCP port: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   return parsed;
@@ -33,10 +34,10 @@ export const GraphQLPort: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.INT) {
-      throw new GraphQLError(`Can only validate integers as TCP ports but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate integers as TCP ports but got a: ${ast.kind}`, { nodes: ast });
     }
 
-    return validate(ast.value);
+    return validate(ast.value, ast);
   },
   extensions: {
     codegenScalarType: 'string | number',

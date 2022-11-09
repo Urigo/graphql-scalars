@@ -1,12 +1,13 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
-const validate = (value: any) => {
+const validate = (value: any, ast?: ASTNode) => {
   if (typeof value !== 'string') {
-    throw new TypeError(`Value is not a string: ${value}`);
+    throw createGraphQLError(`Value is not a string: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   if (!value.trim().length) {
-    throw new TypeError(`Value cannot be an empty string: ${value}`);
+    throw createGraphQLError(`Value cannot be an empty string: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   return value;
@@ -23,9 +24,9 @@ export const GraphQLNonEmptyString: GraphQLScalarType = /*#__PURE__*/ new GraphQ
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings but got a: ${ast.kind}`, { nodes: ast });
     }
-    return validate(ast.value);
+    return validate(ast.value, ast);
   },
   extensions: {
     codegenScalarType: 'string',

@@ -1,8 +1,16 @@
-import { GraphQLScalarType, GraphQLError, Kind } from 'graphql';
+import { GraphQLScalarType, Kind, ValueNode } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
-const validateTimeZone = (str: string) => {
+const validateTimeZone = (str: string, ast?: ValueNode) => {
   if (!Intl?.DateTimeFormat().resolvedOptions().timeZone) {
-    throw new Error('Time zones are not available in this environment');
+    throw createGraphQLError(
+      'Time zones are not available in this environment',
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined
+    );
   }
 
   try {
@@ -10,9 +18,23 @@ const validateTimeZone = (str: string) => {
     return str;
   } catch (ex) {
     if (ex instanceof RangeError) {
-      throw new TypeError(`Value is not a valid IANA time zone: ${str}`);
+      throw createGraphQLError(
+        `Value is not a valid IANA time zone: ${str}`,
+        ast
+          ? {
+              nodes: ast,
+            }
+          : undefined
+      );
     } else {
-      throw new Error('Could not validate time zone.');
+      throw createGraphQLError(
+        'Could not validate time zone.',
+        ast
+          ? {
+              nodes: ast,
+            }
+          : undefined
+      );
     }
   }
 };
@@ -28,7 +50,7 @@ export const GraphQLTimeZone: GraphQLScalarType = /*#__PURE__*/ new GraphQLScala
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only sanitize time zone strings, but got: ${ast.kind}`);
+      throw createGraphQLError(`Can only sanitize time zone strings, but got: ${ast.kind}`);
     }
 
     return validateTimeZone(ast.value);

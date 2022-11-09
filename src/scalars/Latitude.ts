@@ -1,5 +1,6 @@
 // Inspired by Geolib: https://github.com/manuelbieh/geolib
-import { GraphQLError, GraphQLScalarType, Kind } from 'graphql';
+import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
+import { createGraphQLError } from '../error.js';
 import { isDecimal, isSexagesimal, sexagesimalToDecimal } from './utilities.js';
 
 // Minimum latitude
@@ -9,7 +10,7 @@ const MAX_LAT = 90.0;
 // See https://en.wikipedia.org/wiki/Decimal_degrees#Precision
 const MAX_PRECISION = 8;
 
-const validate = (value: any): number => {
+const validate = (value: any, ast?: ASTNode): number => {
   // Check if value is a string or a number
   if (
     (typeof value !== 'string' && typeof value !== 'number') ||
@@ -17,14 +18,17 @@ const validate = (value: any): number => {
     typeof value === 'undefined' ||
     Number.isNaN(value)
   ) {
-    throw new TypeError(`Value is neither a number nor a string: ${value}`);
+    throw createGraphQLError(`Value is neither a number nor a string: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   if (isDecimal(value)) {
     const decimalValue = typeof value === 'string' ? Number.parseFloat(value) : value;
 
     if (decimalValue < MIN_LAT || decimalValue > MAX_LAT) {
-      throw new RangeError(`Value must be between ${MIN_LAT} and ${MAX_LAT}: ${value}`);
+      throw createGraphQLError(
+        `Value must be between ${MIN_LAT} and ${MAX_LAT}: ${value}`,
+        ast ? { nodes: ast } : undefined
+      );
     }
 
     return Number.parseFloat(decimalValue.toFixed(MAX_PRECISION));
@@ -34,7 +38,7 @@ const validate = (value: any): number => {
     return validate(sexagesimalToDecimal(value));
   }
 
-  throw new TypeError(`Value is not a valid latitude: ${value}`);
+  throw createGraphQLError(`Value is not a valid latitude: ${value}`, ast ? { nodes: ast } : undefined);
 };
 
 export const GraphQLLatitude: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
@@ -52,10 +56,12 @@ export const GraphQLLatitude: GraphQLScalarType = /*#__PURE__*/ new GraphQLScala
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate floats or strings as latitude but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate floats or strings as latitude but got a: ${ast.kind}`, {
+        nodes: [ast],
+      });
     }
 
-    return validate(ast.value);
+    return validate(ast.value, ast);
   },
   extensions: {
     codegenScalarType: 'string',

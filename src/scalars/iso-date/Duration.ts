@@ -1,4 +1,5 @@
-import { GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
+import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
+import { createGraphQLError } from '../../error.js';
 
 export type ISO8601Duration = string;
 
@@ -34,11 +35,11 @@ export const GraphQLDurationConfig: GraphQLScalarTypeConfig<string, string> = /*
 
   serialize(value) {
     if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
+      throw createGraphQLError(`Value is not string: ${value}`);
     }
 
     if (!ISO_DURATION.test(value)) {
-      throw new TypeError(`Value is not a valid ISO Duration: ${value}`);
+      throw createGraphQLError(`Value is not a valid ISO Duration: ${value}`);
     }
 
     return value;
@@ -46,11 +47,11 @@ export const GraphQLDurationConfig: GraphQLScalarTypeConfig<string, string> = /*
 
   parseValue(value) {
     if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
+      throw createGraphQLError(`Value is not string: ${value}`);
     }
 
     if (!ISO_DURATION.test(value)) {
-      throw new TypeError(`Value is not a valid ISO Duration: ${value}`);
+      throw createGraphQLError(`Value is not a valid ISO Duration: ${value}`);
     }
 
     return value;
@@ -58,10 +59,10 @@ export const GraphQLDurationConfig: GraphQLScalarTypeConfig<string, string> = /*
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as ISO Durations but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as ISO Durations but got a: ${ast.kind}`, { nodes: ast });
     }
     if (!ISO_DURATION.test(ast.value)) {
-      throw new TypeError(`Value is not a valid ISO Duration: ${ast.value}`);
+      throw createGraphQLError(`Value is not a valid ISO Duration: ${ast.value}`, { nodes: ast });
     }
 
     return ast.value;

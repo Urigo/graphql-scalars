@@ -1,4 +1,5 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import { Kind, GraphQLScalarType } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
 const PHONE_NUMBER_REGEX = /^\+[1-9]\d{6,14}$/;
 
@@ -10,11 +11,11 @@ export const GraphQLPhoneNumber: GraphQLScalarType = /*#__PURE__*/ new GraphQLSc
 
   serialize(value) {
     if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
+      throw createGraphQLError(`Value is not string: ${value}`);
     }
 
     if (!PHONE_NUMBER_REGEX.test(value)) {
-      throw new TypeError(`Value is not a valid phone number of the form +17895551234 (7-15 digits): ${value}`);
+      throw createGraphQLError(`Value is not a valid phone number of the form +17895551234 (7-15 digits): ${value}`);
     }
 
     return value;
@@ -22,11 +23,11 @@ export const GraphQLPhoneNumber: GraphQLScalarType = /*#__PURE__*/ new GraphQLSc
 
   parseValue(value) {
     if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
+      throw createGraphQLError(`Value is not string: ${value}`);
     }
 
     if (!PHONE_NUMBER_REGEX.test(value)) {
-      throw new TypeError(`Value is not a valid phone number of the form +17895551234 (7-15 digits): ${value}`);
+      throw createGraphQLError(`Value is not a valid phone number of the form +17895551234 (7-15 digits): ${value}`);
     }
 
     return value;
@@ -34,11 +35,14 @@ export const GraphQLPhoneNumber: GraphQLScalarType = /*#__PURE__*/ new GraphQLSc
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as phone numbers but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as phone numbers but got a: ${ast.kind}`, { nodes: ast });
     }
 
     if (!PHONE_NUMBER_REGEX.test(ast.value)) {
-      throw new TypeError(`Value is not a valid phone number of the form +17895551234 (7-15 digits): ${ast.value}`);
+      throw createGraphQLError(
+        `Value is not a valid phone number of the form +17895551234 (7-15 digits): ${ast.value}`,
+        { nodes: ast }
+      );
     }
 
     return ast.value;

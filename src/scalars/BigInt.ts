@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, GraphQLError, print } from 'graphql';
+import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, print } from 'graphql';
+import { createGraphQLError } from '../error.js';
 import { serializeObject } from './utilities.js';
 
 export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | BigInt | string | number> = /*#__PURE__*/ {
@@ -13,7 +14,7 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | BigIn
     if (typeof coercedValue === 'object' && coercedValue != null && 'toString' in coercedValue) {
       num = BigInt(coercedValue.toString());
       if (num.toString() !== coercedValue.toString()) {
-        throw new GraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
+        throw createGraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
       }
     }
 
@@ -24,19 +25,19 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | BigIn
     if (typeof coercedValue === 'string' && coercedValue !== '') {
       num = BigInt(coercedValue);
       if (num.toString() !== coercedValue) {
-        throw new GraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
+        throw createGraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
       }
     }
 
     if (typeof coercedValue === 'number') {
       if (!Number.isInteger(coercedValue)) {
-        throw new GraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
+        throw createGraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
       }
       num = BigInt(coercedValue);
     }
 
     if (typeof num !== 'bigint') {
-      throw new GraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
+      throw createGraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
     }
 
     if ('toJSON' in BigInt.prototype) {
@@ -72,17 +73,17 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | BigIn
   parseValue(inputValue) {
     const num = BigInt(inputValue.toString());
     if (inputValue.toString() !== num.toString()) {
-      throw new GraphQLError(`BigInt cannot represent value: ${inputValue}`);
+      throw createGraphQLError(`BigInt cannot represent value: ${inputValue}`);
     }
     return num;
   },
   parseLiteral(valueNode) {
     if (valueNode.kind !== Kind.INT) {
-      throw new GraphQLError(`BigInt cannot represent non-integer value: ${print(valueNode)}`, valueNode);
+      throw createGraphQLError(`BigInt cannot represent non-integer value: ${print(valueNode)}`, { nodes: valueNode });
     }
     const num = BigInt(valueNode.value);
     if (num.toString() !== valueNode.value) {
-      throw new GraphQLError(`BigInt cannot represent value: ${valueNode.value}`, valueNode);
+      throw createGraphQLError(`BigInt cannot represent value: ${valueNode.value}`, { nodes: valueNode });
     }
     return num;
   },

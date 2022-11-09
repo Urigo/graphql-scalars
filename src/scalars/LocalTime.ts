@@ -1,16 +1,17 @@
-import { GraphQLScalarType, Kind, GraphQLError } from 'graphql';
+import { GraphQLScalarType, Kind, ASTNode } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
 // 24-hour time with optional seconds and milliseconds - `HH:mm[:ss[.SSS]]`
 export const LOCAL_TIME_FORMAT = /^([0-1][0-9]|2[0-3]):([0-5][0-9])(:[0-5][0-9](\.\d{3})?)?$/;
 
-export function validateLocalTime(value: any) {
+export function validateLocalTime(value: any, ast?: ASTNode) {
   if (typeof value !== 'string') {
-    throw new TypeError(`Value is not string: ${value}`);
+    throw createGraphQLError(`Value is not string: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   const isValidFormat = LOCAL_TIME_FORMAT.test(value);
   if (!isValidFormat) {
-    throw new TypeError(`Value is not a valid LocalTime: ${value}`);
+    throw createGraphQLError(`Value is not a valid LocalTime: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   return value;
@@ -34,10 +35,10 @@ export const GraphQLLocalTime: GraphQLScalarType = /*#__PURE__*/ new GraphQLScal
   parseLiteral(ast) {
     // value from client in ast
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as local times but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as local times but got a: ${ast.kind}`, { nodes: ast });
     }
 
-    return validateLocalTime(ast.value);
+    return validateLocalTime(ast.value, ast);
   },
   extensions: {
     codegenScalarType: 'string',

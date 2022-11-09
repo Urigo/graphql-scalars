@@ -1,6 +1,7 @@
 // Based on https://github.com/arhs/iban.js
 
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import { Kind, GraphQLScalarType } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
 interface Specification {
   length: number;
@@ -392,11 +393,11 @@ export const GraphQLIBAN: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
   description: `A field whose value is an International Bank Account Number (IBAN): https://en.wikipedia.org/wiki/International_Bank_Account_Number.`,
   serialize(value: string) {
     if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
+      throw createGraphQLError(`Value is not string: ${value}`);
     }
 
     if (!validate(value)) {
-      throw new TypeError(`Value is not a valid IBAN: ${value}`);
+      throw createGraphQLError(`Value is not a valid IBAN: ${value}`);
     }
 
     return value;
@@ -404,11 +405,11 @@ export const GraphQLIBAN: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
 
   parseValue(value: string) {
     if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
+      throw createGraphQLError(`Value is not string: ${value}`);
     }
 
     if (!validate(value)) {
-      throw new TypeError(`Value is not a valid IBAN: ${value}`);
+      throw createGraphQLError(`Value is not a valid IBAN: ${value}`);
     }
 
     return value;
@@ -416,11 +417,11 @@ export const GraphQLIBAN: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
 
   parseLiteral(ast: { kind: any; value: string }) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as IBANs but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as IBANs but got a: ${ast.kind}`, { nodes: ast });
     }
 
     if (!validate(ast.value)) {
-      throw new TypeError(`Value is not a valid IBAN: ${ast.value}`);
+      throw createGraphQLError(`Value is not a valid IBAN: ${ast.value}`);
     }
 
     return ast.value;

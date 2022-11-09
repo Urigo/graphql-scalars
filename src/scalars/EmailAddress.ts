@@ -1,15 +1,16 @@
-import { Kind, GraphQLError, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
-const validate = (value: any) => {
+const validate = (value: any, ast?: ASTNode) => {
   const EMAIL_ADDRESS_REGEX =
     /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
   if (typeof value !== 'string') {
-    throw new TypeError(`Value is not string: ${value}`);
+    throw createGraphQLError(`Value is not string: ${value}`, { nodes: ast });
   }
 
   if (!EMAIL_ADDRESS_REGEX.test(value)) {
-    throw new TypeError(`Value is not a valid email address: ${value}`);
+    throw createGraphQLError(`Value is not a valid email address: ${value}`, { nodes: ast });
   }
 
   return value;
@@ -29,10 +30,10 @@ export const GraphQLEmailAddressConfig = /*#__PURE__*/ {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as email addresses but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as email addresses but got a: ${ast.kind}`, { nodes: ast });
     }
 
-    return validate(ast.value);
+    return validate(ast.value, ast);
   },
 
   specifiedByURL,

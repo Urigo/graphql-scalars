@@ -11,6 +11,7 @@ import { GraphQLScalarType, Kind } from 'graphql';
 import type { GraphQLScalarTypeConfig } from 'graphql';
 import { validateJSDate, validateDate } from './validator.js';
 import { serializeDate, parseDate } from './formatter.js';
+import { createGraphQLError } from '../../error.js';
 
 export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PURE__*/ {
   name: 'Date',
@@ -24,35 +25,35 @@ export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PUR
       if (validateJSDate(value)) {
         return serializeDate(value);
       }
-      throw new TypeError('Date cannot represent an invalid Date instance');
+      throw createGraphQLError('Date cannot represent an invalid Date instance');
     } else if (typeof value === 'string') {
       if (validateDate(value)) {
         return value;
       }
-      throw new TypeError(`Date cannot represent an invalid date-string ${value}.`);
+      throw createGraphQLError(`Date cannot represent an invalid date-string ${value}.`);
     } else {
-      throw new TypeError('Date cannot represent a non string, or non Date type ' + JSON.stringify(value));
+      throw createGraphQLError('Date cannot represent a non string, or non Date type ' + JSON.stringify(value));
     }
   },
   parseValue(value) {
     if (!(typeof value === 'string')) {
-      throw new TypeError(`Date cannot represent non string type ${JSON.stringify(value)}`);
+      throw createGraphQLError(`Date cannot represent non string type ${JSON.stringify(value)}`);
     }
 
     if (validateDate(value)) {
       return parseDate(value);
     }
-    throw new TypeError(`Date cannot represent an invalid date-string ${value}.`);
+    throw createGraphQLError(`Date cannot represent an invalid date-string ${value}.`);
   },
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new TypeError(`Date cannot represent non string type ${'value' in ast && ast.value}`);
+      throw createGraphQLError(`Date cannot represent non string type ${'value' in ast && ast.value}`, { nodes: ast });
     }
     const { value } = ast;
     if (validateDate(value)) {
       return parseDate(value);
     }
-    throw new TypeError(`Date cannot represent an invalid date-string ${String(value)}.`);
+    throw createGraphQLError(`Date cannot represent an invalid date-string ${String(value)}.`, { nodes: ast });
   },
   extensions: {
     codegenScalarType: 'Date | string',

@@ -1,23 +1,24 @@
-import { GraphQLScalarType, Kind, GraphQLError } from 'graphql';
+import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
 const LOCAL_DATE_FORMAT = /^\d{4}-\d{2}-\d{2}$/;
 
-function validateLocalDate(value: any) {
+function validateLocalDate(value: any, ast?: ASTNode) {
   if (typeof value !== 'string') {
-    throw new TypeError(`Value is not string: ${value}`);
+    throw createGraphQLError(`Value is not string: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   // check that it's in the `yyyy-MM-dd` format
   const isValidFormat = LOCAL_DATE_FORMAT.test(value);
   if (!isValidFormat) {
-    throw new TypeError(`Value is not a valid LocalDate: ${value}`);
+    throw createGraphQLError(`Value is not a valid LocalDate: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   // check that it appears to be a valid date, e.g., not something like `2020-13-46`
   const valueAsDate = new Date(value);
   const isValidDate = !isNaN(valueAsDate.getTime());
   if (!isValidDate) {
-    throw new TypeError(`Value is not a valid LocalDate: ${value}`);
+    throw createGraphQLError(`Value is not a valid LocalDate: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   // some additional logic to catch invalid dates like `2020-02-30`
@@ -25,7 +26,7 @@ function validateLocalDate(value: any) {
   // the original value
   const isCalendarDate = valueAsDate.toISOString() === `${value}T00:00:00.000Z`;
   if (!isCalendarDate) {
-    throw new TypeError(`Value is not a valid LocalDate: ${value}`);
+    throw createGraphQLError(`Value is not a valid LocalDate: ${value}`, ast ? { nodes: ast } : undefined);
   }
 
   return value;
@@ -48,10 +49,10 @@ export const GraphQLLocalDate: GraphQLScalarType = /*#__PURE__*/ new GraphQLScal
   parseLiteral(ast) {
     // value from client in ast
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as local dates but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as local dates but got a: ${ast.kind}`, { nodes: ast });
     }
 
-    return validateLocalDate(ast.value);
+    return validateLocalDate(ast.value, ast);
   },
   extensions: {
     codegenScalarType: 'string',

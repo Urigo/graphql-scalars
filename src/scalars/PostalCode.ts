@@ -1,4 +1,5 @@
-import { Kind, GraphQLError, GraphQLScalarType } from 'graphql';
+import { Kind, GraphQLScalarType } from 'graphql';
+import { createGraphQLError } from '../error.js';
 
 // We're going to start with a limited set as suggested here:
 // http://www.pixelenvision.com/1708/zip-postal-code-validation-regex-php-code-for-12-countries/
@@ -79,11 +80,11 @@ export const GraphQLPostalCode: GraphQLScalarType = /*#__PURE__*/ new GraphQLSca
 
   serialize(value) {
     if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
+      throw createGraphQLError(`Value is not string: ${value}`);
     }
 
     if (!_testPostalCode(value)) {
-      throw new TypeError(`Value is not a valid postal code: ${value}`);
+      throw createGraphQLError(`Value is not a valid postal code: ${value}`);
     }
 
     return value;
@@ -91,11 +92,11 @@ export const GraphQLPostalCode: GraphQLScalarType = /*#__PURE__*/ new GraphQLSca
 
   parseValue(value) {
     if (typeof value !== 'string') {
-      throw new TypeError(`Value is not string: ${value}`);
+      throw createGraphQLError(`Value is not string: ${value}`);
     }
 
     if (!_testPostalCode(value)) {
-      throw new TypeError(`Value is not a valid postal code: ${value}`);
+      throw createGraphQLError(`Value is not a valid postal code: ${value}`);
     }
 
     return value;
@@ -103,11 +104,11 @@ export const GraphQLPostalCode: GraphQLScalarType = /*#__PURE__*/ new GraphQLSca
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw new GraphQLError(`Can only validate strings as postal codes but got a: ${ast.kind}`);
+      throw createGraphQLError(`Can only validate strings as postal codes but got a: ${ast.kind}`, { nodes: ast });
     }
 
     if (!_testPostalCode(ast.value)) {
-      throw new TypeError(`Value is not a valid postal code: ${ast.value}`);
+      throw createGraphQLError(`Value is not a valid postal code: ${ast.value}`, { nodes: ast });
     }
 
     return ast.value;
