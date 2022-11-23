@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://graphql-scalars.dev',
+  siteUrl: process.env.SITE_URL || 'https://the-guild.dev/graphql/scalars',
   generateIndexSitemap: false,
 };
