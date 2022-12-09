@@ -131,8 +131,8 @@ export const serializeDateTimeString = (dateTime: string): string => {
   }
 };
 
-// Serializes a Unix timestamp to an RFC 3339 compliant date-time-string
+// Serializes ECMAScript timestamp (number of milliseconds) to an RFC 3339 compliant date-time-string
 // in the format YYYY-MM-DDThh:mm:ss.sssZ
-export const serializeUnixTimestamp = (timestamp: number): string => {
-  return new Date(timestamp * 1000).toISOString();
+export const serializeTimestamp = (timestamp: number): string => {
+  return new Date(timestamp).toISOString();
 };

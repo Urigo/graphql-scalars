@@ -140,17 +140,22 @@ export const validateDateTime = (dateTimeString: string): boolean => {
 };
 
 // Function that checks whether a given number is a valid
-// Unix timestamp.
+// ECMAScript timestamp.
 //
-// Unix timestamps are signed 32-bit integers. They are interpreted
-// as the number of seconds since 00:00:00 UTC on 1 January 1970.
+// ECMAScript are interpreted as the number of milliseconds
+// since 00:00:00 UTC on 1 January 1970.
 //
-export const validateUnixTimestamp = (timestamp: number): boolean => {
-  const MAX_INT = 2147483647;
-  const MIN_INT = -2147483648;
-  return (
-    timestamp === timestamp && timestamp <= MAX_INT && timestamp >= MIN_INT
-  ); // eslint-disable-line
+// It is defined in ECMA-262 that a maximum of ±100,000,000 days relative to
+// January 1, 1970 UTC (that is, April 20, 271821 BCE ~ September 13, 275760 CE)
+// can be represented by the standard Date object
+// (equivalent to ±8,640,000,000,000,000 milliseconds).
+//
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#the_ecmascript_epoch_and_timestamps
+//
+export const validateTimestamp = (timestamp: number): boolean => {
+  const MAX = 8640000000000000;
+  const MIN = -8640000000000000;
+  return timestamp === timestamp && timestamp <= MAX && timestamp >= MIN; // eslint-disable-line
 };
 
 // Function that checks whether a javascript Date instance

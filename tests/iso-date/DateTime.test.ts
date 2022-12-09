@@ -88,24 +88,24 @@ describe('GraphQLDateTime', () => {
       });
     });
 
-    // Serializes Unix timestamp
+    // Serializes ECMAScript timestamp
     [
-      [854325678, '1997-01-27T00:41:18.000Z'],
-      [854325678.123, '1997-01-27T00:41:18.123Z'],
-      [876535, '1970-01-11T03:28:55.000Z'],
-      // The maximum representable unix timestamp
-      [2147483647, '2038-01-19T03:14:07.000Z'],
-      // The minimum representable unit timestamp
-      [-2147483648, '1901-12-13T20:45:52.000Z'],
+      [854325678000, '1997-01-27T00:41:18.000Z'],
+      [854325678123, '1997-01-27T00:41:18.123Z'],
+      [876535000, '1970-01-11T03:28:55.000Z'],
+      // The maximum representable ECMAScript timestamp
+      [8640000000000000, '+275760-09-13T00:00:00.000Z'],
+      // The minimum representable ECMAScript timestamp
+      [-8640000000000000, '-271821-04-20T00:00:00.000Z'],
     ].forEach(([value, expected]) => {
-      it(`serializes unix timestamp ${stringify(value)} into date-string ${expected}`, () => {
+      it(`serializes timestamp ${stringify(value)} into date-time-string ${expected}`, () => {
         expect(GraphQLDateTime.serialize(value)).toEqual(expected);
       });
     });
   });
 
   [Number.NaN, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY].forEach(value => {
-    it(`throws an error serializing the invalid unix timestamp ${stringify(value)}`, () => {
+    it(`throws an error serializing the invalid timestamp ${stringify(value)}`, () => {
       expect(() => GraphQLDateTime.serialize(value)).toThrowErrorMatchingSnapshot();
     });
   });

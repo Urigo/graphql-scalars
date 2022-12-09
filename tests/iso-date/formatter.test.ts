@@ -13,7 +13,7 @@ import {
   serializeDate,
   serializeDateTime,
   serializeDateTimeString,
-  serializeUnixTimestamp,
+  serializeTimestamp,
   parseTime,
   parseDate,
   parseDateTime,
@@ -85,20 +85,20 @@ describe('formatting', () => {
 
   (
     [
-      [854325678, '1997-01-27T00:41:18.000Z'],
-      [876535, '1970-01-11T03:28:55.000Z'],
-      [876535.8, '1970-01-11T03:28:55.800Z'],
-      [876535.8321, '1970-01-11T03:28:55.832Z'],
-      [-876535.8, '1969-12-21T20:31:04.200Z'],
+      [854325678000, '1997-01-27T00:41:18.000Z'],
+      [876535000, '1970-01-11T03:28:55.000Z'],
+      [876535800, '1970-01-11T03:28:55.800Z'],
+      [876535832.1, '1970-01-11T03:28:55.832Z'],
+      [-876535800, '1969-12-21T20:31:04.200Z'],
       [0, '1970-01-01T00:00:00.000Z'],
-      // The maximum representable unix timestamp
-      [2147483647, '2038-01-19T03:14:07.000Z'],
-      // The minimum representable unit timestamp
-      [-2147483648, '1901-12-13T20:45:52.000Z'],
+      // The maximum representable ECMAScript timestamp
+      [8640000000000000, '+275760-09-13T00:00:00.000Z'],
+      // The minimum representable ECMAScript timestamp
+      [-8640000000000000, '-271821-04-20T00:00:00.000Z'],
     ] as [number, string][]
   ).forEach(([timestamp, dateTimeString]) => {
-    it(`serializes Unix timestamp ${stringify(timestamp)} into date-time-string ${dateTimeString}`, () => {
-      expect(serializeUnixTimestamp(timestamp)).toEqual(dateTimeString);
+    it(`serializes timestamp ${stringify(timestamp)} into date-time-string ${dateTimeString}`, () => {
+      expect(serializeTimestamp(timestamp)).toEqual(dateTimeString);
     });
   });
 

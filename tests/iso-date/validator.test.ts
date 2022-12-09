@@ -11,7 +11,7 @@ import {
   validateTime,
   validateDate,
   validateDateTime,
-  validateUnixTimestamp,
+  validateTimestamp,
   validateJSDate,
 } from '../../src/scalars/iso-date/validator.js';
 
@@ -117,22 +117,28 @@ describe('validator', () => {
     });
   });
 
-  describe('validateUnixTimestamp', () => {
+  describe('validateTimestamp', () => {
     [
-      854325678, 876535, 876535.8, 876535.8321, -876535.8,
-      // The maximum representable unix timestamp
-      2147483647,
-      // The minimum representable unit timestamp
-      -2147483648,
-    ].forEach(timestamp => {
-      it(`identifies ${timestamp} as a valid Unix timestamp`, () => {
-        expect(validateUnixTimestamp(timestamp)).toEqual(true);
+      854325678000, 876535000, 876535800, 876535832.1, -876535800,
+      // The maximum representable ECMAScript timestamp
+      8640000000000000,
+      // The minimum representable ECMAScript timestamp
+      -8640000000000000,
+    ].forEach((timestamp) => {
+      it(`identifies ${timestamp} as a valid timestamp`, () => {
+        expect(validateTimestamp(timestamp)).toEqual(true);
       });
     });
 
-    [Number.NaN, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY, 2147483648, -2147483649].forEach(timestamp => {
-      it(`identifies ${timestamp} as an invalid Unix timestamp`, () => {
-        expect(validateUnixTimestamp(timestamp)).toEqual(false);
+    [
+      Number.NaN,
+      Number.POSITIVE_INFINITY,
+      Number.POSITIVE_INFINITY,
+      8640000000000001,
+      -8640000000000001,
+    ].forEach((timestamp) => {
+      it(`identifies ${timestamp} as an invalid ECMAScript timestamp`, () => {
+        expect(validateTimestamp(timestamp)).toEqual(false);
       });
     });
   });

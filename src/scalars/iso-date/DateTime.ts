@@ -13,7 +13,7 @@ import { validateJSDate, validateDateTime } from './validator.js';
 import {
   serializeDateTime,
   serializeDateTimeString,
-  serializeUnixTimestamp,
+  serializeTimestamp,
   parseDateTime,
 } from './formatter.js';
 import { createGraphQLError } from '../../error.js';
@@ -38,9 +38,9 @@ export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, string> = /*#_
       throw createGraphQLError(`DateTime cannot represent an invalid date-time-string ${value}.`);
     } else if (typeof value === 'number') {
       try {
-        return serializeUnixTimestamp(value);
+        return serializeTimestamp(value);
       } catch (e) {
-        throw createGraphQLError('DateTime cannot represent an invalid Unix timestamp ' + value);
+        throw createGraphQLError('DateTime cannot represent an invalid timestamp ' + value);
       }
     } else {
       throw createGraphQLError(
@@ -93,7 +93,7 @@ export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, string> = /*#_
  *
  * Output:
  *    This scalar serializes javascript Dates,
- *    RFC 3339 date-time strings and unix timestamps
+ *    RFC 3339 date-time strings and ECMAScript timestamps (number of milliseconds)
  *    to RFC 3339 UTC date-time strings.
  */
 export const GraphQLDateTime: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLDateTimeConfig);
