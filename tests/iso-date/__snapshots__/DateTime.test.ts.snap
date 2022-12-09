@@ -42,6 +42,12 @@ exports[`GraphQLDateTime serialization throws error when serializing true 1`] = 
 
 exports[`GraphQLDateTime serialization throws error when serializing undefined 1`] = `"DateTime cannot be serialized from a non string, non numeric or non Date type undefined"`;
 
+exports[`GraphQLDateTime throws an error serializing the invalid unix timestamp Infinity 1`] = `"DateTime cannot represent an invalid Unix timestamp Infinity"`;
+
+exports[`GraphQLDateTime throws an error serializing the invalid unix timestamp Infinity 2`] = `"DateTime cannot represent an invalid Unix timestamp Infinity"`;
+
+exports[`GraphQLDateTime throws an error serializing the invalid unix timestamp NaN 1`] = `"DateTime cannot represent an invalid Unix timestamp NaN"`;
+
 exports[`GraphQLDateTime value parsing throws an error parsing an invalid date-string "2015-02-24T00:00:00.000+0100" 1`] = `"DateTime cannot represent an invalid date-time-string 2015-02-24T00:00:00.000+0100."`;
 
 exports[`GraphQLDateTime value parsing throws an error parsing an invalid date-string "2016-02-01T00:00:00.Z" 1`] = `"DateTime cannot represent an invalid date-time-string 2016-02-01T00:00:00.Z."`;

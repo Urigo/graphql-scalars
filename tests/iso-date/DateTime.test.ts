@@ -59,7 +59,7 @@ describe('GraphQLDateTime', () => {
       [new Date(Date.UTC(2016, 0, 1, 14, 48, 10, 30)), '2016-01-01T14:48:10.030Z'],
     ].forEach(([value, expected]) => {
       it(`serializes javascript Date ${stringify(value)} into ${stringify(expected)}`, () => {
-        expect(GraphQLDateTime.serialize(value).toJSON()).toEqual(expected);
+        expect(GraphQLDateTime.serialize(value)).toEqual(expected);
       });
     });
 
@@ -68,13 +68,17 @@ describe('GraphQLDateTime', () => {
     });
 
     [
+      ['2016-02-01T00:00:15Z', '2016-02-01T00:00:15Z'],
       ['2016-02-01T00:00:15.000Z', '2016-02-01T00:00:15.000Z'],
       ['2016-02-01T00:00:00.234Z', '2016-02-01T00:00:00.234Z'],
-      ['2016-02-01T00:00:00-11:00', '2016-02-01T11:00:00.000Z'],
-      ['2017-01-07T00:00:00.1+01:20', '2017-01-06T22:40:00.100Z'],
+      ['2016-02-01T00:00:00.23498Z', '2016-02-01T00:00:00.23498Z'],
+      ['2016-02-01T00:00:00-11:00', '2016-02-01T11:00:00Z'],
+      ['2016-02-01T00:00:00+11:00', '2016-01-31T13:00:00Z'],
+      ['2016-02-02T00:00:00.4567+01:30', '2016-02-01T22:30:00.4567Z'],
+      ['2017-01-07T00:00:00.1+01:20', '2017-01-06T22:40:00.1Z'],
     ].forEach(([input, output]) => {
       it(`serializes date-time-string ${input} into UTC date-time-string ${output}`, () => {
-        expect(GraphQLDateTime.serialize(input).toJSON()).toEqual(output);
+        expect(GraphQLDateTime.serialize(input)).toEqual(output);
       });
     });
 
@@ -86,16 +90,23 @@ describe('GraphQLDateTime', () => {
 
     // Serializes Unix timestamp
     [
-      [854325678000, '1997-01-27T00:41:18.000Z'],
-      [876535000, '1970-01-11T03:28:55.000Z'],
+      [854325678, '1997-01-27T00:41:18.000Z'],
+      [854325678.123, '1997-01-27T00:41:18.123Z'],
+      [876535, '1970-01-11T03:28:55.000Z'],
       // The maximum representable unix timestamp
-      [2147483647000, '2038-01-19T03:14:07.000Z'],
+      [2147483647, '2038-01-19T03:14:07.000Z'],
       // The minimum representable unit timestamp
-      [-2147483648000, '1901-12-13T20:45:52.000Z'],
+      [-2147483648, '1901-12-13T20:45:52.000Z'],
     ].forEach(([value, expected]) => {
       it(`serializes unix timestamp ${stringify(value)} into date-string ${expected}`, () => {
-        expect(GraphQLDateTime.serialize(value).toJSON()).toEqual(expected);
+        expect(GraphQLDateTime.serialize(value)).toEqual(expected);
       });
+    });
+  });
+
+  [Number.NaN, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY].forEach(value => {
+    it(`throws an error serializing the invalid unix timestamp ${stringify(value)}`, () => {
+      expect(() => GraphQLDateTime.serialize(value)).toThrowErrorMatchingSnapshot();
     });
   });
 

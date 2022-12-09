@@ -11,7 +11,9 @@ import {
   serializeTime,
   serializeTimeString,
   serializeDate,
+  serializeDateTime,
   serializeDateTimeString,
+  serializeUnixTimestamp,
   parseTime,
   parseDate,
   parseDateTime,
@@ -56,6 +58,47 @@ describe('formatting', () => {
   ).forEach(([date, dateString]) => {
     it(`serializes ${stringify(date)} into date-string ${dateString}`, () => {
       expect(serializeDate(date)).toEqual(dateString);
+    });
+  });
+
+  (
+    [
+      [new Date(Date.UTC(2016, 1, 1)), '2016-02-01T00:00:00.000Z'],
+      [new Date(Date.UTC(2016, 3, 5, 10, 1, 4, 555)), '2016-04-05T10:01:04.555Z'],
+    ] as [Date, string][]
+  ).forEach(([date, dateTimeString]) => {
+    it(`serializes ${stringify(date)} into date-time-string ${dateTimeString}`, () => {
+      expect(serializeDateTime(date)).toEqual(dateTimeString);
+    });
+  });
+
+  (
+    [
+      [new Date(Date.UTC(2016, 1, 1)), '2016-02-01T00:00:00.000Z'],
+      [new Date(Date.UTC(2016, 3, 5, 10, 1, 4, 555)), '2016-04-05T10:01:04.555Z'],
+    ] as [Date, string][]
+  ).forEach(([date, dateTimeString]) => {
+    it(`serializes ${stringify(date)} into date-time-string ${dateTimeString}`, () => {
+      expect(serializeDateTime(date)).toEqual(dateTimeString);
+    });
+  });
+
+  (
+    [
+      [854325678, '1997-01-27T00:41:18.000Z'],
+      [876535, '1970-01-11T03:28:55.000Z'],
+      [876535.8, '1970-01-11T03:28:55.800Z'],
+      [876535.8321, '1970-01-11T03:28:55.832Z'],
+      [-876535.8, '1969-12-21T20:31:04.200Z'],
+      [0, '1970-01-01T00:00:00.000Z'],
+      // The maximum representable unix timestamp
+      [2147483647, '2038-01-19T03:14:07.000Z'],
+      // The minimum representable unit timestamp
+      [-2147483648, '1901-12-13T20:45:52.000Z'],
+    ] as [number, string][]
+  ).forEach(([timestamp, dateTimeString]) => {
+    it(`serializes Unix timestamp ${stringify(timestamp)} into date-time-string ${dateTimeString}`, () => {
+      expect(serializeUnixTimestamp(timestamp)).toEqual(dateTimeString);
     });
   });
 
@@ -114,14 +157,14 @@ describe('formatting', () => {
   });
 
   [
-    ['2016-02-01T00:00:00Z', '2016-02-01T00:00:00.000Z'],
-    ['2016-02-01T12:23:44Z', '2016-02-01T12:23:44.000Z'],
-    ['2016-02-01T14:38:12-01:00', '2016-02-01T15:38:12.000Z'],
-    ['2016-02-02T00:00:00.456+01:30', '2016-02-01T22:30:00.456Z'],
-    ['2016-02-01T14:38:12.1+01:00', '2016-02-01T13:38:12.100Z'],
+    ['2016-02-01T00:00:00Z', '2016-02-01T00:00:00Z'],
+    ['2016-02-01T12:23:44Z', '2016-02-01T12:23:44Z'],
+    ['2016-02-01T14:38:12-01:00', '2016-02-01T15:38:12Z'],
+    ['2016-02-02T00:00:00.4567+01:30', '2016-02-01T22:30:00.4567Z'],
+    ['2016-02-01T14:38:12.1+01:00', '2016-02-01T13:38:12.1Z'],
   ].forEach(([input, output]) => {
     it(`serializes date-time-string ${input} into UTC date-time-string ${output}`, () => {
-      expect(serializeDateTimeString(input).toJSON()).toEqual(output);
+      expect(serializeDateTimeString(input)).toEqual(output);
     });
   });
 });

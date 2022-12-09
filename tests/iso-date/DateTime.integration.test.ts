@@ -28,7 +28,7 @@ const schema = new GraphQLSchema({
       },
       validUnixTimestamp: {
         type: GraphQLDateTime,
-        resolve: () => 854325678000,
+        resolve: () => 854325678,
       },
       invalidDateString: {
         type: GraphQLDateTime,
@@ -41,6 +41,10 @@ const schema = new GraphQLSchema({
       invalidType: {
         type: GraphQLDateTime,
         resolve: () => [],
+      },
+      invalidUnixTimestamp: {
+        type: GraphQLDateTime,
+        resolve: () => Number.POSITIVE_INFINITY,
       },
       input: {
         type: GraphQLDateTime,
@@ -73,11 +77,11 @@ it('executes a query that includes a DateTime', async () => {
 
   expect(response).toEqual({
     data: {
-      validDate: new Date('2016-05-02T10:31:42.200Z'),
-      validUTCDateString: new Date('1991-12-24T00:00:00Z'),
-      validDateString: new Date('2016-02-01T11:00:00Z'),
-      input: new Date('2017-10-01T00:00:00.000Z'),
-      validUnixTimestamp: new Date('1997-01-27T00:41:18.000Z'),
+      validDate: '2016-05-02T10:31:42.200Z',
+      validUTCDateString: '1991-12-24T00:00:00Z',
+      validDateString: '2016-02-01T11:00:00Z',
+      input: '2017-10-01T00:00:00.000Z',
+      validUnixTimestamp: '1997-01-27T00:41:18.000Z',
       inputNull: null,
     },
   });
@@ -96,7 +100,7 @@ it('shifts an input date-time to UTC', async () => {
 
   expect(response).toEqual({
     data: {
-      input: new Date('2016-02-01T11:00:00.000Z'),
+      input: '2016-02-01T11:00:00.000Z',
     },
   });
 });
@@ -142,6 +146,7 @@ it('errors if an invalid date-time is returned from the resolver', async () => {
       invalidDateString
       invalidDate
       invalidType
+      invalidUnixTimestamp
     }
   `;
 
@@ -153,11 +158,13 @@ it('errors if an invalid date-time is returned from the resolver', async () => {
         "invalidDate": null,
         "invalidDateString": null,
         "invalidType": null,
+        "invalidUnixTimestamp": null,
       },
       "errors": [
         [GraphQLError: DateTime cannot represent an invalid date-time-string 2017-01-001T00:00:00Z.],
         [GraphQLError: DateTime cannot represent an invalid Date instance],
         [GraphQLError: DateTime cannot be serialized from a non string, non numeric or non Date type []],
+        [GraphQLError: DateTime cannot represent an invalid Unix timestamp Infinity],
       ],
     }
   `);

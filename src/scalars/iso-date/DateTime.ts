@@ -10,10 +10,15 @@
 import { GraphQLScalarType, Kind } from 'graphql';
 import type { GraphQLScalarTypeConfig } from 'graphql'; // eslint-disable-line
 import { validateJSDate, validateDateTime } from './validator.js';
-import { parseDateTime } from './formatter.js';
+import {
+  serializeDateTime,
+  serializeDateTimeString,
+  serializeUnixTimestamp,
+  parseDateTime,
+} from './formatter.js';
 import { createGraphQLError } from '../../error.js';
 
-export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, Date> = /*#__PURE__*/ {
+export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PURE__*/ {
   name: 'DateTime',
   description:
     'A date-time string at UTC, such as 2007-12-03T10:15:30Z, ' +
@@ -23,17 +28,17 @@ export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, Date> = /*#__P
   serialize(value) {
     if (value instanceof Date) {
       if (validateJSDate(value)) {
-        return value;
+        return serializeDateTime(value);
       }
       throw createGraphQLError('DateTime cannot represent an invalid Date instance');
     } else if (typeof value === 'string') {
       if (validateDateTime(value)) {
-        return parseDateTime(value);
+        return serializeDateTimeString(value);
       }
       throw createGraphQLError(`DateTime cannot represent an invalid date-time-string ${value}.`);
     } else if (typeof value === 'number') {
       try {
-        return new Date(value);
+        return serializeUnixTimestamp(value);
       } catch (e) {
         throw createGraphQLError('DateTime cannot represent an invalid Unix timestamp ' + value);
       }
