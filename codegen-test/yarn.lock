@@ -499,10 +499,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@graphql-codegen/cli@2.16.2":
-  version "2.16.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-2.16.2.tgz#a90065577e281cac65052728cb7a83e05133ee21"
-  integrity sha512-3xe4MESGn5cNDyOLSBAibrQx9Zkbu7mMVHUnC/V0hpC8334guAgOF645EohtDOvevc0hWgCec0m7sQDT/JB59g==
+"@graphql-codegen/cli@2.16.3":
+  version "2.16.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-2.16.3.tgz#2b870696e526e95823f2d6b86072ee00ec3fbabe"
+  integrity sha512-dyRt4nvbpLmWSq+fNsYhQo5tDJyFdlEIX+detR6biOur+kjI9e8djMVa5XSojoDkRIQCifu++6nUHxeROXN8iw==
   dependencies:
     "@babel/generator" "^7.18.13"
     "@babel/template" "^7.18.10"
