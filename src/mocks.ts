@@ -105,6 +105,8 @@ export const RoutingNumber = () => '111000025';
 export const AccountNumber = () => '000000012345';
 export const Cuid = () => 'cjld2cyuq0000t3rmniod1foy';
 export const SemVer = () => '1.0.0-alpha.1';
+export const DeweyDecimal = () => '435.4357';
+export const LCCSubclass = () => 'KBM';
 
 export {
   DateMock as Date,

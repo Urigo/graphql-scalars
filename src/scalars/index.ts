@@ -58,3 +58,5 @@ export { GraphQLRoutingNumber } from './RoutingNumber.js';
 export { GraphQLAccountNumber } from './AccountNumber.js';
 export { GraphQLCuid } from './Cuid.js';
 export { GraphQLSemVer } from './SemVer.js';
+export { GraphQLDeweyDecimal } from './library/DeweyDecimal.js';
+export { GraphQLLCCSubclass } from './library/LCCSubclass.js';

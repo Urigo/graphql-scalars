@@ -62,6 +62,8 @@ import {
   GraphQLAccountNumber,
   GraphQLCuid,
   GraphQLSemVer,
+  GraphQLDeweyDecimal,
+  GraphQLLCCSubclass,
 } from './scalars/index.js';
 import { GraphQLDuration } from './scalars/iso-date/Duration.js';
 
@@ -125,6 +127,8 @@ export {
   AccountNumber as AccountNumberDefinition,
   Cuid as CuidDefinition,
   SemVer as SemVerDefinition,
+  DeweyDecimal as DeweyDecimalDefinition,
+  LCCSubclass as LCCSubclassDefinition,
 } from './typeDefs.js';
 
 export { typeDefs } from './typeDefs.js';
@@ -191,6 +195,7 @@ export {
   GraphQLAccountNumber as AccountNumberResolver,
   GraphQLCuid as CuidResolver,
   GraphQLSemVer as SemVerResolver,
+  GraphQLDeweyDecimal as GraphQLDeweyDecimalResolver,
 };
 
 export const resolvers: Record<string, GraphQLScalarType> = {
@@ -255,6 +260,8 @@ export const resolvers: Record<string, GraphQLScalarType> = {
   AccountNumber: GraphQLAccountNumber,
   Cuid: GraphQLCuid,
   SemVer: GraphQLSemVer,
+  DeweyDecimal: GraphQLDeweyDecimal,
+  LCCSubclass: GraphQLLCCSubclass,
 };
 
 export {
@@ -319,6 +326,8 @@ export {
   AccountNumber as AccountNumberMock,
   Cuid as CuidMock,
   SemVer as SemVerMock,
+  DeweyDecimal as DeweyDecimalMock,
+  LCCSubclass as LCCSubclassMock,
 } from './mocks.js';
 
 export { mocks };
@@ -387,4 +396,6 @@ export {
   GraphQLAccountNumber,
   GraphQLCuid,
   GraphQLSemVer,
+  GraphQLDeweyDecimal,
+  GraphQLLCCSubclass,
 };
