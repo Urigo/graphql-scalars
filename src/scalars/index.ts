@@ -60,3 +60,4 @@ export { GraphQLCuid } from './Cuid.js';
 export { GraphQLSemVer } from './SemVer.js';
 export { GraphQLDeweyDecimal } from './library/DeweyDecimal.js';
 export { GraphQLLCCSubclass } from './library/LCCSubclass.js';
+export { GraphQLIPCPatent } from './patent/IPCPatent.js';

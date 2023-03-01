@@ -64,6 +64,7 @@ import {
   GraphQLSemVer,
   GraphQLDeweyDecimal,
   GraphQLLCCSubclass,
+  GraphQLIPCPatent,
 } from './scalars/index.js';
 import { GraphQLDuration } from './scalars/iso-date/Duration.js';
 
@@ -129,6 +130,7 @@ export {
   SemVer as SemVerDefinition,
   DeweyDecimal as DeweyDecimalDefinition,
   LCCSubclass as LCCSubclassDefinition,
+  IPCPatent as IPCPatentDefinition,
 } from './typeDefs.js';
 
 export { typeDefs } from './typeDefs.js';
@@ -196,6 +198,7 @@ export {
   GraphQLCuid as CuidResolver,
   GraphQLSemVer as SemVerResolver,
   GraphQLDeweyDecimal as GraphQLDeweyDecimalResolver,
+  GraphQLIPCPatent as GraphQLIPCPatentResolver,
 };
 
 export const resolvers: Record<string, GraphQLScalarType> = {
@@ -262,6 +265,7 @@ export const resolvers: Record<string, GraphQLScalarType> = {
   SemVer: GraphQLSemVer,
   DeweyDecimal: GraphQLDeweyDecimal,
   LCCSubclass: GraphQLLCCSubclass,
+  IPCPatent: GraphQLIPCPatent,
 };
 
 export {
@@ -328,6 +332,7 @@ export {
   SemVer as SemVerMock,
   DeweyDecimal as DeweyDecimalMock,
   LCCSubclass as LCCSubclassMock,
+  IPCPatent as IPCPatentMock,
 } from './mocks.js';
 
 export { mocks };
@@ -398,4 +403,5 @@ export {
   GraphQLSemVer,
   GraphQLDeweyDecimal,
   GraphQLLCCSubclass,
+  GraphQLIPCPatent,
 };
