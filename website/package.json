@@ -29,7 +29,7 @@
     ]
   },
   "devDependencies": {
-    "next-sitemap": "4.0.4",
+    "next-sitemap": "4.0.5",
     "@theguild/algolia": "1.1.4",
     "@theguild/tailwind-config": "0.2.1",
     "@types/node": "18.14.6",
