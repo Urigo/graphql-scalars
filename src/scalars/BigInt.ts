@@ -3,7 +3,7 @@ import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, print } from 'graphql
 import { createGraphQLError } from '../error.js';
 import { serializeObject } from './utilities.js';
 
-export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | BigInt | string | number> = /*#__PURE__*/ {
+export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | string | number> = /*#__PURE__*/ {
   name: 'BigInt',
   description: 'The `BigInt` scalar type represents non-fractional signed whole numeric values.',
   serialize(outputValue) {
@@ -19,7 +19,7 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | BigIn
     }
 
     if (typeof coercedValue === 'boolean') {
-      num = BigInt(coercedValue);
+      return coercedValue ? 1 : 0;
     }
 
     if (typeof coercedValue === 'string' && coercedValue !== '') {
@@ -44,31 +44,11 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | BigIn
       return num;
     }
 
-    return new Proxy({} as BigInt, {
-      has(_, prop) {
-        if (prop === 'toJSON') {
-          return true;
-        }
-        return prop in BigInt.prototype;
-      },
-      get(_, prop) {
-        if (prop === 'toJSON') {
-          return function toJSON() {
-            if (num > Number.MAX_SAFE_INTEGER) {
-              return num.toString();
-            }
-            return Number(num);
-          };
-        }
-        if (prop === Symbol.toStringTag) {
-          return num.toString();
-        }
-        if (prop in BigInt.prototype) {
-          return BigInt.prototype[prop].bind(num);
-        }
-        return undefined;
-      },
-    });
+    if (Number.isSafeInteger(Number(num))) {
+      return num;
+    }
+
+    return num.toString();
   },
   parseValue(inputValue) {
     const num = BigInt(inputValue.toString());
