@@ -19,7 +19,7 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | strin
     }
 
     if (typeof coercedValue === 'boolean') {
-      return coercedValue ? 1 : 0;
+      num = BigInt(coercedValue);
     }
 
     if (typeof coercedValue === 'string' && coercedValue !== '') {
@@ -58,7 +58,7 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | strin
     return num;
   },
   parseLiteral(valueNode) {
-    if (valueNode.kind !== Kind.INT) {
+    if (valueNode.kind !== Kind.INT || !Number.isInteger(Number(valueNode.value))) {
       throw createGraphQLError(`BigInt cannot represent non-integer value: ${print(valueNode)}`, { nodes: valueNode });
     }
     const num = BigInt(valueNode.value);
