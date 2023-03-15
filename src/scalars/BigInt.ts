@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, print } from 'graphql';
+import { GraphQLScalarType, GraphQLScalarTypeConfig, print } from 'graphql';
 import { createGraphQLError } from '../error.js';
 import { serializeObject } from './utilities.js';
 
-export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | string | number> = /*#__PURE__*/ {
+export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint | number, bigint | string | number> = /*#__PURE__*/ {
   name: 'BigInt',
   description: 'The `BigInt` scalar type represents non-fractional signed whole numeric values.',
   serialize(outputValue) {
@@ -33,7 +33,7 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | strin
       if (!Number.isInteger(coercedValue)) {
         throw createGraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
       }
-      num = BigInt(coercedValue);
+      return coercedValue;
     }
 
     if (typeof num !== 'bigint') {
@@ -51,21 +51,22 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint, bigint | strin
     return num.toString();
   },
   parseValue(inputValue) {
-    const num = BigInt(inputValue.toString());
-    if (inputValue.toString() !== num.toString()) {
+    const bigint = BigInt(inputValue.toString());
+    if (inputValue.toString() !== bigint.toString()) {
       throw createGraphQLError(`BigInt cannot represent value: ${inputValue}`);
     }
-    return num;
+    return bigint;
   },
   parseLiteral(valueNode) {
-    if (valueNode.kind !== Kind.INT || !Number.isInteger(Number(valueNode.value))) {
+    if (!('value' in valueNode)) {
       throw createGraphQLError(`BigInt cannot represent non-integer value: ${print(valueNode)}`, { nodes: valueNode });
     }
-    const num = BigInt(valueNode.value);
-    if (num.toString() !== valueNode.value) {
-      throw createGraphQLError(`BigInt cannot represent value: ${valueNode.value}`, { nodes: valueNode });
+    const strOrBooleanValue = valueNode.value;
+    const bigint = BigInt(strOrBooleanValue);
+    if (strOrBooleanValue.toString() !== bigint.toString()) {
+      throw createGraphQLError(`BigInt cannot represent value: ${strOrBooleanValue}`);
     }
-    return num;
+    return bigint;
   },
   extensions: {
     codegenScalarType: 'bigint',
