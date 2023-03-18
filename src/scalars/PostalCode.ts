@@ -27,6 +27,7 @@ import { createGraphQLError } from '../error.js';
 // LU - Luxembourg
 // IR - Iran
 // JP - Japan
+// UA - Ukraine
 //
 // This is really a practical decision of weight (of the package) vs. completeness.
 //
@@ -53,7 +54,8 @@ const POSTAL_CODE_REGEXES = [
   /* CH */ /*#__PURE__*//^\d{4}$/,
   /* LU */ /*#__PURE__*//^\d{4}$/,
   /* IR */ /*#__PURE__*//^[1,3-9]{10}$/,
-  /* JP */ /*#__PURE__*//^\d{3}-\d{4}$/
+  /* JP */ /*#__PURE__*//^\d{3}-\d{4}$/,
+  /* UA */ /*#__PURE__*//^\d{5}$/,
 ];
 
 function _testPostalCode(postalCode: string) {
