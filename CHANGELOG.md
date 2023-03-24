@@ -1,5 +1,12 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.21.2
+
+### Patch Changes
+
+- [`7b3811d`](https://github.com/Urigo/graphql-scalars/commit/7b3811d50a507573e5b16d1e14c6d203cee1c8d4)
+  Thanks [@ardatan](https://github.com/ardatan)! - Fix wrong scalar name in the scalar configuration
+
 ## 1.21.1
 
 ### Patch Changes
