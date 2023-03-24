@@ -62,6 +62,11 @@ export const DID = 'scalar DID';
 export const CountryCode = 'scalar CountryCode';
 export const Locale = 'scalar Locale';
 
+export const DeweyDecimal = 'scalar DeweyDecimal';
+export const LCCSubclass = 'scalar LCCSubclass';
+
+export const IPCPatent = 'scalar IPCPatent';
+
 export const typeDefs = [
   Date,
   Time,
@@ -124,4 +129,7 @@ export const typeDefs = [
   AccountNumber,
   Cuid,
   SemVer,
+  DeweyDecimal,
+  LCCSubclass,
+  IPCPatent,
 ];
