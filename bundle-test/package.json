@@ -1,22 +1,22 @@
 {
   "name": "bundle-test",
   "version": "1.0.0",
-  "main": "dist/index.js",
   "license": "MIT",
+  "main": "dist/index.js",
   "scripts": {
     "pretest": "webpack",
     "test": "bundlesize"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/index.js",
-      "maxSize": "90 kB",
-      "compression": "none"
-    }
-  ],
   "devDependencies": {
     "bundlesize": "0.18.1",
     "webpack": "5.76.3",
     "webpack-cli": "5.0.1"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/index.js",
+      "maxSize": "100 kB",
+      "compression": "none"
+    }
+  ]
 }

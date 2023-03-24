@@ -3,18 +3,27 @@
   "version": "0.7.0",
   "private": true,
   "scripts": {
+    "analyze": "cross-env ANALYZE=true next build",
     "build": "next build && next-sitemap --config next-sitemap.config.cjs",
-    "export": "next export",
     "dev": "next dev",
+    "export": "next export",
     "next": "next",
-    "start": "next start",
-    "analyze": "cross-env ANALYZE=true next build"
+    "start": "next start"
   },
   "dependencies": {
     "@theguild/components": "4.5.6",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@theguild/algolia": "1.1.4",
+    "@theguild/tailwind-config": "0.2.1",
+    "@types/node": "18.15.7",
+    "@types/react": "18.0.28",
+    "cross-env": "7.0.3",
+    "next-sitemap": "4.0.6",
+    "typescript": "5.0.2"
   },
   "browserslist": {
     "production": [
@@ -27,14 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "next-sitemap": "4.0.6",
-    "@theguild/algolia": "1.1.4",
-    "@theguild/tailwind-config": "0.2.1",
-    "@types/node": "18.15.7",
-    "@types/react": "18.0.28",
-    "cross-env": "7.0.3",
-    "typescript": "4.9.5"
   }
 }
