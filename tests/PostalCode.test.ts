@@ -235,6 +235,20 @@ describe('PostalCode', () => {
         expect(GraphQLPostalCode.parseLiteral({ value: '123-4567', kind: Kind.STRING }, {})).toBe('123-4567');
       });
     });
+
+    describe('Ukraine', () => {
+      test('serialize', () => {
+        expect(GraphQLPostalCode.serialize('08001')).toBe('08001');
+      });
+
+      test('parseValue', () => {
+        expect(GraphQLPostalCode.parseValue('08001')).toBe('08001');
+      });
+
+      test('parseLiteral', () => {
+        expect(GraphQLPostalCode.parseLiteral({ value: '08001', kind: Kind.STRING }, {})).toBe('08001');
+      });
+    });
   });
 
   describe('invalid', () => {
