@@ -1,5 +1,12 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.21.1
+
+### Patch Changes
+
+- [`f12ccbd`](https://github.com/Urigo/graphql-scalars/commit/f12ccbd98e8d4a9fd4a9f4bf334eb09f4e4f61ba)
+  Thanks [@ardatan](https://github.com/ardatan)! - Add missing `DurationTypeDefinition`
+
 ## 1.21.0
 
 ### Minor Changes
