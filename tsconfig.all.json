@@ -5,7 +5,6 @@
     "module": "esnext",
     "target": "es2018",
     "lib": ["esnext", "dom"],
-    "suppressImplicitAnyIndexErrors": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "sourceMap": true,

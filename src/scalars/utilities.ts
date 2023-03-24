@@ -40,48 +40,54 @@ function _validateFloat(value: any) {
   }
 }
 
-export function processValue(value: any, scalarName: string) {
-  const VALIDATIONS = {
-    NonPositiveInt: {
-      range: VALUE_RANGES.NON_POSITIVE,
-      type: VALUE_TYPES.INT,
-    },
-    PositiveInt: {
-      range: VALUE_RANGES.POSITIVE,
-      type: VALUE_TYPES.INT,
-    },
-    NonNegativeInt: {
-      range: VALUE_RANGES.NON_NEGATIVE,
-      type: VALUE_TYPES.INT,
-    },
-    NegativeInt: {
-      range: VALUE_RANGES.NEGATIVE,
-      type: VALUE_TYPES.INT,
-    },
+const VALIDATIONS = {
+  NonPositiveInt: {
+    range: VALUE_RANGES.NON_POSITIVE,
+    type: VALUE_TYPES.INT,
+  },
+  PositiveInt: {
+    range: VALUE_RANGES.POSITIVE,
+    type: VALUE_TYPES.INT,
+  },
+  NonNegativeInt: {
+    range: VALUE_RANGES.NON_NEGATIVE,
+    type: VALUE_TYPES.INT,
+  },
+  NegativeInt: {
+    range: VALUE_RANGES.NEGATIVE,
+    type: VALUE_TYPES.INT,
+  },
 
-    NonPositiveFloat: {
-      range: VALUE_RANGES.NON_POSITIVE,
-      type: VALUE_TYPES.FLOAT,
-    },
-    PositiveFloat: {
-      range: VALUE_RANGES.POSITIVE,
-      type: VALUE_TYPES.FLOAT,
-    },
-    NonNegativeFloat: {
-      range: VALUE_RANGES.NON_NEGATIVE,
-      type: VALUE_TYPES.FLOAT,
-    },
-    NegativeFloat: {
-      range: VALUE_RANGES.NEGATIVE,
-      type: VALUE_TYPES.FLOAT,
-    },
-  };
+  NonPositiveFloat: {
+    range: VALUE_RANGES.NON_POSITIVE,
+    type: VALUE_TYPES.FLOAT,
+  },
+  PositiveFloat: {
+    range: VALUE_RANGES.POSITIVE,
+    type: VALUE_TYPES.FLOAT,
+  },
+  NonNegativeFloat: {
+    range: VALUE_RANGES.NON_NEGATIVE,
+    type: VALUE_TYPES.FLOAT,
+  },
+  NegativeFloat: {
+    range: VALUE_RANGES.NEGATIVE,
+    type: VALUE_TYPES.FLOAT,
+  },
+};
 
+export function processValue(value: any, scalarName: keyof typeof VALIDATIONS) {
   const { range, type } = VALIDATIONS[scalarName];
 
   /* eslint-disable no-restricted-globals */
   /* eslint-disable use-isnan */
-  if (value === null || typeof value === 'undefined' || isNaN(value) || Number.isNaN(value) || value === Number.NaN) {
+  if (
+    value === null ||
+    typeof value === 'undefined' ||
+    isNaN(value) ||
+    Number.isNaN(value) ||
+    value === Number.NaN
+  ) {
     throw createGraphQLError(`Value is not a number: ${value}`);
   }
   /* eslint-enable */
@@ -109,7 +115,9 @@ export function processValue(value: any, scalarName: string) {
     (range === VALUE_RANGES.POSITIVE && !(parsedValue > 0)) ||
     (range === VALUE_RANGES.NON_POSITIVE && !(parsedValue <= 0))
   ) {
-    throw createGraphQLError(`Value is not a ${VALUE_RANGES[range].toLowerCase().replace('_', '-')} number: ${value}`);
+    throw createGraphQLError(
+      `Value is not a ${VALUE_RANGES[range].toLowerCase().replace('_', '-')} number: ${value}`,
+    );
   }
 
   return parsedValue;
