@@ -1,4 +1,4 @@
-import { GraphQLScalarTypeConfig, ASTNode, Kind, GraphQLScalarType } from 'graphql';
+import { ASTNode, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../../error.js';
 
 /* 1. [A-H] represents the Section Level of the Classification
@@ -24,7 +24,7 @@ const validate = (value: any, ast?: ASTNode) => {
 const specifiedByURL = 'https://www.wipo.int/classifications/ipc/en/';
 
 export const GraphQLIPCPatentConfig = {
-  name: 'IPCPatentClassification',
+  name: 'IPCPatent',
 
   description: `A field whose value is an IPC Class Symbol within the International Patent Classification System: https://www.wipo.int/classifications/ipc/en/`,
 
@@ -34,9 +34,12 @@ export const GraphQLIPCPatentConfig = {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as an IPC Class Symbol but got a: ${ast.kind}`, {
-        nodes: ast,
-      });
+      throw createGraphQLError(
+        `Can only validate strings as an IPC Class Symbol but got a: ${ast.kind}`,
+        {
+          nodes: ast,
+        },
+      );
     }
 
     return validate(ast.value, ast);
@@ -54,4 +57,6 @@ export const GraphQLIPCPatentConfig = {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLIPCPatent: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLIPCPatentConfig);
+export const GraphQLIPCPatent: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLIPCPatentConfig,
+);
