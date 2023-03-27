@@ -1,5 +1,16 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.21.3
+
+### Patch Changes
+
+- [`7460ec4`](https://github.com/Urigo/graphql-scalars/commit/7460ec43ed67003913336bd1f4fac80dc3915a05)
+  Thanks [@ardatan](https://github.com/ardatan)! - Fix the spec reference in \`EmailAddress\`
+
+- [`ef0585a`](https://github.com/Urigo/graphql-scalars/commit/ef0585a16796a27e93c82865bcc1fbd1c6e5c5b3)
+  Thanks [@ardatan](https://github.com/ardatan)! - If JSON serializer is missing for `BigInt` use
+  `number` serialization for safe integers and `string` for unsafe integers by warning the users.
+
 ## 1.21.2
 
 ### Patch Changes
