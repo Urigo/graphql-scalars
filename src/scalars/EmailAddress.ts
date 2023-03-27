@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 const validate = (value: any, ast?: ASTNode) => {
@@ -16,13 +16,13 @@ const validate = (value: any, ast?: ASTNode) => {
   return value;
 };
 
-const specifiedByURL = 'https://www.w3.org/Protocols/rfc822/';
+const specifiedByURL = 'https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address';
 
 export const GraphQLEmailAddressConfig = /*#__PURE__*/ {
   name: 'EmailAddress',
 
   description:
-    'A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/.',
+    'A field whose value conforms to the standard internet email address format as specified in HTML Spec: https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address.',
 
   serialize: validate,
 
@@ -30,7 +30,10 @@ export const GraphQLEmailAddressConfig = /*#__PURE__*/ {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as email addresses but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(
+        `Can only validate strings as email addresses but got a: ${ast.kind}`,
+        { nodes: ast },
+      );
     }
 
     return validate(ast.value, ast);
@@ -47,4 +50,6 @@ export const GraphQLEmailAddressConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLEmailAddress: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLEmailAddressConfig);
+export const GraphQLEmailAddress: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLEmailAddressConfig,
+);
