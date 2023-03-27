@@ -3,7 +3,33 @@ import { GraphQLScalarType, GraphQLScalarTypeConfig, print } from 'graphql';
 import { createGraphQLError } from '../error.js';
 import { serializeObject } from './utilities.js';
 
-export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint | number, bigint | string | number> = /*#__PURE__*/ {
+let warned = false;
+
+function isSafeInteger(val: bigint): boolean {
+  return val <= Number.MAX_SAFE_INTEGER && val >= Number.MIN_SAFE_INTEGER;
+}
+
+function serializeSafeBigInt(val: bigint): bigint | number | string {
+  if ('toJSON' in BigInt.prototype) {
+    return val;
+  }
+  if (isSafeInteger(val)) {
+    return Number(val);
+  }
+  if (!warned) {
+    warned = true;
+    console.warn(
+      'By default, BigInts are not serialized to JSON as numbers but instead as strings which may lead an unintegrity in your data. ' +
+        'To fix this, you can use "json-bigint-patch" to enable correct serialization for BigInts.',
+    );
+  }
+  return val.toString();
+}
+
+export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
+  bigint | number,
+  bigint | string | number
+> = /*#__PURE__*/ {
   name: 'BigInt',
   description: 'The `BigInt` scalar type represents non-fractional signed whole numeric values.',
   serialize(outputValue) {
@@ -33,22 +59,14 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint | number, bigin
       if (!Number.isInteger(coercedValue)) {
         throw createGraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
       }
-      return coercedValue;
+      num = BigInt(coercedValue);
     }
 
     if (typeof num !== 'bigint') {
       throw createGraphQLError(`BigInt cannot represent non-integer value: ${coercedValue}`);
     }
 
-    if ('toJSON' in BigInt.prototype) {
-      return num;
-    }
-
-    if (Number.isSafeInteger(Number(num))) {
-      return num;
-    }
-
-    return num.toString();
+    return serializeSafeBigInt(num);
   },
   parseValue(inputValue) {
     const bigint = BigInt(inputValue.toString());
@@ -59,7 +77,9 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint | number, bigin
   },
   parseLiteral(valueNode) {
     if (!('value' in valueNode)) {
-      throw createGraphQLError(`BigInt cannot represent non-integer value: ${print(valueNode)}`, { nodes: valueNode });
+      throw createGraphQLError(`BigInt cannot represent non-integer value: ${print(valueNode)}`, {
+        nodes: valueNode,
+      });
     }
     const strOrBooleanValue = valueNode.value;
     const bigint = BigInt(strOrBooleanValue);
@@ -77,4 +97,6 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<bigint | number, bigin
   },
 };
 
-export const GraphQLBigInt: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLBigIntConfig);
+export const GraphQLBigInt: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLBigIntConfig,
+);
