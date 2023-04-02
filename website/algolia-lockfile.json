@@ -206,6 +206,21 @@
     "type": "Documentation"
   },
   {
+    "objectID": "scalars-docs-available-scalars-dewey-decimal",
+    "headings": [],
+    "toc": [],
+    "content": "e463b2522fb115f1818bc49d926669bd",
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/dewey-decimal",
+    "domain": "https://www.the-guild.dev/graphql/scalars",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
+    "source": "Scalars",
+    "title": "dewey-decimal",
+    "type": "Documentation"
+  },
+  {
     "objectID": "scalars-docs-available-scalars-did",
     "headings": [],
     "toc": [],
@@ -353,6 +368,21 @@
     ],
     "source": "Scalars",
     "title": "ip",
+    "type": "Documentation"
+  },
+  {
+    "objectID": "scalars-docs-available-scalars-ipc-patent",
+    "headings": [],
+    "toc": [],
+    "content": "5d7cf26a3f4eb3c558c98569fb94e698",
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/ipc-patent",
+    "domain": "https://www.the-guild.dev/graphql/scalars",
+    "hierarchy": [
+      "Docs",
+      "Available Scalars"
+    ],
+    "source": "Scalars",
+    "title": "ipc-patent",
     "type": "Documentation"
   },
   {
