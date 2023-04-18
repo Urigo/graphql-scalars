@@ -19,4 +19,4 @@ jobs:
       nodeVersion: 16
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
-      npmToken: ${{ secrets.NODE_AUTH_TOKEN }
+      npmToken: ${{ secrets.NODE_AUTH_TOKEN }}
