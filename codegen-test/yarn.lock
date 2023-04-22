@@ -501,10 +501,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@graphql-codegen/cli@3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-3.3.0.tgz#12755b6b20b5a24eca7514a6fa00507b61406bef"
-  integrity sha512-KRQoAG0stor/ztMsBxHqxnwQzcM1DEZigwzah1LFej8bh6TT1WpUt37zt6PH0EdlMpelmeN3keY4Pq6GMd4ADw==
+"@graphql-codegen/cli@3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-3.3.1.tgz#103e7a2263126fdde168a1ce623fc2bdc05352f0"
+  integrity sha512-4Es8Y9zFeT0Zx2qRL7L3qXDbbqvXK6aID+8v8lP6gaYD+uWx3Jd4Hsq5vxwVBR+6flm0BW/C85Qm0cvmT7O6LA==
   dependencies:
     "@babel/generator" "^7.18.13"
     "@babel/template" "^7.18.10"
