@@ -1,4 +1,4 @@
-import { GraphQLScalarType, Kind, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 // See: https://www.w3.org/TR/2021/PR-did-core-20210803/#did-syntax
@@ -11,7 +11,10 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!DID_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid DID: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid DID: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
@@ -31,7 +34,9 @@ export const GraphQLDIDConfig = {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as DID but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as DID but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     return validate(ast.value, ast);
@@ -49,4 +54,4 @@ export const GraphQLDIDConfig = {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLDID: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLDIDConfig);
+export const GraphQLDID = /*#__PURE__*/ new GraphQLScalarType(GraphQLDIDConfig);

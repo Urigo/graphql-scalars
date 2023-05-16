@@ -75,9 +75,12 @@ export const GraphQLRoutingNumberConfig: GraphQLScalarTypeConfig<string, string>
       return validate(ast.value, ast);
     }
 
-    throw createGraphQLError(`ABA Routing Transit Number can only parse Integer or String but got '${ast.kind}'`, {
-      nodes: ast,
-    });
+    throw createGraphQLError(
+      `ABA Routing Transit Number can only parse Integer or String but got '${ast.kind}'`,
+      {
+        nodes: ast,
+      },
+    );
   },
   extensions: {
     codegenScalarType: 'string',
@@ -89,4 +92,4 @@ export const GraphQLRoutingNumberConfig: GraphQLScalarTypeConfig<string, string>
   },
 };
 
-export const GraphQLRoutingNumber: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLRoutingNumberConfig);
+export const GraphQLRoutingNumber = /*#__PURE__*/ new GraphQLScalarType(GraphQLRoutingNumberConfig);

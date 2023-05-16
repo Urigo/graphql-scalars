@@ -1,6 +1,6 @@
 import { GraphQLScalarType } from 'graphql';
 
-export const GraphQLVoid: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLVoid = /*#__PURE__*/ new GraphQLScalarType({
   name: 'Void',
 
   description: 'Represents NULL values',

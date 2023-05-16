@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 const RGBA_REGEX =
@@ -10,13 +10,16 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!RGBA_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid RGBA color: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid RGBA color: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
 };
 
-export const GraphQLRGBA: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLRGBA = /*#__PURE__*/ new GraphQLScalarType({
   name: `RGBA`,
 
   description: `A field whose value is a CSS RGBA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba().`,
@@ -31,7 +34,9 @@ export const GraphQLRGBA: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as RGBA colors but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as RGBA colors but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     return validate(ast.value, ast);

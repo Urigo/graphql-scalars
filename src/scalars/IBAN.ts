@@ -1,6 +1,5 @@
 // Based on https://github.com/arhs/iban.js
-
-import { Kind, GraphQLScalarType } from 'graphql';
+import { GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 interface Specification {
@@ -388,7 +387,7 @@ function validate(iban: string): boolean {
   return !!countryStructure && _testIBAN(iban, countryCode, countryStructure);
 }
 
-export const GraphQLIBAN: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLIBAN = /*#__PURE__*/ new GraphQLScalarType({
   name: `IBAN`,
   description: `A field whose value is an International Bank Account Number (IBAN): https://en.wikipedia.org/wiki/International_Bank_Account_Number.`,
   serialize(value: string) {
@@ -417,7 +416,9 @@ export const GraphQLIBAN: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
 
   parseLiteral(ast: { kind: any; value: string }) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as IBANs but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as IBANs but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     if (!validate(ast.value)) {

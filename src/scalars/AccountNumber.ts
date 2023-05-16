@@ -17,7 +17,7 @@ const validate = (account: unknown, ast?: ValueNode): string => {
         ? {
             nodes: ast,
           }
-        : undefined
+        : undefined,
     );
   }
 
@@ -28,7 +28,7 @@ const validate = (account: unknown, ast?: ValueNode): string => {
         ? {
             nodes: ast,
           }
-        : undefined
+        : undefined,
     );
   }
 
@@ -38,7 +38,8 @@ const validate = (account: unknown, ast?: ValueNode): string => {
 export const GraphQLAccountNumberConfig: GraphQLScalarTypeConfig<string, string> = {
   name: 'AccountNumber',
   description:
-    'Banking account number is a string of 5 to 17 alphanumeric values for ' + 'representing an generic account number',
+    'Banking account number is a string of 5 to 17 alphanumeric values for ' +
+    'representing an generic account number',
 
   serialize(value: unknown) {
     return validate(value);
@@ -67,4 +68,4 @@ export const GraphQLAccountNumberConfig: GraphQLScalarTypeConfig<string, string>
   },
 };
 
-export const GraphQLAccountNumber: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLAccountNumberConfig);
+export const GraphQLAccountNumber = /*#__PURE__*/ new GraphQLScalarType(GraphQLAccountNumberConfig);

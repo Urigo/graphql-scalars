@@ -59,7 +59,10 @@ export const GraphQLDurationConfig: GraphQLScalarTypeConfig<string, string> = /*
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as ISO Durations but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(
+        `Can only validate strings as ISO Durations but got a: ${ast.kind}`,
+        { nodes: ast },
+      );
     }
     if (!ISO_DURATION.test(ast.value)) {
       throw createGraphQLError(`Value is not a valid ISO Duration: ${ast.value}`, { nodes: ast });
@@ -77,12 +80,12 @@ export const GraphQLDurationConfig: GraphQLScalarTypeConfig<string, string> = /*
   },
 };
 
-export const GraphQLISO8601Duration: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLISO8601Duration = /*#__PURE__*/ new GraphQLScalarType({
   ...GraphQLDurationConfig,
   name: 'ISO8601Duration',
 });
 
-export const GraphQLDuration: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLDuration = /*#__PURE__*/ new GraphQLScalarType({
   ...GraphQLDurationConfig,
   name: 'Duration',
 });

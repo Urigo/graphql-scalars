@@ -6,12 +6,12 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-
 import { GraphQLScalarType, Kind } from 'graphql';
-import type { GraphQLScalarTypeConfig } from 'graphql'; // eslint-disable-line
-import { validateJSDate, validateTime } from './validator.js';
-import { serializeTime, serializeTimeString, parseTime } from './formatter.js';
+import type { GraphQLScalarTypeConfig } from 'graphql';
 import { createGraphQLError } from '../../error.js';
+import { parseTime, serializeTime, serializeTimeString } from './formatter.js';
+// eslint-disable-line
+import { validateJSDate, validateTime } from './validator.js';
 
 /**
  * An RFC 3339 compliant time scalar.
@@ -45,7 +45,9 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
       throw createGraphQLError(`Time cannot represent an invalid time-string ${value}.`);
     } else {
       throw createGraphQLError(
-        'Time cannot be serialized from a non string, ' + 'or non Date type ' + JSON.stringify(value)
+        'Time cannot be serialized from a non string, ' +
+          'or non Date type ' +
+          JSON.stringify(value),
       );
     }
   },
@@ -61,13 +63,18 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
   },
   parseLiteral(ast): Date {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Time cannot represent non string type ${'value' in ast && ast.value}`, { nodes: ast });
+      throw createGraphQLError(
+        `Time cannot represent non string type ${'value' in ast && ast.value}`,
+        { nodes: ast },
+      );
     }
     const value = ast.value;
     if (validateTime(value)) {
       return parseTime(value);
     }
-    throw createGraphQLError(`Time cannot represent an invalid time-string ${String(value)}.`, { nodes: ast });
+    throw createGraphQLError(`Time cannot represent an invalid time-string ${String(value)}.`, {
+      nodes: ast,
+    });
   },
   extensions: {
     codegenScalarType: 'Date | string',
@@ -78,4 +85,4 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
   },
 };
 
-export const GraphQLTime: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(config);
+export const GraphQLTime = /*#__PURE__*/ new GraphQLScalarType(config);

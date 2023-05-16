@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ValueNode } from 'graphql';
+import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind, ValueNode } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 const CUID_REGEX = /^c[^\s-]{8,}$/i;
@@ -11,7 +11,7 @@ const validate = (value: any, ast?: ValueNode) => {
         ? {
             nodes: ast,
           }
-        : undefined
+        : undefined,
     );
   }
 
@@ -22,7 +22,7 @@ const validate = (value: any, ast?: ValueNode) => {
         ? {
             nodes: ast,
           }
-        : undefined
+        : undefined,
     );
   }
 
@@ -63,4 +63,4 @@ export const GraphQLCuidConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLCuid: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLCuidConfig);
+export const GraphQLCuid = /*#__PURE__*/ new GraphQLScalarType(GraphQLCuidConfig);

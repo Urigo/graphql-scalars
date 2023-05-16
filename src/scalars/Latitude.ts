@@ -18,7 +18,10 @@ const validate = (value: any, ast?: ASTNode): number => {
     typeof value === 'undefined' ||
     Number.isNaN(value)
   ) {
-    throw createGraphQLError(`Value is neither a number nor a string: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is neither a number nor a string: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   if (isDecimal(value)) {
@@ -27,7 +30,7 @@ const validate = (value: any, ast?: ASTNode): number => {
     if (decimalValue < MIN_LAT || decimalValue > MAX_LAT) {
       throw createGraphQLError(
         `Value must be between ${MIN_LAT} and ${MAX_LAT}: ${value}`,
-        ast ? { nodes: ast } : undefined
+        ast ? { nodes: ast } : undefined,
       );
     }
 
@@ -38,10 +41,13 @@ const validate = (value: any, ast?: ASTNode): number => {
     return validate(sexagesimalToDecimal(value));
   }
 
-  throw createGraphQLError(`Value is not a valid latitude: ${value}`, ast ? { nodes: ast } : undefined);
+  throw createGraphQLError(
+    `Value is not a valid latitude: ${value}`,
+    ast ? { nodes: ast } : undefined,
+  );
 };
 
-export const GraphQLLatitude: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLLatitude = /*#__PURE__*/ new GraphQLScalarType({
   name: `Latitude`,
 
   description: `A field whose value is a valid decimal degrees latitude number (53.471): https://en.wikipedia.org/wiki/Latitude`,
@@ -56,9 +62,12 @@ export const GraphQLLatitude: GraphQLScalarType = /*#__PURE__*/ new GraphQLScala
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate floats or strings as latitude but got a: ${ast.kind}`, {
-        nodes: [ast],
-      });
+      throw createGraphQLError(
+        `Can only validate floats or strings as latitude but got a: ${ast.kind}`,
+        {
+          nodes: [ast],
+        },
+      );
     }
 
     return validate(ast.value, ast);

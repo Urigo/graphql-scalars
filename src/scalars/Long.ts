@@ -5,4 +5,4 @@ export const GraphQLLongConfig = /*#__PURE__*/ Object.assign({}, GraphQLBigIntCo
   name: 'Long',
 });
 
-export const GraphQLLong: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLLongConfig);
+export const GraphQLLong = /*#__PURE__*/ new GraphQLScalarType(GraphQLLongConfig);

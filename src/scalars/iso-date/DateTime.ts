@@ -6,12 +6,12 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-
 import { GraphQLScalarType, Kind } from 'graphql';
-import type { GraphQLScalarTypeConfig } from 'graphql'; // eslint-disable-line
-import { validateJSDate, validateDateTime } from './validator.js';
-import { parseDateTime } from './formatter.js';
+import type { GraphQLScalarTypeConfig } from 'graphql';
 import { createGraphQLError } from '../../error.js';
+import { parseDateTime } from './formatter.js';
+// eslint-disable-line
+import { validateDateTime, validateJSDate } from './validator.js';
 
 export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, Date> = /*#__PURE__*/ {
   name: 'DateTime',
@@ -39,7 +39,9 @@ export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, Date> = /*#__P
       }
     } else {
       throw createGraphQLError(
-        'DateTime cannot be serialized from a non string, ' + 'non numeric or non Date type ' + JSON.stringify(value)
+        'DateTime cannot be serialized from a non string, ' +
+          'non numeric or non Date type ' +
+          JSON.stringify(value),
       );
     }
   },
@@ -56,19 +58,27 @@ export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, Date> = /*#__P
       }
       throw createGraphQLError(`DateTime cannot represent an invalid date-time-string ${value}.`);
     }
-    throw createGraphQLError(`DateTime cannot represent non string or Date type ${JSON.stringify(value)}`);
+    throw createGraphQLError(
+      `DateTime cannot represent non string or Date type ${JSON.stringify(value)}`,
+    );
   },
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`DateTime cannot represent non string or Date type ${'value' in ast && ast.value}`, {
-        nodes: ast,
-      });
+      throw createGraphQLError(
+        `DateTime cannot represent non string or Date type ${'value' in ast && ast.value}`,
+        {
+          nodes: ast,
+        },
+      );
     }
     const { value } = ast;
     if (validateDateTime(value)) {
       return parseDateTime(value);
     }
-    throw createGraphQLError(`DateTime cannot represent an invalid date-time-string ${String(value)}.`, { nodes: ast });
+    throw createGraphQLError(
+      `DateTime cannot represent an invalid date-time-string ${String(value)}.`,
+      { nodes: ast },
+    );
   },
   extensions: {
     codegenScalarType: 'Date | string',
@@ -91,4 +101,4 @@ export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, Date> = /*#__P
  *    RFC 3339 date-time strings and unix timestamps
  *    to RFC 3339 UTC date-time strings.
  */
-export const GraphQLDateTime: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLDateTimeConfig);
+export const GraphQLDateTime = /*#__PURE__*/ new GraphQLScalarType(GraphQLDateTimeConfig);

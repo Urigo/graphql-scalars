@@ -97,6 +97,4 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
   },
 };
 
-export const GraphQLBigInt: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLBigIntConfig,
-);
+export const GraphQLBigInt = /*#__PURE__*/ new GraphQLScalarType(GraphQLBigIntConfig);

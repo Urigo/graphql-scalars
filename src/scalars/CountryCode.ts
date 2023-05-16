@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, ValueNode } from 'graphql';
+import { GraphQLScalarType, Kind, ValueNode } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 const COUNTRY_CODE_REGEX =
@@ -12,7 +12,7 @@ const validate = (value: any, ast?: ValueNode) => {
         ? {
             nodes: ast,
           }
-        : undefined
+        : undefined,
     );
   }
 
@@ -23,13 +23,13 @@ const validate = (value: any, ast?: ValueNode) => {
         ? {
             nodes: ast,
           }
-        : undefined
+        : undefined,
     );
   }
   return value;
 };
 
-export const GraphQLCountryCode: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLCountryCode = /*#__PURE__*/ new GraphQLScalarType({
   name: 'CountryCode',
   description: 'A country code as defined by ISO 3166-1 alpha-2',
   serialize(value) {
@@ -42,9 +42,12 @@ export const GraphQLCountryCode: GraphQLScalarType = /*#__PURE__*/ new GraphQLSc
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as country codes but got a: ${ast.kind}`, {
-        nodes: [ast],
-      });
+      throw createGraphQLError(
+        `Can only validate strings as country codes but got a: ${ast.kind}`,
+        {
+          nodes: [ast],
+        },
+      );
     }
     return validate(ast.value, ast);
   },

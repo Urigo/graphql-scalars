@@ -9,7 +9,7 @@ const validateTimeZone = (str: string, ast?: ValueNode) => {
         ? {
             nodes: ast,
           }
-        : undefined
+        : undefined,
     );
   }
 
@@ -24,7 +24,7 @@ const validateTimeZone = (str: string, ast?: ValueNode) => {
           ? {
               nodes: ast,
             }
-          : undefined
+          : undefined,
       );
     } else {
       throw createGraphQLError(
@@ -33,16 +33,17 @@ const validateTimeZone = (str: string, ast?: ValueNode) => {
           ? {
               nodes: ast,
             }
-          : undefined
+          : undefined,
       );
     }
   }
 };
 
-export const GraphQLTimeZone: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLTimeZone = /*#__PURE__*/ new GraphQLScalarType({
   name: 'TimeZone',
 
-  description: 'A field whose value exists in the standard IANA Time Zone Database: https://www.iana.org/time-zones',
+  description:
+    'A field whose value exists in the standard IANA Time Zone Database: https://www.iana.org/time-zones',
 
   serialize: validateTimeZone,
 

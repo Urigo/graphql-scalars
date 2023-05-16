@@ -1,5 +1,5 @@
 // https://github.com/abhiaiyer91/graphql-currency-scalars
-import { Kind, GraphQLScalarType } from 'graphql';
+import { GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 function generateCurrency(value: any) {
@@ -33,13 +33,15 @@ function generateCents(value: string) {
  *    currency strings.
  */
 
-export const GraphQLUSCurrency: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLUSCurrency = /*#__PURE__*/ new GraphQLScalarType({
   name: 'USCurrency',
   description: 'A currency string, such as $21.25',
   serialize: generateCurrency,
   parseValue(value) {
     if (typeof value !== 'string') {
-      throw createGraphQLError(`Currency cannot represent non string type ${JSON.stringify(value)}`);
+      throw createGraphQLError(
+        `Currency cannot represent non string type ${JSON.stringify(value)}`,
+      );
     }
 
     return generateCents(value);
@@ -50,9 +52,12 @@ export const GraphQLUSCurrency: GraphQLScalarType = /*#__PURE__*/ new GraphQLSca
         return generateCents(ast.value);
       }
     }
-    throw createGraphQLError(`Currency cannot represent an invalid currency-string ${JSON.stringify(ast)}.`, {
-      nodes: ast,
-    });
+    throw createGraphQLError(
+      `Currency cannot represent an invalid currency-string ${JSON.stringify(ast)}.`,
+      {
+        nodes: ast,
+      },
+    );
   },
   extensions: {
     codegenScalarType: 'string',

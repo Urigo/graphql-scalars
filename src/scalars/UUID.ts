@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 const validate = (value: any, ast?: ASTNode) => {
@@ -14,7 +14,10 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!UUID_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid UUID: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid UUID: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
@@ -35,7 +38,9 @@ export const GraphQLUUIDConfig: GraphQLScalarTypeConfig<string, string> = /*#__P
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as UUIDs but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as UUIDs but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     return validate(ast.value, ast);
@@ -49,4 +54,4 @@ export const GraphQLUUIDConfig: GraphQLScalarTypeConfig<string, string> = /*#__P
   },
 };
 
-export const GraphQLUUID: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLUUIDConfig);
+export const GraphQLUUID = /*#__PURE__*/ new GraphQLScalarType(GraphQLUUIDConfig);

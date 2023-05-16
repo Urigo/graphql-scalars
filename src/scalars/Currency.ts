@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 const CURRENCY_REGEX =
@@ -10,7 +10,10 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!CURRENCY_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid currency value: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid currency value: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
@@ -33,7 +36,9 @@ export const GraphQLCurrencyConfig = /*#__PURE__*/ {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as a currency but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as a currency but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     return validate(ast.value, ast);
@@ -51,4 +56,4 @@ export const GraphQLCurrencyConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLCurrency: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLCurrencyConfig);
+export const GraphQLCurrency = /*#__PURE__*/ new GraphQLScalarType(GraphQLCurrencyConfig);

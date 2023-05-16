@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType } from 'graphql';
+import { GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 // We're going to start with a limited set as suggested here:
@@ -74,7 +74,7 @@ function _testPostalCode(postalCode: string) {
   return result;
 }
 
-export const GraphQLPostalCode: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLPostalCode = /*#__PURE__*/ new GraphQLScalarType({
   name: 'PostalCode',
 
   description:
@@ -106,7 +106,9 @@ export const GraphQLPostalCode: GraphQLScalarType = /*#__PURE__*/ new GraphQLSca
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as postal codes but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as postal codes but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     if (!_testPostalCode(ast.value)) {

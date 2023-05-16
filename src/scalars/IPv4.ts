@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 export const IPV4_REGEX =
@@ -10,13 +10,16 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!IPV4_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid IPv4 address: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid IPv4 address: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
 };
 
-export const GraphQLIPv4: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLIPv4 = /*#__PURE__*/ new GraphQLScalarType({
   name: `IPv4`,
 
   description: `A field whose value is a IPv4 address: https://en.wikipedia.org/wiki/IPv4.`,
@@ -31,7 +34,10 @@ export const GraphQLIPv4: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as IPv4 addresses but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(
+        `Can only validate strings as IPv4 addresses but got a: ${ast.kind}`,
+        { nodes: ast },
+      );
     }
 
     return validate(ast.value, ast);
