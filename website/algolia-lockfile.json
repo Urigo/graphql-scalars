@@ -526,6 +526,21 @@
     "type": "Documentation"
   },
   {
+    "objectID": "scalars-docs-scalars-local-date-time",
+    "headings": [],
+    "toc": [],
+    "content": "10d39d4e1fe13720622acb04ea4e54c2",
+    "url": "https://www.the-guild.dev/graphql/scalars/docs/scalars/local-date-time",
+    "domain": "https://www.the-guild.dev/graphql/scalars",
+    "hierarchy": [
+      "docs",
+      "scalars"
+    ],
+    "source": "Scalars",
+    "title": "local-date-time",
+    "type": "Documentation"
+  },
+  {
     "objectID": "scalars-docs-scalars-local-end-time",
     "headings": [],
     "toc": [],
