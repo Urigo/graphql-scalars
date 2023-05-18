@@ -10,6 +10,7 @@ export const Duration = 'scalar Duration';
 export const ISO8601Duration = 'scalar ISO8601Duration';
 export const LocalDate = 'scalar LocalDate';
 export const LocalTime = 'scalar LocalTime';
+export const LocalDateTime = 'scalar LocalDateTime';
 export const LocalEndTime = 'scalar LocalEndTime';
 export const EmailAddress = 'scalar EmailAddress';
 export const UUID = `scalar UUID`;
@@ -78,6 +79,7 @@ export const typeDefs = [
   ISO8601Duration,
   LocalDate,
   LocalTime,
+  LocalDateTime,
   LocalEndTime,
   EmailAddress,
   NegativeFloat,

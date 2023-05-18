@@ -9,6 +9,7 @@ export const UtcOffset = () => '+03:00';
 export const Duration = () => 'P3Y6M4DT12H30M5S';
 export const LocalDate = () => '2020-07-19';
 export const LocalTime = () => '08:45:59';
+export const LocalDateTime = () => '2020-07-19T08:45:59';
 export const LocalEndTime = () => '24:00:00';
 export const EmailAddress = () => 'test@test.com';
 export const NegativeFloat = () => -123.45;
@@ -47,7 +48,8 @@ const randomVal = (min: number, max: number) => {
 };
 // https://codepen.io/meowwwls/pen/jbEJRp
 export const HSL = () => `hsl(${randomVal(0, 360)}, ${randomVal(30, 95)}%, ${randomVal(30, 80)}%)`;
-export const HSLA = () => `hsla(${randomVal(0, 360)}, ${randomVal(30, 95)}%, ${randomVal(30, 80)}%, ${Math.random()})`;
+export const HSLA = () =>
+  `hsla(${randomVal(0, 360)}, ${randomVal(30, 95)}%, ${randomVal(30, 80)}%, ${Math.random()})`;
 
 export const IP = () => '2001:0db8:85a3:0000:0000:8a2e:0370:7334';
 // https://stackoverflow.com/questions/43464519/creating-fake-ip-address-using-javascript
@@ -63,10 +65,13 @@ export const IPv4 = () =>
 export const IPv6 = () => '2001:0db8:85a3:0000:0000:8a2e:0370:7334';
 // http://jsfiddle.net/guest271314/qhbC9/
 export const MAC = () =>
-  'XX:XX:XX:XX:XX:XX'.replace(/X/g, () => '0123456789ABCDEF'.charAt(Math.floor(Math.random() * 16)));
+  'XX:XX:XX:XX:XX:XX'.replace(/X/g, () =>
+    '0123456789ABCDEF'.charAt(Math.floor(Math.random() * 16)),
+  );
 export const Port = () => randomVal(0, 65535);
 export const RGB = () => `rgb(${randomVal(0, 255)}, ${randomVal(0, 255)}, ${randomVal(0, 255)})`;
-export const RGBA = () => `rgba(${randomVal(0, 255)}, ${randomVal(0, 255)}, ${randomVal(0, 255)}, ${Math.random()})`;
+export const RGBA = () =>
+  `rgba(${randomVal(0, 255)}, ${randomVal(0, 255)}, ${randomVal(0, 255)}, ${Math.random()})`;
 export const ISBN = () => `978-3-16-148410-0`;
 export const JWT = () => {
   // HEADER: {
