@@ -19,7 +19,11 @@ function hexValidator(value: string) {
   // into smaller pieces to avoid this issue.
   if (value.length > 8) {
     let parsedString = '';
-    for (let startIndex = 0, endIndex = 8; startIndex < value.length; startIndex += 8, endIndex += 8) {
+    for (
+      let startIndex = 0, endIndex = 8;
+      startIndex < value.length;
+      startIndex += 8, endIndex += 8
+    ) {
       parsedString += parseInt(value.slice(startIndex, endIndex), 16).toString(16);
     }
     return parsedString === sanitizedValue;
@@ -35,7 +39,7 @@ function validate(value: Buffer | string | BufferJson, ast?: ValueNode) {
         ? {
             nodes: ast,
           }
-        : undefined
+        : undefined,
     );
   }
   if (typeof value === 'string') {
@@ -48,7 +52,7 @@ function validate(value: Buffer | string | BufferJson, ast?: ValueNode) {
           ? {
               nodes: ast,
             }
-          : undefined
+          : undefined,
       );
     }
     return global.Buffer.from(value, isHex ? 'hex' : 'base64');
@@ -60,38 +64,49 @@ function validate(value: Buffer | string | BufferJson, ast?: ValueNode) {
 function parseObject(ast: ObjectValueNode) {
   const key = ast.fields[0].value;
   const value = ast.fields[1].value;
-  if (ast.fields.length === 2 && key.kind === Kind.STRING && key.value === 'Buffer' && value.kind === Kind.LIST) {
-    return global.Buffer.from(value.values.map((astValue: IntValueNode) => parseInt(astValue.value)));
+  if (
+    ast.fields.length === 2 &&
+    key.kind === Kind.STRING &&
+    key.value === 'Buffer' &&
+    value.kind === Kind.LIST
+  ) {
+    return global.Buffer.from(
+      value.values.map((astValue: IntValueNode) => parseInt(astValue.value)),
+    );
   }
   throw createGraphQLError(`Value is not a JSON representation of Buffer: ${print(ast)}`, {
     nodes: [ast],
   });
 }
 
-export const GraphQLByteConfig: GraphQLScalarTypeConfig<Buffer | string | BufferJson, Buffer> = /*#__PURE__*/ {
-  name: 'Byte',
-  description: 'The `Byte` scalar type represents byte value as a Buffer',
-  serialize: validate,
-  parseValue: validate,
-  parseLiteral(ast: ASTNode) {
-    switch (ast.kind) {
-      case Kind.STRING:
-        return validate(ast.value, ast);
-      case Kind.OBJECT:
-        return parseObject(ast);
-      default:
-        throw createGraphQLError(`Can only parse base64 or hex encoded strings as Byte, but got a: ${ast.kind}`, {
-          nodes: [ast],
-        });
-    }
-  },
-  extensions: {
-    codegenScalarType: 'Buffer | string',
-    jsonSchema: {
-      type: 'string',
-      format: 'byte',
+export const GraphQLByteConfig: GraphQLScalarTypeConfig<Buffer | string | BufferJson, Buffer> =
+  /*#__PURE__*/ {
+    name: 'Byte',
+    description: 'The `Byte` scalar type represents byte value as a Buffer',
+    serialize: validate,
+    parseValue: validate,
+    parseLiteral(ast: ASTNode) {
+      switch (ast.kind) {
+        case Kind.STRING:
+          return validate(ast.value, ast);
+        case Kind.OBJECT:
+          return parseObject(ast);
+        default:
+          throw createGraphQLError(
+            `Can only parse base64 or hex encoded strings as Byte, but got a: ${ast.kind}`,
+            {
+              nodes: [ast],
+            },
+          );
+      }
     },
-  },
-};
+    extensions: {
+      codegenScalarType: 'Buffer | string',
+      jsonSchema: {
+        type: 'string',
+        format: 'byte',
+      },
+    },
+  };
 
-export const GraphQLByte: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLByteConfig);
+export const GraphQLByte = /*#__PURE__*/ new GraphQLScalarType(GraphQLByteConfig);

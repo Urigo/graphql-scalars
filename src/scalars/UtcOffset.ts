@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 const UTC_OFFSET_REGEX = /^([+-]?)(\d{2}):(\d{2})$/;
@@ -8,16 +8,20 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!UTC_OFFSET_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid UTC Offset: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid UTC Offset: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
 };
 
-export const GraphQLUtcOffset: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLUtcOffset = /*#__PURE__*/ new GraphQLScalarType({
   name: 'UtcOffset',
 
-  description: 'A field whose value is a UTC Offset: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones',
+  description:
+    'A field whose value is a UTC Offset: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones',
 
   serialize: validate,
 
@@ -25,7 +29,9 @@ export const GraphQLUtcOffset: GraphQLScalarType = /*#__PURE__*/ new GraphQLScal
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as UTC Offset but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as UTC Offset but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     return validate(ast.value, ast);

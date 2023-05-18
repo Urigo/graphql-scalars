@@ -1,5 +1,4 @@
 // This named export is intended for users of CommonJS. Users of ES modules
-
 import { GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 import { identity, parseLiteral } from './utils.js';
 
@@ -19,4 +18,4 @@ export const GraphQLJSONConfig = /*#__PURE__*/ {
   },
 } as GraphQLScalarTypeConfig<any, any>;
 
-export const GraphQLJSON: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLJSONConfig);
+export const GraphQLJSON = /*#__PURE__*/ new GraphQLScalarType(GraphQLJSONConfig);

@@ -1,7 +1,8 @@
-import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
-const HSL_REGEX = /^hsl\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*\)$/;
+const HSL_REGEX =
+  /^hsl\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*\)$/;
 
 const validate = (value: any, ast?: ASTNode) => {
   if (typeof value !== 'string') {
@@ -9,13 +10,17 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!HSL_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid HSL color: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid HSL color: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
 };
 
-const specifiedByURL = 'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()';
+const specifiedByURL =
+  'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()';
 
 export const GraphQLHSLConfig: GraphQLScalarTypeConfig<string, string> = /*#__PURE__*/ {
   name: `HSL`,
@@ -32,7 +37,9 @@ export const GraphQLHSLConfig: GraphQLScalarTypeConfig<string, string> = /*#__PU
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as HSL colors but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as HSL colors but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     return validate(ast.value, ast);
@@ -50,4 +57,4 @@ export const GraphQLHSLConfig: GraphQLScalarTypeConfig<string, string> = /*#__PU
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLHSL: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLHSLConfig);
+export const GraphQLHSL = /*#__PURE__*/ new GraphQLScalarType(GraphQLHSLConfig);

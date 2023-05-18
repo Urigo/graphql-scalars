@@ -1,4 +1,4 @@
-import { GraphQLScalarTypeConfig, ASTNode, Kind, GraphQLScalarType } from 'graphql';
+import { ASTNode, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../../error.js';
 
 const DEWEY_DECIMAL_REGEX = /^[0-9]{1,3}(?:\.[0-9]+)?$/;
@@ -14,7 +14,8 @@ const validate = (value: any, ast?: ASTNode) => {
   return value;
 };
 
-const specifiedByURL = 'https://www.oclc.org/content/dam/oclc/dewey/resources/summaries/deweysummaries.pdf';
+const specifiedByURL =
+  'https://www.oclc.org/content/dam/oclc/dewey/resources/summaries/deweysummaries.pdf';
 
 export const GraphQLDeweyDecimalConfig = {
   name: 'DeweyDecimal',
@@ -27,7 +28,9 @@ export const GraphQLDeweyDecimalConfig = {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as DeweyDecimal but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as DeweyDecimal but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     return validate(ast.value, ast);
@@ -45,4 +48,4 @@ export const GraphQLDeweyDecimalConfig = {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLDeweyDecimal: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLDeweyDecimalConfig);
+export const GraphQLDeweyDecimal = /*#__PURE__*/ new GraphQLScalarType(GraphQLDeweyDecimalConfig);

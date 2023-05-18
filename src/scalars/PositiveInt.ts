@@ -1,8 +1,8 @@
-import { Kind, GraphQLScalarType } from 'graphql';
+import { GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 import { processValue } from './utilities.js';
 
-export const GraphQLPositiveInt: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLPositiveInt = /*#__PURE__*/ new GraphQLScalarType({
   name: 'PositiveInt',
 
   description: 'Integers that will have a value greater than 0.',
@@ -17,9 +17,12 @@ export const GraphQLPositiveInt: GraphQLScalarType = /*#__PURE__*/ new GraphQLSc
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.INT) {
-      throw createGraphQLError(`Can only validate integers as positive integers but got a: ${ast.kind}`, {
-        nodes: ast,
-      });
+      throw createGraphQLError(
+        `Can only validate integers as positive integers but got a: ${ast.kind}`,
+        {
+          nodes: ast,
+        },
+      );
     }
 
     return processValue(ast.value, 'PositiveInt');

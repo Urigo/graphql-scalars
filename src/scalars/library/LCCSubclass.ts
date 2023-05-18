@@ -1,4 +1,4 @@
-import { GraphQLScalarType, GraphQLScalarTypeConfig, ASTNode, Kind } from 'graphql';
+import { ASTNode, GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../../error.js';
 
 //Regex for the various letter subclasses of the Library of Congress Classification
@@ -31,7 +31,10 @@ export const GraphQLLCCSubclassConfig = {
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as LCC Subclasses but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(
+        `Can only validate strings as LCC Subclasses but got a: ${ast.kind}`,
+        { nodes: ast },
+      );
     }
 
     return validate(ast.value, ast);
@@ -49,4 +52,4 @@ export const GraphQLLCCSubclassConfig = {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLLCCSubclass: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLLCCSubclassConfig);
+export const GraphQLLCCSubclass = /*#__PURE__*/ new GraphQLScalarType(GraphQLLCCSubclassConfig);

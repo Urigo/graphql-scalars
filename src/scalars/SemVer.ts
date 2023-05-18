@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 const SEMVER_REGEX =
@@ -10,13 +10,16 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!SEMVER_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid Semantic Version: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid Semantic Version: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
 };
 
-export const GraphQLSemVer: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLSemVer = /*#__PURE__*/ new GraphQLScalarType({
   name: `SemVer`,
 
   description: `A field whose value is a Semantic Version: https://semver.org`,
@@ -31,7 +34,10 @@ export const GraphQLSemVer: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarT
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as Semantic Version but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(
+        `Can only validate strings as Semantic Version but got a: ${ast.kind}`,
+        { nodes: ast },
+      );
     }
 
     return validate(ast.value, ast);

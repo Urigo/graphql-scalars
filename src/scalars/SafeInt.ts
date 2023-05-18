@@ -1,5 +1,4 @@
 // Based on https://github.com/stems/graphql-bigint/
-
 import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind, print } from 'graphql';
 import { createGraphQLError } from '../error.js';
 import { serializeObject } from './utilities.js';
@@ -46,13 +45,18 @@ export const GraphQLSafeIntConfig = {
 
   parseLiteral(valueNode) {
     if (valueNode.kind !== Kind.INT) {
-      throw createGraphQLError(`SafeInt cannot represent non-integer value: ${print(valueNode)}`, { nodes: valueNode });
+      throw createGraphQLError(`SafeInt cannot represent non-integer value: ${print(valueNode)}`, {
+        nodes: valueNode,
+      });
     }
     const num = parseInt(valueNode.value, 10);
     if (!Number.isSafeInteger(num)) {
-      throw createGraphQLError(`SafeInt cannot represent unsafe integer value: ${valueNode.value}`, {
-        nodes: valueNode,
-      });
+      throw createGraphQLError(
+        `SafeInt cannot represent unsafe integer value: ${valueNode.value}`,
+        {
+          nodes: valueNode,
+        },
+      );
     }
     return num;
   },
@@ -67,4 +71,4 @@ export const GraphQLSafeIntConfig = {
   },
 } as GraphQLScalarTypeConfig<number | string, number>;
 
-export const GraphQLSafeInt: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLSafeIntConfig);
+export const GraphQLSafeInt = /*#__PURE__*/ new GraphQLScalarType(GraphQLSafeIntConfig);

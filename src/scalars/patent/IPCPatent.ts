@@ -57,6 +57,4 @@ export const GraphQLIPCPatentConfig = {
   },
 } as GraphQLScalarTypeConfig<string, string>;
 
-export const GraphQLIPCPatent: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLIPCPatentConfig,
-);
+export const GraphQLIPCPatent = /*#__PURE__*/ new GraphQLScalarType(GraphQLIPCPatentConfig);

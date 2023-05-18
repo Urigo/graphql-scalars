@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 import { processValue } from './utilities.js';
 
@@ -17,9 +17,12 @@ export const GraphQLNonNegativeIntConfig: GraphQLScalarTypeConfig<any, any> = /*
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.INT) {
-      throw createGraphQLError(`Can only validate integers as non-negative integers but got a: ${ast.kind}`, {
-        nodes: ast,
-      });
+      throw createGraphQLError(
+        `Can only validate integers as non-negative integers but got a: ${ast.kind}`,
+        {
+          nodes: ast,
+        },
+      );
     }
 
     return processValue(ast.value, 'NonNegativeInt');
@@ -34,6 +37,6 @@ export const GraphQLNonNegativeIntConfig: GraphQLScalarTypeConfig<any, any> = /*
   },
 };
 
-export const GraphQLNonNegativeInt: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLNonNegativeIntConfig
+export const GraphQLNonNegativeInt = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLNonNegativeIntConfig,
 );

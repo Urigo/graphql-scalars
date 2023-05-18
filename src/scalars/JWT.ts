@@ -10,13 +10,16 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!JWS_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid JWT: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid JWT: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
 };
 
-export const GraphQLJWT: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLJWT = /*#__PURE__*/ new GraphQLScalarType({
   name: `JWT`,
 
   description: `A field whose value is a JSON Web Token (JWT): https://jwt.io/introduction.`,
@@ -31,7 +34,9 @@ export const GraphQLJWT: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as JWT but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as JWT but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     return validate(ast.value, ast);

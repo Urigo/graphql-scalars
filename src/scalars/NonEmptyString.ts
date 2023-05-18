@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 const validate = (value: any, ast?: ASTNode) => {
@@ -7,13 +7,16 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!value.trim().length) {
-    throw createGraphQLError(`Value cannot be an empty string: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value cannot be an empty string: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
 };
 
-export const GraphQLNonEmptyString: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLNonEmptyString = /*#__PURE__*/ new GraphQLScalarType({
   name: 'NonEmptyString',
 
   description: 'A string that cannot be passed as an empty value',

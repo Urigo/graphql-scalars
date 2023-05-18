@@ -6,12 +6,11 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-
 import { GraphQLScalarType, Kind } from 'graphql';
 import type { GraphQLScalarTypeConfig } from 'graphql';
-import { validateJSDate, validateDate } from './validator.js';
-import { serializeDate, parseDate } from './formatter.js';
 import { createGraphQLError } from '../../error.js';
+import { parseDate, serializeDate } from './formatter.js';
+import { validateDate, validateJSDate } from './validator.js';
 
 export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PURE__*/ {
   name: 'Date',
@@ -32,7 +31,9 @@ export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PUR
       }
       throw createGraphQLError(`Date cannot represent an invalid date-string ${value}.`);
     } else {
-      throw createGraphQLError('Date cannot represent a non string, or non Date type ' + JSON.stringify(value));
+      throw createGraphQLError(
+        'Date cannot represent a non string, or non Date type ' + JSON.stringify(value),
+      );
     }
   },
   parseValue(value) {
@@ -47,13 +48,18 @@ export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PUR
   },
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Date cannot represent non string type ${'value' in ast && ast.value}`, { nodes: ast });
+      throw createGraphQLError(
+        `Date cannot represent non string type ${'value' in ast && ast.value}`,
+        { nodes: ast },
+      );
     }
     const { value } = ast;
     if (validateDate(value)) {
       return parseDate(value);
     }
-    throw createGraphQLError(`Date cannot represent an invalid date-string ${String(value)}.`, { nodes: ast });
+    throw createGraphQLError(`Date cannot represent an invalid date-string ${String(value)}.`, {
+      nodes: ast,
+    });
   },
   extensions: {
     codegenScalarType: 'Date | string',
@@ -75,4 +81,4 @@ export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PUR
  *    This scalar serializes javascript Dates and
  *    RFC 3339 date strings to RFC 3339 date strings.
  */
-export const GraphQLDate: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLDateConfig);
+export const GraphQLDate = /*#__PURE__*/ new GraphQLScalarType(GraphQLDateConfig);

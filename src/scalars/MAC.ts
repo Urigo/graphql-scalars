@@ -1,7 +1,8 @@
-import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
-const MAC_REGEX = /^(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})(?:(?:\1|\.)(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})){2}$/;
+const MAC_REGEX =
+  /^(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})(?:(?:\1|\.)(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})){2}$/;
 
 const validate = (value: any, ast?: ASTNode) => {
   if (typeof value !== 'string') {
@@ -9,13 +10,16 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!MAC_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid MAC address: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid MAC address: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
 };
 
-export const GraphQLMAC: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLMAC = /*#__PURE__*/ new GraphQLScalarType({
   name: `MAC`,
 
   description: `A field whose value is a IEEE 802 48-bit MAC address: https://en.wikipedia.org/wiki/MAC_address.`,
@@ -30,7 +34,10 @@ export const GraphQLMAC: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as MAC addresses but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(
+        `Can only validate strings as MAC addresses but got a: ${ast.kind}`,
+        { nodes: ast },
+      );
     }
 
     return validate(ast.value, ast);

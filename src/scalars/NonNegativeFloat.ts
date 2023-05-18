@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLScalarType, GraphQLScalarTypeConfig, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 import { processValue } from './utilities.js';
 
@@ -19,7 +19,7 @@ export const GraphQLNonNegativeFloatConfig: GraphQLScalarTypeConfig<any, any> = 
     if (ast.kind !== Kind.FLOAT && ast.kind !== Kind.INT) {
       throw createGraphQLError(
         `Can only validate floating point numbers as non-negative floating point numbers but got a: ${ast.kind}`,
-        { nodes: ast }
+        { nodes: ast },
       );
     }
 
@@ -35,6 +35,6 @@ export const GraphQLNonNegativeFloatConfig: GraphQLScalarTypeConfig<any, any> = 
   },
 };
 
-export const GraphQLNonNegativeFloat: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(
-  GraphQLNonNegativeFloatConfig
+export const GraphQLNonNegativeFloat = /*#__PURE__*/ new GraphQLScalarType(
+  GraphQLNonNegativeFloatConfig,
 );

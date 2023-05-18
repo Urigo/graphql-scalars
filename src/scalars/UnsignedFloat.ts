@@ -5,4 +5,4 @@ const GraphQLUnsignedFloatConfig = /*#__PURE__*/ Object.assign({}, GraphQLNonNeg
   name: 'UnsignedFloat',
 });
 
-export const GraphQLUnsignedFloat: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLUnsignedFloatConfig);
+export const GraphQLUnsignedFloat = /*#__PURE__*/ new GraphQLScalarType(GraphQLUnsignedFloatConfig);

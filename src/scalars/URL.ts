@@ -1,7 +1,7 @@
-import { Kind, GraphQLScalarType } from 'graphql';
+import { GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
-export const GraphQLURL: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLURL = /*#__PURE__*/ new GraphQLScalarType({
   name: 'URL',
 
   description:
@@ -19,7 +19,9 @@ export const GraphQLURL: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as URLs but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(`Can only validate strings as URLs but got a: ${ast.kind}`, {
+        nodes: ast,
+      });
     }
 
     if (ast.value === null) {

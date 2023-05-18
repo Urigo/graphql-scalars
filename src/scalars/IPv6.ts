@@ -1,4 +1,4 @@
-import { Kind, GraphQLScalarType, ASTNode } from 'graphql';
+import { ASTNode, GraphQLScalarType, Kind } from 'graphql';
 import { createGraphQLError } from '../error.js';
 
 export const IPV6_REGEX =
@@ -9,13 +9,16 @@ const validate = (value: any, ast?: ASTNode) => {
   }
 
   if (!IPV6_REGEX.test(value)) {
-    throw createGraphQLError(`Value is not a valid IPv6 address: ${value}`, ast ? { nodes: ast } : undefined);
+    throw createGraphQLError(
+      `Value is not a valid IPv6 address: ${value}`,
+      ast ? { nodes: ast } : undefined,
+    );
   }
 
   return value;
 };
 
-export const GraphQLIPv6: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLIPv6 = /*#__PURE__*/ new GraphQLScalarType({
   name: `IPv6`,
 
   description: `A field whose value is a IPv6 address: https://en.wikipedia.org/wiki/IPv6.`,
@@ -30,7 +33,10 @@ export const GraphQLIPv6: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarTyp
 
   parseLiteral(ast) {
     if (ast.kind !== Kind.STRING) {
-      throw createGraphQLError(`Can only validate strings as IPv6 addresses but got a: ${ast.kind}`, { nodes: ast });
+      throw createGraphQLError(
+        `Can only validate strings as IPv6 addresses but got a: ${ast.kind}`,
+        { nodes: ast },
+      );
     }
 
     return validate(ast.value, ast);

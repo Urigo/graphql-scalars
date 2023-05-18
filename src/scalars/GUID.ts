@@ -5,4 +5,4 @@ export const GraphQLGUIDConfig = /*#__PURE__*/ Object.assign({}, GraphQLUUIDConf
   name: 'GUID',
 });
 
-export const GraphQLGUID: GraphQLScalarType = /*#__PURE__*/ new GraphQLScalarType(GraphQLGUIDConfig);
+export const GraphQLGUID = /*#__PURE__*/ new GraphQLScalarType(GraphQLGUIDConfig);
