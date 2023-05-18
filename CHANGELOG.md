@@ -1,5 +1,12 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.22.0
+
+### Minor Changes
+
+- [`2e9ebad`](https://github.com/Urigo/graphql-scalars/commit/2e9ebad9dfcc578a37d8a5858d75053b7124a666)
+  Thanks [@ardatan](https://github.com/ardatan)! - New `LocalDateTimeString` scalar
+
 ## 1.21.3
 
 ### Patch Changes
