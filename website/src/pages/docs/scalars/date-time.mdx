@@ -24,3 +24,8 @@ When expected as an input type, only RFC 3339 compliant date-time strings are ac
 query error indicating an incorrect type.
 
 <Callout>Taken from [graphql-iso-date](https://github.com/excitement-engineer/graphql-iso-date)</Callout>
+
+<Callout>
+    This scalar serializes into [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) and parses into [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date).
+    But if you want to get the value serialized into an ISO string, you can use the `DateTimeISO` scalar.
+</Callout>

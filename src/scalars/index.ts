@@ -1,6 +1,8 @@
 export { GraphQLDate } from './iso-date/Date.js';
 export { GraphQLTime } from './iso-date/Time.js';
 export { GraphQLDateTime } from './iso-date/DateTime.js';
+export { GraphQLDateTimeISO } from './iso-date/DateTimeISO.js';
+export { GraphQLDuration } from './iso-date/Duration.js';
 export { GraphQLTimestamp } from './Timestamp.js';
 export { GraphQLTimeZone } from './TimeZone.js';
 export { GraphQLUtcOffset } from './UtcOffset.js';

@@ -3,6 +3,7 @@ const ByteMock = () => new Uint8Array([1988, 1981, 1965, 1963, 1959, 1955]);
 const DateMock = () => '2007-12-03';
 export const Time = () => '10:15:30Z';
 export const DateTime = () => '2007-12-03T10:15:30Z';
+export const DateTimeISO = () => '2007-12-03T10:15:30Z';
 export const Timestamp = () => 1592577642;
 export const TimeZone = () => 'Etc/UTC';
 export const UtcOffset = () => '+03:00';

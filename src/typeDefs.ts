@@ -5,6 +5,7 @@ export const Time = 'scalar Time';
 export const Timestamp = 'scalar Timestamp';
 export const TimeZone = 'scalar TimeZone';
 export const DateTime = 'scalar DateTime';
+export const DateTimeISO = 'scalar DateTimeISO';
 export const UtcOffset = 'scalar UtcOffset';
 export const Duration = 'scalar Duration';
 export const ISO8601Duration = 'scalar ISO8601Duration';
@@ -72,6 +73,7 @@ export const typeDefs = [
   Date,
   Time,
   DateTime,
+  DateTimeISO,
   Timestamp,
   TimeZone,
   UtcOffset,
