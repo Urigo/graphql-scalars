@@ -1,5 +1,12 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.22.1
+
+### Patch Changes
+
+- [`613d0b4`](https://github.com/Urigo/graphql-scalars/commit/613d0b4a41cb9c4f540ed9e55e5c62ecafa05d5c)
+  Thanks [@ardatan](https://github.com/ardatan)! - Introduce DateTimeISO scalar
+
 ## 1.22.0
 
 ### Minor Changes
