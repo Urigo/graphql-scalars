@@ -2165,10 +2165,10 @@ big-integer@^1.6.44:
   resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.51.tgz#0df92a5d9880560d3ff2d5fd20245c889d130686"
   integrity sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg==
 
-bob-the-bundler@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/bob-the-bundler/-/bob-the-bundler-7.0.0.tgz#18f5ba3d5de1fd12b1d743045dfcb49f3112dbcf"
-  integrity sha512-W758FeY/k9p8x4VVdT6Qaf3yLKMbAtwWkKm1+REpwgb5T750S8BkMwXv1VyPunOX51FUHhDB96qNrTnGSuGszQ==
+bob-the-bundler@7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/bob-the-bundler/-/bob-the-bundler-7.0.1.tgz#ef86131674de60f2616801d55a507594b4cbd88f"
+  integrity sha512-TFpj2AcCzTNVyMZ5ixHqJndJ9KyIUGrgTMMciz88X0HCRDujoUQL+D+61shAY+K20bM4q5Yn/NunbdiPC9drjA==
   dependencies:
     consola "^3.0.0"
     execa "7.1.1"
