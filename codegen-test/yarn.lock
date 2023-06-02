@@ -502,10 +502,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@graphql-codegen/cli@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-4.0.0.tgz#097718b9f913103ee1318acda2c3df8ba0a516f6"
-  integrity sha512-wmJXs48Apu+dXQ7utHa3cY1ulFJuflrqpbkhLwxfIAHjSfQouWCn2k7Udq+5PqbCLTDdbUQvw6vGZ5hgud0XuQ==
+"@graphql-codegen/cli@4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-4.0.1.tgz#2bd494d55aaef0dfe86eefe1fa42bff81f5147fe"
+  integrity sha512-/H4imnGOl3hoPXLKmIiGUnXpmBmeIClSZie/YHDzD5N59cZlGGJlIOOrUlOTDpJx5JNU1MTQcRjyTToOYM5IfA==
   dependencies:
     "@babel/generator" "^7.18.13"
     "@babel/template" "^7.18.10"
@@ -528,7 +528,7 @@
     cosmiconfig "^8.1.3"
     debounce "^1.2.0"
     detect-indent "^6.0.0"
-    graphql-config "^5.0.1"
+    graphql-config "^5.0.2"
     inquirer "^8.0.0"
     is-glob "^4.0.1"
     jiti "^1.17.1"
@@ -1670,10 +1670,10 @@ globby@^11.0.3:
     merge2 "^1.4.1"
     slash "^3.0.0"
 
-graphql-config@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/graphql-config/-/graphql-config-5.0.1.tgz#4a0d2d3db0b6b3bd856e4db7627e5c8970e10a8d"
-  integrity sha512-cOi5RUK1QOoqwfzCeyVxRn6nsFqzjq7rs93ZvqT+gNxTgmhpROg3ZetgdbhC/yUWnguDM4S9GoHak+Xh9jLZeA==
+graphql-config@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/graphql-config/-/graphql-config-5.0.2.tgz#7e962f94ccddcc2ee0aa71d75cf4491ec5092bdb"
+  integrity sha512-7TPxOrlbiG0JplSZYCyxn2XQtqVhXomEjXUmWJVSS5ET1nPhOJSsIb/WTwqWhcYX6G0RlHXSj9PLtGTKmxLNGg==
   dependencies:
     "@graphql-tools/graphql-file-loader" "^8.0.0"
     "@graphql-tools/json-file-loader" "^8.0.0"
