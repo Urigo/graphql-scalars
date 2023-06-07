@@ -10,11 +10,11 @@ function isSafeInteger(val: bigint): boolean {
 }
 
 function serializeSafeBigInt(val: bigint): bigint | number | string {
-  if ('toJSON' in BigInt.prototype) {
-    return val;
-  }
   if (isSafeInteger(val)) {
     return Number(val);
+  }
+  if ('toJSON' in BigInt.prototype) {
+    return val;
   }
   if (!warned) {
     warned = true;

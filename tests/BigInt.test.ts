@@ -1,7 +1,7 @@
-import { GraphQLObjectType, GraphQLNonNull, GraphQLInputObjectType } from 'graphql/type/definition';
-import { GraphQLSchema, graphql } from 'graphql';
-import { GraphQLBigInt } from '../src/scalars/BigInt.js';
+import { graphql, GraphQLSchema } from 'graphql';
+import { GraphQLInputObjectType, GraphQLNonNull, GraphQLObjectType } from 'graphql/type/definition';
 import 'json-bigint-patch';
+import { GraphQLBigInt } from '../src/scalars/BigInt.js';
 
 describe('BigInt', () => {
   const Query = new GraphQLObjectType({
@@ -35,7 +35,7 @@ describe('BigInt', () => {
             fields: {
               result: { type: new GraphQLNonNull(GraphQLBigInt) },
             },
-          })
+          }),
         ),
         args: {
           input: {
@@ -45,7 +45,7 @@ describe('BigInt', () => {
                 fields: {
                   num: { type: new GraphQLNonNull(GraphQLBigInt) },
                 },
-              })
+              }),
             ),
           },
         },
@@ -99,11 +99,11 @@ describe('BigInt', () => {
     const { data, errors } = await graphql({ schema, source: validQuery });
     expect(errors).toEqual(undefined);
     expect(data).toEqual({
-      a: 2n,
-      b: 2147483647n,
-      c: 2147483648n,
-      d: 2147483649n,
-      e: 439857257821346n,
+      a: 2,
+      b: 2147483647,
+      c: 2147483648,
+      d: 2147483649,
+      e: 439857257821346,
       f: 9007199254740993n,
     });
   });
@@ -115,9 +115,9 @@ describe('BigInt', () => {
     });
     expect(errors).toEqual(undefined);
     expect(data).toEqual({
-      a: { result: 2147483647n },
-      b: { result: 9007199254740991n },
-      d: { result: 2n },
+      a: { result: 2147483647 },
+      b: { result: 9007199254740991 },
+      d: { result: 2 },
     });
   });
 });
