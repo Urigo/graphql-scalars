@@ -1,5 +1,12 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.22.2
+
+### Patch Changes
+
+- [`b6d930f`](https://github.com/Urigo/graphql-scalars/commit/b6d930fd31f8ad8b4aa2532f4e25d5b15fcadd4a)
+  Thanks [@ardatan](https://github.com/ardatan)! - Serialize bigints as numbers if possible
+
 ## 1.22.1
 
 ### Patch Changes
