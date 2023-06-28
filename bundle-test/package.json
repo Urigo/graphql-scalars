@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "bundlesize": "0.18.1",
-    "webpack": "5.88.0",
+    "webpack": "5.88.1",
     "webpack-cli": "5.1.4"
   },
   "bundlesize": [
