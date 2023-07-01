@@ -1,5 +1,6 @@
 import { GraphQLScalarType, Kind, ValueNode } from 'graphql';
 import { createGraphQLError } from '../error.js';
+import { ObjectID } from './library/bson/index.js';
 
 const MONGODB_OBJECTID_REGEX = /*#__PURE__*/ /^[A-Fa-f0-9]{24}$/;
 
@@ -22,7 +23,7 @@ export const GraphQLObjectID = /*#__PURE__*/ new GraphQLScalarType({
       throw createGraphQLError(`Value is not a valid mongodb object id of form: ${value}`);
     }
 
-    return value;
+    return new ObjectID(value);
   },
 
   parseLiteral(ast: ValueNode) {
@@ -41,7 +42,7 @@ export const GraphQLObjectID = /*#__PURE__*/ new GraphQLScalarType({
       });
     }
 
-    return ast.value;
+    return new ObjectID(ast.value);
   },
   extensions: {
     codegenScalarType: 'string',
