@@ -10,12 +10,13 @@ export const GraphQLObjectID = /*#__PURE__*/ new GraphQLScalarType({
   description:
     'A field whose value conforms with the standard mongodb object ID as described here: https://docs.mongodb.com/manual/reference/method/ObjectId/#ObjectId. Example: 5e5677d71bdc2ae76344968c',
 
-  serialize(value: string) {
-    if (!MONGODB_OBJECTID_REGEX.test(value)) {
-      throw createGraphQLError(`Value is not a valid mongodb object id of form: ${value}`);
+  serialize(value: ObjectID | string) {
+    const valueToString = value.toString();
+    if (!MONGODB_OBJECTID_REGEX.test(valueToString)) {
+      throw createGraphQLError(`Value is not a valid mongodb object id of form: ${valueToString}`);
     }
 
-    return value;
+    return valueToString;
   },
 
   parseValue(value: string) {

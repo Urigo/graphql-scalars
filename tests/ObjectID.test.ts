@@ -6,8 +6,14 @@ import { GraphQLObjectID } from '../src/scalars/ObjectID.js';
 
 describe('ObjectId', () => {
   describe('valid', () => {
-    test('serialize', () => {
+    test('serialize string', () => {
       expect(GraphQLObjectID.serialize('5e5677d71bdc2ae76344968c')).toBe(
+        '5e5677d71bdc2ae76344968c',
+      );
+    });
+
+    test('serialize ObjectId', () => {
+      expect(GraphQLObjectID.serialize(new ObjectId('5e5677d71bdc2ae76344968c'))).toBe(
         '5e5677d71bdc2ae76344968c',
       );
     });
