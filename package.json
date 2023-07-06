@@ -51,8 +51,8 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@babel/core": "7.22.6",
-    "@babel/preset-env": "7.22.6",
+    "@babel/core": "7.22.8",
+    "@babel/preset-env": "7.22.7",
     "@babel/preset-typescript": "7.22.5",
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.2",
@@ -74,7 +74,7 @@
     "eslint-plugin-standard": "5.0.0",
     "graphql": "16.7.1",
     "husky": "8.0.3",
-    "jest": "29.6.0",
+    "jest": "29.6.1",
     "json-bigint-patch": "0.0.8",
     "lint-staged": "13.2.3",
     "mockdate": "3.0.5",
