@@ -80,7 +80,7 @@
     "mockdate": "3.0.5",
     "mongodb": "5.7.0",
     "prettier": "2.8.8",
-    "semver": "7.5.3",
+    "semver": "7.5.4",
     "ts-jest": "29.1.1",
     "typescript": "5.1.6"
   },
