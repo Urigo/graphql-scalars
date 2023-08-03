@@ -11,7 +11,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@theguild/components": "4.6.5",
+    "@theguild/components": "5.2.1",
     "next": "13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0"
