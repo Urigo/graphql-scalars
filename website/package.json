@@ -22,7 +22,7 @@
     "@types/node": "18.17.4",
     "@types/react": "18.2.20",
     "cross-env": "7.0.3",
-    "next-sitemap": "4.1.8",
+    "next-sitemap": "4.2.2",
     "typescript": "5.1.6"
   },
   "browserslist": {
