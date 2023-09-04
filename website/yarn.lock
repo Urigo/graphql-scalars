@@ -782,9 +782,9 @@
   integrity sha512-NfQ4gyz38SL8sDNrSixxU2Os1a5xcdFxipAFxYEuLUlvU2uDwS4NUpsImcf1//SlWItCVMMLiylsxbmNMToV/g==
 
 "@types/unist@^2", "@types/unist@^2.0.0":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.7.tgz#5b06ad6894b236a1d2bd6b2f07850ca5c59cf4d6"
-  integrity sha512-cputDpIbFgLUaGQn6Vqg3/YsJwxUwHLO13v3i5ouxT4lat0khip9AEWxtERujXV9wxIB1EyF97BSJFt6vpdI8g==
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.8.tgz#bb197b9639aa1a04cf464a617fe800cccd92ad5c"
+  integrity sha512-d0XxK3YTObnWVp6rZuev3c49+j4Lo8g4L1ZRm9z5L0xpoZycUPshHgczK5gsUMaZOstjVYYi09p5gYvUtfChYw==
 
 "@types/unist@^3.0.0":
   version "3.0.0"
@@ -997,9 +997,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001406, caniuse-lite@^1.0.30001517, caniuse-lite@^1.0.30001520:
-  version "1.0.30001524"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001524.tgz#1e14bce4f43c41a7deaeb5ebfe86664fe8dadb80"
-  integrity sha512-Jj917pJtYg9HSJBF95HVX3Cdr89JUyLT4IZ8SvM5aDRni95swKgYi3TgYLH5hnGfPE/U1dg6IfZ50UsIlLkwSA==
+  version "1.0.30001525"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001525.tgz#d2e8fdec6116ffa36284ca2c33ef6d53612fe1c8"
+  integrity sha512-/3z+wB4icFt3r0USMwxujAqRvaD/B7rvGTsKhbhSQErVrJvkZCLhgNLJxU8MevahQVH6hCU9FsHdNUFbiwmE7Q==
 
 ccount@^2.0.0:
   version "2.0.1"
@@ -1676,9 +1676,9 @@ duplexer@^0.1.2:
   integrity sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==
 
 electron-to-chromium@^1.4.477:
-  version "1.4.503"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.503.tgz#7bd43927ea9b4198697672d28d8fbd0da016a7a1"
-  integrity sha512-LF2IQit4B0VrUHFeQkWhZm97KuJSGF2WJqq1InpY+ECpFRkXd8yTIaTtJxsO0OKDmiBYwWqcrNaXOurn2T2wiA==
+  version "1.4.508"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.508.tgz#5641ff2f5ba11df4bd960fe6a2f9f70aa8b9af96"
+  integrity sha512-FFa8QKjQK/A5QuFr2167myhMesGrhlOBD+3cYNxO9/S4XzHEXesyTD/1/xF644gC8buFPz3ca6G1LOQD0tZrrg==
 
 elkjs@^0.8.2:
   version "0.8.2"
@@ -1861,9 +1861,9 @@ focus-visible@^5.2.0:
   integrity sha512-Rwix9pBtC1Nuy5wysTmKy+UjbDJpIfg8eHjw0rjZ1mX4GNLz1Bmd16uDpI3Gk1i70Fgcs8Csg2lPm8HULFg9DQ==
 
 fraction.js@^4.2.0:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.1.tgz#14b4cc886575a5684f8d5fd5759c5db376bb7bb8"
-  integrity sha512-/KxoyCnPM0GwYI4NN0Iag38Tqt+od3/mLuguepLgCAKPn0ZhC544nssAW0tG2/00zXEYl9W+7hwAIpLHo6Oc7Q==
+  version "4.3.6"
+  resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.6.tgz#e9e3acec6c9a28cf7bc36cbe35eea4ceb2c5c92d"
+  integrity sha512-n2aZ9tNfYDwaHhvFTkhFErqOMIb8uyzSQ+vGJBjZyanAKZVbGUQ1sngfk9FdkBw7G26O7AgNjLcecLffD1c7eg==
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -3635,9 +3635,9 @@ postcss@8.4.14:
     source-map-js "^1.0.2"
 
 postcss@^8.4.23, postcss@^8.4.25:
-  version "8.4.28"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.28.tgz#c6cc681ed00109072816e1557f889ef51cf950a5"
-  integrity sha512-Z7V5j0cq8oEKyejIKfpD8b4eBy9cwW2JWPk0+fB1HOAMsfHbnAXLLS+PfVWlzMSLQaWttKDt607I0XHmpE67Vw==
+  version "8.4.29"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.29.tgz#33bc121cf3b3688d4ddef50be869b2a54185a1dd"
+  integrity sha512-cbI+jaqIeu/VGqXEarWkRCCffhjgXc0qjBtXpqJhTBohMUjUQnbBr0xqX3vEKudc4iviTewcJo5ajcec5+wdJw==
   dependencies:
     nanoid "^3.3.6"
     picocolors "^1.0.0"
@@ -3658,9 +3658,9 @@ prop-types@^15, prop-types@^15.6.2, prop-types@^15.7.2:
     react-is "^16.13.1"
 
 property-information@^6.0.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/property-information/-/property-information-6.2.0.tgz#b74f522c31c097b5149e3c3cb8d7f3defd986a1d"
-  integrity sha512-kma4U7AFCTwpqq5twzC1YVIDXSqg6qQK6JN0smOw8fgRy1OkMi0CYSzFmsy6dnqSenamAtj0CyXMUJ1Mf6oROg==
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/property-information/-/property-information-6.3.0.tgz#ba4a06ec6b4e1e90577df9931286953cdf4282c3"
+  integrity sha512-gVNZ74nqhRMiIUYWGQdosYetaKc83x8oT41a0LlV3AAFCAZwCpg4vmGkq8t34+cUhp3cnM4XDiU/7xlgK7HGrg==
 
 protocols@^2.0.0, protocols@^2.0.1:
   version "2.0.1"
@@ -3979,9 +3979,9 @@ shebang-regex@^3.0.0:
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
 shiki@^0.14.2:
-  version "0.14.3"
-  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.14.3.tgz#d1a93c463942bdafb9866d74d619a4347d0bbf64"
-  integrity sha512-U3S/a+b0KS+UkTyMjoNojvTgrBHjgp7L6ovhFVZsXmBGnVdQ4K4U9oK0z63w538S91ATngv1vXigHCSWOwnr+g==
+  version "0.14.4"
+  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.14.4.tgz#2454969b466a5f75067d0f2fa0d7426d32881b20"
+  integrity sha512-IXCRip2IQzKwxArNNq1S+On4KPML3Yyn8Zzs/xRgcgOWIr8ntIK3IKzjFPfjy/7kt9ZMjc+FItfqHRBg8b6tNQ==
   dependencies:
     ansi-sequence-parser "^1.1.0"
     jsonc-parser "^3.2.0"
@@ -4519,9 +4519,9 @@ yallist@^4.0.0:
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
 yaml@^2.1.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.3.1.tgz#02fe0975d23cd441242aa7204e09fc28ac2ac33b"
-  integrity sha512-2eHWfjaoXgTBC2jNM1LRef62VQa0umtvRiDSk6HSzW7RvS5YtkabJrwYLLEKWBc8a5U2PTSCs+dJjUTJdlHsWQ==
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.3.2.tgz#f522db4313c671a0ca963a75670f1c12ea909144"
+  integrity sha512-N/lyzTPaJasoDmfV7YTrYCI0G/3ivm/9wdG0aHuheKowWQwGTsK0Eoiw6utmzAnI6pkJa0DUVygvp3spqqEKXg==
 
 yocto-queue@^0.1.0:
   version "0.1.0"
