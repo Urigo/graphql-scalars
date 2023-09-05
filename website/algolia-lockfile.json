@@ -179,7 +179,7 @@
       "scalars"
     ],
     "source": "Scalars",
-    "title": "cuid",
+    "title": "Cuid",
     "type": "Documentation"
   },
   {
@@ -267,7 +267,7 @@
       "scalars"
     ],
     "source": "Scalars",
-    "title": "dewey-decimal",
+    "title": "DeweyDecimal",
     "type": "Documentation"
   },
   {
@@ -417,7 +417,7 @@
       "scalars"
     ],
     "source": "Scalars",
-    "title": "ip",
+    "title": "IP",
     "type": "Documentation"
   },
   {
@@ -432,7 +432,7 @@
       "scalars"
     ],
     "source": "Scalars",
-    "title": "ipc-patent",
+    "title": "IPCPatent",
     "type": "Documentation"
   },
   {
@@ -537,7 +537,7 @@
       "scalars"
     ],
     "source": "Scalars",
-    "title": "local-date-time",
+    "title": "LocalDateTime",
     "type": "Documentation"
   },
   {
@@ -897,7 +897,7 @@
       "scalars"
     ],
     "source": "Scalars",
-    "title": "semver",
+    "title": "SemVer",
     "type": "Documentation"
   },
   {
