@@ -59,7 +59,7 @@
     "@graphql-tools/merge": "9.0.0",
     "@graphql-tools/schema": "10.0.0",
     "@theguild/prettier-config": "2.0.1",
-    "@types/jest": "29.5.4",
+    "@types/jest": "29.5.5",
     "@types/mongodb": "4.0.6",
     "@types/node": "18.17.16",
     "@typescript-eslint/eslint-plugin": "6.7.0",
