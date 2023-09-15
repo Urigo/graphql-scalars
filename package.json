@@ -51,7 +51,7 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@babel/core": "7.22.17",
+    "@babel/core": "7.22.19",
     "@babel/preset-env": "7.22.15",
     "@babel/preset-typescript": "7.22.15",
     "@changesets/changelog-github": "0.4.8",
@@ -78,7 +78,7 @@
     "json-bigint-patch": "0.0.8",
     "lint-staged": "14.0.1",
     "mockdate": "3.0.5",
-    "mongodb": "6.0.0",
+    "mongodb": "6.1.0",
     "prettier": "3.0.3",
     "semver": "7.5.4",
     "ts-jest": "29.1.1",
