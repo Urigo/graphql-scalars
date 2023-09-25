@@ -87,7 +87,7 @@ describe('GraphQLDateTime', () => {
     // Serializes Unix timestamp
     [
       [854325678, '1997-01-27T00:41:18.000Z'],
-      [866478, '1970-01-11T03:28:55.000Z'],
+      [866478, '1970-01-11T00:41:18.000Z'],
       // The maximum representable unix timestamp
       [2147483647, '2038-01-19T03:14:07.000Z'],
       // The minimum representable unit timestamp
