@@ -5,7 +5,7 @@ import { serializeObject } from './utilities.js';
 
 let warned = false;
 
-function isSafeInteger(val: bigint): boolean {
+function isSafeInteger(val: bigint | number): boolean {
   return val <= Number.MAX_SAFE_INTEGER && val >= Number.MIN_SAFE_INTEGER;
 }
 
@@ -13,17 +13,24 @@ function serializeSafeBigInt(val: bigint): bigint | number | string {
   if (isSafeInteger(val)) {
     return Number(val);
   }
-  if ('toJSON' in BigInt.prototype) {
+  if (isBigIntSerializable()) {
     return val;
   }
-  if (!warned) {
-    warned = true;
-    console.warn(
-      'By default, BigInts are not serialized to JSON as numbers but instead as strings which may lead an unintegrity in your data. ' +
-        'To fix this, you can use "json-bigint-patch" to enable correct serialization for BigInts.',
-    );
-  }
   return val.toString();
+}
+
+function isBigIntSerializable() {
+  if (!('toJSON' in BigInt.prototype)) {
+    if (!warned) {
+      warned = true;
+      console.warn(
+        'By default, BigInts are not serialized to JSON as numbers but instead as strings which may lead an unintegrity in your data. ' +
+          'To fix this, you can use "json-bigint-patch" to enable correct serialization for BigInts.',
+      );
+    }
+    return false;
+  }
+  return true;
 }
 
 export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
@@ -73,6 +80,9 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
     if (inputValue.toString() !== bigint.toString()) {
       throw createGraphQLError(`BigInt cannot represent value: ${inputValue}`);
     }
+    if (!isSafeInteger(bigint) && !isBigIntSerializable()) {
+      return Number(bigint.toString());
+    }
     return bigint;
   },
   parseLiteral(valueNode) {
@@ -85,6 +95,9 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
     const bigint = BigInt(strOrBooleanValue);
     if (strOrBooleanValue.toString() !== bigint.toString()) {
       throw createGraphQLError(`BigInt cannot represent value: ${strOrBooleanValue}`);
+    }
+    if (!isSafeInteger(bigint) && !isBigIntSerializable()) {
+      return Number(bigint.toString());
     }
     return bigint;
   },
