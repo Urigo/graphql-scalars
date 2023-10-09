@@ -1,5 +1,13 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.22.3
+
+### Patch Changes
+
+- [`9029d0a`](https://github.com/Urigo/graphql-scalars/commit/9029d0a28b81ad13d9dc3533860a2987f7ae6c43)
+  Thanks [@ardatan](https://github.com/ardatan)! - Parse BigInt as Number s if they are safe and
+  BigInt is not serializable
+
 ## 1.22.2
 
 ### Patch Changes
