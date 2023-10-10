@@ -1,5 +1,12 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.22.4
+
+### Patch Changes
+
+- [`0d73e69`](https://github.com/Urigo/graphql-scalars/commit/0d73e6952ba5bd514bc9524065589ce0e252a739)
+  Thanks [@ardatan](https://github.com/ardatan)! - Fix BigInt handling
+
 ## 1.22.3
 
 ### Patch Changes
