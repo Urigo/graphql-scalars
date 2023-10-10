@@ -3,19 +3,14 @@
 ```js
 import { ApolloServer } from 'apollo-server'
 // import all scalars and resolvers from graphql-scalars
-import {
-  typeDefs as scalarTypeDefs,
-  resolvers as scalarResolvers,
-} from 'graphql-scalars'
+import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars'
 // Alternatively, import individual scalars and resolvers
 // import { DateTimeResolver, DateTimeTypeDefinition, ... } from "graphql-scalars"
 // Example import of your own defined resolvers
-import { resolvers } from "./src/resolvers"
+import { resolvers } from './src/resolvers'
+
 // Example importing of your own defined type definitions
-const typeDefs = fs.readFileSync(
-  path.join(path.resolve(), "./src/schema.graphql"),
-  "utf-8"
-)
+const typeDefs = fs.readFileSync(path.join(path.resolve(), './src/schema.graphql'), 'utf-8')
 
 const server = new ApolloServer({
   typeDefs: [

@@ -1,10 +1,13 @@
-# Usage 
+# Usage
 
-`graphql-scalars` provides generic `scalar` definition for JavaScript/TypeScript, that means you can use it with any GraphQL server implementation.
+`graphql-scalars` provides generic `scalar` definition for JavaScript/TypeScript, that means you can
+use it with any GraphQL server implementation.
 
-To use your scalars, start by importing the scalar the you wish to use, and add it to your GraphQL schema.
+To use your scalars, start by importing the scalar the you wish to use, and add it to your GraphQL
+schema.
 
-Each scalar provides a separate implementation (based on `GraphQLScalar` class of `graphql-js`), so you can use it with both schema-first and code-first approaches.
+Each scalar provides a separate implementation (based on `GraphQLScalar` class of `graphql-js`), so
+you can use it with both schema-first and code-first approaches.
 
 ### Schema-first approach
 
@@ -49,16 +52,17 @@ const myResolverMap = {
 
   Mutation: {
     // more stuff here
-  },
-};
+  }
+}
 ```
 
 ### Code-first
 
-With most code-first implementation, you can just import the scalar directly and add it to your schema as type.
+With most code-first implementation, you can just import the scalar directly and add it to your
+schema as type.
 
 ```ts
-import { GraphQLScalarName } from 'graphql-scalars';
+import { GraphQLScalarName } from 'graphql-scalars'
 
-// Now, use GraphQLScalarName as a type wihin your GraphQL Schema.
-````
+// Now, use GraphQLScalarName as a type within your GraphQL Schema.
+```

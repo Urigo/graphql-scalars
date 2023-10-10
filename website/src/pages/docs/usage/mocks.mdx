@@ -1,18 +1,18 @@
-import { Tabs, Tab } from '@theguild/components'
+import { Tabs } from '@theguild/components'
 
 # Using Mocks
 
 GraphQL Scalars provides mock implementations out-of-box that is compatible with
-[GraphQL Tools Mocking](https://graphql-tools.com/docs/mocking). It can be used with `ApolloServer` like below as well.
+[GraphQL Tools Mocking](https://graphql-tools.com/docs/mocking). It can be used with `ApolloServer`
+like below as well.
 
 ## Using mocks with GraphQL Tools
 
 <Tabs items={["Import all scalars with all mocks","Import individual scalars with their mocks"]}>
-  <Tab>
+  <Tabs.Tab>
 ```ts
 import { addMocksToSchema } from '@graphql-tools/mock'
 import { typeDefs as scalarsTypeDefs, resolvers as scalarsResolvers, mocks as scalarsMocks } from 'graphql-scalars'
-
 const schema = makeExecutableSchema({
   typeDefs: [
     ...scalarsTypeDefs
@@ -23,7 +23,6 @@ const schema = makeExecutableSchema({
     // all others resolvers
   }
 })
-
 const mockedSchema = addMocksToSchema({
   schema,
   mocks: {
@@ -32,12 +31,11 @@ const mockedSchema = addMocksToSchema({
   }
 })
 ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 ```ts
 import { addMocksToSchema } from '@graphql-tools/mock'
 import { DateTimeTypeDefinition, DateTimeResolver, DateTimeMock } from 'graphql-scalars'
-
 const schema = makeExecutableSchema({
   typeDefs: [
     DateTimeTypeDefinition
@@ -48,7 +46,6 @@ const schema = makeExecutableSchema({
     // all others resolvers
   }
 })
-
 const mockedSchema = addMocksToSchema({
   schema,
   mocks: {
@@ -57,17 +54,17 @@ const mockedSchema = addMocksToSchema({
   }
 })
 ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
-
 
 ## Using mocks with Apollo Server
 
 ```ts
 import { ApolloServer } from 'apollo-server'
-import { makeExecutableSchema } from '@graphql-tools/schema'
 // import all scalars and resolvers
-import { typeDefs, resolvers, mocks } from 'graphql-scalars'
+import { mocks, resolvers, typeDefs } from 'graphql-scalars'
+import { makeExecutableSchema } from '@graphql-tools/schema'
+
 // Alternatively, import individual scalars and resolvers
 // import { DateTimeResolver, DateTimeTypeDefinition, DateTimeMock, ... } from 'graphql-scalars'
 

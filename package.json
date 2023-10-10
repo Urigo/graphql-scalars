@@ -38,9 +38,11 @@
     "clean": "rm -rf dist",
     "deploy:website": "cd website && yarn deploy",
     "lint": "eslint --ext .ts \"./src/**/*.ts\"",
+    "lint:prettier": "prettier --ignore-path .gitignore --ignore-path .prettierignore --cache --check .",
     "prebuild": "yarn clean",
     "prepare": "husky install",
     "prerelease": "yarn build && bob prepack",
+    "prettier": "yarn lint:prettier --write",
     "release": "changeset publish",
     "test": "jest --forceExit --no-watchman && yarn bundlesize"
   },
