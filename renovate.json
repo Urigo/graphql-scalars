@@ -11,13 +11,7 @@
   },
   "packageRules": [
     {
-      "excludePackagePatterns": [
-        "@changesets/*",
-        "typescript",
-        "typedoc*", 
-        "^@theguild/",
-        "next"
-      ],
+      "excludePackagePatterns": ["@changesets/*", "typescript", "typedoc*", "^@theguild/", "next"],
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "all non-major dependencies",
