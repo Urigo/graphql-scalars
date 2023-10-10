@@ -9,11 +9,10 @@ like below as well.
 ## Using mocks with GraphQL Tools
 
 <Tabs items={["Import all scalars with all mocks","Import individual scalars with their mocks"]}>
-  <Tab>
+  <Tabs.Tab>
 ```ts
 import { addMocksToSchema } from '@graphql-tools/mock'
 import { typeDefs as scalarsTypeDefs, resolvers as scalarsResolvers, mocks as scalarsMocks } from 'graphql-scalars'
-
 const schema = makeExecutableSchema({
   typeDefs: [
     ...scalarsTypeDefs
@@ -24,7 +23,6 @@ const schema = makeExecutableSchema({
     // all others resolvers
   }
 })
-
 const mockedSchema = addMocksToSchema({
   schema,
   mocks: {
@@ -33,12 +31,11 @@ const mockedSchema = addMocksToSchema({
   }
 })
 ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 ```ts
 import { addMocksToSchema } from '@graphql-tools/mock'
 import { DateTimeTypeDefinition, DateTimeResolver, DateTimeMock } from 'graphql-scalars'
-
 const schema = makeExecutableSchema({
   typeDefs: [
     DateTimeTypeDefinition
@@ -49,7 +46,6 @@ const schema = makeExecutableSchema({
     // all others resolvers
   }
 })
-
 const mockedSchema = addMocksToSchema({
   schema,
   mocks: {
@@ -58,7 +54,7 @@ const mockedSchema = addMocksToSchema({
   }
 })
 ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## Using mocks with Apollo Server
