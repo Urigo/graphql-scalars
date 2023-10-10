@@ -1,4 +1,4 @@
-{
+export  default{
   "index": "Usage Example",
   "yoga": "GraphQL-Yoga",
   "apollo-server": "Apollo Server",

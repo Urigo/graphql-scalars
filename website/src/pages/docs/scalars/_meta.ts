@@ -1,4 +1,4 @@
-{
+export  default{
   "account-number": "AccountNumber",
   "big-int": "BigInt",
   "byte": "Byte",
