@@ -80,7 +80,7 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
     if (inputValue.toString() !== bigint.toString()) {
       throw createGraphQLError(`BigInt cannot represent value: ${inputValue}`);
     }
-    if (!isSafeInteger(bigint) && !isBigIntSerializable()) {
+    if (isSafeInteger(bigint) && !isBigIntSerializable()) {
       return Number(bigint.toString());
     }
     return bigint;
@@ -96,7 +96,7 @@ export const GraphQLBigIntConfig: GraphQLScalarTypeConfig<
     if (strOrBooleanValue.toString() !== bigint.toString()) {
       throw createGraphQLError(`BigInt cannot represent value: ${strOrBooleanValue}`);
     }
-    if (!isSafeInteger(bigint) && !isBigIntSerializable()) {
+    if (isSafeInteger(bigint) && !isBigIntSerializable()) {
       return Number(bigint.toString());
     }
     return bigint;
