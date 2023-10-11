@@ -11,10 +11,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@theguild/components": "6.0.0",
-    "next": "13.5.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@theguild/components": "^6.0.1",
+    "next": "^13.5.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@theguild/algolia": "1.1.9",
