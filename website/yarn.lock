@@ -587,14 +587,14 @@
   dependencies:
     tslib "^2.4.0"
 
-"@theguild/algolia@1.1.9":
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/@theguild/algolia/-/algolia-1.1.9.tgz#988e157ba60b7277ad58c842d374da144f826fbd"
-  integrity sha512-WygxjQDdwY/ORO0QJgyAahWR1okA/6kbYbdP/Zas28L0GIvToLhzjswmZ+tzvw62GU3EeFp8JpPf24QHe5/0og==
+"@theguild/algolia@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@theguild/algolia/-/algolia-2.0.0.tgz#01459f2a5b1aeb7c094cfdbf1b75299e209a7669"
+  integrity sha512-4cjVARyY3Q1CM/9tJ8teeTXt0ZF4Dj9qAqAl393i/Kb/YEh+N/Y+/Uof2sNsoOXcIVQ32equ3VlP0qCdI6gThQ==
   dependencies:
     algoliasearch "^4.14.3"
     commander "^11.0.0"
-    fast-glob "^3.2.12"
+    fast-xml-parser "^4.3.2"
     github-slugger "^2.0.0"
     gray-matter "^4.0.3"
     lodash.sortby "^4.7.0"
@@ -1821,6 +1821,13 @@ fast-json-stable-stringify@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz#874bf69c6f404c2b5d99c481341399fd55892633"
   integrity sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==
+
+fast-xml-parser@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-4.3.2.tgz#761e641260706d6e13251c4ef8e3f5694d4b0d79"
+  integrity sha512-rmrXUXwbJedoXkStenj1kkljNF7ugn5ZjR9FJcwmCfcCbtOMDghPajbc+Tck6vE6F5XsDmx+Pr2le9fw8+pXBg==
+  dependencies:
+    strnum "^1.0.5"
 
 fastq@^1.6.0:
   version "1.15.0"
@@ -4372,6 +4379,11 @@ strip-eof@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/strip-eof/-/strip-eof-1.0.0.tgz#bb43ff5598a6eb05d89b59fcd129c983313606bf"
   integrity sha512-7FCwGGmx8mD5xQd3RPUvnSpUXHM3BWuzjtpD4TXsfcZ9EL4azvVVUscFYwD9nx8Kh+uCBC00XBtAykoMHwTh8Q==
+
+strnum@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/strnum/-/strnum-1.0.5.tgz#5c4e829fe15ad4ff0d20c3db5ac97b73c9b072db"
+  integrity sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==
 
 style-to-object@^0.4.0, style-to-object@^0.4.1:
   version "0.4.2"
