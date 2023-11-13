@@ -27,7 +27,7 @@ export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PUR
       throw createGraphQLError('Date cannot represent an invalid Date instance');
     } else if (typeof value === 'string') {
       if (validateDate(value)) {
-        return value;
+        return serializeDate(value);
       }
       throw createGraphQLError(`Date cannot represent an invalid date-string ${value}.`);
     } else {
