@@ -75,6 +75,7 @@ export const GraphQLLongitude = /*#__PURE__*/ new GraphQLScalarType({
   extensions: {
     codegenScalarType: 'string | number',
     jsonSchema: {
+      title: 'Longitude',
       type: 'number',
       minimum: MIN_LON,
       maximum: MAX_LON,
