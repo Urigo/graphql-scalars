@@ -587,10 +587,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@theguild/algolia@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@theguild/algolia/-/algolia-2.0.0.tgz#01459f2a5b1aeb7c094cfdbf1b75299e209a7669"
-  integrity sha512-4cjVARyY3Q1CM/9tJ8teeTXt0ZF4Dj9qAqAl393i/Kb/YEh+N/Y+/Uof2sNsoOXcIVQ32equ3VlP0qCdI6gThQ==
+"@theguild/algolia@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@theguild/algolia/-/algolia-2.1.0.tgz#aa6e8d7216d2d33232dbde71e28dbf00aed9d7f1"
+  integrity sha512-NvS4Gxs2jJaGXf/4x71iG0EFiXSiwXLQjwjPruRqjR8nVWnE4UEkdMKlaJLtV+pjqMfM2DX3EcoNr+c8O5UH7g==
   dependencies:
     algoliasearch "^4.14.3"
     commander "^11.0.0"
