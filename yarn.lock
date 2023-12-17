@@ -1295,17 +1295,17 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.1.tgz#e5211452df060fa8522b55c7b3c0c4d1981cb044"
   integrity sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==
 
-"@ianvs/prettier-plugin-sort-imports@4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@ianvs/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-4.0.2.tgz#a76f9ed2b5a3494a23564f6f189f3b4e4a472f67"
-  integrity sha512-VnsTzyb9aSWpc3v6HvZKD6eolZRvofIYjhda+6IbW1GYwr2byWqK0KhLPbYNkit9MAgShad5bhZ1hgBn867A1A==
+"@ianvs/prettier-plugin-sort-imports@4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@ianvs/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-4.1.1.tgz#364fb49c4104d577c80750dcc27a7bae4338095d"
+  integrity sha512-kJhXq63ngpTQ2dxgf5GasbPJWsJA3LgoOdd7WGhpUSzLgLgI4IsIzYkbJf9kmpOHe7Vdm/o3PcRA3jmizXUuAQ==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/generator" "^7.21.5"
     "@babel/parser" "^7.21.8"
     "@babel/traverse" "^7.21.5"
     "@babel/types" "^7.21.5"
-    semver "^7.5.0"
+    semver "^7.5.2"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -1616,14 +1616,14 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@theguild/prettier-config@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@theguild/prettier-config/-/prettier-config-2.0.1.tgz#e0804a025b917d4c1afa0c63a8537cd527ce6aef"
-  integrity sha512-I2rwFhQv8/nuepfbPwpja5Ia+ONs6DIvV3W6DLzO4609sDiOG4FUaNBiryo7mYbWKN8XBLUNLwOUT2GaOBC2Iw==
+"@theguild/prettier-config@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@theguild/prettier-config/-/prettier-config-2.0.3.tgz#a66aa5ceaac0ce27727a8dba4fbbdf4a44f586e7"
+  integrity sha512-GsYPJ+MeJXzKaSza/j1ETVZbFeXXStab8eoDhDflnx6RYVOr9KOPzBBO7nGemFopNnsGXv2wLxT4R33+Fz6Rjg==
   dependencies:
-    "@ianvs/prettier-plugin-sort-imports" "4.0.2"
+    "@ianvs/prettier-plugin-sort-imports" "4.1.1"
     prettier-plugin-pkg "^0.18.0"
-    prettier-plugin-sh "^0.13.0"
+    prettier-plugin-sh "^0.13.1"
 
 "@types/babel__core@^7.1.14":
   version "7.20.5"
@@ -4671,7 +4671,7 @@ prettier-plugin-pkg@^0.18.0:
   resolved "https://registry.yarnpkg.com/prettier-plugin-pkg/-/prettier-plugin-pkg-0.18.0.tgz#c0b9158416c50b0c0414faccb650fd82e3abd0fc"
   integrity sha512-cme+OUHj25cVj3HwGK6ek/GkCHhlhM1u/IYspOHYsFImaXMJCmjs8xeCcvLreD0HMX5QxObot+3TtQR3Bd2wHw==
 
-prettier-plugin-sh@^0.13.0:
+prettier-plugin-sh@^0.13.1:
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/prettier-plugin-sh/-/prettier-plugin-sh-0.13.1.tgz#99388c0811994f24334d5233eb5a7cb874dcb840"
   integrity sha512-ytMcl1qK4s4BOFGvsc9b0+k9dYECal7U29bL/ke08FEUsF/JLN0j6Peo0wUkFDG4y2UHLMhvpyd6Sd3zDXe/eg==
@@ -4932,7 +4932,7 @@ safe-regex-test@^1.0.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
   integrity sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==
 
-semver@7.5.4, semver@^7.0.0, semver@^7.5.0, semver@^7.5.3, semver@^7.5.4:
+semver@7.5.4, semver@^7.0.0, semver@^7.5.2, semver@^7.5.3, semver@^7.5.4:
   version "7.5.4"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.4.tgz#483986ec4ed38e1c6c48c34894a9182dbff68a6e"
   integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
