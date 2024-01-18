@@ -48,7 +48,7 @@ const validate = (value: unknown, ast?: ASTNode) => {
   }
 
   if (!checksum(rtn)) {
-    throw createGraphQLError("checksum doens't match", ast ? { nodes: ast } : undefined);
+    throw createGraphQLError("checksum doesn't match", ast ? { nodes: ast } : undefined);
   }
 
   return rtn;
