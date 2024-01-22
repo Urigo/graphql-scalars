@@ -23,7 +23,7 @@
     "@types/react": "18.2.48",
     "cross-env": "7.0.3",
     "next-sitemap": "4.2.3",
-    "typescript": "5.2.2"
+    "typescript": "5.3.3"
   },
   "browserslist": {
     "production": [
