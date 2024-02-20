@@ -629,14 +629,14 @@
     auto-bind "~4.0.0"
     tslib "~2.6.0"
 
-"@graphql-codegen/typescript@4.0.4", "@graphql-codegen/typescript@^4.0.4":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-4.0.4.tgz#e791c61f675ae454951ea077b0ae519ae352cc3e"
-  integrity sha512-x79CKLfP9UQCX+/I78qxQlMs2Mmq3pF1lKafZo7lAno0f/fvJ+qWUduzdgjRNz+YL+5blGeWcC0pWEDxniO7hw==
+"@graphql-codegen/typescript@4.0.5", "@graphql-codegen/typescript@^4.0.4":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-4.0.5.tgz#dc9849a8c8a8d0bbcf9f7cb2af8ee77943e00874"
+  integrity sha512-PCS6LovGhyNfnmZ2AJ8rN5wGUhysWNsFwCPrZccuwBVCCvcet8/GNKStY5cHiDqG0B5Q+6g8OXVbffhxkkytLA==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^5.0.3"
     "@graphql-codegen/schema-ast" "^4.0.2"
-    "@graphql-codegen/visitor-plugin-common" "4.1.2"
+    "@graphql-codegen/visitor-plugin-common" "5.0.0"
     auto-bind "~4.0.0"
     tslib "~2.6.0"
 
@@ -644,6 +644,22 @@
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-4.1.2.tgz#674c5d5813f6c00dd65e1ee148a62536879e65e2"
   integrity sha512-yk7iEAL1kYZ2Gi/pvVjdsZhul5WsYEM4Zcgh2Ev15VicMdJmPHsMhNUsZWyVJV0CaQCYpNOFlGD/11Ea3pn4GA==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "^5.0.3"
+    "@graphql-tools/optimize" "^2.0.0"
+    "@graphql-tools/relay-operation-optimizer" "^7.0.0"
+    "@graphql-tools/utils" "^10.0.0"
+    auto-bind "~4.0.0"
+    change-case-all "1.0.15"
+    dependency-graph "^0.11.0"
+    graphql-tag "^2.11.0"
+    parse-filepath "^1.0.2"
+    tslib "~2.6.0"
+
+"@graphql-codegen/visitor-plugin-common@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-5.0.0.tgz#23258c52277a8be206c2d69aadf9738dd780f1c0"
+  integrity sha512-qQOZZZ2MxmBEyd0Lm3lVh7zgauLXVBsg3ToucQJHmbk2WUxLMOcaf/+BOBIkrDjvWA8L+JU6COUT6uZc57DBcw==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^5.0.3"
     "@graphql-tools/optimize" "^2.0.0"
