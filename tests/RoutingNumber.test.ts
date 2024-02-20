@@ -1,11 +1,11 @@
-import { GraphQLRoutingNumber } from '../src/scalars/RoutingNumber.js';
 import { Kind } from 'graphql';
+import { GraphQLRoutingNumber } from '../src/scalars/RoutingNumber.js';
 
 const invalids: [string, string | number, RegExp][] = [
   ['less than 9 digits', '11100009', /must have nine digits/],
-  ['greather than 9 digits', '1110000250', /must have nine digits/],
-  ["checksum doens't match", '111000024', /checksum doens't match/],
-  ["all 1's", '111111111', /checksum doens't match/],
+  ['greater than 9 digits', '1110000250', /must have nine digits/],
+  ["checksum doesn't match", '111000024', /checksum doesn't match/],
+  ["all 1's", '111111111', /checksum doesn't match/],
   ['special character', '11100002$', /must have nine digits/],
   ['alphabetic character', '11100002a', /must have nine digits/],
   ['negative number', -111000025, /must have nine digits/],
@@ -22,7 +22,7 @@ describe('ABA Routing Number', () => {
         GraphQLRoutingNumber.parseLiteral({
           kind: Kind.FLOAT,
           value: '' + value,
-        })
+        }),
       ).toThrow(/can only parse Integer or String/);
 
       expect(() => GraphQLRoutingNumber.serialize(value)).toThrow(/must be integer or string/);
@@ -35,7 +35,7 @@ describe('ABA Routing Number', () => {
         GraphQLRoutingNumber.parseLiteral({
           kind: typeof routingNumber === 'string' ? Kind.STRING : Kind.INT,
           value: '' + routingNumber,
-        })
+        }),
       ).toThrow(reason);
 
       expect(() => GraphQLRoutingNumber.parseValue(routingNumber)).toThrow(reason);
@@ -53,7 +53,7 @@ describe('ABA Routing Number', () => {
         GraphQLRoutingNumber.parseLiteral({
           kind: Kind.STRING,
           value: '' + routing,
-        })
+        }),
       ).toBe(parsed);
     });
   });

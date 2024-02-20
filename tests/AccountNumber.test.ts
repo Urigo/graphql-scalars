@@ -1,8 +1,8 @@
-import { GraphQLAccountNumber } from '../src/scalars/AccountNumber.js';
 import { Kind } from 'graphql';
+import { GraphQLAccountNumber } from '../src/scalars/AccountNumber.js';
 
 const invalids = [
-  ['greather than 17', '123456789123456789'],
+  ['greater than 17', '123456789123456789'],
   ['less than 5', '1234'],
   ['special character', '1234a$'],
   ['special character', '12345_'],
@@ -19,7 +19,7 @@ describe('ABA Routing Number', () => {
         GraphQLAccountNumber.parseLiteral({
           kind: Kind.INT,
           value: '' + value,
-        })
+        }),
       ).toThrow(/can only parse String/);
 
       expect(() => GraphQLAccountNumber.serialize(value)).toThrow(/can only parse String/);
@@ -32,12 +32,16 @@ describe('ABA Routing Number', () => {
         GraphQLAccountNumber.parseLiteral({
           kind: Kind.STRING,
           value: routingNumber,
-        })
+        }),
       ).toThrow(/must be alphanumeric between 5-17/);
 
-      expect(() => GraphQLAccountNumber.parseValue(routingNumber)).toThrow(/must be alphanumeric between 5-17/);
+      expect(() => GraphQLAccountNumber.parseValue(routingNumber)).toThrow(
+        /must be alphanumeric between 5-17/,
+      );
 
-      expect(() => GraphQLAccountNumber.serialize(routingNumber)).toThrow(/must be alphanumeric between 5-17/);
+      expect(() => GraphQLAccountNumber.serialize(routingNumber)).toThrow(
+        /must be alphanumeric between 5-17/,
+      );
     });
   });
 
@@ -49,7 +53,7 @@ describe('ABA Routing Number', () => {
         GraphQLAccountNumber.parseLiteral({
           kind: Kind.STRING,
           value: routing,
-        })
+        }),
       ).toBe(routing);
     });
   });
