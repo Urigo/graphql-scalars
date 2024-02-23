@@ -1,5 +1,13 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.22.5
+
+### Patch Changes
+
+- [#2225](https://github.com/Urigo/graphql-scalars/pull/2225)
+  [`cefb205`](https://github.com/Urigo/graphql-scalars/commit/cefb20565defdd2a10f70c9ea38ea79fe1be35c4)
+  Thanks [@dustin-engstrom](https://github.com/dustin-engstrom)! - fix minor misspellings
+
 ## 1.22.4
 
 ### Patch Changes
