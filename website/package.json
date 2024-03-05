@@ -20,7 +20,7 @@
     "@theguild/algolia": "2.1.0",
     "@theguild/tailwind-config": "0.3.2",
     "@types/node": "20.11.24",
-    "@types/react": "18.2.62",
+    "@types/react": "18.2.63",
     "cross-env": "7.0.3",
     "next-sitemap": "4.2.3",
     "typescript": "5.3.3"
