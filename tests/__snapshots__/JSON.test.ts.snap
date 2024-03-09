@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphQLJSONObject parseLiteral should reject string literal 1`] = `
+[
+  [GraphQLError: JSONObject cannot represent non-object value: "foo"],
+]
+`;
