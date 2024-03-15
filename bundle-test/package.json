@@ -8,7 +8,7 @@
     "test": "bundlesize"
   },
   "devDependencies": {
-    "bundlesize": "0.18.1",
+    "bundlesize": "0.18.2",
     "webpack": "5.90.3",
     "webpack-cli": "5.1.4"
   },
