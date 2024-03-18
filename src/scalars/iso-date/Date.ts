@@ -10,7 +10,7 @@ import { GraphQLScalarType, Kind } from 'graphql';
 import type { GraphQLScalarTypeConfig } from 'graphql';
 import { createGraphQLError } from '../../error.js';
 import { parseDate, serializeDate } from './formatter.js';
-import { validateDate, validateJSDate } from './validator.js';
+import { validateDate, validateDateTime, validateJSDate } from './validator.js';
 
 export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PURE__*/ {
   name: 'Date',
@@ -26,8 +26,8 @@ export const GraphQLDateConfig: GraphQLScalarTypeConfig<Date, string> = /*#__PUR
       }
       throw createGraphQLError('Date cannot represent an invalid Date instance');
     } else if (typeof value === 'string') {
-      if (validateDate(value)) {
-        return value;
+      if (validateDate(value) || validateDateTime(value)) {
+        return serializeDate(new Date(value));
       }
       throw createGraphQLError(`Date cannot represent an invalid date-string ${value}.`);
     } else {
