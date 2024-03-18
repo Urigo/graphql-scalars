@@ -52,6 +52,7 @@ export const RoutingNumber = 'scalar RoutingNumber';
 export const AccountNumber = 'scalar AccountNumber';
 export const Cuid = 'scalar Cuid';
 export const SemVer = 'scalar SemVer';
+export const SESSN = 'scalar SESSN';
 
 export const UnsignedFloat = 'scalar UnsignedFloat';
 export const UnsignedInt = 'scalar UnsignedInt';
@@ -133,6 +134,7 @@ export const typeDefs = [
   AccountNumber,
   Cuid,
   SemVer,
+  SESSN,
   DeweyDecimal,
   LCCSubclass,
   IPCPatent,
