@@ -1,4 +1,4 @@
-import { Kind, ValueNode, ObjectValueNode } from 'graphql';
+import { Kind, print, ValueNode } from 'graphql';
 import { createGraphQLError } from '../../error.js';
 
 export function identity<T>(value: T): T {
@@ -21,7 +21,18 @@ export function ensureObject(value: any, ast?: ValueNode): object {
   return value;
 }
 
-export function parseObject(ast: ObjectValueNode, variables: any): any {
+export function parseObject(ast: ValueNode, variables: any): any {
+  if (ast.kind !== Kind.OBJECT) {
+    throw createGraphQLError(
+      `JSONObject cannot represent non-object value: ${print(ast)}`,
+      ast
+        ? {
+            nodes: ast,
+          }
+        : undefined,
+    );
+  }
+
   const value = Object.create(null);
   ast.fields.forEach(field => {
     // eslint-disable-next-line no-use-before-define

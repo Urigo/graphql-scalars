@@ -292,6 +292,7 @@ describe('GraphQLJSONObject', () => {
       }).then(({ data, errors }) => {
         expect(data).toBeUndefined();
         expect(errors).toBeDefined();
+        expect(errors).toMatchSnapshot();
       }));
 
     it('should reject array literal', () =>
