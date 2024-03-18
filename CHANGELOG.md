@@ -1,5 +1,23 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.23.0
+
+### Minor Changes
+
+- [#2181](https://github.com/Urigo/graphql-scalars/pull/2181)
+  [`a868ecc`](https://github.com/Urigo/graphql-scalars/commit/a868ecc06f6ab0edd1f167613c7830b5a73dbb70)
+  Thanks [@blacksrc](https://github.com/blacksrc)! - Add new Swedish Personal Number scalar
+
+### Patch Changes
+
+- [#2284](https://github.com/Urigo/graphql-scalars/pull/2284)
+  [`fae46bb`](https://github.com/Urigo/graphql-scalars/commit/fae46bb48fccc1b71d35e95a1df165104fb291b4)
+  Thanks [@tjenkinson](https://github.com/tjenkinson)! - fix(JSONObject): Throw proper error if
+  literal is not an object
+
+- [`0924bef`](https://github.com/Urigo/graphql-scalars/commit/0924befffd4e27ff877657f778432f9ef9f2bcf9)
+  Thanks [@ardatan](https://github.com/ardatan)! - fix inconsistent types for Latitude and Longitude
+
 ## 1.22.5
 
 ### Patch Changes
