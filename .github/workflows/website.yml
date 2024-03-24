@@ -37,5 +37,5 @@ jobs:
           projectName: graphql-scalars
           prId: ${{ github.event.pull_request.number }}
           websiteDirectory: website
-          buildScript: yarn build && yarn export
+          buildScript: yarn build
           artifactDir: out
