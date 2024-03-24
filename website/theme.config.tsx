@@ -1,6 +1,6 @@
 /* eslint sort-keys: error */
 import { useRouter } from 'next/router';
-import { defineConfig, Giscus, useTheme } from '@theguild/components';
+import { defineConfig, Giscus, PRODUCTS, useTheme } from '@theguild/components';
 
 export default defineConfig({
   docsRepositoryBase: 'https://github.com/urigo/graphql-scalars/tree/master/website', // base URL for the docs repository
@@ -27,5 +27,7 @@ export default defineConfig({
       </>
     );
   },
-  siteName: 'SCALARS',
+  websiteName: 'GraphQL-Scalars',
+  description: PRODUCTS.SCALARS.title,
+  logo: PRODUCTS.SCALARS.logo({ className: 'w-8' }),
 });
