@@ -45,7 +45,8 @@ const leapYear = (year: number): boolean => {
 //
 export const validateTime = (time: string): boolean => {
   time = time?.toUpperCase();
-  const TIME_REGEX = /^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\.\d{1,})?(([Z])|([+|-]([01][0-9]|2[0-3]):[0-5][0-9]))$/;
+  const TIME_REGEX =
+    /^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])(\.\d{1,})?(([Z])|([+|-]([01][0-9]|2[0-3]):[0-5][0-9]))$/;
   return TIME_REGEX.test(time);
 };
 
@@ -119,7 +120,8 @@ export const validateDate = (datestring: string): boolean => {
 //
 export const validateDateTime = (dateTimeString: string): boolean => {
   dateTimeString = dateTimeString?.toUpperCase();
-  const RFC_3339_REGEX = /^(\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60))(\.\d{1,})?(([Z])|([+|-]([01][0-9]|2[0-3]):[0-5][0-9]))$/;
+  const RFC_3339_REGEX =
+    /^(\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60))(\.\d{1,})?(([Z])|([+|-]([01][0-9]|2[0-3]):[0-5][0-9]))$/;
 
   // Validate the structure of the date-string
   if (!RFC_3339_REGEX.test(dateTimeString)) {
@@ -148,9 +150,7 @@ export const validateDateTime = (dateTimeString: string): boolean => {
 export const validateUnixTimestamp = (timestamp: number): boolean => {
   const MAX_INT = 2147483647;
   const MIN_INT = -2147483648;
-  return (
-    timestamp === timestamp && timestamp <= MAX_INT && timestamp >= MIN_INT
-  ); // eslint-disable-line
+  return timestamp === timestamp && timestamp <= MAX_INT && timestamp >= MIN_INT; // eslint-disable-line
 };
 
 // Function that checks whether a javascript Date instance

@@ -17,9 +17,7 @@
 // 2016-01-01T11:00:12Z.
 export const parseTime = (time: string): Date => {
   const currentDateString = new Date().toISOString();
-  return new Date(
-    currentDateString.substr(0, currentDateString.indexOf('T') + 1) + time,
-  );
+  return new Date(currentDateString.substr(0, currentDateString.indexOf('T') + 1) + time);
 };
 
 // Serializes a Date into an RFC 3339 compliant time-string in the

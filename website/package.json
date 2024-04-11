@@ -1,8 +1,8 @@
 {
   "name": "website",
   "version": "0.7.0",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "analyze": "cross-env ANALYZE=true next build",
     "build": "next build && next-sitemap",

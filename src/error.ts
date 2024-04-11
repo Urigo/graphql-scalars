@@ -22,6 +22,6 @@ export function createGraphQLError(message: string, options?: GraphQLErrorOption
     options?.positions,
     options?.path,
     options?.originalError,
-    options?.extensions
+    options?.extensions,
   );
 }
