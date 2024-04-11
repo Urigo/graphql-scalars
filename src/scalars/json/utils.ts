@@ -14,7 +14,7 @@ export function ensureObject(value: any, ast?: ValueNode): object {
         ? {
             nodes: ast,
           }
-        : undefined
+        : undefined,
     );
   }
 

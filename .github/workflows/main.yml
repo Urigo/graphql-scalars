@@ -21,4 +21,3 @@ jobs:
       script: yarn ci:lint
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
-

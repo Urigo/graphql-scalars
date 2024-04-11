@@ -45,9 +45,12 @@ export class RegularExpression extends GraphQLScalarType {
         }
 
         if (!('value' in ast) || ast.kind === Kind.ENUM) {
-          throw createGraphQLError(`Can only validate primitive values as ${name} but got a: ${ast.kind}`, {
-            nodes: [ast],
-          });
+          throw createGraphQLError(
+            `Can only validate primitive values as ${name} but got a: ${ast.kind}`,
+            {
+              nodes: [ast],
+            },
+          );
         }
 
         if (ast.value != null && !regex.test(ast.value.toString())) {
