@@ -33,9 +33,11 @@ export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, Date> = /*#__P
       throw createGraphQLError(`DateTime cannot represent an invalid date-time-string ${value}.`);
     } else if (typeof value === 'number') {
       try {
-        // Find out if the value is in seconds or milliseconds
-        const dateInMilliseconds = Date.now();
-        if (dateInMilliseconds.toString().length === value.toString().length) {
+        // This should support 13 and 12-digit timestamps
+        if (
+          (value <= 9999999999999 && value.toString().length === 13) ||
+          (value <= 999999999999 && value.toString().length === 12)
+        ) {
           return new Date(value);
         } else {
           // Convert to milliseconds
