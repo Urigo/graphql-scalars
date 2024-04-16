@@ -30,6 +30,10 @@ const schema = new GraphQLSchema({
         type: GraphQLDateTime,
         resolve: () => 854325678,
       },
+      validUnixTimestamp: {
+        type: GraphQLDateTime,
+        resolve: () => 854325678000,
+      },
       invalidDateString: {
         type: GraphQLDateTime,
         resolve: () => '2017-01-001T00:00:00Z',
