@@ -1251,10 +1251,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@graphql-tools/merge@9.0.3", "@graphql-tools/merge@^9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-9.0.3.tgz#4d0b467132e6f788b69fab803d31480b8ce4b61a"
-  integrity sha512-FeKv9lKLMwqDu0pQjPpF59GY3HReUkWXKsMIuMuJQOKh9BETu7zPEFUELvcw8w+lwZkl4ileJsHXC9+AnsT2Lw==
+"@graphql-tools/merge@9.0.4", "@graphql-tools/merge@^9.0.3":
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-9.0.4.tgz#66c34cbc2b9a99801c0efca7b8134b2c9aecdb06"
+  integrity sha512-MivbDLUQ+4Q8G/Hp/9V72hbn810IJDEZQ57F01sHnlrrijyadibfVhaQfW/pNH+9T/l8ySZpaR/DpL5i+ruZ+g==
   dependencies:
     "@graphql-tools/utils" "^10.0.13"
     tslib "^2.4.0"
