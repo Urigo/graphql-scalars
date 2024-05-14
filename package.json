@@ -34,10 +34,10 @@
   "scripts": {
     "build": "bob build --single",
     "bundlesize": "yarn build && cd bundle-test/ && yarn && yarn test",
-    "ci:lint": "eslint --ext .ts \"./src/**/*.ts\" --output-file eslint_report.json --format json",
+    "ci:lint": "cross-env \"ESLINT_USE_FLAT_CONFIG=false\" eslint --ext .ts \"./src/**/*.ts\" --output-file eslint_report.json --format json",
     "clean": "rm -rf dist",
     "deploy:website": "cd website && yarn deploy",
-    "lint": "eslint --ext .ts \"./src/**/*.ts\"",
+    "lint": "cross-env \"ESLINT_USE_FLAT_CONFIG=false\" eslint --ext .ts \"./src/**/*.ts\"",
     "lint:prettier": "prettier --ignore-path .gitignore --ignore-path .prettierignore --cache --check .",
     "prebuild": "yarn clean",
     "prepare": "husky install",
@@ -67,6 +67,7 @@
     "@typescript-eslint/eslint-plugin": "7.9.0",
     "@typescript-eslint/parser": "7.9.0",
     "bob-the-bundler": "7.0.1",
+    "cross-env": "7.0.3",
     "eslint": "9.2.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-config-standard": "17.1.0",
@@ -93,7 +94,7 @@
   "sideEffects": false,
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix",
+      "cross-env \"ESLINT_USE_FLAT_CONFIG=false\" eslint --fix",
       "git add"
     ],
     "*.{js,json,css,md,ts,tsx}": [
