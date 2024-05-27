@@ -1253,20 +1253,20 @@
     "@graphql-tools/utils" "^10.0.13"
     tslib "^2.4.0"
 
-"@graphql-tools/schema@10.0.3":
-  version "10.0.3"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-10.0.3.tgz#48c14be84cc617c19c4c929258672b6ab01768de"
-  integrity sha512-p28Oh9EcOna6i0yLaCFOnkcBDQECVf3SCexT6ktb86QNj9idnkhI+tCxnwZDh58Qvjd2nURdkbevvoZkvxzCog==
+"@graphql-tools/schema@10.0.4":
+  version "10.0.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-10.0.4.tgz#d4fc739a2cc07b4fc5f31a714178a561cba210cd"
+  integrity sha512-HuIwqbKxPaJujox25Ra4qwz0uQzlpsaBOzO6CVfzB/MemZdd+Gib8AIvfhQArK0YIN40aDran/yi+E5Xf0mQww==
   dependencies:
     "@graphql-tools/merge" "^9.0.3"
-    "@graphql-tools/utils" "^10.0.13"
+    "@graphql-tools/utils" "^10.2.1"
     tslib "^2.4.0"
     value-or-promise "^1.0.12"
 
-"@graphql-tools/utils@^10.0.13":
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.2.0.tgz#c7233dc83ba6f88207a22e3f77add53c10e675df"
-  integrity sha512-HYV7dO6pNA2nGKawygaBpk8y+vXOUjjzzO43W/Kb7EPRmXUEQKjHxPYRvQbiF72u1N3XxwGK5jnnFk9WVhUwYw==
+"@graphql-tools/utils@^10.0.13", "@graphql-tools/utils@^10.2.1":
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.2.1.tgz#5816c1ebbe0adb8b039bd94b1f41c5ffa0dcc41e"
+  integrity sha512-U8OMdkkEt3Vp3uYHU2pMc6mwId7axVAcSSmcqJcUmWNPqY2pfee5O655ybTI2kNPWAe58Zu6gLu4Oi4QT4BgWA==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     cross-inspect "1.0.0"
@@ -2830,10 +2830,10 @@ eslint-plugin-n@17.7.0:
     minimatch "^9.0.0"
     semver "^7.5.3"
 
-eslint-plugin-promise@6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-6.1.1.tgz#269a3e2772f62875661220631bd4dafcb4083816"
-  integrity sha512-tjqWDwVZQo7UIPMeDReOpUgHCmCiH+ePnVT+5zVapL0uuHnegBUs2smM13CzOs2Xb5+MHMRFTs9v24yjba4Oig==
+eslint-plugin-promise@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-6.2.0.tgz#e24ab0e3c0a25fa227d98d9ff612156b5af15945"
+  integrity sha512-QmAqwizauvnKOlifxyDj2ObfULpHQawlg/zQdgEixur9vl0CvZGv/LCJV2rtj3210QCoeGBzVMfMXqGAOr/4fA==
 
 eslint-plugin-standard@5.0.0:
   version "5.0.0"
