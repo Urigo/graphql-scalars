@@ -997,15 +997,16 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@changesets/apply-release-plan@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-7.0.1.tgz#a6dd7cc538ca6c0f142b33462252f2c2f34ae5ac"
-  integrity sha512-aPdSq/R++HOyfEeBGjEe6LNG8gs0KMSyRETD/J2092OkNq8mOioAxyKjMbvVUdzgr/HTawzMOz7lfw339KnsCA==
+"@changesets/apply-release-plan@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-7.0.2.tgz#ff572c28491044d5bafeed00c92e76e98faf0ba3"
+  integrity sha512-lRdN9c8e2zbzSWTGK3HzlNATPWETBy6tMvf4MENUzb7OQD3kFQ+dVKCJtj42pLWRjLn2flbLofEK04k92GEttg==
   dependencies:
     "@babel/runtime" "^7.20.1"
     "@changesets/config" "^3.0.0"
     "@changesets/get-version-range-type" "^0.4.0"
     "@changesets/git" "^3.0.0"
+    "@changesets/should-skip-package" "^0.1.0"
     "@changesets/types" "^6.0.0"
     "@manypkg/get-packages" "^1.1.3"
     detect-indent "^6.0.0"
@@ -1016,14 +1017,15 @@
     resolve-from "^5.0.0"
     semver "^7.5.3"
 
-"@changesets/assemble-release-plan@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@changesets/assemble-release-plan/-/assemble-release-plan-6.0.0.tgz#c69969b4bef7c32a8544b6941d1053260ca47e05"
-  integrity sha512-4QG7NuisAjisbW4hkLCmGW2lRYdPrKzro+fCtZaILX+3zdUELSvYjpL4GTv0E4aM9Mef3PuIQp89VmHJ4y2bfw==
+"@changesets/assemble-release-plan@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@changesets/assemble-release-plan/-/assemble-release-plan-6.0.1.tgz#db767e5a54157f8aed2842f1fa25912117520b2d"
+  integrity sha512-VXKjqGomnj4evJ/B6ENUFMxV+EV/LDkdWl2+8NjCcGo4Rn/aogjofCDLWbWEhtjtgLUdwvlsoydibIDOf/abvA==
   dependencies:
     "@babel/runtime" "^7.20.1"
     "@changesets/errors" "^0.2.0"
     "@changesets/get-dependents-graph" "^2.0.0"
+    "@changesets/should-skip-package" "^0.1.0"
     "@changesets/types" "^6.0.0"
     "@manypkg/get-packages" "^1.1.3"
     semver "^7.5.3"
@@ -1044,23 +1046,24 @@
     "@changesets/types" "^6.0.0"
     dotenv "^8.1.0"
 
-"@changesets/cli@2.27.3":
-  version "2.27.3"
-  resolved "https://registry.yarnpkg.com/@changesets/cli/-/cli-2.27.3.tgz#2c9c88a514b024967d9c1b9b71e4efbacca2e2ad"
-  integrity sha512-ve/VpWApILlSs8cr0okNx5C2LKRawI9XZgvfmf58S8sar2nhx5DPJREFXYZBahs0FeTfvH0rdVl+nGe8QF45Ig==
+"@changesets/cli@2.27.4":
+  version "2.27.4"
+  resolved "https://registry.yarnpkg.com/@changesets/cli/-/cli-2.27.4.tgz#fbc8fec1d0d6ddfdd458c13df350b153f8914ced"
+  integrity sha512-X3Nd9cBoyuykjmMJnRFHik26UoA5y4ikhds4BJE0IGKpnIvkV8gRqyZE6Tcmc3zuS5GXfCmGnyJXVwxe89uX5A==
   dependencies:
     "@babel/runtime" "^7.20.1"
-    "@changesets/apply-release-plan" "^7.0.1"
-    "@changesets/assemble-release-plan" "^6.0.0"
+    "@changesets/apply-release-plan" "^7.0.2"
+    "@changesets/assemble-release-plan" "^6.0.1"
     "@changesets/changelog-git" "^0.2.0"
     "@changesets/config" "^3.0.0"
     "@changesets/errors" "^0.2.0"
     "@changesets/get-dependents-graph" "^2.0.0"
-    "@changesets/get-release-plan" "^4.0.0"
+    "@changesets/get-release-plan" "^4.0.1"
     "@changesets/git" "^3.0.0"
     "@changesets/logger" "^0.1.0"
     "@changesets/pre" "^2.0.0"
     "@changesets/read" "^0.6.0"
+    "@changesets/should-skip-package" "^0.1.0"
     "@changesets/types" "^6.0.0"
     "@changesets/write" "^0.3.1"
     "@manypkg/get-packages" "^1.1.3"
@@ -1121,13 +1124,13 @@
     dataloader "^1.4.0"
     node-fetch "^2.5.0"
 
-"@changesets/get-release-plan@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@changesets/get-release-plan/-/get-release-plan-4.0.0.tgz#8cb057da90a08796a335dfd18073234d33902069"
-  integrity sha512-9L9xCUeD/Tb6L/oKmpm8nyzsOzhdNBBbt/ZNcjynbHC07WW4E1eX8NMGC5g5SbM5z/V+MOrYsJ4lRW41GCbg3w==
+"@changesets/get-release-plan@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@changesets/get-release-plan/-/get-release-plan-4.0.1.tgz#f5c430fc253af6445863eaf1ee6e86f2aac47949"
+  integrity sha512-1zojjyxeIzIHA/zWXZ3XYxKySBDtbTP9PS6EZLrM0r1luq8Oy7U0zBq/I9NX77qVJV9EF3cO4KP5pfRHorSLTg==
   dependencies:
     "@babel/runtime" "^7.20.1"
-    "@changesets/assemble-release-plan" "^6.0.0"
+    "@changesets/assemble-release-plan" "^6.0.1"
     "@changesets/config" "^3.0.0"
     "@changesets/pre" "^2.0.0"
     "@changesets/read" "^0.6.0"
@@ -1191,6 +1194,15 @@
     chalk "^2.1.0"
     fs-extra "^7.0.1"
     p-filter "^2.1.0"
+
+"@changesets/should-skip-package@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@changesets/should-skip-package/-/should-skip-package-0.1.0.tgz#12bb8de00476718e9fbc8a4e783aeea1f632e927"
+  integrity sha512-FxG6Mhjw7yFStlSM7Z0Gmg3RiyQ98d/9VpQAZ3Fzr59dCOM9G6ZdYbjiSAt0XtFr9JR5U2tBaJWPjrkGGc618g==
+  dependencies:
+    "@babel/runtime" "^7.20.1"
+    "@changesets/types" "^6.0.0"
+    "@manypkg/get-packages" "^1.1.3"
 
 "@changesets/types@^4.0.1":
   version "4.1.0"
