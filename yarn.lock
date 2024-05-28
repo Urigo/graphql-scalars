@@ -997,13 +997,13 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@changesets/apply-release-plan@^7.0.2":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-7.0.2.tgz#ff572c28491044d5bafeed00c92e76e98faf0ba3"
-  integrity sha512-lRdN9c8e2zbzSWTGK3HzlNATPWETBy6tMvf4MENUzb7OQD3kFQ+dVKCJtj42pLWRjLn2flbLofEK04k92GEttg==
+"@changesets/apply-release-plan@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-7.0.3.tgz#eee045f52281f5dbfd7e3757077101f15ccb339f"
+  integrity sha512-klL6LCdmfbEe9oyfLxnidIf/stFXmrbFO/3gT5LU5pcyoZytzJe4gWpTBx3BPmyNPl16dZ1xrkcW7b98e3tYkA==
   dependencies:
     "@babel/runtime" "^7.20.1"
-    "@changesets/config" "^3.0.0"
+    "@changesets/config" "^3.0.1"
     "@changesets/get-version-range-type" "^0.4.0"
     "@changesets/git" "^3.0.0"
     "@changesets/should-skip-package" "^0.1.0"
@@ -1017,14 +1017,14 @@
     resolve-from "^5.0.0"
     semver "^7.5.3"
 
-"@changesets/assemble-release-plan@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@changesets/assemble-release-plan/-/assemble-release-plan-6.0.1.tgz#db767e5a54157f8aed2842f1fa25912117520b2d"
-  integrity sha512-VXKjqGomnj4evJ/B6ENUFMxV+EV/LDkdWl2+8NjCcGo4Rn/aogjofCDLWbWEhtjtgLUdwvlsoydibIDOf/abvA==
+"@changesets/assemble-release-plan@^6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@changesets/assemble-release-plan/-/assemble-release-plan-6.0.2.tgz#0020c9562fc542bfb93f8c394e5dadab1e4ba047"
+  integrity sha512-n9/Tdq+ze+iUtjmq0mZO3pEhJTKkku9hUxtUadW30jlN7kONqJG3O6ALeXrmc6gsi/nvoCuKjqEJ68Hk8RbMTQ==
   dependencies:
     "@babel/runtime" "^7.20.1"
     "@changesets/errors" "^0.2.0"
-    "@changesets/get-dependents-graph" "^2.0.0"
+    "@changesets/get-dependents-graph" "^2.1.0"
     "@changesets/should-skip-package" "^0.1.0"
     "@changesets/types" "^6.0.0"
     "@manypkg/get-packages" "^1.1.3"
@@ -1046,19 +1046,19 @@
     "@changesets/types" "^6.0.0"
     dotenv "^8.1.0"
 
-"@changesets/cli@2.27.4":
-  version "2.27.4"
-  resolved "https://registry.yarnpkg.com/@changesets/cli/-/cli-2.27.4.tgz#fbc8fec1d0d6ddfdd458c13df350b153f8914ced"
-  integrity sha512-X3Nd9cBoyuykjmMJnRFHik26UoA5y4ikhds4BJE0IGKpnIvkV8gRqyZE6Tcmc3zuS5GXfCmGnyJXVwxe89uX5A==
+"@changesets/cli@2.27.5":
+  version "2.27.5"
+  resolved "https://registry.yarnpkg.com/@changesets/cli/-/cli-2.27.5.tgz#4f0a898fa36855c8da648cfa46de8cb70237d230"
+  integrity sha512-UVppOvzCjjylBenFcwcZNG5IaZ8jsIaEVraV/pbXgukYNb0Oqa0d8UWb0LkYzA1Bf1HmUrOfccFcRLheRuA7pA==
   dependencies:
     "@babel/runtime" "^7.20.1"
-    "@changesets/apply-release-plan" "^7.0.2"
-    "@changesets/assemble-release-plan" "^6.0.1"
+    "@changesets/apply-release-plan" "^7.0.3"
+    "@changesets/assemble-release-plan" "^6.0.2"
     "@changesets/changelog-git" "^0.2.0"
-    "@changesets/config" "^3.0.0"
+    "@changesets/config" "^3.0.1"
     "@changesets/errors" "^0.2.0"
-    "@changesets/get-dependents-graph" "^2.0.0"
-    "@changesets/get-release-plan" "^4.0.1"
+    "@changesets/get-dependents-graph" "^2.1.0"
+    "@changesets/get-release-plan" "^4.0.2"
     "@changesets/git" "^3.0.0"
     "@changesets/logger" "^0.1.0"
     "@changesets/pre" "^2.0.0"
@@ -1085,13 +1085,13 @@
     term-size "^2.1.0"
     tty-table "^4.1.5"
 
-"@changesets/config@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@changesets/config/-/config-3.0.0.tgz#a1a1cafc77134b117b4a9266459c84fdd360a6be"
-  integrity sha512-o/rwLNnAo/+j9Yvw9mkBQOZySDYyOr/q+wptRLcAVGlU6djOeP9v1nlalbL9MFsobuBVQbZCTp+dIzdq+CLQUA==
+"@changesets/config@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@changesets/config/-/config-3.0.1.tgz#756761918d05283a2f1f141d293960f892e3c632"
+  integrity sha512-nCr8pOemUjvGJ8aUu8TYVjqnUL+++bFOQHBVmtNbLvKzIDkN/uiP/Z4RKmr7NNaiujIURHySDEGFPftR4GbTUA==
   dependencies:
     "@changesets/errors" "^0.2.0"
-    "@changesets/get-dependents-graph" "^2.0.0"
+    "@changesets/get-dependents-graph" "^2.1.0"
     "@changesets/logger" "^0.1.0"
     "@changesets/types" "^6.0.0"
     "@manypkg/get-packages" "^1.1.3"
@@ -1105,10 +1105,10 @@
   dependencies:
     extendable-error "^0.1.5"
 
-"@changesets/get-dependents-graph@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@changesets/get-dependents-graph/-/get-dependents-graph-2.0.0.tgz#97f0cc9fbec436e0d6ab95a6a59c08acf21ac714"
-  integrity sha512-cafUXponivK4vBgZ3yLu944mTvam06XEn2IZGjjKc0antpenkYANXiiE6GExV/yKdsCnE8dXVZ25yGqLYZmScA==
+"@changesets/get-dependents-graph@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@changesets/get-dependents-graph/-/get-dependents-graph-2.1.0.tgz#007a0821114d8c9404a7d611c24d9d8b23f89e96"
+  integrity sha512-QOt6pQq9RVXKGHPVvyKimJDYJumx7p4DO5MO9AhRJYgAPgv0emhNqAqqysSVKHBm4sxKlGN4S1zXOIb5yCFuhQ==
   dependencies:
     "@changesets/types" "^6.0.0"
     "@manypkg/get-packages" "^1.1.3"
@@ -1124,14 +1124,14 @@
     dataloader "^1.4.0"
     node-fetch "^2.5.0"
 
-"@changesets/get-release-plan@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@changesets/get-release-plan/-/get-release-plan-4.0.1.tgz#f5c430fc253af6445863eaf1ee6e86f2aac47949"
-  integrity sha512-1zojjyxeIzIHA/zWXZ3XYxKySBDtbTP9PS6EZLrM0r1luq8Oy7U0zBq/I9NX77qVJV9EF3cO4KP5pfRHorSLTg==
+"@changesets/get-release-plan@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@changesets/get-release-plan/-/get-release-plan-4.0.2.tgz#503557193d53b8f48fcd8e4a552c642e1581add2"
+  integrity sha512-rOalz7nMuMV2vyeP7KBeAhqEB7FM2GFPO5RQSoOoUKKH9L6wW3QyPA2K+/rG9kBrWl2HckPVES73/AuwPvbH3w==
   dependencies:
     "@babel/runtime" "^7.20.1"
-    "@changesets/assemble-release-plan" "^6.0.1"
-    "@changesets/config" "^3.0.0"
+    "@changesets/assemble-release-plan" "^6.0.2"
+    "@changesets/config" "^3.0.1"
     "@changesets/pre" "^2.0.0"
     "@changesets/read" "^0.6.0"
     "@changesets/types" "^6.0.0"
