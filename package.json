@@ -63,7 +63,7 @@
     "@theguild/prettier-config": "2.0.6",
     "@types/jest": "29.5.12",
     "@types/mongodb": "4.0.7",
-    "@types/node": "20.14.8",
+    "@types/node": "20.14.9",
     "@typescript-eslint/eslint-plugin": "7.14.1",
     "@typescript-eslint/parser": "7.14.1",
     "bob-the-bundler": "7.0.1",
