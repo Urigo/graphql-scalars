@@ -84,7 +84,7 @@
     "mongodb": "6.8.0",
     "prettier": "3.3.2",
     "semver": "7.6.2",
-    "ts-jest": "29.2.1",
+    "ts-jest": "29.2.2",
     "typescript": "5.5.3"
   },
   "publishConfig": {
