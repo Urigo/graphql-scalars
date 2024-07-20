@@ -2771,10 +2771,10 @@ eslint-plugin-n@17.9.0:
     minimatch "^9.0.0"
     semver "^7.5.3"
 
-eslint-plugin-promise@6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-6.4.0.tgz#54926d53c79541efe9cea6ac1d823a58bbed1106"
-  integrity sha512-/KWWRaD3fGkVCZsdR0RU53PSthFmoHVhZl+y9+6DqeDLSikLdlUVpVEAmI6iCRR5QyOjBYBqHZV/bdv4DJ4Gtw==
+eslint-plugin-promise@6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-6.5.0.tgz#b5ebe2c1b6b7f4fd65490bad6754406f5d7ec890"
+  integrity sha512-Sa4irPRhXB0mNjv88rWidu0WUhRLUMLAY3wj5MZyCKH/aMZKCRa3PzfIUaaLe4/U3RjAfRJvNP2rPvZ09lsmTg==
 
 eslint-plugin-standard@5.0.0:
   version "5.0.0"
