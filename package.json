@@ -60,7 +60,7 @@
     "@changesets/cli": "2.27.7",
     "@graphql-tools/merge": "9.0.4",
     "@graphql-tools/schema": "10.0.4",
-    "@theguild/prettier-config": "2.0.6",
+    "@theguild/prettier-config": "2.0.7",
     "@types/jest": "29.5.12",
     "@types/mongodb": "4.0.7",
     "@types/node": "20.14.13",
