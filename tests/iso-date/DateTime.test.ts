@@ -87,11 +87,16 @@ describe('GraphQLDateTime', () => {
     // Serializes Unix timestamp
     [
       [854325678000, '1997-01-27T00:41:18.000Z'],
-      [876535000, '1970-01-11T03:28:55.000Z'],
-      // The maximum representable unix timestamp
+      [854325678, '1997-01-27T00:41:18.000Z'],
+      [866478, '1970-01-11T00:41:18.000Z'],
+      [1713305032000, '2024-04-16T22:03:52.000Z'],
+      [1713305032, '2024-04-16T22:03:52.000Z'],
+      // The maximum representable unix timestamp in milliseconds
       [2147483647000, '2038-01-19T03:14:07.000Z'],
+      // The maximum representable unix timestamp in seconds
+      [2147483647, '2038-01-19T03:14:07.000Z'],
       // The minimum representable unit timestamp
-      [-2147483648000, '1901-12-13T20:45:52.000Z'],
+      [-2147483648, '1901-12-13T20:45:52.000Z'],
     ].forEach(([value, expected]) => {
       it(`serializes unix timestamp ${stringify(value)} into date-string ${expected}`, () => {
         expect(GraphQLDateTime.serialize(value).toJSON()).toEqual(expected);
