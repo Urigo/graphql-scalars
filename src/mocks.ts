@@ -1,3 +1,5 @@
+import { ObjectID } from './scalars/library/bson/index.js';
+
 const BigIntMock = () => BigInt(Number.MAX_SAFE_INTEGER);
 const ByteMock = () => new Uint8Array([1988, 1981, 1965, 1963, 1959, 1955]);
 const DateMock = () => '2007-12-03';
@@ -21,7 +23,7 @@ export const NonNegativeInt = () => 123;
 export const NonPositiveFloat = () => -123.45;
 export const NonPositiveInt = () => -123;
 export const PhoneNumber = () => '+17895551234';
-export const ObjectID = () => '5e5677d71bdc2ae76344968c';
+export const ObjectIDMock = () => new ObjectID('5e5677d71bdc2ae76344968c');
 export const PositiveFloat = () => 123.45;
 export const PositiveInt = () => 123;
 export const PostalCode = () => '60031';
@@ -126,4 +128,5 @@ export {
   BigIntMock as BigInt,
   ByteMock as Byte,
   Duration as ISO8601Duration,
+  ObjectIDMock as ObjectID,
 };
