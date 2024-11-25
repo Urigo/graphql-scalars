@@ -56,7 +56,6 @@ export default {
   rgba: 'RGBA',
   'routing-number': 'RoutingNumber',
   'safe-int': 'SafeInt',
-  sessn: 'SESSN',
   semver: 'SemVer',
   sessn: 'SESSN',
   time: 'Time',
@@ -67,8 +66,6 @@ export default {
   url: 'URL',
   'us-currency': 'USCurrency',
   'utc-offset': 'UTCOffset',
-  'unsigned-float': 'UnsignedFloat',
-  'unsigned-int': 'UnsignedInt',
   uuid: 'UUID',
   void: 'Void',
 };
