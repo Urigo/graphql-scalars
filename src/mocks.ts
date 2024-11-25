@@ -1,3 +1,4 @@
+export const GeoJSON = () => 'Example GeoJSON';
 const BigIntMock = () => BigInt(Number.MAX_SAFE_INTEGER);
 const ByteMock = () => new Uint8Array([1988, 1981, 1965, 1963, 1959, 1955]);
 const DateMock = () => '2007-12-03';

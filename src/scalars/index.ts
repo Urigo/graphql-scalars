@@ -1,3 +1,4 @@
+export { GraphQLGeoJSON } from './GeoJSON';
 export { GraphQLDate } from './iso-date/Date.js';
 export { GraphQLTime } from './iso-date/Time.js';
 export { GraphQLDateTime } from './iso-date/DateTime.js';
