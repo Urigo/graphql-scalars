@@ -5,6 +5,7 @@ import {
   GraphQLBigInt,
   GraphQLByte,
   GraphQLCountryCode,
+  GraphQLCountryName,
   GraphQLCuid,
   GraphQLCurrency,
   GraphQLDate,
@@ -216,6 +217,7 @@ export const resolvers: Record<string, GraphQLScalarType> = {
   BigInt: GraphQLBigInt,
   Byte: GraphQLByte,
   CountryCode: GraphQLCountryCode,
+  CountryName: GraphQLCountryName,
   Cuid: GraphQLCuid,
   Currency: GraphQLCurrency,
   Date: GraphQLDate,
@@ -431,6 +433,10 @@ export {
 };
 
 export { GeoJSON as GeoJSONTypeDefinition } from './typeDefs.js';
+export { CountryName as CountryNameTypeDefinition } from './typeDefs.js';
 export { GraphQLGeoJSON as GeoJSONResolver };
+export { GraphQLCountryName as CountryNameResolver };
 export { GraphQLGeoJSON };
+export { GraphQLCountryName };
 export { GeoJSON as GeoJSONMock } from './mocks.js';
+export { CountryName as CountryNameMock } from './mocks.js';
