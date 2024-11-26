@@ -33,7 +33,7 @@ export const GraphQLDateTimeConfig: GraphQLScalarTypeConfig<Date, Date> = /*#__P
       throw createGraphQLError(`DateTime cannot represent an invalid date-time-string ${value}.`);
     } else if (typeof value === 'number') {
       try {
-        return new Date(value);
+        return new Date(value * 1000);
       } catch (e) {
         throw createGraphQLError('DateTime cannot represent an invalid Unix timestamp ' + value);
       }
