@@ -59,7 +59,7 @@
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.10",
     "@graphql-tools/merge": "9.0.10",
-    "@graphql-tools/schema": "10.0.9",
+    "@graphql-tools/schema": "10.0.10",
     "@theguild/prettier-config": "2.0.7",
     "@types/jest": "29.5.14",
     "@types/mongodb": "4.0.7",
