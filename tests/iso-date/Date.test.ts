@@ -7,10 +7,9 @@
  *
  */
 
-import { GraphQLDate } from '../../src/scalars/iso-date/Date.js';
 import { Kind } from 'graphql';
-// flowlint-next-line untyped-import:off
 import { stringify } from 'jest-matcher-utils';
+import { GraphQLDate } from '../../src/scalars/iso-date/Date.js';
 
 const invalidDates = ['invalid date', '2015-02-29', '2021-07-32'];
 
