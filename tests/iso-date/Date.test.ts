@@ -87,6 +87,7 @@ describe('GraphQLDate', () => {
       };
 
       it(`parses literal ${stringify(literal)} into javascript Date ${stringify(expected)}`, () => {
+        // @ts-expect-error - intentional invalid input
         expect(GraphQLDate.parseLiteral(literal, {})).toEqual(expected);
       });
     });
@@ -97,6 +98,7 @@ describe('GraphQLDate', () => {
         value,
       };
       it(`errors when parsing invalid literal ${stringify(invalidLiteral)}`, () => {
+        // @ts-expect-error - intentional invalid input
         expect(() => GraphQLDate.parseLiteral(invalidLiteral, {})).toThrowErrorMatchingSnapshot();
       });
     });
