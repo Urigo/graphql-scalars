@@ -128,6 +128,7 @@ describe('GraphQLDateTime', () => {
       };
 
       it(`parses literal ${stringify(literal)} into javascript Date ${stringify(expected)}`, () => {
+        // @ts-expect-error - intentional invalid input
         expect(GraphQLDateTime.parseLiteral(literal, {})).toEqual(expected);
       });
     });
@@ -139,6 +140,7 @@ describe('GraphQLDateTime', () => {
       };
       it(`errors when parsing invalid literal ${stringify(invalidLiteral)}`, () => {
         expect(() =>
+          // @ts-expect-error - intentional invalid input
           GraphQLDateTime.parseLiteral(invalidLiteral, {}),
         ).toThrowErrorMatchingSnapshot();
       });
