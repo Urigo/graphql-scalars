@@ -40,10 +40,10 @@
     "lint": "cross-env \"ESLINT_USE_FLAT_CONFIG=false\" eslint --ext .ts \"./src/**/*.ts\"",
     "lint:prettier": "prettier --ignore-path .gitignore --ignore-path .prettierignore --cache --check .",
     "prebuild": "yarn clean",
-    "prepare": "husky install",
     "prerelease": "yarn build && bob prepack",
     "prettier": "yarn lint:prettier --write",
     "release": "changeset publish",
+    "setup-scalar": "node ./scripts/setup-scalar.js",
     "test": "jest --forceExit --no-watchman && yarn bundlesize"
   },
   "peerDependencies": {
