@@ -1,5 +1,15 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.24.0
+
+### Minor Changes
+
+- [`e5a3910`](https://github.com/Urigo/graphql-scalars/commit/e5a39101db92e9c3066d0045a4bf4e040e56c447)
+  Thanks [@ifeanyi-ugwu](https://github.com/ifeanyi-ugwu)! - add GeoJSON scalar
+
+- [`e5a3910`](https://github.com/Urigo/graphql-scalars/commit/e5a39101db92e9c3066d0045a4bf4e040e56c447)
+  Thanks [@ifeanyi-ugwu](https://github.com/ifeanyi-ugwu)! - Add \`CountryName\` scalar
+
 ## 1.23.0
 
 ### Minor Changes
