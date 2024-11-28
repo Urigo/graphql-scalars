@@ -434,9 +434,9 @@ export {
 
 export { GeoJSON as GeoJSONTypeDefinition } from './typeDefs.js';
 export { CountryName as CountryNameTypeDefinition } from './typeDefs.js';
-export { GraphQLGeoJSON as GeoJSONResolver };
 export { GraphQLCountryName as CountryNameResolver };
-export { GraphQLGeoJSON };
 export { GraphQLCountryName };
-export { GeoJSON as GeoJSONMock } from './mocks.js';
 export { CountryName as CountryNameMock } from './mocks.js';
+export { GraphQLGeoJSON as GeoJSONResolver };
+export { GraphQLGeoJSON };
+export { GeoJSON as GeoJSONMock } from './mocks.js';
