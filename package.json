@@ -68,7 +68,7 @@
     "@typescript-eslint/parser": "8.16.0",
     "bob-the-bundler": "7.0.1",
     "cross-env": "7.0.3",
-    "eslint": "9.15.0",
+    "eslint": "9.16.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.31.0",
