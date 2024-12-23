@@ -29,5 +29,6 @@ export default defineConfig({
   },
   websiteName: 'GraphQL-Scalars',
   description: PRODUCTS.SCALARS.title,
+  // @ts-expect-error - Typings are not updated
   logo: PRODUCTS.SCALARS.logo({ className: 'w-8' }),
 });
