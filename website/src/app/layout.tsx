@@ -68,7 +68,7 @@ const RootLayout: FC<{
           },
           { href: 'https://the-guild.dev/blog', icon: <PencilIcon />, children: 'Blog' },
           {
-            href: 'https://github.com/ardatan/graphql-tools',
+            href: 'https://github.com/urigo/graphql-scalars',
             icon: <GitHubIcon />,
             children: 'GitHub',
           },
