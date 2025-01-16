@@ -7,6 +7,11 @@ export default {
     type: 'page',
   },
   changelog: {
-    theme: { toc: false, timestamp: false, sidebar: false, breadcrumb: false },
+    theme: {
+      toc: false,
+      timestamp: false,
+      sidebar: false,
+      breadcrumb: false,
+    },
   },
 };
