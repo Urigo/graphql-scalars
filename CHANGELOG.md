@@ -1,5 +1,17 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.24.1
+
+### Patch Changes
+
+- [`2a9b522`](https://github.com/Urigo/graphql-scalars/commit/2a9b522c9e51ee90029e7ea7ff746a6a12525ce6)
+  Thanks [@ardatan](https://github.com/ardatan)! - Now the regex updated to support all phone
+  numbers compliant with the E.164 international format standard, which includes country code
+  (Optional), area codes, and local numbers and extension (optional). For more information on E.164
+  formatting, Regex: https://regex101.com/r/nol2F6/1
+
+  Ex. +62 (21) 9175 5194, 2191755194, +1 123-456-7890 12345, +1 (123) 456-7890
+
 ## 1.24.0
 
 ### Minor Changes
