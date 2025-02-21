@@ -449,10 +449,10 @@
     "@napi-rs/simple-git-win32-arm64-msvc" "0.1.19"
     "@napi-rs/simple-git-win32-x64-msvc" "0.1.19"
 
-"@next/bundle-analyzer@15.1.4":
-  version "15.1.4"
-  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-15.1.4.tgz#17f000db3a16492180270b4d23a77ca78facacfa"
-  integrity sha512-W8X96jOW0U5VjLVAkFr1P37kH2f/Ma9zzwgX2o3Omft92pI0XHpFG8Xa9YUT3NlhRJCe4ZKznr1VxhSrFNA+BA==
+"@next/bundle-analyzer@15.1.5":
+  version "15.1.5"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-15.1.5.tgz#a0b99f665e9e672588c4880f608506df3189c6f0"
+  integrity sha512-pCYMPgGRwf+FjEwUXFo3QF14VzBSPPsBHSFuXUpq5ifKcY8LbcmoF2xMVVMa2HoYgA1XuqPSAIfLJr4YXNa9xQ==
   dependencies:
     webpack-bundle-analyzer "4.10.1"
 
@@ -867,20 +867,20 @@
   resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.13.0.tgz#8db0ccc9d6c32b6393551a6d19c87dbb259a8828"
   integrity sha512-NBKJP3OIdmZY3COJdWkSonr50FMVIi+aj5ZJ7hI/DTpEKg2RMfo/KvP8A3B/zOSpMgIe52B5E2yn7rryULzA6g==
 
-"@theguild/components@9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@theguild/components/-/components-9.0.0.tgz#6e55f1cca669fcb8d4f9454c160fcd5edf5e024d"
-  integrity sha512-vUcHcO8Nri0qkvZgEPRDSMEdi2Qtd+lJV0I5YqlkNA1DLvUHRLLeKMSgjhyTpZyapDhyszNBbxNjn215fCrpLQ==
+"@theguild/components@9.4.1":
+  version "9.4.1"
+  resolved "https://registry.yarnpkg.com/@theguild/components/-/components-9.4.1.tgz#da4c7f3dc6a8c4316ea9fc2a6dcc01967ec2427d"
+  integrity sha512-eD1d6Ycg7GBwVQ2Wxs3mKEGkvUK02en/r9bWKx3smJhmXZ5H+HXj4FkNcsYvQdcXfa4szoowomLThXzKXKfxCA==
   dependencies:
     "@giscus/react" "3.1.0"
-    "@next/bundle-analyzer" "15.1.4"
+    "@next/bundle-analyzer" "15.1.5"
     "@radix-ui/react-accordion" "^1.2.2"
     "@radix-ui/react-icons" "^1.3.2"
     "@radix-ui/react-navigation-menu" "^1.2.0"
     clsx "2.1.1"
     fuzzy "0.1.3"
-    nextra "4.0.0"
-    nextra-theme-docs "4.0.0"
+    nextra "4.0.5"
+    nextra-theme-docs "4.0.5"
     react-paginate "8.2.0"
     react-player "2.16.0"
     semver "^7.3.8"
@@ -2430,12 +2430,7 @@ inline-style-parser@0.2.4:
   resolved "https://registry.yarnpkg.com/inline-style-parser/-/inline-style-parser-0.2.4.tgz#f4af5fe72e612839fcd453d989a586566d695f22"
   integrity sha512-0aO8FkhNZlj/ZIbNi7Lxxr12obT7cL1moPfE4tg1LkX7LlLfC6DeX4l2ZEud1ukP9jNQyNnfzQVqwbwmAATY4Q==
 
-"internmap@1 - 2":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/internmap/-/internmap-2.0.3.tgz#6685f23755e43c524e251d29cbc97248e3061009"
-  integrity sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==
-
-internmap@^1.0.0:
+"internmap@1 - 2", internmap@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/internmap/-/internmap-1.0.1.tgz#0017cc8a3b99605f0302f2b198d272e015e5df95"
   integrity sha512-lDB5YccMydFBtasVtxnZ3MRBHuaoE8GKsppq+EchKL2U4nK/DmEpPHNH8MZe5HkMtpSiTSOZwfN0tzYjO/lJEw==
@@ -2574,7 +2569,7 @@ jiti@^1.21.6:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-katex@^0.16.0, katex@^0.16.9:
+katex@^0.16.0, katex@^0.16.21, katex@^0.16.9:
   version "0.16.21"
   resolved "https://registry.yarnpkg.com/katex/-/katex-0.16.21.tgz#8f63c659e931b210139691f2cc7bb35166b792a3"
   integrity sha512-XvqR7FgOHtWupfMiigNzmh+MgUVmDGU2kXZm899ZkPfcuoPuFxyHmXsgATDpFZDAXCI8tvinaVcDo8PIIJSo4A==
@@ -3541,10 +3536,10 @@ next@15.1.7:
     "@next/swc-win32-x64-msvc" "15.1.7"
     sharp "^0.33.5"
 
-nextra-theme-docs@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/nextra-theme-docs/-/nextra-theme-docs-4.0.0.tgz#679ee0f9686a5fb274b4f99aece56b73a8daf83d"
-  integrity sha512-IgX73GjkSLureZtP9gxanm3/N5hmznyXH4VCuDFZEk1DnX/PDyN77oXoaRYqDY8XaNwZ1EPGvYGd7RcMUiiGWw==
+nextra-theme-docs@4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/nextra-theme-docs/-/nextra-theme-docs-4.0.5.tgz#f649ae12cece6d8bfb05b0f415bbb4ef66d38261"
+  integrity sha512-aF4HRjbVZvd+VWTssaieXFyJ7xVnGiKlJZ+WfxCG95izoHuYdY3dwibQTc32ERMXWAg//h/t7en5QggF3hKVaA==
   dependencies:
     "@headlessui/react" "^2.1.2"
     clsx "^2.1.0"
@@ -3555,10 +3550,10 @@ nextra-theme-docs@4.0.0:
     zod-validation-error "^3.0.0"
     zustand "^5.0.1"
 
-nextra@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/nextra/-/nextra-4.0.0.tgz#8100c39bdda445e051b9e577e87165a1cb91017d"
-  integrity sha512-qcJ4cudhl7ooMWaqCtrpfkq93/OqtLzkQn98MncuHTZbjhAuqXQQz4rQqc5AI0GUX97cF//OhDgYjSEVpSRWEg==
+nextra@4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/nextra/-/nextra-4.0.5.tgz#258cd7c1f288fc74ea630c8404200676a1fefe68"
+  integrity sha512-wv1rzzQJtREGZDjdR7G41z3d7NewHvpmgNmPwEABIlEfgsmyEdMSZbrkn5jna8/2SUBsSio/lcBIGemkvuBtSA==
   dependencies:
     "@formatjs/intl-localematcher" "^0.5.4"
     "@headlessui/react" "^2.1.2"
@@ -3574,7 +3569,7 @@ nextra@4.0.0:
     fast-glob "^3.3.2"
     github-slugger "^2.0.0"
     hast-util-to-estree "^3.1.0"
-    katex "^0.16.9"
+    katex "^0.16.21"
     mdast-util-from-markdown "^2.0.1"
     mdast-util-gfm "^3.0.0"
     mdast-util-to-hast "^13.2.0"
