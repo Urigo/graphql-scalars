@@ -1203,27 +1203,27 @@
     "@eslint/core" "^0.10.0"
     levn "^0.4.1"
 
-"@graphql-tools/merge@9.0.19", "@graphql-tools/merge@^9.0.19":
-  version "9.0.19"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-9.0.19.tgz#a8c1634c707b61138767a9ec6eaee24d2255ad98"
-  integrity sha512-iJP3Xke+vgnST58A1Q/1+y3bzfbYalIMnegUNupYHNvHHSE0PXoq8YieqQF8JYzWVACMxiq/M4Y1vW75mS2UVg==
+"@graphql-tools/merge@9.0.20", "@graphql-tools/merge@^9.0.20":
+  version "9.0.20"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-9.0.20.tgz#c99824b6bc3af141d92507bdcd09b604b3dcbcd7"
+  integrity sha512-bJ+rudkkhYaiWzRV3vCyu6CD6bJsrBV1e+L4MOor7p5wSBQBAs8IAW05IktQq1RH1KPvyZ62z77P0/VsapnSKA==
   dependencies:
-    "@graphql-tools/utils" "^10.8.1"
+    "@graphql-tools/utils" "^10.8.2"
     tslib "^2.4.0"
 
-"@graphql-tools/schema@10.0.18":
-  version "10.0.18"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-10.0.18.tgz#1bbf0d94ec5e1f45be430f53f27cea8764da8a9c"
-  integrity sha512-6j2O/07v1zbGvASizMSO7YZdGt/9HfPDx8s9n75sD2xoGfeJ2aRSmI4LkyuvqOpi0ecaa9xErnMEEvUaKBqMbw==
+"@graphql-tools/schema@10.0.19":
+  version "10.0.19"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-10.0.19.tgz#480078db9c1ee708b0bae2b25780dec5e4e8314d"
+  integrity sha512-8osBrTWG9c0ya7sse2fpKlDqi0EAto8Qq9A/PlSZ5J5SY0EE1W9lUcTIVaHc79cOKdh++z4ZHoukzZXrxC8UIg==
   dependencies:
-    "@graphql-tools/merge" "^9.0.19"
-    "@graphql-tools/utils" "^10.8.1"
+    "@graphql-tools/merge" "^9.0.20"
+    "@graphql-tools/utils" "^10.8.2"
     tslib "^2.4.0"
 
-"@graphql-tools/utils@^10.8.1":
-  version "10.8.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.8.1.tgz#701e35d3214ce5e7d95c38b745e9e9720014e96b"
-  integrity sha512-fI5NNuqeEAHyp7NuCDjvxWR5PTUXM4AqY9BoC59ZcX4nePAJje27ZsFHbAMS6EKDosY1K/D4ADxsO0P5+FH07A==
+"@graphql-tools/utils@^10.8.2":
+  version "10.8.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.8.2.tgz#8f1238f2efba0861ce192220c7258beeeb927172"
+  integrity sha512-JjWpf9Dj2LXFccAB7CON6jUcXduJlE5XcJfLmKTWBk46Ei2dhDntVAmvIa97YPdLanrgFN5SRt3hSAe3qo/FYg==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     cross-inspect "1.0.1"
