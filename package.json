@@ -90,7 +90,8 @@
   },
   "publishConfig": {
     "directory": "dist",
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "sideEffects": false,
   "lint-staged": {
