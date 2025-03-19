@@ -1,5 +1,13 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 1.24.2
+
+### Patch Changes
+
+- [#2791](https://github.com/graphql-hive/graphql-scalars/pull/2791)
+  [`3e1e924`](https://github.com/graphql-hive/graphql-scalars/commit/3e1e924b930bdbb73d99e5cd285f27f6bbfb318b)
+  Thanks [@dotansimha](https://github.com/dotansimha)! - Enable npm provenance
+
 ## 1.24.1
 
 ### Patch Changes
