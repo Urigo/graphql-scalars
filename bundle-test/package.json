@@ -12,6 +12,9 @@
     "webpack": "5.98.0",
     "webpack-cli": "6.0.1"
   },
+  "resolutions": {
+    "axios": "1.8.2"
+  },
   "bundlesize": [
     {
       "path": "./dist/index.js",
