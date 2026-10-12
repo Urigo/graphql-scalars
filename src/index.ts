@@ -288,6 +288,13 @@ export const resolvers: Record<string, GraphQLScalarType> = {
   Void: GraphQLVoid,
 };
 
+export const scalarsCodegenTypes = Object.fromEntries(
+  Object.entries(resolvers).flatMap(([name, scalar]) => {
+    const type = scalar.extensions?.codegenScalarType;
+    return typeof type === 'string' ? [[name, type === 'any' ? 'unknown' : type]] : [];
+  }),
+);
+
 export {
   Date as DateMock,
   Time as TimeMock,
