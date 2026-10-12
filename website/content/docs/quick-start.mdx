@@ -109,3 +109,29 @@ generates:
         UUID: string
         Date: string
 ```
+
+### Pass all scalars in codegen.ts config file
+
+```ts title=codegen.ts
+import type { CodegenConfig } from "@graphql-codegen/cli"
+import { scalarsCodegenTypes } from "graphql-scalars"
+
+const config: CodegenConfig = {
+  schema: "src/**/*.{gql,graphql}",
+  generates: {
+    "src/gql.ts": {
+      plugins: ["typescript"],
+      config: {
+        scalars: {
+          ...scalarsCodegenTypes,
+          // add overrides of those scalars here
+          URL: "string",
+          UUID: "string",
+        } as const,
+      },
+    },
+  },
+}
+
+export default config
+```
