@@ -288,6 +288,14 @@ export const resolvers: Record<string, GraphQLScalarType> = {
   Void: GraphQLVoid,
 };
 
+/**
+ * Creates scalar type bindings for graphql-codegen.
+ * Maps each scalar name to its corresponding TypeScript type,
+ * in the format `{ "ScalarName": "TSType" }`.
+ *
+ * Scalars that do not define `extensions.codegenScalarType` are omitted.
+ * The special type `any` is normalized to `unknown`.
+ */
 export const scalarsCodegenTypes = Object.fromEntries(
   Object.entries(resolvers).flatMap(([name, scalar]) => {
     const type = scalar.extensions?.codegenScalarType;
