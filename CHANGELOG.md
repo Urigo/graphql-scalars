@@ -1,5 +1,15 @@
 ## CHANGELOG moved to [GitHub releases](https://github.com/Urigo/graphql-scalars/releases)
 
+## 2.0.1
+
+### Patch Changes
+
+- [`210fd24`](https://github.com/graphql-hive/graphql-scalars/commit/210fd2485641afa2452800c00144245c74361701)
+  Thanks [@dotansimha](https://github.com/dotansimha)! - Improve `PhoneNumber` scalar regex parsing
+  performance
+
+  The new pattern accepts exactly the same values and matches in linear time.
+
 ## 2.0.0
 
 ### Major Changes
