@@ -145,6 +145,30 @@ describe('PhoneNumber', () => {
       });
     });
 
+    describe('perf', () => {
+      const value = '1'.repeat(30) + 'x';
+
+      function expectFastRejection(fn: () => unknown) {
+        const start = performance.now();
+        expect(fn).toThrow(PhoneNumberError(value));
+        expect(performance.now() - start).toBeLessThan(1000);
+      }
+
+      test('serialize', () => {
+        expectFastRejection(() => GraphQLPhoneNumber.serialize(value));
+      });
+
+      test('parseValue', () => {
+        expectFastRejection(() => GraphQLPhoneNumber.parseValue(value));
+      });
+
+      test('parseLiteral', () => {
+        expectFastRejection(() =>
+          GraphQLPhoneNumber.parseLiteral({ value, kind: Kind.STRING }, {}),
+        );
+      });
+    });
+
     describe('support more countries', () => {
       test('support Singapore numbers - 10 digits', () => {
         expect(() => {

@@ -3,9 +3,9 @@ import { createGraphQLError } from '../error.js';
 
 // The regex supports all phone numbers compliant with the E.164 international format standard,
 // which includes country codes (Optional), area codes, and local numbers and extension (optional). For more information on E.164 formatting,
-// Regex: https://regex101.com/r/nol2F6/1
 // Ex. +62 (21) 9175 5194, 2191755194, +1 123-456-7890 12345, +1 (123) 456-7890
-const PHONE_NUMBER_REGEX = /^\+?\d{1,3}(\-|\x20)?\(?\d+\)?((\-|\x20)?\d+)+$/;
+// Every digit is consumed by exactly one quantifier, so matching is linear-time.
+const PHONE_NUMBER_REGEX = /^\+?\d{1,3}[- ]?\(?\d(?:\d*\))?(?:[- ]?\d)+$/;
 
 export const GraphQLPhoneNumber = /*#__PURE__*/ new GraphQLScalarType({
   name: 'PhoneNumber',
