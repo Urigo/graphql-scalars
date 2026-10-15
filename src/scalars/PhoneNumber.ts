@@ -7,7 +7,7 @@ import { createGraphQLError } from '../error.js';
 // Every digit is consumed by exactly one quantifier, so matching is linear-time.
 const PHONE_NUMBER_REGEX = /^\+?\d{1,3}[- ]?\(?\d(?:\d*\))?(?:[- ]?\d)+$/;
 
-export const GraphQLPhoneNumber = /*#__PURE__*/ new GraphQLScalarType({
+export const GraphQLPhoneNumber = /*#__PURE__*/ new GraphQLScalarType<string, string>({
   name: 'PhoneNumber',
 
   description:
